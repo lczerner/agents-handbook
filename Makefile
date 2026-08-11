@@ -17,12 +17,13 @@ SOURCES := HANDBOOK.md HANDBOOK.cs.md \
            PROMPTS.md PROMPTS.cs.md
 
 .DEFAULT_GOAL := help
-.PHONY: help setup build rebuild check clean
+.PHONY: help setup hooks build rebuild check clean
 
 help:
 	@echo "Handbook build targets:"
 	@echo ""
-	@echo "  make setup     create $(VENV) and install dependencies"
+	@echo "  make setup     create $(VENV), install dependencies, enable the git hook"
+	@echo "  make hooks     enable the pre-commit hook only"
 	@echo "  make build     regenerate $(TARGET) if any source changed"
 	@echo "  make rebuild   regenerate it unconditionally"
 	@echo "  make check     fail if $(TARGET) is out of date"
@@ -32,7 +33,7 @@ help:
 
 ## Create the virtualenv and install requirements. The stamp file means this
 ## reruns only when requirements.txt changes.
-setup: $(STAMP)
+setup: $(STAMP) hooks
 
 $(STAMP): requirements.txt
 	python3 -m venv $(VENV)
@@ -40,6 +41,13 @@ $(STAMP): requirements.txt
 	$(PIP) install --quiet --requirement requirements.txt
 	@touch $@
 	@echo "$(VENV) ready: $$($(PYTHON) --version)"
+
+## Point git at the versioned hooks, so a commit cannot leave the generated
+## page out of step with the Markdown. Undo with:
+##   git config --unset core.hooksPath
+hooks:
+	@git config core.hooksPath .githooks
+	@echo "pre-commit hook enabled (.githooks/)"
 
 ## Regenerate the page when a source, the template or the generator changed.
 build: $(TARGET)
