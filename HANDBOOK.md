@@ -726,6 +726,8 @@ The clean test: **a fact goes in `knowledge/`. A rule goes in `AGENTS.md`. A seq
 .claude/skills/
 └── article-draft/
     ├── SKILL.md          ← required: two lines of metadata + the procedure
+    ├── scripts/          ← optional: small programs the agent can run
+    │   └── check-copy.py
     ├── references/       ← optional: longer material, loaded only if needed
     │   └── seo-checklist.md
     └── assets/           ← optional: templates
@@ -746,6 +748,51 @@ Rules for those two fields:
 - `description` — max 1024 characters. This is the only thing the agent sees until it decides to open the skill, so it has to say **what it does and when to use it**, using the words you would actually type. "Helps with articles" will never trigger. The version above will.
 
 Then the body: the procedure. Keep it under about 500 lines; push long reference material into `references/` files that the skill points to.
+
+#### The three optional folders
+
+A skill can be a single `SKILL.md` file. The folders are there for when written instructions alone can't carry everything.
+
+**`scripts/` — small programs the agent can run.** This is the one people don't expect to need, and then can't work without.
+
+Language models are unreliable at mechanical checks. Ask one whether a meta description is under 155 characters and it will tell you 148 when it's actually 163. It isn't being careless — counting simply isn't what it does. A four-line script counts correctly every time, and counts the same way on Monday as on Friday.
+
+So put in `scripts/` anything that is a **check** rather than a **judgement**:
+
+- Title and meta description length, character-exact
+- Banned words and phrases from your voice file, so none get missed
+- Sentences over your word limit, listed with line numbers
+- Required fields present on every article: title, slug, date, author, category
+- Internal links pointing at files that don't exist
+- Filenames and slugs matching your convention
+- A CSV or JSON export being valid before you hand it to anyone
+
+Then the skill just says when to run it:
+
+```markdown
+## Phase 6 — Self-review
+First run `scripts/check-copy.py drafts/<slug>.md` and fix everything it
+reports. Then do the judgement pass: read the draft against
+`knowledge/voice/house-voice.md` and the channel file, and produce a
+checklist with ✅/❌ per rule.
+```
+
+That division is the whole point. **The script checks what's countable; you and the agent judge what isn't.** "No sentence over 25 words" belongs in a script. "Does this sound like us" never will.
+
+You don't have to write the script yourself. Describe the check and ask:
+
+> Write `scripts/check-copy.py` for the `article-draft` skill. It takes a
+> markdown file path and reports: every sentence over 25 words with its line
+> number, every banned word from `knowledge/voice/house-voice.md`, the meta
+> description length, and any sentence containing a number but no link.
+> Print a plain list and exit with an error if anything failed.
+> Standard library only, nothing to install.
+
+Two cautions. A script is real code, so it can be wrong in ways prose can't — read what it reports for a week before you trust it silently. And whether a skill's scripts actually run depends on your tool and your permission settings; if yours never seems to run them, that's the first thing to check.
+
+**`references/` — material too long to sit in the instructions.** An SEO checklist, a legal wording guide, the full brand book. The agent opens these only when the task needs them, so length costs you nothing until it does.
+
+**`assets/` — fixed files the skill uses.** Outline templates, an approved boilerplate paragraph, a spreadsheet layout. Things to be used as they are, rather than read for guidance.
 
 ### 7.4 A real one
 

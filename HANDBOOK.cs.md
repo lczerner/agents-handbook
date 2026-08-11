@@ -898,6 +898,8 @@ kroků do skillu.**
 .claude/skills/
 └── article-draft/
     ├── SKILL.md          ← required: two lines of metadata + the procedure
+    ├── scripts/          ← optional: small programs the agent can run
+    │   └── check-copy.py
     ├── references/       ← optional: longer material, loaded only if needed
     │   └── seo-checklist.md
     └── assets/           ← optional: templates
@@ -923,6 +925,65 @@ Pravidla pro ta dvě pole:
 
 Pak tělo: postup. Držte ho pod zhruba 500 řádky; delší referenční materiál
 odsuňte do souborů v `references/`, na které skill odkáže.
+
+#### Tři nepovinné složky
+
+Skill může být jediný soubor `SKILL.md`. Složky jsou tu pro případy, kdy psané
+instrukce samy o sobě nestačí.
+
+**`scripts/` — malé programy, které agent umí spustit.** Tuhle složku nikdo
+nečeká, že bude potřebovat, a pak se bez ní neobejde.
+
+Jazykové modely jsou nespolehlivé v mechanických kontrolách. Zeptejte se, jestli
+je meta description pod 155 znaků, a model odpoví „148", i když je jich ve
+skutečnosti 163. Není to nedbalost — počítání prostě není to, co dělá.
+Čtyřřádkový skript spočítá správně pokaždé a v pondělí stejně jako v pátek.
+
+Do `scripts/` proto patří všechno, co je **kontrola**, ne **úsudek**:
+
+- Délka titulku a meta description, přesně na znak
+- Zakázaná slova a fráze z vašeho voice souboru, aby žádné neproklouzlo
+- Věty nad váš limit slov, vypsané s čísly řádků
+- Povinná pole u každého článku: title, slug, datum, autor, rubrika
+- Interní odkazy mířící na soubory, které neexistují
+- Názvy souborů a slugy odpovídající vaší konvenci
+- Platnost CSV nebo JSON exportu, než ho někomu předáte
+
+Skill pak jen řekne, kdy se má spustit:
+
+```markdown
+## Phase 6 — Self-review
+First run `scripts/check-copy.py drafts/<slug>.md` and fix everything it
+reports. Then do the judgement pass: read the draft against
+`knowledge/voice/house-voice.md` and the channel file, and produce a
+checklist with ✅/❌ per rule.
+```
+
+Právě v tom rozdělení je celý smysl. **Skript kontroluje to, co se dá spočítat;
+vy a agent posuzujete to, co se spočítat nedá.** „Žádná věta nad 25 slov" patří
+do skriptu. „Zní to jako my?" tam nebude patřit nikdy.
+
+Skript nemusíte psát sami. Popište kontrolu a zadejte:
+
+> Write `scripts/check-copy.py` for the `article-draft` skill. It takes a
+> markdown file path and reports: every sentence over 25 words with its line
+> number, every banned word from `knowledge/voice/house-voice.md`, the meta
+> description length, and any sentence containing a number but no link.
+> Print a plain list and exit with an error if anything failed.
+> Standard library only, nothing to install.
+
+Dvě varování. Skript je skutečný kód, takže se může mýlit způsobem, jakým se
+text mýlit nemůže — než mu začnete tiše věřit, týden čtěte, co hlásí. A jestli
+se skripty ve skillu vůbec spustí, závisí na nástroji a na vašem nastavení
+oprávnění; když se u vás nikdy nespouštějí, tohle zkontrolujte jako první.
+
+**`references/` — materiál příliš dlouhý na to, aby byl přímo v instrukcích.**
+SEO checklist, právní formulace, kompletní brand book. Agent je otevře, jen když
+je úkol potřebuje, takže vás jejich délka nic nestojí, dokud na ně nedojde.
+
+**`assets/` — hotové soubory, které skill používá.** Šablony osnov, schválený
+boilerplate odstavec, rozvržení tabulky. Věci k použití tak, jak jsou, ne ke
+čtení pro poučení.
 
 ### 7.4 Reálný příklad
 

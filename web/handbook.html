@@ -933,6 +933,7 @@ Price: From €39/user/month, annual. Minimum 10 users.
 <pre><code>.claude/skills/
 └── article-draft/
     ├── SKILL.md      ← required: two lines of metadata + the procedure
+    ├── scripts/      ← optional: small programs the agent can run
     ├── references/   ← optional: longer material, loaded only if needed
     └── assets/       ← optional: templates</code></pre>
 
@@ -951,6 +952,51 @@ description: Produce a publish-ready article draft from a brief, following
 </ul>
 
 <p>Then the body: the procedure. Keep it under about 500 lines; push long reference material into <code>references/</code> files the skill points to.</p>
+
+<h4>The three optional folders</h4>
+
+<p>A skill can be a single <code>SKILL.md</code> file. The folders are there for when written instructions alone can't carry everything.</p>
+
+<p><strong><code>scripts/</code> — small programs the agent can run.</strong> This is the one people don't expect to need, and then can't work without.</p>
+
+<p>Language models are unreliable at mechanical checks. Ask one whether a meta description is under 155 characters and it will tell you 148 when it's actually 163. It isn't being careless — counting simply isn't what it does. A four-line script counts correctly every time, and counts the same way on Monday as on Friday.</p>
+
+<p>So put in <code>scripts/</code> anything that is a <strong>check</strong> rather than a <strong>judgement</strong>:</p>
+
+<ul>
+<li>Title and meta description length, character-exact</li>
+<li>Banned words and phrases from your voice file, so none get missed</li>
+<li>Sentences over your word limit, listed with line numbers</li>
+<li>Required fields present on every article: title, slug, date, author, category</li>
+<li>Internal links pointing at files that don't exist</li>
+<li>Filenames and slugs matching your convention</li>
+<li>A CSV or JSON export being valid before you hand it to anyone</li>
+</ul>
+
+<p>Then the skill just says when to run it:</p>
+
+<pre><code>## Phase 6 — Self-review
+First run `scripts/check-copy.py drafts/&lt;slug&gt;.md` and fix everything it
+reports. Then do the judgement pass: read the draft against
+`knowledge/voice/house-voice.md` and the channel file, and produce a
+checklist with ✅/❌ per rule.</code></pre>
+
+<p>That division is the whole point. <strong>The script checks what's countable; you and the agent judge what isn't.</strong> "No sentence over 25 words" belongs in a script. "Does this sound like us" never will.</p>
+
+<p>You don't have to write the script yourself. Describe the check and ask:</p>
+
+<div class="say">
+<p>Write <code>scripts/check-copy.py</code> for the <code>article-draft</code> skill. It takes a markdown file path and reports: every sentence over 25 words with its line number, every banned word from <code>knowledge/voice/house-voice.md</code>, the meta description length, and any sentence containing a number but no link. Print a plain list and exit with an error if anything failed. Standard library only, nothing to install.</p>
+</div>
+
+<div class="block warn">
+<h5>Two cautions</h5>
+<p>A script is real code, so it can be wrong in ways prose can't — read what it reports for a week before you trust it silently. And whether a skill's scripts actually run depends on your tool and your permission settings; if yours never seems to run them, that's the first thing to check.</p>
+</div>
+
+<p><strong><code>references/</code> — material too long to sit in the instructions.</strong> An SEO checklist, a legal wording guide, the full brand book. The agent opens these only when the task needs them, so length costs you nothing until it does.</p>
+
+<p><strong><code>assets/</code> — fixed files the skill uses.</strong> Outline templates, an approved boilerplate paragraph, a spreadsheet layout. Things to be used as they are, rather than read for guidance.</p>
 
 <h4>A real one, abridged</h4>
 <pre><code># Article draft
@@ -2011,6 +2057,7 @@ Price: From €39/user/month, annual. Minimum 10 users.
 <pre><code>.claude/skills/
 └── article-draft/
     ├── SKILL.md      ← required: two lines of metadata + the procedure
+    ├── scripts/      ← optional: small programs the agent can run
     ├── references/   ← optional: longer material, loaded only if needed
     └── assets/       ← optional: templates</code></pre>
 
@@ -2029,6 +2076,51 @@ description: Produce a publish-ready article draft from a brief, following
 </ul>
 
 <p>Pak tělo: postup. Držte ho pod zhruba 500 řádky; delší referenční materiál odsuňte do <code>references/</code>.</p>
+
+<h4>Tři nepovinné složky</h4>
+
+<p>Skill může být jediný soubor <code>SKILL.md</code>. Složky jsou tu pro případy, kdy psané instrukce samy o sobě nestačí.</p>
+
+<p><strong><code>scripts/</code> — malé programy, které agent umí spustit.</strong> Tuhle složku nikdo nečeká, že bude potřebovat, a pak se bez ní neobejde.</p>
+
+<p>Jazykové modely jsou nespolehlivé v mechanických kontrolách. Zeptejte se, jestli je meta description pod 155 znaků, a model odpoví „148", i když je jich ve skutečnosti 163. Není to nedbalost — počítání prostě není to, co dělá. Čtyřřádkový skript spočítá správně pokaždé a v pondělí stejně jako v pátek.</p>
+
+<p>Do <code>scripts/</code> proto patří všechno, co je <strong>kontrola</strong>, ne <strong>úsudek</strong>:</p>
+
+<ul>
+<li>Délka titulku a meta description, přesně na znak</li>
+<li>Zakázaná slova a fráze z vašeho voice souboru, aby žádné neproklouzlo</li>
+<li>Věty nad váš limit slov, vypsané s čísly řádků</li>
+<li>Povinná pole u každého článku: title, slug, datum, autor, rubrika</li>
+<li>Interní odkazy mířící na soubory, které neexistují</li>
+<li>Názvy souborů a slugy odpovídající vaší konvenci</li>
+<li>Platnost CSV nebo JSON exportu, než ho někomu předáte</li>
+</ul>
+
+<p>Skill pak jen řekne, kdy se má spustit:</p>
+
+<pre><code>## Phase 6 — Self-review
+First run `scripts/check-copy.py drafts/&lt;slug&gt;.md` and fix everything it
+reports. Then do the judgement pass: read the draft against
+`knowledge/voice/house-voice.md` and the channel file, and produce a
+checklist with ✅/❌ per rule.</code></pre>
+
+<p>Právě v tom rozdělení je celý smysl. <strong>Skript kontroluje to, co se dá spočítat; vy a agent posuzujete to, co se spočítat nedá.</strong> „Žádná věta nad 25 slov" patří do skriptu. „Zní to jako my?" tam nebude patřit nikdy.</p>
+
+<p>Skript nemusíte psát sami. Popište kontrolu a zadejte:</p>
+
+<div class="say">
+<p>Write <code>scripts/check-copy.py</code> for the <code>article-draft</code> skill. It takes a markdown file path and reports: every sentence over 25 words with its line number, every banned word from <code>knowledge/voice/house-voice.md</code>, the meta description length, and any sentence containing a number but no link. Print a plain list and exit with an error if anything failed. Standard library only, nothing to install.</p>
+</div>
+
+<div class="block warn">
+<h5>Dvě varování</h5>
+<p>Skript je skutečný kód, takže se může mýlit způsobem, jakým se text mýlit nemůže — než mu začnete tiše věřit, týden čtěte, co hlásí. A jestli se skripty ve skillu vůbec spustí, závisí na nástroji a na vašem nastavení oprávnění; když se u vás nikdy nespouštějí, tohle zkontrolujte jako první.</p>
+</div>
+
+<p><strong><code>references/</code> — materiál příliš dlouhý na to, aby byl přímo v instrukcích.</strong> SEO checklist, právní formulace, kompletní brand book. Agent je otevře, jen když je úkol potřebuje, takže vás jejich délka nic nestojí, dokud na ně nedojde.</p>
+
+<p><strong><code>assets/</code> — hotové soubory, které skill používá.</strong> Šablony osnov, schválený boilerplate odstavec, rozvržení tabulky. Věci k použití tak, jak jsou, ne ke čtení pro poučení.</p>
 
 <h4>Reálný příklad, zkráceně</h4>
 <pre><code># Article draft
