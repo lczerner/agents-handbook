@@ -3,7 +3,7 @@
 A complete example workspace for a fictional company called **Lighthouse** — a
 B2B software company selling site-documentation tools to construction firms.
 
-Every file here is real and working. Copy this whole folder, then replace the
+Every file here is real and working. Copy this whole directory, then replace the
 Lighthouse content with your own. The structure is the point; the content is
 placeholder.
 
@@ -34,7 +34,7 @@ projects/2026-09-atlas-launch/     ← what an in-flight project looks like
 ├── PLAN.md                        ← what we agreed to do, in phases
 └── PROGRESS.md                    ← the logbook that survives across sessions
 
-.claude/skills/                    ← procedures (folder name differs per tool)
+.claude/skills/                    ← procedures (directory name differs per tool)
 ├── article-draft/SKILL.md
 ├── style-check/SKILL.md
 └── campaign-plan/SKILL.md
@@ -45,18 +45,18 @@ projects/2026-09-atlas-launch/     ← what an in-flight project looks like
 **Don't copy it wholesale and start writing.** The files only work when they
 contain your actual rules. Instead:
 
-1. Copy the folder. Delete every Lighthouse-specific line.
+1. Copy the directory. Delete every Lighthouse-specific line.
 2. Do [Walkthrough 1](../WALKTHROUGHS.md#walkthrough-1--set-up-your-workspace) —
    the agent interviews you and fills in `AGENTS.md`.
 3. Write one channel file and one voice file. That's enough to start.
 4. Add the rest when you feel the need. Most teams never need all of it.
 
-## Which skills folder do I use?
+## Which skills directory do I use?
 
-`.claude/skills/` is Claude Code. If you use something else, rename the folder —
-the `SKILL.md` files themselves are identical:
+`.claude/skills/` is Claude Code. If you use something else, rename the
+directory — the `SKILL.md` files themselves are identical:
 
-| Tool | Folder |
+| Tool | Directory |
 |---|---|
 | Claude Code | `.claude/skills/` |
 | Codex CLI | `.agents/skills/` |

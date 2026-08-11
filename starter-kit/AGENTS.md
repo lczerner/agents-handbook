@@ -54,10 +54,10 @@ Before writing anything for a channel, read that channel's file **and**
 - Always write published copy in British English.
 - Always cite a source with a link and its publication date for any claim about
   the industry.
-- Always save work to a file in the project folder. Don't print a long draft into
-  the chat and stop there.
-- Always end a draft with an "Open questions" list of anything you guessed at.
-- Always date-stamp anything you add to `knowledge/entities/`.
+- Always save work to a file in the project directory. Don't print a long draft
+  into the chat and stop there. - Always end a draft with an "Open questions"
+  list of anything you guessed at. - Always date-stamp anything you add to
+  `knowledge/entities/`.
 
 ### Ask me first
 - Before starting to write, if the brief is missing the audience, the channel, or
@@ -84,8 +84,8 @@ first, summarise second. Never summarise from memory.
 ## Progress logging
 
 At the end of every session, and after finishing any phase, update `PROGRESS.md`
-in the current project folder. Newest entry at the top. Keep the file under 100
-lines by summarising older entries. Format:
+in the current project directory. Newest entry at the top. Keep the file under
+100 lines by summarising older entries. Format:
 
 ```
 ## Status

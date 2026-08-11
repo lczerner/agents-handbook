@@ -84,6 +84,8 @@ generator, not the output.
 - Always make the change in Markdown first.
 - Always match the surrounding prose: em dashes, British spelling, short
   paragraphs, concrete examples in place of abstraction.
+- Always write **directory**, never *folder*. In Czech **adresář**, never
+  *složka*. This applies to prose, prompts and code comments alike.
 - Always keep the fictional Lighthouse company in `starter-kit/` and the examples.
 - Always check that in-page anchors and cross-file links still resolve after
   restructuring.
@@ -128,6 +130,10 @@ noun that sat on top of them in English.
 
 Other fixed choices:
 
+- `složka` → **`adresář`**. Note the gender change, feminine to masculine:
+  every agreeing adjective, demonstrative and pronoun changes with it —
+  `sdílená složka` → `sdílený adresář`, `ve složce` → `v adresáři`,
+  `složku, ve které běží` → `adresář, ve kterém běží`
 - `tón` → **`styl`**, everywhere
 - `kampaňový tým` → **`marketingový tým`**
 - "launch announcement" → **`tisková zpráva`**

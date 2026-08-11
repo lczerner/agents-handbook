@@ -32,7 +32,8 @@ and dependency.
 ## Phase 4 — Core assets
 **Goal:** draft the announcement blog post and the customer email.
 **Outputs:** `drafts/announcement-blog.md`, `drafts/customer-email.md`
-**Done when:** both pass the self-review checklist and are in the drafts folder.
+**Done when:** both pass the self-review checklist and are in the drafts
+directory.
 
 ## Phase 5 — Supporting assets
 **Goal:** everything else.

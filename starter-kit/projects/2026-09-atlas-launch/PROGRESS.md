@@ -31,6 +31,5 @@ email substantially — it needs an instruction section, not just an announcemen
 - `[NEEDS PRODUCT INPUT: does 5.0 change the offline sync interval?]`
 
 ### 2026-08-11 — Setup
-**Did:** Created the project folder, wrote `BRIEF.md` with Lukas, produced and
-approved `PLAN.md`.
-**Produced:** `BRIEF.md`, `PLAN.md`
+**Did:** Created the project directory, wrote `BRIEF.md` with Lukas, produced
+and approved `PLAN.md`. **Produced:** `BRIEF.md`, `PLAN.md`

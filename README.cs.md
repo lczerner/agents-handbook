@@ -11,7 +11,7 @@
 > Překlad existuje z jediného důvodu — aby se koncepty pochopily rychleji. Jakmile je pochopíte, přejděte na angličtinu.
 >
 > **Co zůstalo anglicky, a schválně:**
-> - názvy souborů a složek (`AGENTS.md`, `knowledge/`, `PROGRESS.md`, `SKILL.md`)
+> - názvy souborů a adresářů (`AGENTS.md`, `knowledge/`, `PROGRESS.md`, `SKILL.md`)
 > - odborné termíny (agent, skill, context window, MCP, prompt, session)
 > - **všechny prompty a ukázky souborů** — všechno, co je v blocích kódu nebo v rámečku „TYPE THIS". Tyto texty jsou určené ke zkopírování. Nepřekládejte je.
 >
@@ -30,7 +30,7 @@ Tato sada učí marketingový, obsahový nebo provozní tým používat AI agent
 rešerše a tvorbu kampaní.
 
 Předpokládá, že nástroj už máte nainstalovaný. Učí tu část, která ve skutečnosti
-rozhoduje o kvalitě výstupu: **co dáte do složky.**
+rozhoduje o kvalitě výstupu: **co dáte do adresáře.**
 
 > ### 📖 Čtěte online
 >
@@ -58,37 +58,35 @@ a pak krok 2 z prvního walkthroughu. To stačí na začátek.
 
 ## Myšlenka v jednom odstavci
 
-Agent není chatbot. Běží uvnitř složky na vašem počítači, čte a zapisuje soubory
-v ní, hledá na webu a používá vaše další nástroje. Zároveň **mezi sezeními
-všechno zapomene**. Práce tedy nespočívá v psaní chytrých promptů, ale
-v tom nechat ve složce správné věci, které si najde. Pět druhů věcí: pravidla,
+Agent není chatbot. Běží uvnitř adresáře na vašem počítači, čte a zapisuje
+soubory v něm, hledá na webu a používá vaše další nástroje. Zároveň **mezi
+sezeními všechno zapomene**. Práce tedy nespočívá v psaní chytrých promptů, ale
+v tom nechat v adresáři správné věci, které si najde. Pět druhů věcí: pravidla,
 který čte pokaždé (`AGENTS.md`), referenční materiály, které čte, když jsou
 relevantní (`knowledge/`), plán a deník, aby dlouhá práce přežila napříč dny
 (`PLAN.md`, `PROGRESS.md`), zapsané postupy, které si vezme, když sedí na zadání
-(skills), a napojení na systémy mimo složku (MCP).
+(skills), a napojení na systémy mimo adresář (MCP).
 
 ---
 
 ## Co lidé dělají špatně
 
 - **Chovají se k tomu jako k ChatGPT.** Chtějí text v chatovacím okně a kopírují
-  si ho ven. Výstup má přistát v souboru, v projektové složce, kde na něm můžete
-  dál pracovat.
-- **Přeskočí `AGENTS.md`.** A pak donekonečna vysvětlují styl v každém sezení.
-- **Napíšou `AGENTS.md` na 900 řádků.** Delší soubory se dodržují *hůř*.
-  Držte ho pod 200 řádky a detaily přesuňte do `knowledge/`.
-- **Píšou vágní pravidla.** „Buď profesionální" se nedá dodržet. „Žádná věta nad
-  25 slov" se dá zkontrolovat.
-- **Zadají celou práci najednou.** Vyžádejte si plán, schvalte ho a pak nechte
-  běžet jednu fázi po druhé.
-- **Věří číslu, protože zní věrohodně.** Zkontrolujte každou statistiku, citaci,
-  datum a jméno, které se dostane do publikovaného textu.
+  si ho ven. Výstup má přistát v souboru, v projektovém adresáři, kde na něm
+  můžete dál pracovat. - **Přeskočí `AGENTS.md`.** A pak donekonečna vysvětlují
+  styl v každém sezení. - **Napíšou `AGENTS.md` na 900 řádků.** Delší soubory se
+  dodržují *hůř*. Držte ho pod 200 řádky a detaily přesuňte do `knowledge/`. -
+  **Píšou vágní pravidla.** „Buď profesionální" se nedá dodržet. „Žádná věta nad
+  25 slov" se dá zkontrolovat. - **Zadají celou práci najednou.** Vyžádejte si
+  plán, schvalte ho a pak nechte běžet jednu fázi po druhé. - **Věří číslu,
+  protože zní věrohodně.** Zkontrolujte každou statistiku, citaci, datum a
+  jméno, které se dostane do publikovaného textu.
 
 ---
 
 ## Checklist pro první týden
 
-- [ ] Vytvořte složku workspace, kterou bude tým sdílet
+- [ ] Vytvořte adresář workspace, který bude tým sdílet
 - [ ] Napište `AGENTS.md` (Walkthrough 1 — nechte se od agenta vyzpovídat)
 - [ ] Přidejte `CLAUDE.md` s obsahem `@AGENTS.md`, pokud někdo používá Claude Code
 - [ ] Napište jeden channel file a jeden voice file

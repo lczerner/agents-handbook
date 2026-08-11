@@ -116,7 +116,7 @@ Pak sezení vyčistěte (`/clear` v Claude Code) a začněte znovu.
 > Read `AGENTS.md` and everything in `knowledge/`. Tell me: anything that contradicts anything else, anything too vague for you to actually follow, anything out of date, and the three things missing that would most improve your output.
 
 **Udělat ze sezení skill**
-> Turn what we just did into a skill at `<skills folder>/<name>/SKILL.md`, including every correction I made along the way. Frontmatter with `name` matching the folder and a `description` saying what it does and when to use it, using the words I'd actually type. Mark with ⏸ every point where you must stop and wait for me.
+> Turn what we just did into a skill at `<skills directory>/<name>/SKILL.md`, including every correction I made along the way. Frontmatter with `name` matching the directory and a `description` saying what it does and when to use it, using the words I'd actually type. Mark with ⏸ every point where you must stop and wait for me.
 
 ---
 

@@ -11,7 +11,7 @@
 > **Všechno v blocích `>` je text, který napíšete agentovi, a je schválně
 > anglicky.** Neposílejte agentovi český překlad promptu — jazykové modely
 > dodržují instrukce v angličtině spolehlivěji. Stejně tak zůstávají anglicky
-> názvy souborů, složek a odborné termíny.
+> názvy souborů, adresářů a odborné termíny.
 
 ---
 
@@ -34,7 +34,7 @@ v `blocích kódu` je soubor nebo příkaz do terminálu.
 | 4 | [Udělat z toho skill](#walkthrough-4--udělat-z-opakované-práce-skill) | 30 min | Znovupoužitelný postup, který spustíte jedním slovem |
 
 Než začnete: váš agentní nástroj by měl být nainstalovaný a funkční a měli byste
-umět otevřít terminál ve složce a spustit ho. Pokud vám ta věta dělá potíže,
+umět otevřít terminál v adresáři a spustit ho. Pokud vám ta věta dělá potíže,
 požádejte toho, kdo vám to instaloval, ať s vámi stráví prvních deset minut
 prvního walkthrough.
 
@@ -43,22 +43,23 @@ prvního walkthrough.
 <a id="walkthrough-1--nastavení-workspace"></a>
 ## Walkthrough 1 — Nastavení workspace
 
-**Cíl:** složka s pravidly, který agent dodržuje, a dost znalostí na to,
+**Cíl:** adresář s pravidly, který agent dodržuje, a dost znalostí na to,
 aby napsal něco, co zní jako vy.
 **Čas:** zhruba 45 minut.
 
-### Krok 1 — Vytvořte složku
+### Krok 1 — Vytvořte adresář
 
-Vytvořte novou složku někde rozumně — `Documents/content-workspace` stačí.
-Otevřete v ní terminál a spusťte agenta (`claude`, `codex`, `opencode` nebo `pi`).
+Vytvořte nový adresář někde rozumně — `Documents/content-workspace` stačí.
+Otevřete v něm terminál a spusťte agenta (`claude`, `codex`, `opencode`
+nebo `pi`).
 
 Pak si ověřte, že opravdu vidí soubory a umí je zapisovat:
 
-> Create a folder called `knowledge` with subfolders `channels`, `voice`, `entities`, and `library`. Also create a folder called `projects`. Then show me the folder structure.
+> Create a directory called `knowledge` with subdirectories `channels`, `voice`, `entities`, and `library`. Also create a directory called `projects`. Then show me the directory structure.
 
-Složky by se měly objevit na disku. Pokud si řekne o svolení k vytvoření souborů,
-dejte mu ho. **V tomhle je celý ten trik: nechcete po něm text, chcete po něm
-změny ve složce.**
+Adresáře by se měly objevit na disku. Pokud si řekne o svolení k vytvoření
+souborů, dejte mu ho. **V tomhle je celý ten trik: nechcete po něm text, chcete
+po něm změny v adresáři.**
 
 ### Krok 2 — Nechte se vyzpovídat
 
@@ -146,7 +147,7 @@ vašeho stylu po paměti:
 >
 > Base it only on what's actually in the articles. Don't invent rules that sound good.
 
-(Články do té složky nejdřív zkopírujte — jako `.md` nebo `.txt`)
+(Články do toho adresáře nejdřív zkopírujte — jako `.md` nebo `.txt`)
 
 Pokud ještě nemáte nic publikovaného, nechte se místo toho vyzpovídat a trvejte
 na těch dvojicích „do this, not that".
@@ -185,7 +186,7 @@ editorem vy.
 
 ### Krok 1 — Založte projekt
 
-> Create `projects/2026-08-guide-article/` with a `drafts/` subfolder. In it, create `BRIEF.md` and interview me to fill it in: what we're writing, for which channel, target reader, the one thing they should take away, target length, deadline, and what success looks like.
+> Create `projects/2026-08-guide-article/` with a `drafts/` subdirectory. In it, create `BRIEF.md` and interview me to fill it in: what we're writing, for which channel, target reader, the one thing they should take away, target length, deadline, and what success looks like.
 
 Brief je základ celé práce, dejte si na něm záležet.
 
@@ -211,7 +212,7 @@ Dvě kola tady jsou lepší než opravovat hotový draft.
 >
 > Pull the approved product claims from `knowledge/entities/products.md`. Do not use any product claim that isn't in that file.
 >
-> Save it all to `research.md` in the project folder. Anything we need but can't source, list as `[NEEDS SOURCE: ...]`.
+> Save it all to `research.md` in the project directory. Anything we need but can't source, list as `[NEEDS SOURCE: ...]`.
 
 A teď krok, který lidé přeskakují: **otevřete `research.md` a proklikněte dva
 odkazy.** Ověřujete, jestli jsou zdroje skutečné a jestli říkají to, co agent
@@ -275,7 +276,7 @@ Pak tvrdší průchod:
 
 Dělejte to první měsíc po každém kusu práce. Právě takhle se workspace zlepšuje.
 
-**✅ Hotovo, když** draft je uložený ve složce, každý zdroj je ověřený a aspoň
+**✅ Hotovo, když** draft je uložený v adresáři, každý zdroj je ověřený a aspoň
 jedno pravidlo přibylo do některého souboru kvůli tomu, co se dnes pokazilo.
 
 ---
@@ -295,7 +296,7 @@ deníku — dovednost, která teprve umožňuje dlouhé projekty.
 
 **Krok 1.** Založení:
 
-> Create `projects/2026-09-atlas-launch/` with `drafts/` and `research/` subfolders.
+> Create `projects/2026-09-atlas-launch/` with `drafts/` and `research/` subdirectories.
 >
 > Create `BRIEF.md` and interview me one question at a time: what we're launching, the date, the audience, the one message, which channels, budget, who's involved, what success looks like in numbers, and any hard constraints (embargoes, legal, approvals).
 
@@ -383,11 +384,11 @@ funguje stejně všem v týmu.
 **Čas:** 30 minut.
 **Potřebuje:** Walkthrough 2 — ten postup musíte mít jednou projitý ručně.
 
-### Krok 1 — Najděte správnou složku
+### Krok 1 — Najděte správný adresář
 
 Podle nástroje (viz Příloha A v příručce):
 
-| Nástroj | Složka |
+| Nástroj | Adresář |
 |---|---|
 | Claude Code | `.claude/skills/` |
 | Codex CLI | `.agents/skills/` |
@@ -418,7 +419,7 @@ která byste přirozeně použili.
 ✅ `description: Produce a publish-ready article draft from a brief, following our channel and voice rules. Use when asked to write, draft, or outline a blog post, article, or newsletter piece.`
 
 Zkontrolujte taky, že `name` je malými písmeny s pomlčkami a **přesně odpovídá
-názvu složky**. To je nejčastější důvod, proč se skill tiše nenačte.
+názvu adresáře**. To je nejčastější důvod, proč se skill tiše nenačte.
 
 ### Krok 4 — Otestujte to oběma způsoby
 

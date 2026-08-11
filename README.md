@@ -7,7 +7,7 @@ This kit teaches a marketing, content or operations team how to use an AI agent 
 research and campaign work.
 
 It assumes the tool is already installed. It teaches the part that actually
-determines output quality: **what you put in the folder.**
+determines output quality: **what you put in the directory.**
 
 > ### 📖 Read it online
 >
@@ -44,31 +44,29 @@ and then Walkthrough 1 step 2. That's enough to start.
 
 ## The idea in one paragraph
 
-An agent is not a chatbot. It runs inside a folder on your computer, reads and
-writes the files in it, searches the web, and uses your other tools. It also
-**forgets everything between sessions**. So the job is not writing clever prompts;
-it is leaving the right things in the folder for it to find. Five kinds of thing:
-house rules it reads every time (`AGENTS.md`), reference material it reads when
-relevant (`knowledge/`), a plan and a logbook so long jobs survive (`PLAN.md`,
-`PROGRESS.md`), written procedures it picks up when a task matches (skills), and
-connections to systems outside the folder (MCP).
+An agent is not a chatbot. It runs inside a directory on your computer, reads
+and writes the files in it, searches the web, and uses your other tools. It also
+**forgets everything between sessions**. So the job is not writing clever
+prompts; it is leaving the right things in the directory for it to find. Five
+kinds of thing: house rules it reads every time (`AGENTS.md`), reference
+material it reads when relevant (`knowledge/`), a plan and a logbook so long
+jobs survive (`PLAN.md`, `PROGRESS.md`), written procedures it picks up when a
+task matches (skills), and connections to systems outside the directory (MCP).
 
 ---
 
 ## What people get wrong
 
 - **Treating it like ChatGPT.** Asking for text in the chat window and copying it
-  out. The output should land in a file, in a project folder, where you can iterate.
-- **Skipping `AGENTS.md`.** Then re-explaining the brand voice every session,
-  forever.
-- **Writing a 900-line `AGENTS.md`.** Longer files get followed *less*. Keep it
-  under 200 lines and move the detail into `knowledge/`.
-- **Vague rules.** "Be professional" is unfollowable. "No sentence over 25 words"
-  is checkable.
-- **Asking for the whole job at once.** Ask for a plan, approve it, then run one
-  phase at a time.
-- **Trusting a number because it sounds right.** Check every statistic, quote,
-  date and name that reaches a published page.
+  out. The output should land in a file, in a project directory, where you can
+  iterate. - **Skipping `AGENTS.md`.** Then re-explaining the brand voice every
+  session, forever. - **Writing a 900-line `AGENTS.md`.** Longer files get
+  followed *less*. Keep it under 200 lines and move the detail into
+  `knowledge/`. - **Vague rules.** "Be professional" is unfollowable. "No
+  sentence over 25 words" is checkable. - **Asking for the whole job at once.**
+  Ask for a plan, approve it, then run one phase at a time. - **Trusting a
+  number because it sounds right.** Check every statistic, quote, date and name
+  that reaches a published page.
 
 ---
 
@@ -76,7 +74,7 @@ connections to systems outside the folder (MCP).
 
 Your first week, in order:
 
-- [ ] Create a workspace folder your team shares
+- [ ] Create a workspace directory your team shares
 - [ ] Write `AGENTS.md` (Walkthrough 1 — let the agent interview you)
 - [ ] Add `CLAUDE.md` containing `@AGENTS.md`, if anyone uses Claude Code
 - [ ] Write one channel file and one voice file

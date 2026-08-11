@@ -15,25 +15,25 @@ Do these in order. Everything in **`> blockquote`** is meant to be typed to the 
 | 3 | [Plan a campaign](#walkthrough-3--plan-a-media-campaign) | 3 sessions over 2 days | A full multi-channel campaign plan, built across sessions |
 | 4 | [Turn it into a skill](#walkthrough-4--turn-a-repeated-task-into-a-skill) | 30 min | A reusable procedure you invoke with one word |
 
-Before you start: your agent tool should be installed and working, and you should be able to open a terminal in a folder and run it. If that sentence is doing a lot of work, get whoever set it up to sit with you for the first ten minutes of Walkthrough 1.
+Before you start: your agent tool should be installed and working, and you should be able to open a terminal in a directory and run it. If that sentence is doing a lot of work, get whoever set it up to sit with you for the first ten minutes of Walkthrough 1.
 
 ---
 
 <a id="walkthrough-1--set-up-your-workspace"></a>
 ## Walkthrough 1 — Set up your workspace
 
-**Goal:** a folder with house rules the agent follows, and enough knowledge to write something that sounds like you.
+**Goal:** a directory with house rules the agent follows, and enough knowledge to write something that sounds like you.
 **Time:** about 45 minutes.
 
-### Step 1 — Make the folder
+### Step 1 — Make the directory
 
-Make a new folder somewhere sensible — `Documents/content-workspace` is fine. Open your terminal in it and start your agent (`claude`, `codex`, `opencode`, or `pi`).
+Make a new directory somewhere sensible — `Documents/content-workspace` is fine. Open your terminal in it and start your agent (`claude`, `codex`, `opencode`, or `pi`).
 
 Then, to check it can actually see and write files:
 
-> Create a folder called `knowledge` with subfolders `channels`, `voice`, `entities`, and `library`. Also create a folder called `projects`. Then show me the folder structure.
+> Create a directory called `knowledge` with subdirectories `channels`, `voice`, `entities`, and `library`. Also create a directory called `projects`. Then show me the directory structure.
 
-You should see the folders appear on disk. If it asks permission to create files, say yes. **This is the whole trick of working with agents: you are not asking for text, you are asking for changes to a folder.**
+You should see the directories appear on disk. If it asks permission to create files, say yes. **This is the whole trick of working with agents: you are not asking for text, you are asking for changes to a directory.**
 
 ### Step 2 — Let it interview you
 
@@ -106,7 +106,7 @@ If you already have published work, use it — this produces a far better result
 >
 > Base it only on what's actually in the articles. Don't invent rules that sound good.
 
-(Copy the articles into that folder first — as `.md` or `.txt` files. If your CMS exports HTML, that's fine too, just say so.)
+(Copy the articles into that directory first — as `.md` or `.txt` files. If your CMS exports HTML, that's fine too, just say so.)
 
 If you have nothing published yet, have it interview you instead, and insist on the do/don't pairs.
 
@@ -137,7 +137,7 @@ Then close the loop:
 
 ### Step 1 — Set up the project
 
-> Create `projects/2026-08-guide-article/` with a `drafts/` subfolder. In it, create `BRIEF.md` and interview me to fill it in: what we're writing, for which channel, target reader, the one thing they should take away, target length, deadline, and what success looks like.
+> Create `projects/2026-08-guide-article/` with a `drafts/` subdirectory. In it, create `BRIEF.md` and interview me to fill it in: what we're writing, for which channel, target reader, the one thing they should take away, target length, deadline, and what success looks like.
 
 A brief is the cheapest thing to get right and the most expensive thing to get wrong. Five minutes here.
 
@@ -161,7 +161,7 @@ Pick one. Push back if none are right — *"None of these. The interesting thing
 >
 > Pull the approved product claims from `knowledge/entities/products.md`. Do not use any product claim that isn't in that file.
 >
-> Save it all to `research.md` in the project folder. Anything we need but can't source, list as `[NEEDS SOURCE: ...]`.
+> Save it all to `research.md` in the project directory. Anything we need but can't source, list as `[NEEDS SOURCE: ...]`.
 
 Then — and this is the step people skip — **open `research.md` and click two of the links.** You are checking whether its sources are real and say what it claims. Do this every time for the first month. It calibrates your trust, and you will find it useful to know exactly where the weak points are.
 
@@ -217,7 +217,7 @@ Then a harder pass:
 
 Do this after every piece for the first month. It is how the workspace gets good.
 
-**✅ Done when:** a draft exists in the folder, every source is checked, and at least one rule got added to a file because of something that went wrong today.
+**✅ Done when:** a draft exists in the directory, every source is checked, and at least one rule got added to a file because of something that went wrong today.
 
 ---
 
@@ -234,7 +234,7 @@ This one is deliberately spread over days. The point is to watch the agent pick 
 
 **Step 1.** Set up:
 
-> Create `projects/2026-09-atlas-launch/` with `drafts/` and `research/` subfolders.
+> Create `projects/2026-09-atlas-launch/` with `drafts/` and `research/` subdirectories.
 >
 > Create `BRIEF.md` and interview me one question at a time: what we're launching, the date, the audience, the one message, which channels, budget, who's involved, what success looks like in numbers, and any hard constraints (embargoes, legal, approvals).
 
@@ -315,11 +315,11 @@ If it's confused or vague, that's diagnostic: `PROGRESS.md` wasn't specific enou
 **Time:** 30 minutes.
 **Needs:** Walkthrough 2 — you need to have done the task manually once.
 
-### Step 1 — Find the right folder
+### Step 1 — Find the right directory
 
 Depends on your tool (see Appendix A of the handbook):
 
-| Tool | Folder |
+| Tool | Directory |
 |---|---|
 | Claude Code | `.claude/skills/` |
 | Codex CLI | `.agents/skills/` |
@@ -347,7 +347,7 @@ Open `SKILL.md` and look at the `description` line. It is the only part the agen
 ❌ `description: Helps with writing articles.`
 ✅ `description: Produce a publish-ready article draft from a brief, following our channel and voice rules. Use when asked to write, draft, or outline a blog post, article, or newsletter piece.`
 
-Also check: `name` is lowercase-with-hyphens, and it **matches the folder name exactly**. That's the most common reason a skill silently doesn't load.
+Also check: `name` is lowercase-with-hyphens, and it **matches the directory name exactly**. That's the most common reason a skill silently doesn't load.
 
 ### Step 4 — Test both ways
 

@@ -33,7 +33,7 @@ Collect what the piece needs:
 - Product claims: only from `knowledge/entities/products.md`. Nothing else.
 - Internal link targets from `knowledge/library/articles/`.
 
-Save to `research.md` in the project folder. Anything you can't source:
+Save to `research.md` in the project directory. Anything you can't source:
 `[NEEDS SOURCE: what's needed]`. Never fill a gap with a plausible-sounding
 number. ⏸
 
