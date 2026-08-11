@@ -48,9 +48,8 @@ plný Markdown souborů je stejně legitimní projekt jako adresář plný kódu
 všechno v této příručce funguje stejně pro článek, brief kampaně nebo tuto
 příručku. 
 
-Příručka předpokládá, že nástroj už je nainstalovaný a běží. Učí tu část, která
-ve skutečnosti rozhoduje o tom, jestli z něj dostanete dobrý výsledek: **co
-dáte do adresáře.**
+Příručka předpokládá, že nástroj už je nainstalovaný a běží. Učí to, na čem
+doopravdy záleží: **co dáte do adresáře.**
 
 ---
 
@@ -92,8 +91,8 @@ všechno, co mu necháte na stole, ještě než začne pracovat.
 
 Přesně tohle je agent. Každé nové sezení začíná od nuly.
 
-Práce tedy nespočívá v tom „napsat chytrý prompt". Spočívá v tom **nechat na stole
-správné věci**. Všechno v této příručce popisuje právě ty věci, které lze nechat
+Nejde tedy o to napsat chytrý prompt. Jde o to **nechat na stole správné
+věci**. Všechno v této příručce popisuje právě ty věci, které lze nechat
 na stole:
 
 | Co necháte | Co to je |
@@ -125,12 +124,12 @@ ale „co nevěděl, jak to sepsat a kam to uložit, aby se na to už nikdy nemu
 <a id="2-pět-věcí"></a>
 ## 2. Pět věcí, které agentovi dáváte
 
-Všechno, co kdy budete nastavovat, spadá do jednoho z pěti košů. Naučte se těch
-pět jmen a přestanete hádat.
+Všechno, co kdy budete nastavovat, patří do jedné z pěti skupin. Zapamatujte si
+jejich názvy a přestanete tápat.
 
-**1. Pravidla — `AGENTS.md`**
-Načítá se na začátku každého nového sezení, bez výjimky. Krátké. Kdo jsme, co
-nikdy neděláme, jak se tady pracuje a o čem tento projekt vlastně je. *Sekce 4.*
+**1. Pravidla — `AGENTS.md`** Načítá se na začátku každého nového sezení, bez
+výjimky. Musí být krátký. Kdo jsme, co nikdy neděláme, jak se tady pracuje a o
+čem tento projekt vlastně je. *Sekce 4.*
 
 **2. Znalosti — adresář `knowledge/`**
 Fakta, která agent nemůže uhádnout: vaše weby, váš styl, vaše produkty, vaši
@@ -169,8 +168,8 @@ konkrétní nedostatek, který každý z nich řeší.
 <a id="3-váš-workspace"></a>
 ## 3. Váš workspace
 
-Workspace je prostě adresář na vašem počítači. Otevřete v něm terminál a
-spustíte tam agenta. Všechno, co agent dělá, se děje uvnitř něj.
+Workspace je prostě adresář na vašem počítači. Otevřete v něm terminál a spusťte
+tam agenta. Všechno, co agent dělá, se odehrává v něm.
 
 Tady je rozvržení, které funguje pro obsahový a marketingový tým. Zkopírujte si ho
 a smažte, co nepotřebujete.
@@ -213,9 +212,9 @@ my-content-workspace/
 
 Tři pravidla o workspace:
 
-**Jeden workspace na tým, ne na člověka.** Celý smysl je v tom, že znalosti jsou
-sdílené. Když má každý svůj vlastní soukromý adresář, jste zpátky u toho, že má
-každý své vlastní soukromé promptovací triky.
+**Jeden workspace na tým, ne na člověka.** Jde právě o to, aby se znalosti
+sdílely. Když má každý svůj vlastní soukromý adresář, jste tam, kde jste začali:
+každý si drží vlastní promptovací triky.
 
 **Uložte ho tam, kde se zálohuje a sdílí.** Sdílený adresář na Drivu nebo
 Dropboxu na začátek stačí. Když to někdo technický dá do Gitu, je to lepší —
@@ -234,11 +233,10 @@ adresáře.
 
 `AGENTS.md` je obyčejný textový soubor (Markdown) v kořeni vašeho workspace. Každý
 podporovaný agent si ho přečte na začátku každého sezení, dřív než cokoli udělá.
-Je to jediný soubor s největší vlivem na výsledek projektu, jaký kdy napíšete.
+Žádný jiný soubor neovlivní výsledek projektu tolik jako tenhle.
 
 Nemá předepsaný formát. Žádná speciální syntaxe. Žádná povinná pole. Je to memo
-pro nového kolegu. Nadpisy a odrážky — protože ty se sledují snáz než odstavce,
-pro agenta stejně jako pro člověka.
+pro nového kolegu. Nadpisy a odrážky — v těch se lépe orientuje agent i člověk.
 
 > **Poznámka k názvu.** `AGENTS.md` je otevřený standard, původně publikovaný
 > OpenAI a dnes udržovaný pod Agentic AI Foundation při Linux Foundation. Codex,
@@ -268,8 +266,8 @@ You are helping us research, plan, draft and edit. You are not publishing
 anything — a human always does that.
 ```
 
-Ta poslední věta odvádí spoustu práce. Řekněte stejně jasně, co agent **nedělá**,
-jako co dělá.
+Ta poslední věta je důležitější, než vypadá. Řekněte stejně jasně, co agent
+**nedělá**, jako co dělá.
 
 #### 2. Pro koho píšeme
 
@@ -311,9 +309,9 @@ Before writing anything for a specific channel, read that channel's file in
 
 **Nejdůležitější sekce.** Tři seznamy: nikdy, vždy, nejdřív se zeptej.
 
-Buďte konkrétní natolik, aby člověk dokázal zkontrolovat, jestli bylo pravidlo
-dodrženo. „Piš dobře" se ověřit nedá, a je tedy k ničemu. „Žádná věta nad 25 slov"
-zkontrolovat jde.
+Buďte tak konkrétní, aby se dalo ověřit, jestli bylo pravidlo dodrženo. „Piš
+dobře" se ověřit nedá, a je tedy k ničemu. „Žádná věta nad 25 slov" zkontrolovat
+jde.
 
 ```markdown
 ## Guardrails
@@ -416,8 +414,8 @@ Malá sekce, velké zlepšení komfortu.
 
 **Držte to pod zhruba 200 řádky.** Tenhle soubor se agentovi načítá do hlavy
 úplně pokaždé a soupeří o místo se samotnou prací. `AGENTS.md` na 900 řádků
-způsobí, že agent dodrží libovolné jednotlivé pravidlo **méně** pravděpodobně,
-ne víc. Když sekce narůstá, přesuňte ji do `knowledge/` a nechte tam odkaz.
+způsobí, že se pravidla dodržují **hůř**, ne líp. Když sekce narůstá, přesuňte
+ji do `knowledge/` a nechte tam odkaz.
 
 **Nikdy si neodporujte.** Když jeden řádek říká „piš stručně" a jiný „cíl 2 000
 slov", agent si jeden vybere náhodně a vy se nikdy nedozvíte který. Po každé
@@ -462,7 +460,7 @@ prázdného dokumentu. Pak ho upravte ručně — je váš, ne agentův.
 Zadejte agentovi něco velkého — „naplánuj nám kampaň na Q4" — a stane se jedna
 ze dvou věcí.
 
-Buď vyprodukuje mělkou, generickou verzi všeho najednou, protože se pokusil udržet
+Buď vyplivne mělkou, obecnou verzi všeho najednou, protože se pokusil udržet
 celou práci v hlavě. Nebo začne dobře, dvacet minut pracuje a pak tiše ztratí nit:
 zapomene rozhodnutí, které jste udělali dřív, popře vlastní osnovu, zopakuje sekci.
 
@@ -563,7 +561,7 @@ toho, aby se ztratila v chatu, který už se nedá prohledat.
 
 ### 5.5 Začátek a konec sezení
 
-Dva krátké rituály. Píšete je, dokud se nestanou svalovou pamětí.
+Dva krátké rituály. Opakujte je, dokud je nebudete psát automaticky.
 
 **Začátek:**
 
@@ -577,7 +575,7 @@ Dva krátké rituály. Píšete je, dokud se nestanou svalovou pamětí.
 > what decisions we made and why, and the single next action for next time.
 > Write it so someone who wasn't here today could pick it up cold.
 
-Ta poslední věta je ten trik. „Někdo, kdo tu dnes nebyl" je totiž agent zítra.
+V té poslední větě je celý trik. „Někdo, kdo tu dnes nebyl" je totiž agent zítra.
 
 ### 5.6 Když se stůl zaplní uprostřed sezení
 
@@ -596,9 +594,9 @@ pamatovat si dlouhou konverzaci.
 <a id="6-knowledge-base"></a>
 ## 6. Knowledge base
 
-`AGENTS.md` je to, co agent čte *pokaždé*, takže musí zůstat krátký. Knowledge base
-je všechno ostatní — čte se jen tehdy, když je to relevantní. Tady si můžete
-dovolit být na detaily štědří.
+`AGENTS.md` je to, co agent čte *pokaždé*, takže musí zůstat krátký. Knowledge
+base je všechno ostatní — čte se jen tehdy, když je to relevantní. Tady si
+můžete dovolit být podrobní.
 
 Čtyři kategorie.
 
@@ -648,12 +646,11 @@ Napište jeden takový pro každý kanál. Zabere to dvacet minut a je to rozdí
 
 ### 6.2 Voice — jak zníme
 
-Odděleně od kanálu, protože tón je často sdílený napříč kanály, zatímco autoři ne.
+Odděleně od kanálu, protože styl bývá pro kanály společný, kdežto autoři ne.
 
-Trik na voice guide, který skutečně funguje: **kontrastní dvojice.** Abstraktní
+Trik, díky kterému voice guide opravdu funguje: **kontrastní dvojice.** Abstraktní
 přídavná jména („sebevědomý, vřelý, lidský") neznamenají pro agenta nic — a
-upřímně řečeno ani pro nového copywritera moc. Dvojice „před a po" znamenají
-všechno.
+upřímně řečeno ani pro nového copywritera moc. Dvojice „před a po" fungují.
 
 `knowledge/voice/house-voice.md`:
 
@@ -865,14 +862,15 @@ udělejte si z toho zvyk. Když je něco předběžné, napište to do souboru:
 Skill je adresář obsahující soubor `SKILL.md`. Uvnitř je postup krok za krokem
 pro jeden typ práce, napsaný běžným jazykem.
 
-Chytré je to, **jak se načítá**. Při startu agent čte jen *název a popis* každého
-skillu — pár řádků, prakticky zadarmo. Když váš požadavek sedí na některý popis,
-otevře celý soubor a řídí se jím. Všechno ostatní zůstane na poličce.
+Zajímavý je způsob, **jakým se načítá**. Při startu agent čte jen *název a
+popis* každého skillu — pár řádků, prakticky zadarmo. Když váš požadavek sedí na
+některý popis, otevře celý soubor a řídí se jím. Všechno ostatní zůstane na
+poličce.
 
-Přirovnání s knihovnou: `AGENTS.md` je připíchnutý na zdi a pořád na očích. Skills
-jsou manuály na poličce. Agent neustále čte popisky a sundá jeden jen tehdy, když si
-to práce žádá. Právě proto můžete mít třicet detailních skills, aniž by cokoli
-zpomalily — ale nemůžete mít třicetistránkový `AGENTS.md`.
+Přirovnání s knihovnou: `AGENTS.md` je připíchnutý na zdi a pořád na očích.
+Skills jsou manuály na poličce. Agent neustále čte popisky a sundá si jeden jen
+tehdy, když si to práce žádá. Právě proto můžete mít třicet detailních skills,
+aniž by cokoli zpomalily — ale nemůžete mít třicetistránkový `AGENTS.md`.
 
 Skills jsou otevřený standard (původně od Anthropicu, dnes vyvíjený otevřeně),
 podporovaný Claude Code, Codexem, opencode, pi, Cursorem, Copilotem, Gemini CLI a
@@ -882,7 +880,7 @@ dalšími dvěma desítkami nástrojů. Liší se jen adresář, ve kterém lež
 ### 7.2 Kdy nějaký udělat
 
 Skill vytvořte, když:
-- Jste stejný vícekrokový postup vysvětlovali potřetí.
+- Stejný vícekrokový postup jste vysvětlovali potřetí.
 - Sekce v `AGENTS.md` se z *faktu* změnila v *postup*.
 - Chcete, aby proces proběhl stejně bez ohledu na to, kdo o něj požádá.
 - Chcete napsat `/campaign-plan` a mít to hotové.
@@ -890,8 +888,8 @@ Skill vytvořte, když:
 Nedělejte skill pro jednorázovku a nedělejte ho pro prostý fakt — to je knowledge
 soubor.
 
-Čistý test: **fakt patří do `knowledge/`. Pravidlo do `AGENTS.md`. Posloupnost
-kroků do skillu.**
+Jednoduché vodítko: **fakt patří do `knowledge/`. Pravidlo do `AGENTS.md`.
+Posloupnost kroků do skillu.**
 
 ### 7.3 Formát
 
@@ -935,9 +933,9 @@ instrukce samy o sobě nestačí.
 **`scripts/` — malé programy, které agent umí spustit.** Tenhle adresář nikdo
 nečeká, že bude potřebovat, a pak se bez něj neobejde.
 
-Jazykové modely jsou nespolehlivé v mechanických kontrolách. Zeptejte se, jestli
+Mechanické kontroly jazykovým modelům nejdou. Zeptejte se, jestli
 je meta description pod 155 znaků, a model odpoví „148", i když je jich ve
-skutečnosti 163. Není to nedbalost — počítání prostě není to, co dělá.
+skutečnosti 163. Není to nedbalost — počítat prostě neumí.
 Čtyřřádkový skript spočítá správně pokaždé a v pondělí stejně jako v pátek.
 
 Do `scripts/` proto patří všechno, co je **kontrola**, ne **úsudek**:
@@ -960,7 +958,7 @@ reports. Then do the judgement pass: read the draft against
 checklist with ✅/❌ per rule.
 ```
 
-Právě v tom rozdělení je celý smysl. **Skript kontroluje to, co se dá spočítat;
+Právě o to rozdělení tu jde. **Skript kontroluje to, co se dá spočítat;
 vy a agent posuzujete to, co se spočítat nedá.** „Žádná věta nad 25 slov" patří
 do skriptu. „Zní to jako my?" tam nebude patřit nikdy.
 
@@ -983,8 +981,8 @@ SEO checklist, právní formulace, kompletní brand book. Agent je otevře, jen 
 je úkol potřebuje, takže vás jejich délka nic nestojí, dokud na ně nedojde.
 
 **`assets/` — hotové soubory, které skill používá.** Šablony osnov, schválený
-boilerplate odstavec, rozvržení tabulky. Věci k použití tak, jak jsou, ne ke
-čtení pro poučení.
+boilerplate odstavec, rozvržení tabulky. Používají se tak, jak jsou; nečtou se
+kvůli poučení.
 
 ### 7.4 Reálný příklad
 
@@ -1068,7 +1066,7 @@ Zhruba v pořadí podle přínosu pro obsahový tým:
 3. **`campaign-plan`** — brief dovnitř, multikanálový plán ven: páteř sdělení,
    kalendář po kanálech, seznam výstupů, vlastníci, měření.
 4. **`repurpose`** — jeden článek na newsletter, pět LinkedIn postů a Instagram
-   carousel, každý v tónu svého kanálu, žádné líné kopírování.
+   carousel, každý ve stylu svého kanálu, žádné líné kopírování.
 5. **`brief-intake`** — vyslýchá vágní zadání, dokud z něj není skutečný brief.
    Odmítne pokračovat na „napiš něco o launchi".
 6. **`weekly-roundup`** — ta opakovaná věc, co váš tým dělá každé pondělí.
@@ -1189,16 +1187,16 @@ Otázka, kterou si budete klást nejčastěji. Tuhle tabulku si vytiskněte.
 | Zakázat slovo navždy | `AGENTS.md` → Guardrails | Musí platit pokaždé, stojí jeden řádek |
 | Definovat formát blogu | `knowledge/channels/blog.md` | Relevantní jen při psaní pro ten kanál |
 | Zaznamenat, co produkt umí | `knowledge/entities/products.md` | Je to fakt, a fakta potřebují jedno místo |
-| Definovat tón autora | `knowledge/voice/author-x.md` | Relevantní jen pro jeho texty |
+| Definovat styl autora | `knowledge/voice/author-x.md` | Relevantní jen pro jeho texty |
 | Standardizovat sedmikrokový proces | Skill | Je to postup — načte se jen, když se spustí |
 | Číst váš WebOps | MCP konektor | Je to mimo adresář |
 | Říct, co znamená „hotovo" | `AGENTS.md` → Definition of done | Platí pro všechno, co vyrobíte |
 | Zaznamenat, proč jste zvolili přístup | `PROGRESS.md` → Decisions | Specifické pro projekt a s časovou značkou |
-| Změnit tón jednoho e-mailu | Prostě to řekněte v chatu | Jednorázovka. Jednorázovky se nezakládají. |
+| Změnit styl jednoho e-mailu | Prostě to řekněte v chatu | Jednorázovka. Jednorázovky se nezakládají. |
 
 Tvě věci, které stojí za zapamatování:
 
-**`AGENTS.md` se natahuje** → něco v něm je ve skutečnosti knowledge soubor (když
+**`AGENTS.md` se natahuje** → něco v něm je vlastně knowledge soubor (když
 je to fakt) nebo skill (když jsou to kroky). Přesuňte to a nechte tam jednořádkový
 odkaz.
 
@@ -1219,7 +1217,7 @@ na špatném plánu ne.
 
 **2. Ukažte mu na soubory.** *„Read `knowledge/channels/linkedin.md` and
 `knowledge/voice/house-voice.md` first."* Agent si je většinou najde sám, ale
-pojmenovat je nic nestojí a odstraní to veškerou pochybnost.
+pojmenovat je nic nestojí a máte jistotu.
 
 **3. Řekněte, kam má jít výstup.** *„Save to
 `projects/atlas-launch/drafts/announcement.md`."* Jinak dostanete zeď textu
@@ -1236,8 +1234,8 @@ director this proposal has to get past. Read the draft and list every claim you'
 challenge."* Role plus omezení porazí holou instrukci skoro vždycky.
 
 **6. Nechte ho zkontrolovat vlastní práci.** *„Now audit that draft against
-`house-voice.md`, rule by rule, with ✅/❌ and a fix for each ❌."* Oddělit psaní
-od kontroly je nejlevnější dostupné zvýšení kvality.
+`house-voice.md`, rule by rule, with ✅/❌ and a fix for each ❌."* Oddělit psaní od
+kontroly je nejlevnější způsob, jak zvýšit kvalitu.
 
 **7. Chtějte varianty a pak vybírejte.** *„Give me three openings with different
 angles, one line each on why it works."* Dostanete lepší materiál a zůstáváte
@@ -1252,8 +1250,8 @@ pokračujte.
 
 A jedna věc, která není návyk, ale pravidlo:
 
-**Ověřte cokoli, na čem závisí číslo, jméno, datum nebo citace.** Agenti jsou
-mimořádně dobří v produkování textu, který má tvar faktu. Mantinely ze sekce 4 to
+**Ověřte cokoli, na čem závisí číslo, jméno, datum nebo citace.** Agenti mimořádně
+dobře vyrábějí text, který vypadá jako fakt. Mantinely ze sekce 4 to
 omezují a hodně pomáhají, ale neodstraní to. Každou statistiku, každou citaci,
 každé datum, každý pravopis jména, které se dostane na publikovanou stránku, si
 sami ověřte proti zdroji. Vaše značky `[NEEDS SOURCE]` vám řeknou, kde hledat
@@ -1264,14 +1262,14 @@ nejdřív.
 <a id="11-když-se-něco-pokazí"></a>
 ## 11. Když se něco pokazí
 
-| Příznak | Co se ve skutečnosti děje | Náprava |
+| Příznak | Co se doopravdy děje | Náprava |
 |---|---|---|
 | Ignoruje pravidlo z `AGENTS.md` | Pravidlo je vágní, zapadlé v 600řádkovém souboru, nebo mu jinde něco odporuje | Udělejte ho konkrétní a kontrolovatelné. Soubor zkraťte. Hledejte rozpor — obvykle tam je. |
 | Sebevědomě si vymýšlí fakta | Neměl zdroj ani povolený způsob, jak říct „nevím" | Přidejte pravidlo `[NEEDS SOURCE: ...]`. Dejte skutečná fakta do `knowledge/entities/`. Řekněte, že jsou povolená jen tvrzení z toho souboru. |
 | Zapomněl všechno ze včerejška | Normální. Každé sezení začíná prázdné. | `PROGRESS.md` a rituál začátku sezení z §5.5. |
 | Udělal toho mnohem víc než měl | V instrukci chyběla schvalovací brána | „Plan first, don't write." „One phase, then stop." Obojí do `AGENTS.md`. |
 | Výstup se uprostřed sezení zhoršil | Plný stůl — context přetekl | Doplňte deník, spusťte nové sezení, pokračujte. Netlačte na pilu. |
-| Zní jako generická AI | Píše z obecného tréninku, ne vaším tónem | Voice soubor s dvojicemi do/don't, seznam zakázaných slov a fáze sebekontroly. Všechny tři. |
+| Zní jako generická AI | Píše z obecného tréninku, ne vaším stylem | Voice soubor s dvojicemi do/don't, seznam zakázaných slov a fáze sebekontroly. Všechny tři. |
 | Nepřestává být nadšený | Výchozí asistentský hlas | Sekce „How to talk to me" v `AGENTS.md`. Buďte přímí: no preamble, no flattery. |
 | Upravil soubor, který neměl | Měl oprávnění a žádnou instrukci, ať to nedělá | „Ask before touching anything in `knowledge/`." Držte workspace v Gitu, ať se dá cokoli vrátit. |
 | Přepíše celý draft kvůli malé úpravě | Požádali jste o přepis, aniž byste to mysleli | „Edit the existing file. Change only section 3. Leave everything else." |

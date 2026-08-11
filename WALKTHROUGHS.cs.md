@@ -50,16 +50,16 @@ aby napsal něco, co zní jako vy.
 ### Krok 1 — Vytvořte adresář
 
 Vytvořte nový adresář někde rozumně — `Documents/content-workspace` stačí.
-Otevřete v něm terminál a spusťte agenta (`claude`, `codex`, `opencode`
-nebo `pi`).
+Otevřete v něm terminál a spusťte agenta (`claude`, `codex`,
+`opencode` nebo `pi`).
 
 Pak si ověřte, že opravdu vidí soubory a umí je zapisovat:
 
 > Create a directory called `knowledge` with subdirectories `channels`, `voice`, `entities`, and `library`. Also create a directory called `projects`. Then show me the directory structure.
 
 Adresáře by se měly objevit na disku. Pokud si řekne o svolení k vytvoření
-souborů, dejte mu ho. **V tomhle je celý ten trik: nechcete po něm text, chcete
-po něm změny v adresáři.**
+souborů, dejte mu ho. **V tomhle je celý trik: nechcete po něm text, chcete po něm
+změny v adresáři.**
 
 ### Krok 2 — Nechte se vyzpovídat
 
@@ -441,7 +441,7 @@ Stejný postup, v pořadí podle přínosu:
   řádku, s opravami. Pusťte ho i na texty psané člověkem.
 - **`campaign-plan`** — postup z Walkthroughu 3.
 - **`repurpose`** — jeden článek na newsletter, pět LinkedIn postů a Instagram
-  carousel, každý v tónu svého kanálu.
+  carousel, každý ve stylu svého kanálu.
 - **`brief-intake`** — odmítne pokračovat na vágním zadání, dokud z něj není
   skutečný brief.
 

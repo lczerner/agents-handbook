@@ -2235,9 +2235,8 @@ výsledek.</p>
 plný Markdown souborů je stejně legitimní projekt jako adresář plný kódu a
 všechno v této příručce funguje stejně pro článek, brief kampaně nebo tuto
 příručku.</p>
-<p>Příručka předpokládá, že nástroj už je nainstalovaný a běží. Učí tu část, která
-ve skutečnosti rozhoduje o tom, jestli z něj dostanete dobrý výsledek: <strong>co
-dáte do adresáře.</strong></p>
+<p>Příručka předpokládá, že nástroj už je nainstalovaný a běží. Učí to, na čem
+doopravdy záleží: <strong>co dáte do adresáře.</strong></p>
 <hr />
 </section>
 
@@ -2277,8 +2276,8 @@ udělat cokoli — a který <strong>každý večer ztratí veškerou paměť</st
 jste minulý týden rozhodli, ani o tom, co sám včera dělal. Ale přečte si úplně
 všechno, co mu necháte na stole, ještě než začne pracovat.</p>
 <p>Přesně tohle je agent. Každé nové sezení začíná od nuly.</p>
-<p>Práce tedy nespočívá v tom „napsat chytrý prompt&quot;. Spočívá v tom <strong>nechat na stole
-správné věci</strong>. Všechno v této příručce popisuje právě ty věci, které lze nechat
+<p>Nejde tedy o to napsat chytrý prompt. Jde o to <strong>nechat na stole správné
+věci</strong>. Všechno v této příručce popisuje právě ty věci, které lze nechat
 na stole:</p>
 <div class="scroll"><table>
 <thead>
@@ -2330,11 +2329,11 @@ sekce 5 je o tom, jak to obejít.</p>
 
 <section id="cs-2-pět-věcí" data-sec="handbook-3">
 <h3><span class="num">02</span><span>Pět věcí, které agentovi dáváte</span></h3>
-<p>Všechno, co kdy budete nastavovat, spadá do jednoho z pěti košů. Naučte se těch
-pět jmen a přestanete hádat.</p>
-<p><strong>1. Pravidla — <code>AGENTS.md</code></strong>
-Načítá se na začátku každého nového sezení, bez výjimky. Krátké. Kdo jsme, co
-nikdy neděláme, jak se tady pracuje a o čem tento projekt vlastně je. <em>Sekce 4.</em></p>
+<p>Všechno, co kdy budete nastavovat, patří do jedné z pěti skupin. Zapamatujte si
+jejich názvy a přestanete tápat.</p>
+<p><strong>1. Pravidla — <code>AGENTS.md</code></strong> Načítá se na začátku každého nového sezení, bez
+výjimky. Musí být krátký. Kdo jsme, co nikdy neděláme, jak se tady pracuje a o
+čem tento projekt vlastně je. <em>Sekce 4.</em></p>
 <p><strong>2. Znalosti — adresář <code>knowledge/</code></strong>
 Fakta, která agent nemůže uhádnout: vaše weby, váš styl, vaše produkty, vaši
 lidé, vaše starší články a události, které jsou pro vás důležité. Čte se podle
@@ -2364,8 +2363,8 @@ konkrétní nedostatek, který každý z nich řeší.</p>
 
 <section id="cs-3-váš-workspace" data-sec="handbook-4">
 <h3><span class="num">03</span><span>Váš workspace</span></h3>
-<p>Workspace je prostě adresář na vašem počítači. Otevřete v něm terminál a
-spustíte tam agenta. Všechno, co agent dělá, se děje uvnitř něj.</p>
+<p>Workspace je prostě adresář na vašem počítači. Otevřete v něm terminál a spusťte
+tam agenta. Všechno, co agent dělá, se odehrává v něm.</p>
 <p>Tady je rozvržení, které funguje pro obsahový a marketingový tým. Zkopírujte si ho
 a smažte, co nepotřebujete.</p>
 <pre><code>my-content-workspace/
@@ -2403,9 +2402,9 @@ a smažte, co nepotřebujete.</p>
     └── style-check/SKILL.md
 </code></pre>
 <p>Tři pravidla o workspace:</p>
-<p><strong>Jeden workspace na tým, ne na člověka.</strong> Celý smysl je v tom, že znalosti jsou
-sdílené. Když má každý svůj vlastní soukromý adresář, jste zpátky u toho, že má
-každý své vlastní soukromé promptovací triky.</p>
+<p><strong>Jeden workspace na tým, ne na člověka.</strong> Jde právě o to, aby se znalosti
+sdílely. Když má každý svůj vlastní soukromý adresář, jste tam, kde jste začali:
+každý si drží vlastní promptovací triky.</p>
 <p><strong>Uložte ho tam, kde se zálohuje a sdílí.</strong> Sdílený adresář na Drivu nebo
 Dropboxu na začátek stačí. Když to někdo technický dá do Gitu, je to lepší —
 máte kompletní historii toho, kdo kdy které pravidlo změnil, a můžete vzít zpět
@@ -2421,10 +2420,9 @@ adresáře.</p>
 <h3><span class="num">04</span><span>AGENTS.md — domovní řád</span></h3>
 <p><code>AGENTS.md</code> je obyčejný textový soubor (Markdown) v kořeni vašeho workspace. Každý
 podporovaný agent si ho přečte na začátku každého sezení, dřív než cokoli udělá.
-Je to jediný soubor s největší vlivem na výsledek projektu, jaký kdy napíšete.</p>
+Žádný jiný soubor neovlivní výsledek projektu tolik jako tenhle.</p>
 <p>Nemá předepsaný formát. Žádná speciální syntaxe. Žádná povinná pole. Je to memo
-pro nového kolegu. Nadpisy a odrážky — protože ty se sledují snáz než odstavce,
-pro agenta stejně jako pro člověka.</p>
+pro nového kolegu. Nadpisy a odrážky — v těch se lépe orientuje agent i člověk.</p>
 <div class="block">
 <h5>Poznámka k názvu.</h5>
 <p><code>AGENTS.md</code> je otevřený standard, původně publikovaný
@@ -2449,8 +2447,8 @@ LinkedIn, and campaign materials for product launches.
 You are helping us research, plan, draft and edit. You are not publishing
 anything — a human always does that.
 </code></pre>
-<p>Ta poslední věta odvádí spoustu práce. Řekněte stejně jasně, co agent <strong>nedělá</strong>,
-jako co dělá.</p>
+<p>Ta poslední věta je důležitější, než vypadá. Řekněte stejně jasně, co agent
+<strong>nedělá</strong>, jako co dělá.</p>
 <h5>2. Pro koho píšeme</h5>
 <p>Jinak bude psát pro „obecné byznysové publikum&quot;, což vypadá, jako by to ani
 nepsal člověk.</p>
@@ -2481,9 +2479,9 @@ Before writing anything for a specific channel, read that channel's file in
 </code></pre>
 <h5>4. Guardrails (mantinely)</h5>
 <p><strong>Nejdůležitější sekce.</strong> Tři seznamy: nikdy, vždy, nejdřív se zeptej.</p>
-<p>Buďte konkrétní natolik, aby člověk dokázal zkontrolovat, jestli bylo pravidlo
-dodrženo. „Piš dobře&quot; se ověřit nedá, a je tedy k ničemu. „Žádná věta nad 25 slov&quot;
-zkontrolovat jde.</p>
+<p>Buďte tak konkrétní, aby se dalo ověřit, jestli bylo pravidlo dodrženo. „Piš
+dobře&quot; se ověřit nedá, a je tedy k ničemu. „Žádná věta nad 25 slov&quot; zkontrolovat
+jde.</p>
 <pre><code class="language-markdown">## Guardrails
 
 ### Never
@@ -2570,8 +2568,8 @@ A draft is done when:
 <h4>4.2 Pravidla o pravidlech</h4>
 <p><strong>Držte to pod zhruba 200 řádky.</strong> Tenhle soubor se agentovi načítá do hlavy
 úplně pokaždé a soupeří o místo se samotnou prací. <code>AGENTS.md</code> na 900 řádků
-způsobí, že agent dodrží libovolné jednotlivé pravidlo <strong>méně</strong> pravděpodobně,
-ne víc. Když sekce narůstá, přesuňte ji do <code>knowledge/</code> a nechte tam odkaz.</p>
+způsobí, že se pravidla dodržují <strong>hůř</strong>, ne líp. Když sekce narůstá, přesuňte
+ji do <code>knowledge/</code> a nechte tam odkaz.</p>
 <p><strong>Nikdy si neodporujte.</strong> Když jeden řádek říká „piš stručně&quot; a jiný „cíl 2 000
 slov&quot;, agent si jeden vybere náhodně a vy se nikdy nedozvíte který. Po každé
 úpravě si celý soubor znovu přečtěte.</p>
@@ -2607,7 +2605,7 @@ prázdného dokumentu. Pak ho upravte ručně — je váš, ne agentův.</p>
 <h4>5.1 Problém</h4>
 <p>Zadejte agentovi něco velkého — „naplánuj nám kampaň na Q4&quot; — a stane se jedna
 ze dvou věcí.</p>
-<p>Buď vyprodukuje mělkou, generickou verzi všeho najednou, protože se pokusil udržet
+<p>Buď vyplivne mělkou, obecnou verzi všeho najednou, protože se pokusil udržet
 celou práci v hlavě. Nebo začne dobře, dvacet minut pracuje a pak tiše ztratí nit:
 zapomene rozhodnutí, které jste udělali dřív, popře vlastní osnovu, zopakuje sekci.</p>
 <p>To je zaplňování stolu. Context window je konečný. Při dlouhé práci začnou věci
@@ -2683,7 +2681,7 @@ Open questions: ...
 zeptá „proč se vlastně oháníme argumentem cenou?&quot; a odpověď je zapsaná s datem místo
 toho, aby se ztratila v chatu, který už se nedá prohledat.</p>
 <h4>5.5 Začátek a konec sezení</h4>
-<p>Dva krátké rituály. Píšete je, dokud se nestanou svalovou pamětí.</p>
+<p>Dva krátké rituály. Opakujte je, dokud je nebudete psát automaticky.</p>
 <p><strong>Začátek:</strong></p>
 <div class="say">
 <p>Read <code>PROGRESS.md</code> and <code>PLAN.md</code> in <code>projects/2026-09-atlas-launch/</code>.
@@ -2696,7 +2694,7 @@ Don't start work yet.</p>
 what decisions we made and why, and the single next action for next time.
 Write it so someone who wasn't here today could pick it up cold.</p>
 </div>
-<p>Ta poslední věta je ten trik. „Někdo, kdo tu dnes nebyl&quot; je totiž agent zítra.</p>
+<p>V té poslední větě je celý trik. „Někdo, kdo tu dnes nebyl&quot; je totiž agent zítra.</p>
 <h4>5.6 Když se stůl zaplní uprostřed sezení</h4>
 <p>Agenti vám řeknou, že komprimují nebo shrnují, případně si všimnete poklesu
 kvality — zapomene rozhodnutí, opakuje se, popírá osnovu. Když se to stane:
@@ -2712,9 +2710,9 @@ pamatovat si dlouhou konverzaci.</p>
 
 <section id="cs-6-knowledge-base" data-sec="handbook-7">
 <h3><span class="num">06</span><span>Knowledge base</span></h3>
-<p><code>AGENTS.md</code> je to, co agent čte <em>pokaždé</em>, takže musí zůstat krátký. Knowledge base
-je všechno ostatní — čte se jen tehdy, když je to relevantní. Tady si můžete
-dovolit být na detaily štědří.</p>
+<p><code>AGENTS.md</code> je to, co agent čte <em>pokaždé</em>, takže musí zůstat krátký. Knowledge
+base je všechno ostatní — čte se jen tehdy, když je to relevantní. Tady si
+můžete dovolit být podrobní.</p>
 <p>Čtyři kategorie.</p>
 <h4>6.1 Channels — jeden soubor na každé místo, kam publikujete</h4>
 <p>Každý web, newsletter a sociální kanál dostane vlastní soubor. Právě tohle zabrání
@@ -2755,11 +2753,10 @@ specific problem. Skims first, reads second. Often on a phone, on site.
 <p>Napište jeden takový pro každý kanál. Zabere to dvacet minut a je to rozdíl mezi
 „agent píše celkem obstojné texty&quot; a „agent píše texty, které sedí&quot;.</p>
 <h4>6.2 Voice — jak zníme</h4>
-<p>Odděleně od kanálu, protože tón je často sdílený napříč kanály, zatímco autoři ne.</p>
-<p>Trik na voice guide, který skutečně funguje: <strong>kontrastní dvojice.</strong> Abstraktní
+<p>Odděleně od kanálu, protože styl bývá pro kanály společný, kdežto autoři ne.</p>
+<p>Trik, díky kterému voice guide opravdu funguje: <strong>kontrastní dvojice.</strong> Abstraktní
 přídavná jména („sebevědomý, vřelý, lidský&quot;) neznamenají pro agenta nic — a
-upřímně řečeno ani pro nového copywritera moc. Dvojice „před a po&quot; znamenají
-všechno.</p>
+upřímně řečeno ani pro nového copywritera moc. Dvojice „před a po&quot; fungují.</p>
 <p><code>knowledge/voice/house-voice.md</code>:</p>
 <pre><code class="language-markdown"># House voice
 
@@ -2944,13 +2941,14 @@ udělejte si z toho zvyk. Když je něco předběžné, napište to do souboru:
 <h4>7.1 Co je skill</h4>
 <p>Skill je adresář obsahující soubor <code>SKILL.md</code>. Uvnitř je postup krok za krokem
 pro jeden typ práce, napsaný běžným jazykem.</p>
-<p>Chytré je to, <strong>jak se načítá</strong>. Při startu agent čte jen <em>název a popis</em> každého
-skillu — pár řádků, prakticky zadarmo. Když váš požadavek sedí na některý popis,
-otevře celý soubor a řídí se jím. Všechno ostatní zůstane na poličce.</p>
-<p>Přirovnání s knihovnou: <code>AGENTS.md</code> je připíchnutý na zdi a pořád na očích. Skills
-jsou manuály na poličce. Agent neustále čte popisky a sundá jeden jen tehdy, když si
-to práce žádá. Právě proto můžete mít třicet detailních skills, aniž by cokoli
-zpomalily — ale nemůžete mít třicetistránkový <code>AGENTS.md</code>.</p>
+<p>Zajímavý je způsob, <strong>jakým se načítá</strong>. Při startu agent čte jen <em>název a
+popis</em> každého skillu — pár řádků, prakticky zadarmo. Když váš požadavek sedí na
+některý popis, otevře celý soubor a řídí se jím. Všechno ostatní zůstane na
+poličce.</p>
+<p>Přirovnání s knihovnou: <code>AGENTS.md</code> je připíchnutý na zdi a pořád na očích.
+Skills jsou manuály na poličce. Agent neustále čte popisky a sundá si jeden jen
+tehdy, když si to práce žádá. Právě proto můžete mít třicet detailních skills,
+aniž by cokoli zpomalily — ale nemůžete mít třicetistránkový <code>AGENTS.md</code>.</p>
 <p>Skills jsou otevřený standard (původně od Anthropicu, dnes vyvíjený otevřeně),
 podporovaný Claude Code, Codexem, opencode, pi, Cursorem, Copilotem, Gemini CLI a
 dalšími dvěma desítkami nástrojů. Liší se jen adresář, ve kterém leží — viz
@@ -2958,15 +2956,15 @@ dalšími dvěma desítkami nástrojů. Liší se jen adresář, ve kterém lež
 <h4>7.2 Kdy nějaký udělat</h4>
 <p>Skill vytvořte, když:</p>
 <ul>
-<li>Jste stejný vícekrokový postup vysvětlovali potřetí.</li>
+<li>Stejný vícekrokový postup jste vysvětlovali potřetí.</li>
 <li>Sekce v <code>AGENTS.md</code> se z <em>faktu</em> změnila v <em>postup</em>.</li>
 <li>Chcete, aby proces proběhl stejně bez ohledu na to, kdo o něj požádá.</li>
 <li>Chcete napsat <code>/campaign-plan</code> a mít to hotové.</li>
 </ul>
 <p>Nedělejte skill pro jednorázovku a nedělejte ho pro prostý fakt — to je knowledge
 soubor.</p>
-<p>Čistý test: <strong>fakt patří do <code>knowledge/</code>. Pravidlo do <code>AGENTS.md</code>. Posloupnost
-kroků do skillu.</strong></p>
+<p>Jednoduché vodítko: <strong>fakt patří do <code>knowledge/</code>. Pravidlo do <code>AGENTS.md</code>.
+Posloupnost kroků do skillu.</strong></p>
 <h4>7.3 Formát</h4>
 <pre><code>.claude/skills/
 └── article-draft/
@@ -3000,9 +2998,9 @@ odsuňte do souborů v <code>references/</code>, na které skill odkáže.</p>
 instrukce samy o sobě nestačí.</p>
 <p><strong><code>scripts/</code> — malé programy, které agent umí spustit.</strong> Tenhle adresář nikdo
 nečeká, že bude potřebovat, a pak se bez něj neobejde.</p>
-<p>Jazykové modely jsou nespolehlivé v mechanických kontrolách. Zeptejte se, jestli
+<p>Mechanické kontroly jazykovým modelům nejdou. Zeptejte se, jestli
 je meta description pod 155 znaků, a model odpoví „148&quot;, i když je jich ve
-skutečnosti 163. Není to nedbalost — počítání prostě není to, co dělá.
+skutečnosti 163. Není to nedbalost — počítat prostě neumí.
 Čtyřřádkový skript spočítá správně pokaždé a v pondělí stejně jako v pátek.</p>
 <p>Do <code>scripts/</code> proto patří všechno, co je <strong>kontrola</strong>, ne <strong>úsudek</strong>:</p>
 <ul>
@@ -3021,7 +3019,7 @@ reports. Then do the judgement pass: read the draft against
 `knowledge/voice/house-voice.md` and the channel file, and produce a
 checklist with ✅/❌ per rule.
 </code></pre>
-<p>Právě v tom rozdělení je celý smysl. <strong>Skript kontroluje to, co se dá spočítat;
+<p>Právě o to rozdělení tu jde. <strong>Skript kontroluje to, co se dá spočítat;
 vy a agent posuzujete to, co se spočítat nedá.</strong> „Žádná věta nad 25 slov&quot; patří
 do skriptu. „Zní to jako my?&quot; tam nebude patřit nikdy.</p>
 <p>Skript nemusíte psát sami. Popište kontrolu a zadejte:</p>
@@ -3041,8 +3039,8 @@ oprávnění; když se u vás nikdy nespouštějí, tohle zkontrolujte jako prvn
 SEO checklist, právní formulace, kompletní brand book. Agent je otevře, jen když
 je úkol potřebuje, takže vás jejich délka nic nestojí, dokud na ně nedojde.</p>
 <p><strong><code>assets/</code> — hotové soubory, které skill používá.</strong> Šablony osnov, schválený
-boilerplate odstavec, rozvržení tabulky. Věci k použití tak, jak jsou, ne ke
-čtení pro poučení.</p>
+boilerplate odstavec, rozvržení tabulky. Používají se tak, jak jsou; nečtou se
+kvůli poučení.</p>
 <h4>7.4 Reálný příklad</h4>
 <p><code>.claude/skills/article-draft/SKILL.md</code>:</p>
 <pre><code class="language-markdown">---
@@ -3119,7 +3117,7 @@ kontextem.</p>
 <li><strong><code>campaign-plan</code></strong> — brief dovnitř, multikanálový plán ven: páteř sdělení,
 kalendář po kanálech, seznam výstupů, vlastníci, měření.</li>
 <li><strong><code>repurpose</code></strong> — jeden článek na newsletter, pět LinkedIn postů a Instagram
-carousel, každý v tónu svého kanálu, žádné líné kopírování.</li>
+carousel, každý ve stylu svého kanálu, žádné líné kopírování.</li>
 <li><strong><code>brief-intake</code></strong> — vyslýchá vágní zadání, dokud z něj není skutečný brief.
 Odmítne pokračovat na „napiš něco o launchi&quot;.</li>
 <li><strong><code>weekly-roundup</code></strong> — ta opakovaná věc, co váš tým dělá každé pondělí.</li>
@@ -3269,7 +3267,7 @@ další.</p>
 <td>Je to fakt, a fakta potřebují jedno místo</td>
 </tr>
 <tr>
-<td>Definovat tón autora</td>
+<td>Definovat styl autora</td>
 <td><code>knowledge/voice/author-x.md</code></td>
 <td>Relevantní jen pro jeho texty</td>
 </tr>
@@ -3294,14 +3292,14 @@ další.</p>
 <td>Specifické pro projekt a s časovou značkou</td>
 </tr>
 <tr>
-<td>Změnit tón jednoho e-mailu</td>
+<td>Změnit styl jednoho e-mailu</td>
 <td>Prostě to řekněte v chatu</td>
 <td>Jednorázovka. Jednorázovky se nezakládají.</td>
 </tr>
 </tbody>
 </table></div>
 <p>Tvě věci, které stojí za zapamatování:</p>
-<p><strong><code>AGENTS.md</code> se natahuje</strong> → něco v něm je ve skutečnosti knowledge soubor (když
+<p><strong><code>AGENTS.md</code> se natahuje</strong> → něco v něm je vlastně knowledge soubor (když
 je to fakt) nebo skill (když jsou to kroky). Přesuňte to a nechte tam jednořádkový
 odkaz.</p>
 <p><strong>Vysvětlujete tutéž věc každé sezení</strong> → není nikde zapsaná. Podruhé, co ji
@@ -3318,7 +3316,7 @@ first. Don't write anything yet.&quot;</em> Plán se opravuje levně; hotový dr
 na špatném plánu ne.</p>
 <p><strong>2. Ukažte mu na soubory.</strong> <em>„Read <code>knowledge/channels/linkedin.md</code> and
 <code>knowledge/voice/house-voice.md</code> first.&quot;</em> Agent si je většinou najde sám, ale
-pojmenovat je nic nestojí a odstraní to veškerou pochybnost.</p>
+pojmenovat je nic nestojí a máte jistotu.</p>
 <p><strong>3. Řekněte, kam má jít výstup.</strong> <em>„Save to
 <code>projects/atlas-launch/drafts/announcement.md</code>.&quot;</em> Jinak dostanete zeď textu
 v terminálu, kterou musíte někam přepisovat — a přišli jste o hlavní výhodu téhle
@@ -3331,8 +3329,8 @@ stabilní.</p>
 director this proposal has to get past. Read the draft and list every claim you'd
 challenge.&quot;</em> Role plus omezení porazí holou instrukci skoro vždycky.</p>
 <p><strong>6. Nechte ho zkontrolovat vlastní práci.</strong> <em>„Now audit that draft against
-<code>house-voice.md</code>, rule by rule, with ✅/❌ and a fix for each ❌.&quot;</em> Oddělit psaní
-od kontroly je nejlevnější dostupné zvýšení kvality.</p>
+<code>house-voice.md</code>, rule by rule, with ✅/❌ and a fix for each ❌.&quot;</em> Oddělit psaní od
+kontroly je nejlevnější způsob, jak zvýšit kvalitu.</p>
 <p><strong>7. Chtějte varianty a pak vybírejte.</strong> <em>„Give me three openings with different
 angles, one line each on why it works.&quot;</em> Dostanete lepší materiál a zůstáváte
 editorem.</p>
@@ -3342,8 +3340,8 @@ holds from now on.&quot;</em> Opravy, které se nezaloží, budete ve čtvrtek p
 s sebou nese všechny předchozí kroky. Aktualizujte deník, vyčistěte,
 pokračujte.</p>
 <p>A jedna věc, která není návyk, ale pravidlo:</p>
-<p><strong>Ověřte cokoli, na čem závisí číslo, jméno, datum nebo citace.</strong> Agenti jsou
-mimořádně dobří v produkování textu, který má tvar faktu. Mantinely ze sekce 4 to
+<p><strong>Ověřte cokoli, na čem závisí číslo, jméno, datum nebo citace.</strong> Agenti mimořádně
+dobře vyrábějí text, který vypadá jako fakt. Mantinely ze sekce 4 to
 omezují a hodně pomáhají, ale neodstraní to. Každou statistiku, každou citaci,
 každé datum, každý pravopis jména, které se dostane na publikovanou stránku, si
 sami ověřte proti zdroji. Vaše značky <code>[NEEDS SOURCE]</code> vám řeknou, kde hledat
@@ -3357,7 +3355,7 @@ nejdřív.</p>
 <thead>
 <tr>
 <th>Příznak</th>
-<th>Co se ve skutečnosti děje</th>
+<th>Co se doopravdy děje</th>
 <th>Náprava</th>
 </tr>
 </thead>
@@ -3389,7 +3387,7 @@ nejdřív.</p>
 </tr>
 <tr>
 <td>Zní jako generická AI</td>
-<td>Píše z obecného tréninku, ne vaším tónem</td>
+<td>Píše z obecného tréninku, ne vaším stylem</td>
 <td>Voice soubor s dvojicemi do/don't, seznam zakázaných slov a fáze sebekontroly. Všechny tři.</td>
 </tr>
 <tr>
@@ -3697,15 +3695,15 @@ aby napsal něco, co zní jako vy.
 <strong>Čas:</strong> zhruba 45 minut.</p>
 <h4>Krok 1 — Vytvořte adresář</h4>
 <p>Vytvořte nový adresář někde rozumně — <code>Documents/content-workspace</code> stačí.
-Otevřete v něm terminál a spusťte agenta (<code>claude</code>, <code>codex</code>, <code>opencode</code>
-nebo <code>pi</code>).</p>
+Otevřete v něm terminál a spusťte agenta (<code>claude</code>, <code>codex</code>,
+<code>opencode</code> nebo <code>pi</code>).</p>
 <p>Pak si ověřte, že opravdu vidí soubory a umí je zapisovat:</p>
 <div class="say">
 <p>Create a directory called <code>knowledge</code> with subdirectories <code>channels</code>, <code>voice</code>, <code>entities</code>, and <code>library</code>. Also create a directory called <code>projects</code>. Then show me the directory structure.</p>
 </div>
 <p>Adresáře by se měly objevit na disku. Pokud si řekne o svolení k vytvoření
-souborů, dejte mu ho. <strong>V tomhle je celý ten trik: nechcete po něm text, chcete
-po něm změny v adresáři.</strong></p>
+souborů, dejte mu ho. <strong>V tomhle je celý trik: nechcete po něm text, chcete po něm
+změny v adresáři.</strong></p>
 <h4>Krok 2 — Nechte se vyzpovídat</h4>
 <p>Nepište <code>AGENTS.md</code> z prázdné stránky. Napište tohle:</p>
 <div class="say">
@@ -4041,7 +4039,7 @@ Pokud ne, problém je v <code>description</code> — přepište ho slovy, která
 řádku, s opravami. Pusťte ho i na texty psané člověkem.</li>
 <li><strong><code>campaign-plan</code></strong> — postup z Walkthroughu 3.</li>
 <li><strong><code>repurpose</code></strong> — jeden článek na newsletter, pět LinkedIn postů a Instagram
-carousel, každý v tónu svého kanálu.</li>
+carousel, každý ve stylu svého kanálu.</li>
 <li><strong><code>brief-intake</code></strong> — odmítne pokračovat na vágním zadání, dokud z něj není
 skutečný brief.</li>
 </ul>

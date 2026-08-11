@@ -60,8 +60,8 @@ a pak krok 2 z prvního walkthroughu. To stačí na začátek.
 
 Agent není chatbot. Běží uvnitř adresáře na vašem počítači, čte a zapisuje
 soubory v něm, hledá na webu a používá vaše další nástroje. Zároveň **mezi
-sezeními všechno zapomene**. Práce tedy nespočívá v psaní chytrých promptů, ale
-v tom nechat v adresáři správné věci, které si najde. Pět druhů věcí: pravidla,
+sezeními všechno zapomene**. Nejde o to psát chytré prompty, ale nechat mu
+v adresáři správné věci. Pět druhů věcí: pravidla,
 který čte pokaždé (`AGENTS.md`), referenční materiály, které čte, když jsou
 relevantní (`knowledge/`), plán a deník, aby dlouhá práce přežila napříč dny
 (`PLAN.md`, `PROGRESS.md`), zapsané postupy, které si vezme, když sedí na zadání
