@@ -11,6 +11,7 @@ PIP     := $(VENV)/bin/pip
 STAMP   := $(VENV)/.installed
 
 TARGET  := web/handbook.html
+PAGES   := docs/index.html
 BUILDER := web/build.py web/template.html
 SOURCES := HANDBOOK.md HANDBOOK.cs.md \
            WALKTHROUGHS.md WALKTHROUGHS.cs.md \
@@ -24,12 +25,13 @@ help:
 	@echo ""
 	@echo "  make setup     create $(VENV), install dependencies, enable the git hook"
 	@echo "  make hooks     enable the pre-commit hook only"
-	@echo "  make build     regenerate $(TARGET) if any source changed"
+	@echo "  make build     regenerate $(TARGET) and $(PAGES) if any source changed"
 	@echo "  make rebuild   regenerate it unconditionally"
-	@echo "  make check     fail if $(TARGET) is out of date"
+	@echo "  make check     fail if either generated page is out of date"
 	@echo "  make clean     remove $(VENV)"
 	@echo ""
-	@echo "After building, republish $(TARGET) to the artifact URL in web/README.md."
+	@echo "$(TARGET) is the artifact fragment; $(PAGES) is the GitHub Pages site."
+	@echo "After building, commit both and republish $(TARGET) to the artifact URL."
 
 ## Create the virtualenv and install requirements. The stamp file means this
 ## reruns only when requirements.txt changes.
@@ -50,9 +52,10 @@ hooks:
 	@echo "pre-commit hook enabled (.githooks/)"
 
 ## Regenerate the page when a source, the template or the generator changed.
-build: $(TARGET)
+build: $(TARGET) $(PAGES)
 
-$(TARGET): $(STAMP) $(BUILDER) $(SOURCES)
+# One run of the generator writes both files, so they share a rule.
+$(TARGET) $(PAGES): $(STAMP) $(BUILDER) $(SOURCES)
 	$(PYTHON) web/build.py
 
 rebuild: $(STAMP)

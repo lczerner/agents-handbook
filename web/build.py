@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-"""Generate web/handbook.html from the Markdown sources.
+"""Generate the web version of the handbook from the Markdown sources.
 
 The Markdown files are the source of truth. This script renders them into the
-design in web/template.html and writes web/handbook.html. Nothing is written by
-hand into the generated file.
+design in web/template.html and writes two files. Neither is edited by hand.
+
+    web/handbook.html   a fragment, for the Claude artifact host, which supplies
+                        its own <!doctype>/<html>/<head>/<body> at publish time
+    docs/index.html     a complete standalone document, served by GitHub Pages
 
 Usage:
-    python3 web/build.py            # write web/handbook.html
-    python3 web/build.py --check    # exit 1 if the file is out of date
+    python3 web/build.py            # write both
+    python3 web/build.py --check    # exit 1 if either is out of date
 
 Requires markdown-it-py (`pip install markdown-it-py`).
 """
@@ -26,6 +29,32 @@ from markdown_it import MarkdownIt
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = ROOT / "web" / "template.html"
 OUTPUT = ROOT / "web" / "handbook.html"
+PAGES_OUTPUT = ROOT / "docs" / "index.html"
+
+DESCRIPTION = (
+    "How to use AI agents such as Claude Code, Codex, opencode and pi for "
+    "writing, planning and campaign work. A handbook for people who don't "
+    "write code, in English and Czech."
+)
+
+# The artifact host wraps the fragment in a document skeleton. A web server
+# does not, so the Pages build supplies its own. Without the viewport meta a
+# phone renders the desktop layout zoomed out; without the charset the page
+# depends on the server sending one.
+STANDALONE = """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="{description}">
+{head}
+</head>
+<body>
+{body}
+</body>
+</html>
+"""
 
 # Each language is built from three documents, in this order. The `key` is
 # language independent and is what pairs an English section with its Czech
@@ -286,18 +315,49 @@ def build() -> str:
     return page
 
 
+def standalone(fragment: str) -> str:
+    """Wrap the fragment in a real document for GitHub Pages.
+
+    The split is on the <!--HEAD-END--> marker in the template rather than on
+    the shape of the output, so changing the template cannot silently move it.
+    """
+    head, marker, body = fragment.partition("<!--HEAD-END-->")
+    if not marker:
+        raise SystemExit("web/template.html is missing the <!--HEAD-END--> marker")
+    return STANDALONE.format(
+        description=html.escape(DESCRIPTION, quote=True),
+        head=head.strip(),
+        body=body.strip(),
+    )
+
+
+def outputs() -> list[tuple[Path, str]]:
+    fragment = build()
+    return [
+        (OUTPUT, fragment.replace("<!--HEAD-END-->\n\n", "")),
+        (PAGES_OUTPUT, standalone(fragment)),
+    ]
+
+
 def main() -> int:
-    page = build()
-    if "--check" in sys.argv:
-        current = OUTPUT.read_text(encoding="utf-8") if OUTPUT.exists() else ""
-        if current != page:
-            print("web/handbook.html is out of date; run python3 web/build.py")
-            return 1
-        print("web/handbook.html is up to date")
-        return 0
-    OUTPUT.write_text(page, encoding="utf-8")
-    print(f"wrote {OUTPUT.relative_to(ROOT)} ({len(page.splitlines())} lines)")
-    return 0
+    checking = "--check" in sys.argv
+    stale = False
+
+    for path, text in outputs():
+        name = path.relative_to(ROOT)
+        if checking:
+            current = path.read_text(encoding="utf-8") if path.exists() else ""
+            if current != text:
+                print(f"{name} is out of date; run make build")
+                stale = True
+            else:
+                print(f"{name} is up to date")
+            continue
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+        print(f"wrote {name} ({len(text.splitlines())} lines)")
+
+    return 1 if stale else 0
 
 
 if __name__ == "__main__":
