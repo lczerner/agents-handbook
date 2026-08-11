@@ -46,13 +46,14 @@ They read it and refer back to it. Lukáš is the only person who edits the repo
 source documents, regenerate:
 
 ```bash
-python3 web/build.py            # rewrite web/handbook.html
-python3 web/build.py --check    # exit 1 if it is out of date
+make setup    # once: create .venv and install dependencies
+make build    # regenerate web/handbook.html
+make check    # fail if it is out of date
 ```
 
 Any hand edit to `web/handbook.html` is destroyed by the next build. If the page
 needs something the Markdown cannot express, change `web/template.html` or the
-generator, not the output. `build.py` requires `markdown-it-py`.
+generator, not the output.
 
 ## Guardrails
 

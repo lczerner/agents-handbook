@@ -16,14 +16,21 @@ Published at: https://claude.ai/code/artifact/d4440c12-5a6d-46d1-b421-2bc930337e
 
 ## Rebuilding
 
+From the repository root:
+
 ```bash
-python3 web/build.py            # rewrite handbook.html
-python3 web/build.py --check    # exit 1 if it is out of date
+make setup      # once: create .venv and install requirements.txt
+make build      # regenerate handbook.html if any source changed
+make rebuild    # regenerate unconditionally
+make check      # exit 1 if handbook.html is out of date
 ```
 
-Requires `markdown-it-py`. Run it after changing any of `HANDBOOK.md`,
-`WALKTHROUGHS.md`, `PROMPTS.md` or their `.cs.md` counterparts, then republish
-to the URL above.
+Run `make build` after changing any of `HANDBOOK.md`, `WALKTHROUGHS.md`,
+`PROMPTS.md` or their `.cs.md` counterparts, then republish to the URL above.
+`make build` is dependency-driven, so it does nothing when everything is current.
+
+Without the Makefile, `python3 web/build.py` works too, provided `markdown-it-py`
+is installed.
 
 If the page needs something the Markdown cannot express, change `template.html`
 or `build.py` — never the output.

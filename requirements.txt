@@ -1,0 +1,3 @@
+# Dependencies for web/build.py, which generates web/handbook.html.
+# Pinned so the same Markdown always produces the same page.
+markdown-it-py==4.2.0
