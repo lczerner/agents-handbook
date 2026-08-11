@@ -1,0 +1,169 @@
+# AGENTS.md
+
+<!-- Rules for any agent working in this repo. Keep under ~200 lines.
+     The second time the same correction is needed, it goes in here.
+     Claude Code reads CLAUDE.md, which imports this file. -->
+
+
+## What this is
+
+A training kit that teaches non-technical people how to use AI agents — Claude
+Code, OpenAI Codex CLI, opencode, pi — for writing, planning and campaign work.
+It ships in English and Czech, with four hands-on walkthroughs and a starter
+workspace people copy.
+
+This is a living document. Lukáš keeps editing it, adds walkthroughs specific to
+what his colleagues actually do, and corrects the Czech.
+
+You help write, translate, restructure and fact-check. You do not publish it and
+you do not commit it.
+
+## Who reads it
+
+Non-technical colleagues. They will follow the walkthroughs, copy the starter
+kit, and otherwise never open a terminal. Assume no prior knowledge of Git,
+Markdown, the terminal, or how models work, and define every term in plain
+language on first use.
+
+They read it and refer back to it. Lukáš is the only person who edits the repo.
+
+## Where things live
+
+- `AGENTS.md` — this file. `CLAUDE.md` is one line importing it, so every tool
+  reads the same rules. Edit this one, never the import.
+- `README.md` / `README.cs.md` — orientation and first-week checklist
+- `HANDBOOK.md` / `HANDBOOK.cs.md` — the concepts, twelve sections. The main document.
+- `WALKTHROUGHS.md` / `WALKTHROUGHS.cs.md` — four exercises
+- `PROMPTS.md` — prompt cheat sheet. English only by design: it is all copy-paste material.
+- `starter-kit/` — a complete example workspace for a fictional company,
+  Lighthouse. People copy it and replace the content.
+- `web/handbook.html` — **generated.** Holds both languages and the language
+  switcher, and is the source of the published page.
+- `notes` — Lukáš's, untracked. Do not read, edit or commit it.
+
+**The Markdown files are the source of truth.** `web/handbook.html` is a build
+artifact. Never make a change in the HTML first: change the Markdown, then bring
+the HTML into line.
+
+> **Pending work:** there is no generator yet, so the HTML is kept in sync by
+> hand. A deterministic `.md` → `.html` build script is a real task on the list.
+> Until it exists, treat every hand-sync as error-prone and verify anchors and
+> tag balance afterwards.
+
+## Guardrails
+
+### Never
+
+- Never restore something Lukáš deleted. He cut the pronouns passage in §6.3, the
+  closing "on what this changes about the work" paragraphs, and "Go home."
+  Deletions are decisions, not omissions.
+- Never commit. He commits, or asks you to.
+- Never republish the artifact. Same rule.
+- Never open, edit or commit `notes`.
+- Never silently correct his wording. If something reads like a typo, say so and
+  let him decide.
+- Never state that a tool does something without checking its current
+  documentation. **WebOps' MCP server and author database do not exist yet** —
+  nothing may imply they do.
+- Never add motivational or summarising closers. He has cut two already.
+- Never translate Czech word-for-word. See below.
+
+### Always
+
+- Always make the change in Markdown first.
+- Always match the surrounding prose: em dashes, British spelling, short
+  paragraphs, concrete examples in place of abstraction.
+- Always keep the fictional Lighthouse company in `starter-kit/` and the examples.
+- Always check that in-page anchors and cross-file links still resolve after
+  restructuring.
+
+### Ask first
+
+- Before committing or republishing.
+- Before cutting or restructuring a whole section.
+- Before adding a new top-level file.
+- Before changing anything in `starter-kit/`. It is a worked example people copy,
+  not a document.
+
+## Writing Czech
+
+The Czech versions exist so colleagues grasp the concepts faster. English is
+authoritative. Lukáš corrects the Czech; your job is to leave him less to correct.
+
+**Keep in English:** file and directory names, technical terms (agent, skill,
+context window, MCP, session, prompt, workspace), every prompt, and every code
+block. Prompts get pasted into agents, and agents follow English more reliably.
+
+**Translate the meaning, not the words.** The recurring failure is calques —
+English images carried into Czech where a Czech speaker would say something plain.
+Every pair below is a real correction he made:
+
+| Don't | Do |
+|---|---|
+| `pravidlo palce` | `obecně platí` |
+| `domovní řád` | `pravidla` |
+| `soubor s největší pákou` | `soubor s největším vlivem na výsledek` |
+| `dva pachy, které stojí za naučení` | `dvě věci, které stojí za zapamatování` |
+| `konkrétní bolest` | `konkrétní nedostatek` |
+| `legální způsob, jak něco nevědět` | `legitimní způsob, jak něco nevědět` |
+| `chyba stála draho` | `chyba byla drahá` |
+| `nepište ho z prázdné stránky` | `nepište ho sami od začátku` |
+| `context window přeteče` | `věci začnou ze stolu padat na zem` |
+
+That last pair is the pattern worth learning: **the metaphors are welcome, the
+abstractions are not.** Keep the desk, the filing cabinet and the shelf of
+manuals, and make them physical in Czech rather than translating the abstract
+noun that sat on top of them in English.
+
+Other fixed choices:
+
+- `tón` → **`styl`**, everywhere
+- `kampaňový tým` → **`marketingový tým`**
+- "launch announcement" → **`tisková zpráva`**
+- `SOP` is a term he uses; "written procedures" became `postupy a SOP`
+- Wrap Czech prose at about 76 characters
+
+Before handing Czech back, read it as if nobody had told you it was a
+translation. Anything that reveals an English original underneath is wrong.
+
+## Their tools
+
+Use these in examples rather than generic equivalents:
+
+- **WebOps** — their internal portal for managing multiple websites: write an
+  article once, publish it to many sites. An MCP server and an author database
+  are planned, not built.
+- **Hapax** — rewrites text using an author's signature words so it reads like
+  that author actually wrote it. Relevant wherever voice comes up, especially §6.2.
+- **One Drive**, **Slack**, their CMS.
+
+Do not reach for Notion, Google Drive or Confluence as illustrations. They were in
+the first draft and Lukáš replaced every one.
+
+## How we work
+
+- Anything structural — a new section, a reorganisation, a new walkthrough — gets
+  a short plan first. Do not start rewriting.
+- One thing at a time. Finish it, say what changed, stop.
+- Facts about the four tools go stale fast. Verify against current documentation
+  before writing them down, and say so when you couldn't.
+- When Lukáš corrects the same thing twice, add it to this file and tell him.
+
+## Definition of done
+
+A change is done when:
+
+- The English Markdown is updated.
+- The Czech Markdown matches, translated to the standard above.
+- `web/handbook.html` matches both, with anchors and tags still balanced.
+- Links and anchors resolve across all files.
+- Nothing has been committed and nothing has been republished.
+- You have said in three lines: what changed, which files, what needs a decision.
+
+## How to talk to Lukáš
+
+- Be direct. No preamble, no restating the request, no flattery.
+- Three lines at the end: what you did, which files, what needs his decision.
+- Disagree once, briefly, then do what he asked.
+- Conversation in English.
+- Flag anything you were unsure about rather than choosing silently.
