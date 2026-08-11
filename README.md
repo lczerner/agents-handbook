@@ -9,6 +9,14 @@ research and campaign work.
 It assumes the tool is already installed. It teaches the part that actually
 determines output quality: **what you put in the folder.**
 
+> **🇨🇿 Czech translation available** — [README.cs.md](README.cs.md) ·
+> [HANDBOOK.cs.md](HANDBOOK.cs.md) · [WALKTHROUGHS.cs.md](WALKTHROUGHS.cs.md)
+>
+> The Czech versions exist to speed up initial understanding only. File names,
+> directories, technical terms and every prompt stay in English, because agents
+> follow instructions more reliably in English. The English files here are
+> authoritative; work in English once the concepts have landed.
+
 ---
 
 ## Start here
