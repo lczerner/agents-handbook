@@ -46,10 +46,14 @@ They read it and refer back to it. Lukáš is the only person who edits the repo
 source documents, regenerate:
 
 ```bash
-make setup    # once: create .venv and install dependencies
+make setup    # once: create .venv, install dependencies, enable the git hook
 make build    # regenerate web/handbook.html
 make check    # fail if it is out of date
 ```
+
+A pre-commit hook in `.githooks/` blocks a commit that changes a source document
+without staging the rebuilt page. If it fires, run `make build` and stage
+`web/handbook.html` — don't reach for `--no-verify`.
 
 Any hand edit to `web/handbook.html` is destroyed by the next build. If the page
 needs something the Markdown cannot express, change `web/template.html` or the

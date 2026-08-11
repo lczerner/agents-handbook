@@ -32,6 +32,19 @@ Run `make build` after changing any of `HANDBOOK.md`, `WALKTHROUGHS.md`,
 Without the Makefile, `python3 web/build.py` works too, provided `markdown-it-py`
 is installed.
 
+## The pre-commit hook
+
+`make setup` (or `make hooks`) points `core.hooksPath` at `.githooks/`, so the
+hook is versioned with the repo rather than living in one clone. It runs only
+when a commit touches a source document, the template or the generator, and it
+refuses the commit in two cases:
+
+- the page is out of date, because a source changed without a rebuild
+- the page was rebuilt but left unstaged, which would commit the sources alone
+
+Both messages name the fix. `git commit --no-verify` bypasses it for one commit;
+`git config --unset core.hooksPath` disables it entirely.
+
 If the page needs something the Markdown cannot express, change `template.html`
 or `build.py` — never the output.
 
