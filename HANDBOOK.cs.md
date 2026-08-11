@@ -145,7 +145,7 @@ domluvili; progress je to, co se skutečně stalo. *Sekce 5.*
 automaticky, když zadání sedí na daný skill. *Sekce 7.*
 
 **5. Dosah — MCP servery**
-Napojení na systémy mimo adresář: Google Drive, WebOops, Slack, váš CMS,
+Napojení na systémy mimo adresář: Google Drive, WebOps, Slack, váš CMS,
 analytika. *Sekce 8.*
 
 Užitečný způsob, jak si to zapamatovat:
@@ -490,7 +490,7 @@ sezení s dobrým deníkem pokaždé zvítězí nad utahaným sezením s plným 
 
 ### 5.3 Jak vzniká plán
 
-První krok je vždycky: **vyžádat si plán a výslovně zakázat začínat s práci.**
+První krok je vždycky: **vyžádat si plán a výslovně zakázat začínat s prací.**
 
 > Read `BRIEF.md`, `knowledge/INDEX.md`, and the channel files for blog and
 > newsletter. Then write a plan to `PLAN.md`.
@@ -556,7 +556,7 @@ Open questions: ...
 ```
 
 Sekce **Decisions made** je důležitější, než vypadá. V polovině projektu se někdo
-zeptá „proč se vlastně oháníme argumentem cenou?" a odpověď je zapsaná s datem místo
+zeptá „proč se vlastně oháníme cenovým argumentem?" a odpověď je zapsaná s datem místo
 toho, aby se ztratila v chatu, který už se nedá prohledat.
 
 ### 5.5 Začátek a konec sezení
@@ -731,7 +731,7 @@ Writes from experience, not from research. This is her main credibility.
 > `knowledge/voice/house-voice.md`."* Pak výsledek upravte. Najde vzorce, o kterých
 > jste nevěděli, že je máte.
 
-Pro ještě věrohodnější působení textu, lze výsledný text nechat přepsat pomocí
+Pro ještě věrohodnější působení textu lze výsledný text nechat přepsat pomocí
 Hapax MCP.
 
 ### 6.3 Entities — fakta, která smíte tvrdit
@@ -814,7 +814,7 @@ prolinkovat, vyhnout se opakování stejného tématu a všimnout si, že jste v
 2024 tvrdili opak. Pokud váš CMS umí export do Markdownu, exportujte všechno.
 Pokud neumí, i `catalogue.md` s titulkem, URL, datem, tématem a jednořádkovým
 shrnutím na článek je nesmírně užitečný. Ideálně můžete agenta odkázat na MCP
-server s vašim archíve, pokud takový máte.
+server s vaším archivem, pokud takový máte.
 
 ### 6.5 Aby se knowledge base dala prohledávat
 
@@ -847,7 +847,7 @@ Read the file that matches your task. Don't read everything.
 - `library/articles/` — full archive. Search here before proposing a topic.
 ```
 
-**Všechno datujte a označte, co je nejisté.** Fakta bez časového razítka tiše
+**Všechno datujte a označte, co je nejisté.** Fakt bez časového razítka tiše
 hnije. Dejte `Last verified: 2026-06-30` nahoru do každého entity souboru a
 udělejte si z toho zvyk. Když je něco předběžné, napište to do souboru:
 `Status: not yet announced, do not reference before 15 September.`
@@ -1053,7 +1053,7 @@ zapsanému checklistu je pozoruhodně účinné** — mnohem víc než ho hned n
 začátku žádat, ať „píše dobře". Generovat a hodnotit jsou dvě různé práce a
 rozdělit je do oddělených fází dává lepší výsledky než snažit se je dělat
 najednou. Zabudujte fázi sebekontroly do každého skillu, který napíšete. Úplně
-nejlepší je, použít jako hodnotitele specializovaného sub-agenta s čistým
+nejlepší je použít jako hodnotitele specializovaného sub-agenta s čistým
 kontextem.
 
 ### 7.5 Skills, které se vyplatí udělat první
@@ -1194,7 +1194,7 @@ Otázka, kterou si budete klást nejčastěji. Tuhle tabulku si vytiskněte.
 | Zaznamenat, proč jste zvolili přístup | `PROGRESS.md` → Decisions | Specifické pro projekt a s časovou značkou |
 | Změnit styl jednoho e-mailu | Prostě to řekněte v chatu | Jednorázovka. Jednorázovky se nezakládají. |
 
-Tvě věci, které stojí za zapamatování:
+Dvě věci, které stojí za zapamatování:
 
 **`AGENTS.md` se natahuje** → něco v něm je vlastně knowledge soubor (když
 je to fakt) nebo skill (když jsou to kroky). Přesuňte to a nechte tam jednořádkový

@@ -88,7 +88,7 @@ later, when you feel the specific problem each one solves.
 
 ## A note on judgement
 
-To rules that never move:
+Two rules that never move:
 
 1. **Check the facts yourself.** The guardrails in this kit reduce invention a
    great deal. They don't eliminate it.
