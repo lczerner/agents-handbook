@@ -123,6 +123,10 @@ Every pair below is a real correction he made:
 | `nepište ho z prázdné stránky` | `nepište ho sami od začátku` |
 | `context window přeteče` | `věci začnou ze stolu padat na zem` |
 
+When you add a pair to this table, grep the Czech files for the left-hand side
+and fix every instance. A recorded rule that was never swept for is how
+`domovní řád` survived in a heading for a week.
+
 That last pair is the pattern worth learning: **the metaphors are welcome, the
 abstractions are not.** Keep the desk, the filing cabinet and the shelf of
 manuals, and make them physical in Czech rather than translating the abstract

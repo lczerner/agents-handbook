@@ -63,7 +63,7 @@ změny v adresáři.**
 
 ### Krok 2 — Nechte se vyzpovídat
 
-Nepište `AGENTS.md` z prázdné stránky. Napište tohle:
+Nepište `AGENTS.md` sami od začátku. Napište tohle:
 
 > I want to create an `AGENTS.md` for this workspace. This is where our team will plan and write everything we publish.
 >

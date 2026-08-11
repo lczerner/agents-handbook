@@ -58,7 +58,7 @@ doopravdy záleží: **co dáte do adresáře.**
 1. [Jedna myšlenka, díky které dává všechno ostatní smysl](#1-jedna-myšlenka)
 2. [Pět věcí, které agentovi dáváte](#2-pět-věcí)
 3. [Váš workspace](#3-váš-workspace)
-4. [AGENTS.md — domovní řád](#4-agentsmd)
+4. [AGENTS.md — pravidla](#4-agentsmd)
 5. [Plány, fáze a progress](#5-plány-fáze-progress)
 6. [Knowledge base](#6-knowledge-base)
 7. [Skills — jak ho naučit vaše postupy](#7-skills)
@@ -229,7 +229,7 @@ adresáře.
 ---
 
 <a id="4-agentsmd"></a>
-## 4. AGENTS.md — domovní řád
+## 4. AGENTS.md — pravidla
 
 `AGENTS.md` je obyčejný textový soubor (Markdown) v kořeni vašeho workspace. Každý
 podporovaný agent si ho přečte na začátku každého sezení, dřív než cokoli udělá.
@@ -1268,7 +1268,7 @@ nejdřív.
 | Sebevědomě si vymýšlí fakta | Neměl zdroj ani povolený způsob, jak říct „nevím" | Přidejte pravidlo `[NEEDS SOURCE: ...]`. Dejte skutečná fakta do `knowledge/entities/`. Řekněte, že jsou povolená jen tvrzení z toho souboru. |
 | Zapomněl všechno ze včerejška | Normální. Každé sezení začíná prázdné. | `PROGRESS.md` a rituál začátku sezení z §5.5. |
 | Udělal toho mnohem víc než měl | V instrukci chyběla schvalovací brána | „Plan first, don't write." „One phase, then stop." Obojí do `AGENTS.md`. |
-| Výstup se uprostřed sezení zhoršil | Plný stůl — context přetekl | Doplňte deník, spusťte nové sezení, pokračujte. Netlačte na pilu. |
+| Výstup se uprostřed sezení zhoršil | Stůl je plný, starší věci z něj spadly | Doplňte deník, spusťte nové sezení, pokračujte. Netlačte na pilu. |
 | Zní jako generická AI | Píše z obecného tréninku, ne vaším stylem | Voice soubor s dvojicemi do/don't, seznam zakázaných slov a fáze sebekontroly. Všechny tři. |
 | Nepřestává být nadšený | Výchozí asistentský hlas | Sekce „How to talk to me" v `AGENTS.md`. Buďte přímí: no preamble, no flattery. |
 | Upravil soubor, který neměl | Měl oprávnění a žádnou instrukci, ať to nedělá | „Ask before touching anything in `knowledge/`." Držte workspace v Gitu, ať se dá cokoli vrátit. |
