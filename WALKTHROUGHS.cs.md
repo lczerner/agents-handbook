@@ -15,8 +15,16 @@
 
 ---
 
-Cvičení dělejte v pořadí, na vaší reálné práci. Všechno v `blocích kódu` je
-soubor nebo příkaz do terminálu.
+> **Jsou to cvičení, ne návod.** Není to návod na tvorbu článků ani
+> marketingových kampaní. Jde pouze o příklady, které nemusí souviset s vaší
+> prací, ale dají vám možnost si osahat chování agenta a ukážou vám některé
+> možnosti přizpůsobení.
+>
+> Fantazii se meze nekladou — ideálně si zadání upravte podle toho, co chcete
+> tvořit, ale dodržte myšlenku cvičení.
+
+Cvičení dělejte v pořadí, ideálně na něčem, co chcete opravdu vytvořit. Všechno
+v `blocích kódu` je soubor nebo příkaz do terminálu.
 
 | # | Walkthrough | Čas | Co z toho máte |
 |---|---|---|---|

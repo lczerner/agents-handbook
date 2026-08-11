@@ -39,7 +39,7 @@ rozhoduje o kvalitě výstupu: **co dáte do složky.**
 | Přečtěte si | Čas | Co z toho máte |
 |---|---|---|
 | **[HANDBOOK.cs.md](HANDBOOK.cs.md)** | 40 min | Koncepty. `AGENTS.md`, plány a progress, knowledge base, skills, MCP. Sekce 1–8 přečtěte dřív, než začnete cokoli dělat. |
-| **[WALKTHROUGHS.cs.md](WALKTHROUGHS.cs.md)** | Projděte je | Čtyři praktická cvičení, která na vaší reálné práci postaví funkční setup. |
+| **[WALKTHROUGHS.cs.md](WALKTHROUGHS.cs.md)** | Projděte je | Čtyři praktická cvičení. Příklady, na kterých si osaháte chování agenta, ideálně upravené podle toho, co chcete tvořit. |
 | **[PROMPTS.md](PROMPTS.md)** | Mějte otevřené | Tahák s prompty. Zůstává anglicky — jsou to texty k okopírování. |
 | **[starter-kit/](starter-kit/)** | Zkopírujte si ji | Kompletní ukázkový workspace. Každý soubor vyplněný a funkční. |
 

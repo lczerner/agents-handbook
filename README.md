@@ -24,7 +24,7 @@ determines output quality: **what you put in the folder.**
 | Read this | Time | What it gives you |
 |---|---|---|
 | **[HANDBOOK.md](HANDBOOK.md)** | 40 min | The concepts. `AGENTS.md`, plans and progress, the knowledge base, skills, MCP. Read sections 1–8 before doing anything. |
-| **[WALKTHROUGHS.md](WALKTHROUGHS.md)** | Do them | Four hands-on exercises that build a working setup on real work of yours. |
+| **[WALKTHROUGHS.md](WALKTHROUGHS.md)** | Do them | Four hands-on exercises. Examples to get a feel for the agent, ideally adapted to what you actually want to produce. |
 | **[PROMPTS.md](PROMPTS.md)** | Keep open | A cheat sheet of things to type. |
 | **[starter-kit/](starter-kit/)** | Copy it | A complete example workspace. Every file filled in and working. |
 

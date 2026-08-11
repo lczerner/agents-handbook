@@ -2,6 +2,10 @@
 
 ### Four exercises that build on each other
 
+> **These are exercises, not a method.** This is not a guide to writing articles or running marketing campaigns. They are examples, and they may have nothing to do with your job. The point is to let you get a feel for how an agent behaves, and to show you some of what can be customised.
+>
+> Nothing here is off-limits. Ideally, swap the brief for something you actually want to produce — but keep the idea of the exercise intact.
+
 Do these in order. Everything in **`> blockquote`** is meant to be typed to the agent, more or less as written — adapt the names to your own work. Everything in a `code block` is a file or a terminal command.
 
 | # | Walkthrough | Time | What you end up with |
