@@ -262,7 +262,7 @@ This one is deliberately spread over days. The point is to watch the agent pick 
 >
 > Write it so someone who wasn't here today could pick this up cold with no other context.
 
-Then close the tool. Go home.
+Then close the tool.
 
 ### Session 2 — The cold start
 

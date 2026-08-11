@@ -28,14 +28,14 @@ soubor nebo příkaz do terminálu.
 Než začnete: váš agentní nástroj by měl být nainstalovaný a funkční a měli byste
 umět otevřít terminál ve složce a spustit ho. Pokud vám ta věta dělá potíže,
 požádejte toho, kdo vám to instaloval, ať s vámi stráví prvních deset minut
-prvního walkthroughu.
+prvního walkthrough.
 
 ---
 
 <a id="walkthrough-1--nastavení-workspace"></a>
 ## Walkthrough 1 — Nastavení workspace
 
-**Cíl:** složka s domovním řádem, který agent dodržuje, a dost znalostí na to,
+**Cíl:** složka s pravidly, který agent dodržuje, a dost znalostí na to,
 aby napsal něco, co zní jako vy.
 **Čas:** zhruba 45 minut.
 
@@ -91,11 +91,11 @@ nesnášíte, opravdu jich vyjmenujte deset.
 Teď si to **sami přečtěte a ručně upravte.** Otevřete soubor v libovolném editoru.
 Tohle je váš soubor, ne agentův. Zkontrolujte tři věci:
 
-1. **Dá se každé pravidlo zkontrolovat?** Smažte nebo zostřete cokoli, co byste
-   neuměli ověřit zvýrazňovačem.
+1. **Dá se každé pravidlo zkontrolovat?** Smažte nebo lépe specifikujte cokoli,
+   co byste neuměli ověřit.
 2. **Neodporuje si něco?** „Piš stručně" plus „cíl 1 800 slov" je hod mincí.
    Vyberte jedno.
-3. **Je seznam „Never" upřímný?** Doplňte věci, které by vám opravdu způsobily
+3. **Je seznam „Never" úplný?** Doplňte věci, které by vám opravdu způsobily
    problém: vymýšlení statistik, jmenování konkurence, tvrzení o produktu, které
    neplatí, publikování čehokoli.
 
@@ -138,8 +138,7 @@ vašeho stylu po paměti:
 >
 > Base it only on what's actually in the articles. Don't invent rules that sound good.
 
-(Články do té složky nejdřív zkopírujte — jako `.md` nebo `.txt`. Pokud váš CMS
-exportuje HTML, taky to jde, jen mu to řekněte.)
+(Články do té složky nejdřív zkopírujte — jako `.md` nebo `.txt`)
 
 Pokud ještě nemáte nic publikovaného, nechte se místo toho vyzpovídat a trvejte
 na těch dvojicích „do this, not that".
@@ -171,7 +170,7 @@ jste agenta dodržet pravidlo, které jste napsali.
 <a id="walkthrough-2--napsat-článek"></a>
 ## Walkthrough 2 — Napsat článek
 
-**Cíl:** draft připravený k publikaci, vytvořený po fázích, kde jste v každé bráně
+**Cíl:** draft připravený k publikaci, vytvořený po fázích, kde jste v každém kroku 
 editorem vy.
 **Čas:** zhruba 90 minut.
 **Potřebuje:** dokončený Walkthrough 1.
@@ -180,8 +179,7 @@ editorem vy.
 
 > Create `projects/2026-08-guide-article/` with a `drafts/` subfolder. In it, create `BRIEF.md` and interview me to fill it in: what we're writing, for which channel, target reader, the one thing they should take away, target length, deadline, and what success looks like.
 
-Brief je to nejlevnější, co můžete udělat správně, a to nejdražší, co můžete
-udělat špatně. Pět minut sem.
+Brief je základ celé práce, dejte si na něm záležet.
 
 ### Krok 2 — Úhly pohledu, ne draft
 
@@ -218,7 +216,7 @@ kde přesně jsou slabá místa.
 >
 > Follow the structure rules in the channel file. Don't draft the rest.
 
-Úvodní odstavec celý je záměr. Právě v něm žije tón a teď nic nestojí ho předělat.
+Úvodní odstavec celý je záměr. Právě od něj se odvíjí styl a teď nic nestojí ho předělat.
 Když sedí úvod, zbytek draftu obvykle sedí taky.
 
 ### Krok 5 — Draft
@@ -269,8 +267,8 @@ Pak tvrdší průchod:
 
 Dělejte to první měsíc po každém kusu práce. Právě takhle se workspace zlepšuje.
 
-**✅ Hotovo, když** draft existuje ve složce, každý zdroj je ověřený a aspoň jedno
-pravidlo přibylo do některého souboru kvůli tomu, co se dnes pokazilo.
+**✅ Hotovo, když** draft je uložený ve složce, každý zdroj je ověřený a aspoň
+jedno pravidlo přibylo do některého souboru kvůli tomu, co se dnes pokazilo.
 
 ---
 
@@ -280,10 +278,10 @@ pravidlo přibylo do některého souboru kvůli tomu, co se dnes pokazilo.
 **Cíl:** kompletní multikanálový plán kampaně, postavený ve třech oddělených
 sezeních, který ověří systém plán / fáze / deník.
 **Čas:** tři sezení po ~45 minutách, ideálně v různé dny.
-**Potřebuje:** Walkthroughy 1–2.
+**Potřebuje:** Walkthrough 1–2.
 
-Tohle cvičení je záměrně rozložené do dnů. Jde o to vidět, jak agent naskočí
-studeně z deníku — dovednost, která teprve umožňuje dlouhé projekty.
+Tohle cvičení je záměrně rozložené do dnů. Jde o to vidět, jak agent naskočí z
+deníku — dovednost, která teprve umožňuje dlouhé projekty.
 
 ### Sezení 1 — Brief a plán
 
@@ -322,7 +320,7 @@ kormidlujete. Typické opravy:
 >
 > Write it so someone who wasn't here today could pick this up cold with no other context.
 
-Pak nástroj zavřete. Jděte domů.
+Pak nástroj zavřete.
 
 ### Sezení 2 — Studený start
 
@@ -438,11 +436,11 @@ Stejný postup, v pořadí podle přínosu:
 - **`brief-intake`** — odmítne pokračovat na vágním zadání, dokud z něj není
   skutečný brief.
 
-Nikdy nepište skill z fantazie. **Projděte si práci jednou ručně, poznamenejte si
-každou opravu a pak nechte agenta napsat skill podle toho, co se stalo.** Skills
-psané z fantazie popisují, jak byste si přáli pracovat. Skills psané ze skutečného
-sezení popisují, jak pracujete doopravdy, včetně těch oprav — a v těch opravách je
-většina hodnoty.
+Nikdy nepište skill z hlavy. **Projděte si práci jednou ručně, poznamenejte si
+každou opravu a pak nechte agenta napsat skill podle toho, co se stalo.**
+Skills psané z hlavy popisují, jak byste si přáli pracovat. Skills psané ze
+skutečného sezení popisují, jak pracujete doopravdy, včetně těch oprav — a v
+těch opravách je většina hodnoty.
 
 **✅ Hotovo, když** napíšete jedno slovo a proběhne vícekrokový postup přesně tak,
 jak byste ho udělali vy.

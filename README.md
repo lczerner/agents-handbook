@@ -81,12 +81,7 @@ later, when you feel the specific problem each one solves.
 
 ## A note on judgement
 
-Drafting gets much faster. Everything upstream of drafting — knowing what to say,
-whether it's true, whether it's worth saying — gets more important, not less.
-The teams who get the most out of this take the time they save on drafting and
-spend it on judgement.
-
-Two rules that never move:
+To rules that never move:
 
 1. **Check the facts yourself.** The guardrails in this kit reduce invention a
    great deal. They don't eliminate it.

@@ -1,6 +1,6 @@
 # Používání AI agentů pro reálnou práci
 
-### Školicí sada pro lidi, kteří neprogramují
+### Příručka pro lidi, kteří neprogramují
 
 ---
 
@@ -27,7 +27,7 @@
 
 Tato sada učí marketingový, obsahový nebo provozní tým používat AI agenta —
 **Claude Code, OpenAI Codex CLI, opencode nebo pi** — na psaní, plánování,
-rešerše a kampaňovou práci.
+rešerše a tvorbu kampaní.
 
 Předpokládá, že nástroj už máte nainstalovaný. Učí tu část, která ve skutečnosti
 rozhoduje o kvalitě výstupu: **co dáte do složky.**
@@ -53,7 +53,7 @@ a pak krok 2 z prvního walkthroughu. To stačí na začátek.
 Agent není chatbot. Běží uvnitř složky na vašem počítači, čte a zapisuje soubory
 v ní, hledá na webu a používá vaše další nástroje. Zároveň **mezi sezeními
 všechno zapomene**. Práce tedy nespočívá v psaní chytrých promptů, ale
-v tom nechat ve složce správné věci, které si najde. Pět druhů věcí: domovní řád,
+v tom nechat ve složce správné věci, které si najde. Pět druhů věcí: pravidla,
 který čte pokaždé (`AGENTS.md`), referenční materiály, které čte, když jsou
 relevantní (`knowledge/`), plán a deník, aby dlouhá práce přežila napříč dny
 (`PLAN.md`, `PROGRESS.md`), zapsané postupy, které si vezme, když sedí na zadání
@@ -66,7 +66,7 @@ relevantní (`knowledge/`), plán a deník, aby dlouhá práce přežila napří
 - **Chovají se k tomu jako k ChatGPT.** Chtějí text v chatovacím okně a kopírují
   si ho ven. Výstup má přistát v souboru, v projektové složce, kde na něm můžete
   dál pracovat.
-- **Přeskočí `AGENTS.md`.** A pak donekonečna vysvětlují tón značky v každém sezení.
+- **Přeskočí `AGENTS.md`.** A pak donekonečna vysvětlují styl v každém sezení.
 - **Napíšou `AGENTS.md` na 900 řádků.** Delší soubory se dodržují *hůř*.
   Držte ho pod 200 řádky a detaily přesuňte do `knowledge/`.
 - **Píšou vágní pravidla.** „Buď profesionální" se nedá dodržet. „Žádná věta nad
@@ -92,11 +92,7 @@ později, až ucítíte konkrétní problém, který každá z těch věcí ře�
 
 ---
 
-## Poznámka o úsudku
-
-Psaní prvních verzí se výrazně zrychlí. Všechno, co je před psaním — vědět, co
-říct, jestli je to pravda a jestli to stojí za řeč — bude naopak důležitější, ne
-míň. Nejvíc z toho vytěží týmy, které čas ušetřený na psaní investují do úsudku.
+## Poznámky
 
 Dvě pravidla, která se nemění:
 
