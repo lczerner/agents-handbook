@@ -3,8 +3,12 @@
 The published one-page handbook: both languages with a switcher, generated from
 the Markdown sources.
 
-Published at: https://claude.ai/code/artifact/d4440c12-5a6d-46d1-b421-2bc930337e6c
-(private until shared from the page's share menu)
+Published in two places, both generated from the same Markdown:
+
+- **GitHub Pages** — https://lczerner.github.io/agents-handbook/ (public,
+  served from `master` / `docs/`, updates on push)
+- **Claude artifact** — https://claude.ai/code/artifact/d4440c12-5a6d-46d1-b421-2bc930337e6c
+  (private until shared from the page's share menu, needs a manual republish)
 
 ## Files
 
@@ -12,7 +16,10 @@ Published at: https://claude.ai/code/artifact/d4440c12-5a6d-46d1-b421-2bc930337e
 |---|---|
 | `build.py` | The generator. Reads the six Markdown files, writes `handbook.html`. |
 | `template.html` | The design: CSS, the language switcher, the page shell. |
-| `handbook.html` | **Generated. Never edit by hand** — the next build overwrites it. |
+| `handbook.html` | **Generated.** Fragment for the artifact host, which supplies its own document skeleton. |
+| `../docs/index.html` | **Generated.** Standalone document for GitHub Pages. |
+
+Neither output may be edited by hand; the next build overwrites both.
 
 ## Rebuilding
 

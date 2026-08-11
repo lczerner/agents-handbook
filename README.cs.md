@@ -32,6 +32,14 @@ rešerše a tvorbu kampaní.
 Předpokládá, že nástroj už máte nainstalovaný. Učí tu část, která ve skutečnosti
 rozhoduje o kvalitě výstupu: **co dáte do složky.**
 
+> ### 📖 Čtěte online
+>
+> **https://lczerner.github.io/agents-handbook/**
+>
+> Příručka, cvičení i tahák s prompty na jedné stránce, česky i anglicky,
+> s přepínačem jazyka. Je to stejný obsah jako v souborech tady — stránka se
+> z nich generuje, takže se nemůže rozejít. Kolegům posílejte tenhle odkaz.
+
 ---
 
 ## Začněte tady
@@ -40,7 +48,7 @@ rozhoduje o kvalitě výstupu: **co dáte do složky.**
 |---|---|---|
 | **[HANDBOOK.cs.md](HANDBOOK.cs.md)** | 40 min | Koncepty. `AGENTS.md`, plány a progress, knowledge base, skills, MCP. Sekce 1–8 přečtěte dřív, než začnete cokoli dělat. |
 | **[WALKTHROUGHS.cs.md](WALKTHROUGHS.cs.md)** | Projděte je | Čtyři praktická cvičení. Příklady, na kterých si osaháte chování agenta, ideálně upravené podle toho, co chcete tvořit. |
-| **[PROMPTS.md](PROMPTS.md)** | Mějte otevřené | Tahák s prompty. Zůstává anglicky — jsou to texty k okopírování. |
+| **[PROMPTS.cs.md](PROMPTS.cs.md)** | Mějte otevřené | Tahák s prompty. Popisky česky, samotné prompty anglicky — jsou k okopírování. |
 | **[starter-kit/](starter-kit/)** | Zkopírujte si ji | Kompletní ukázkový workspace. Každý soubor vyplněný a funkční. |
 
 **Pokud máte deset minut:** přečtěte si [sekci 1 příručky](HANDBOOK.cs.md#1-jedna-myšlenka)

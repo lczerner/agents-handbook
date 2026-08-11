@@ -39,7 +39,9 @@ They read it and refer back to it. Lukáš is the only person who edits the repo
 - `starter-kit/` — a complete example workspace for a fictional company,
   Lighthouse. People copy it and replace the content.
 - `web/build.py` — the generator. `web/template.html` holds the design.
-- `web/handbook.html` — **generated. Never edit it by hand.**
+- `web/handbook.html` — **generated. Never edit it by hand.** The artifact fragment.
+- `docs/index.html` — **generated.** The GitHub Pages site, served at
+  https://lczerner.github.io/agents-handbook/ from `master` / `/docs`.
 - `notes` — Lukáš's, untracked. Do not read, edit or commit it.
 
 **The Markdown files are the source of truth.** After changing any of the six
@@ -47,15 +49,15 @@ source documents, regenerate:
 
 ```bash
 make setup    # once: create .venv, install dependencies, enable the git hook
-make build    # regenerate web/handbook.html
-make check    # fail if it is out of date
+make build    # regenerate both generated pages
+make check    # fail if either is out of date
 ```
 
 A pre-commit hook in `.githooks/` blocks a commit that changes a source document
-without staging the rebuilt page. If it fires, run `make build` and stage
-`web/handbook.html` — don't reach for `--no-verify`.
+without staging both rebuilt pages. If it fires, run `make build` and stage them —
+don't reach for `--no-verify`.
 
-Any hand edit to `web/handbook.html` is destroyed by the next build. If the page
+Any hand edit to either generated file is destroyed by the next build. If a page
 needs something the Markdown cannot express, change `web/template.html` or the
 generator, not the output.
 
@@ -164,7 +166,8 @@ A change is done when:
 
 - The English Markdown is updated.
 - The Czech Markdown matches, translated to the standard above.
-- `web/handbook.html` matches both, with anchors and tags still balanced.
+- `make build` has been run, so both generated pages match, with anchors and
+  tags still balanced.
 - Links and anchors resolve across all files.
 - Nothing has been committed and nothing has been republished.
 - You have said in three lines: what changed, which files, what needs a decision.

@@ -9,8 +9,17 @@ research and campaign work.
 It assumes the tool is already installed. It teaches the part that actually
 determines output quality: **what you put in the folder.**
 
+> ### 📖 Read it online
+>
+> **https://lczerner.github.io/agents-handbook/**
+>
+> The handbook, the walkthroughs and the prompt sheet on one page, in English and
+> Czech, with a language switcher. Same content as the Markdown files here —
+> generated from them, so it cannot drift. Send colleagues this link.
+
 > **🇨🇿 Czech translation available** — [README.cs.md](README.cs.md) ·
-> [HANDBOOK.cs.md](HANDBOOK.cs.md) · [WALKTHROUGHS.cs.md](WALKTHROUGHS.cs.md)
+> [HANDBOOK.cs.md](HANDBOOK.cs.md) · [WALKTHROUGHS.cs.md](WALKTHROUGHS.cs.md) ·
+> [PROMPTS.cs.md](PROMPTS.cs.md)
 >
 > The Czech versions exist to speed up initial understanding only. File names,
 > directories, technical terms and every prompt stay in English, because agents
