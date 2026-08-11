@@ -2,6 +2,8 @@
 
 Keep this open for your first fortnight. Copy, paste, adapt.
 
+> **Starting points, not battle-tested prompts.** These are simple examples to get you going. Change them to fit your work and keep whatever works best for you.
+
 ---
 
 ## Every session
