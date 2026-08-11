@@ -1,21 +1,73 @@
 # web/
 
-`handbook.html` is the source of the published one-page handbook. It contains
-both the English and Czech versions with a language switcher, and is otherwise
-the same material as `HANDBOOK.md` + `WALKTHROUGHS.md` + `PROMPTS.md`.
+The published one-page handbook: both languages with a switcher, generated from
+the Markdown sources.
 
 Published at: https://claude.ai/code/artifact/d4440c12-5a6d-46d1-b421-2bc930337e6c
 (private until shared from the page's share menu)
 
-To update the published page, edit this file and republish it to the same URL.
+## Files
 
-Notes on how it works:
-- One page, two content trees: `<div class="doc" data-lang="en">` and
-  `data-lang="cs"`, plus a matching pair of `.navcol` sidebars.
-- CSS shows English by default, so the page still works without JavaScript.
-- An inline script at the top picks the language before first paint: a stored
-  choice in `localStorage`, otherwise the browser locale (`cs*` gets Czech).
-- Czech section ids are the English ones prefixed with `cs-`, so switching
-  language keeps the reader on the same section.
-- Self-contained by necessity: the artifact host blocks every external
-  request, so there are no CDN fonts, scripts, or images.
+| File | |
+|---|---|
+| `build.py` | The generator. Reads the six Markdown files, writes `handbook.html`. |
+| `template.html` | The design: CSS, the language switcher, the page shell. |
+| `handbook.html` | **Generated. Never edit by hand** — the next build overwrites it. |
+
+## Rebuilding
+
+```bash
+python3 web/build.py            # rewrite handbook.html
+python3 web/build.py --check    # exit 1 if it is out of date
+```
+
+Requires `markdown-it-py`. Run it after changing any of `HANDBOOK.md`,
+`WALKTHROUGHS.md`, `PROMPTS.md` or their `.cs.md` counterparts, then republish
+to the URL above.
+
+If the page needs something the Markdown cannot express, change `template.html`
+or `build.py` — never the output.
+
+## How the generator maps Markdown to the design
+
+- Each source file becomes a **part**; each `##` becomes a section. An
+  `<a id="…"></a>` line above a heading supplies its id, so the anchors written
+  in the Markdown keep working. Otherwise the id is slugified from the heading.
+- A leading `1.`, `Walkthrough 2 —` or `Appendix A —` is split off the heading
+  and set as the number badge beside the title.
+- **Blockquotes are classified.** One opening with a heading or with bold text
+  becomes a bordered aside titled by it. Any other blockquote is text meant to be
+  typed to the agent, and gets the green "TYPE THIS" box. This is why prompts in
+  the sources must not open in bold.
+- Tables are wrapped so wide content scrolls in its own container rather than the
+  page body.
+- Sections carry a language-independent `data-sec` key, so switching language
+  keeps the reader on the same section even though the two trees use different
+  anchor ids.
+- Czech ids are prefixed `cs-`, which is what keeps both trees on one page.
+
+## Constraints worth knowing
+
+- **HTML parsing is off** (`html: False`). Every angle bracket in the sources is a
+  placeholder — `<slug>`, `<channel>`, `<what you need from a human>` — and
+  CommonMark would treat them as tags and silently drop them.
+- **Links that cannot resolve in a single page lose the link and keep the text.**
+  `starter-kit/` renders as code-styled words. Links to a sibling document become
+  in-page anchors.
+- Self-contained by necessity: the artifact host blocks every external request,
+  so no CDN fonts, scripts or images.
+
+## Checking a build
+
+```bash
+python3 - <<'PY'
+import re, collections
+from pathlib import Path
+h = Path('web/handbook.html').read_text(encoding='utf-8')
+ids = re.findall(r'\sid="([^"]+)"', h)
+print("dup ids :", [k for k,v in collections.Counter(ids).items() if v>1] or "none")
+print("broken  :", [a for a in set(re.findall(r'href="#([^"]+)"',h)) if a not in ids] or "none")
+print("unclosed:", [t for t in ("div","section","p","ul","ol","li","table","pre")
+                    if len(re.findall(r'<%s\b'%t,h)) != len(re.findall(r'</%s>'%t,h))] or "none")
+PY
+```

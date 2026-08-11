@@ -34,21 +34,25 @@ They read it and refer back to it. Lukáš is the only person who edits the repo
 - `README.md` / `README.cs.md` — orientation and first-week checklist
 - `HANDBOOK.md` / `HANDBOOK.cs.md` — the concepts, twelve sections. The main document.
 - `WALKTHROUGHS.md` / `WALKTHROUGHS.cs.md` — four exercises
-- `PROMPTS.md` — prompt cheat sheet. English only by design: it is all copy-paste material.
+- `PROMPTS.md` / `PROMPTS.cs.md` — prompt cheat sheet. The prompts themselves stay
+  English in both: they are copy-paste material. Only labels and commentary are translated.
 - `starter-kit/` — a complete example workspace for a fictional company,
   Lighthouse. People copy it and replace the content.
-- `web/handbook.html` — **generated.** Holds both languages and the language
-  switcher, and is the source of the published page.
+- `web/build.py` — the generator. `web/template.html` holds the design.
+- `web/handbook.html` — **generated. Never edit it by hand.**
 - `notes` — Lukáš's, untracked. Do not read, edit or commit it.
 
-**The Markdown files are the source of truth.** `web/handbook.html` is a build
-artifact. Never make a change in the HTML first: change the Markdown, then bring
-the HTML into line.
+**The Markdown files are the source of truth.** After changing any of the six
+source documents, regenerate:
 
-> **Pending work:** there is no generator yet, so the HTML is kept in sync by
-> hand. A deterministic `.md` → `.html` build script is a real task on the list.
-> Until it exists, treat every hand-sync as error-prone and verify anchors and
-> tag balance afterwards.
+```bash
+python3 web/build.py            # rewrite web/handbook.html
+python3 web/build.py --check    # exit 1 if it is out of date
+```
+
+Any hand edit to `web/handbook.html` is destroyed by the next build. If the page
+needs something the Markdown cannot express, change `web/template.html` or the
+generator, not the output. `build.py` requires `markdown-it-py`.
 
 ## Guardrails
 

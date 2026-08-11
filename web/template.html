@@ -1,0 +1,373 @@
+<title>Working With AI Agents — a handbook for people who don't write code</title>
+
+<style>
+/* ---------- tokens: complete light palette on bare :root ---------- */
+:root{
+  --ground:#F3F5F2;
+  --surface:#FBFCFA;
+  --sunken:#E9ECE7;
+  --ink:#191D1A;
+  --ink-2:#3D443F;
+  --muted:#666E68;
+  --faint:#8B948D;
+  --rule:#D3D9D2;
+  --rule-soft:#E3E7E1;
+  --accent:#1E5C45;
+  --accent-ink:#14402F;
+  --accent-wash:#E2ECE6;
+  --warn:#8A5A12;
+  --warn-wash:#F4EBDA;
+  --stop:#8E2F2A;
+  --stop-wash:#F5E5E3;
+
+  --f-text: Charter, "Bitstream Charter", "Iowan Old Style", "Sitka Text", Cambria, Georgia, serif;
+  --f-mono: ui-monospace, "SF Mono", SFMono-Regular, "Cascadia Code", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --measure: 68ch;
+  --s1:.375rem; --s2:.75rem; --s3:1.125rem; --s4:1.75rem; --s5:2.75rem; --s6:4.25rem;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#141715;
+    --surface:#1B1F1C;
+    --sunken:#101312;
+    --ink:#E5E9E3;
+    --ink-2:#C3CAC4;
+    --muted:#98A199;
+    --faint:#77817A;
+    --rule:#2E3531;
+    --rule-soft:#242926;
+    --accent:#63BC96;
+    --accent-ink:#8FD5B5;
+    --accent-wash:#1B2C24;
+    --warn:#D6A254;
+    --warn-wash:#2A2318;
+    --stop:#E08B84;
+    --stop-wash:#2C1D1C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#141715;
+  --surface:#1B1F1C;
+  --sunken:#101312;
+  --ink:#E5E9E3;
+  --ink-2:#C3CAC4;
+  --muted:#98A199;
+  --faint:#77817A;
+  --rule:#2E3531;
+  --rule-soft:#242926;
+  --accent:#63BC96;
+  --accent-ink:#8FD5B5;
+  --accent-wash:#1B2C24;
+  --warn:#D6A254;
+  --warn-wash:#2A2318;
+  --stop:#E08B84;
+  --stop-wash:#2C1D1C;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1.5rem}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--f-text);
+  font-size:17.5px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:1rem;top:1rem;z-index:99;background:var(--surface);color:var(--ink);padding:.5rem .75rem;border:1px solid var(--accent)}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* ---------- shell ---------- */
+.shell{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:var(--s5);
+  max-width:1180px;
+  margin:0 auto;
+  padding:var(--s4) var(--s3) var(--s6);
+}
+@media (min-width:1000px){
+  .shell{grid-template-columns:15.5rem minmax(0,1fr);padding-inline:var(--s4);gap:var(--s6)}
+}
+
+/* ---------- nav ---------- */
+.nav{font-family:var(--f-mono);font-size:12.5px;line-height:1.45}
+@media (min-width:1000px){
+  .nav{position:sticky;top:var(--s4);align-self:start;max-height:calc(100vh - 5rem);overflow-y:auto;padding-right:var(--s2)}
+}
+.nav h2{
+  font-family:var(--f-mono);font-size:10.5px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint);margin:var(--s4) 0 var(--s2);
+}
+.nav h2:first-child{margin-top:0}
+.nav ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.3rem}
+.nav a{
+  display:grid;grid-template-columns:1.9rem 1fr;gap:.2rem;
+  color:var(--muted);text-decoration:none;padding:.16rem 0;
+}
+.nav a:hover{color:var(--accent)}
+.nav a b{font-weight:400;color:var(--faint);font-variant-numeric:tabular-nums}
+.nav-mobile{border:1px solid var(--rule);background:var(--surface);padding:var(--s2) var(--s3)}
+.nav-mobile summary{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;color:var(--muted)}
+@media (min-width:1000px){.nav-mobile{display:none}}
+@media (max-width:999px){.nav-desktop{display:none}}
+
+/* ---------- masthead ---------- */
+.masthead{border-bottom:2px solid var(--ink);padding-bottom:var(--s3);margin-bottom:var(--s5)}
+.eyebrow{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 var(--s3)
+}
+.masthead h1{
+  font-size:clamp(2.1rem,5.5vw,3.4rem);line-height:1.04;letter-spacing:-.02em;
+  font-weight:600;margin:0 0 var(--s2);text-wrap:balance;max-width:20ch;
+}
+.masthead p{font-size:1.2rem;color:var(--ink-2);margin:0;max-width:56ch}
+.colophon{
+  display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s4);
+  font-family:var(--f-mono);font-size:11.5px;color:var(--faint);
+  text-transform:uppercase;letter-spacing:.1em
+}
+
+/* ---------- content flow ---------- */
+main{max-width:var(--measure)}
+main > section{margin-bottom:var(--s6)}
+main p, main ul, main ol, main table, main figure, main .block, main blockquote{max-width:var(--measure)}
+p{margin:0 0 var(--s3)}
+
+h2.part{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--faint);border-top:1px solid var(--rule);padding-top:var(--s2);
+  margin:var(--s6) 0 var(--s5);font-weight:600;max-width:none
+}
+h3{
+  font-size:1.62rem;line-height:1.2;letter-spacing:-.012em;font-weight:600;
+  margin:var(--s5) 0 var(--s3);text-wrap:balance;
+  display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:baseline
+}
+h3 .num{
+  font-family:var(--f-mono);font-size:.72em;font-weight:500;color:var(--accent);
+  font-variant-numeric:tabular-nums
+}
+h4{font-size:1.12rem;font-weight:600;margin:var(--s4) 0 var(--s2);letter-spacing:-.005em}
+h5{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;margin:var(--s4) 0 var(--s2)
+}
+
+.lede{font-size:1.16rem;color:var(--ink-2)}
+
+ul,ol{margin:0 0 var(--s3);padding-left:1.35rem;display:flex;flex-direction:column;gap:.38rem}
+li{padding-left:.15rem}
+li>ul,li>ol{margin-top:.38rem;margin-bottom:0}
+
+a{color:var(--accent);text-decoration:underline;text-underline-offset:.16em;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+strong{font-weight:600}
+em{font-style:italic}
+
+code{
+  font-family:var(--f-mono);font-size:.85em;background:var(--sunken);
+  padding:.1em .34em;border:1px solid var(--rule-soft);white-space:nowrap
+}
+pre{
+  font-family:var(--f-mono);font-size:12.5px;line-height:1.62;
+  background:var(--sunken);border:1px solid var(--rule);
+  padding:var(--s3);overflow-x:auto;margin:0 0 var(--s3);color:var(--ink-2)
+}
+pre code{background:none;border:0;padding:0;font-size:inherit;white-space:pre}
+
+/* ---------- devices ---------- */
+.say{
+  border-left:3px solid var(--accent);background:var(--accent-wash);
+  padding:var(--s3) var(--s3) calc(var(--s3) - .38rem);margin:0 0 var(--s3)
+}
+.say::before{
+  content:"TYPE THIS";display:block;font-family:var(--f-mono);font-size:10px;
+  letter-spacing:.16em;color:var(--accent);margin-bottom:var(--s2);font-weight:600
+}
+.say p{margin-bottom:.38rem}
+.say p:last-child{margin-bottom:0}
+
+.block{
+  border:1px solid var(--rule);background:var(--surface);
+  padding:var(--s3);margin:0 0 var(--s3)
+}
+.block > :last-child{margin-bottom:0}
+.block h5{margin-top:0}
+.block.warn{border-color:var(--warn);background:var(--warn-wash)}
+.block.warn h5{color:var(--warn)}
+.block.stop{border-color:var(--stop);background:var(--stop-wash)}
+.block.stop h5{color:var(--stop)}
+
+.kicker{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--faint);display:block;margin-bottom:var(--s1)
+}
+
+table{border-collapse:collapse;width:100%;font-size:.92rem;margin:0 0 var(--s3)}
+.scroll{overflow-x:auto;margin-bottom:var(--s3);max-width:var(--measure)}
+.scroll table{margin-bottom:0;min-width:34rem}
+th,td{text-align:left;padding:.5rem .75rem .5rem 0;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+th{
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;border-bottom:1px solid var(--rule);white-space:nowrap
+}
+td code{white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+.pairs{display:flex;flex-direction:column;gap:var(--s3);margin:0 0 var(--s3);padding:0;list-style:none}
+.pairs li{display:flex;flex-direction:column;gap:.3rem;padding:0}
+.pairs .no,.pairs .yes{display:grid;grid-template-columns:1.35rem 1fr;gap:.35rem;font-size:.96rem}
+.pairs .no{color:var(--muted)}
+.pairs .no span:first-child{color:var(--stop)}
+.pairs .yes span:first-child{color:var(--accent)}
+
+.ledger{list-style:none;padding:0;margin:0 0 var(--s3);display:flex;flex-direction:column}
+.ledger li{
+  display:grid;grid-template-columns:auto 1fr;gap:var(--s3);
+  padding:var(--s2) 0;border-bottom:1px solid var(--rule-soft)
+}
+.ledger li:last-child{border-bottom:0}
+.ledger .k{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--accent);padding-top:.28rem;width:6.5rem
+}
+
+hr{border:0;border-top:1px solid var(--rule);margin:var(--s5) 0}
+
+.step{margin-bottom:var(--s4)}
+.step h4{display:grid;grid-template-columns:auto 1fr;gap:.6rem;align-items:baseline;margin-top:0}
+.step h4 .n{
+  font-family:var(--f-mono);font-size:.82em;color:var(--accent);font-variant-numeric:tabular-nums
+}
+.done{
+  font-family:var(--f-mono);font-size:12px;color:var(--accent);
+  border-top:1px solid var(--rule);padding-top:var(--s2);margin-top:var(--s3)
+}
+
+.foot{
+  border-top:2px solid var(--ink);margin-top:var(--s6);padding-top:var(--s3);
+  font-size:.9rem;color:var(--muted);max-width:var(--measure)
+}
+.foot h5{margin-top:0}
+
+/* ---------- language switching ---------- */
+/* English is the default and the no-JS fallback. */
+.doc[data-lang="cs"]{display:none}
+:root[data-doc-lang="cs"] .doc[data-lang="cs"]{display:block}
+:root[data-doc-lang="cs"] .doc[data-lang="en"]{display:none}
+
+/* sections live inside .doc now, so the child selector moves with them */
+.doc > section{margin-bottom:var(--s6)}
+@media (min-width:1000px){
+  .navcol{position:sticky;top:var(--s4);align-self:start;max-height:calc(100vh - 5rem);overflow-y:auto}
+  .navcol .nav{position:static;max-height:none;overflow:visible}
+}
+
+.langbar{display:flex;justify-content:flex-end;margin-bottom:var(--s3)}
+.langswitch{display:inline-flex;border:1px solid var(--rule);background:var(--surface)}
+.langswitch button{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  background:none;border:0;color:var(--muted);padding:.45rem .8rem;cursor:pointer;
+  border-right:1px solid var(--rule)
+}
+.langswitch button:last-child{border-right:0}
+.langswitch button:hover{color:var(--ink)}
+.langswitch button[aria-pressed="true"]{background:var(--accent);color:var(--surface);font-weight:600}
+
+.transnote{
+  border:1px solid var(--warn);background:var(--warn-wash);
+  padding:var(--s3);margin:0 0 var(--s4)
+}
+.transnote > :last-child{margin-bottom:0}
+.transnote h5{margin-top:0;color:var(--warn)}
+</style>
+
+<script>
+/* Pick the language before anything paints: stored choice, then browser locale. */
+(function(){
+  var l = "en";
+  try {
+    var s = localStorage.getItem("handbook-lang");
+    l = s || (((navigator.language || "") + "").toLowerCase().indexOf("cs") === 0 ? "cs" : "en");
+  } catch (e) {}
+  document.documentElement.setAttribute("data-doc-lang", l);
+  document.documentElement.lang = l;
+})();
+</script>
+
+<a class="skip" href="#top">Skip to content</a>
+
+<div class="shell">
+
+<!--NAV-->
+
+<main id="top">
+
+<div class="langbar">
+<div class="langswitch" role="group" aria-label="Language / Jazyk">
+<button type="button" data-set-lang="en" aria-pressed="true">English</button>
+<button type="button" data-set-lang="cs" aria-pressed="false">Čeština</button>
+</div>
+</div>
+
+<!--CONTENT-->
+
+</main>
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-set-lang]"));
+
+  function sync(lang){
+    root.setAttribute("data-doc-lang", lang);
+    root.lang = lang;
+    buttons.forEach(function(b){
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-set-lang") === lang));
+    });
+    try { localStorage.setItem("handbook-lang", lang); } catch (e) {}
+  }
+
+  /* Sections carry a language-independent data-sec key, so the reader stays
+     on the same section when the language changes. */
+  function counterpart(hash, lang){
+    if (!hash || hash === "#top") return "";
+    var here = document.getElementById(hash.slice(1));
+    if (!here) return "";
+    var sec = here.getAttribute("data-sec");
+    if (!sec) return "";
+    var doc = document.querySelector('.doc[data-lang="' + lang + '"]');
+    if (!doc) return "";
+    var twin = doc.querySelector('[data-sec="' + sec + '"]');
+    return twin && twin.id ? "#" + twin.id : "";
+  }
+
+  buttons.forEach(function(b){
+    b.addEventListener("click", function(){
+      var lang = b.getAttribute("data-set-lang");
+      var jump = counterpart(location.hash, lang);
+      sync(lang);
+      if (jump) {
+        var el = document.getElementById(jump.slice(1));
+        if (el) el.scrollIntoView();
+        history.replaceState(null, "", jump);
+      } else {
+        window.scrollTo(0, 0);
+      }
+    });
+  });
+
+  sync(root.getAttribute("data-doc-lang") || "en");
+})();
+</script>
