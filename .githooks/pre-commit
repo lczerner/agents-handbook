@@ -10,7 +10,7 @@ set -u
 
 cd "$(git rev-parse --show-toplevel)" || exit 1
 
-PAGES="web/handbook.html docs/index.html"
+PAGES="docs/index.html"
 SOURCES="HANDBOOK.md
 HANDBOOK.cs.md
 WALKTHROUGHS.md
@@ -38,16 +38,16 @@ if [ ! -x .venv/bin/python ]; then
     exit 1
 fi
 
-# 1. Are the generated pages current with respect to the sources on disk?
+# 1. Is the generated page current with respect to the sources on disk?
 if ! .venv/bin/python web/build.py --check >/dev/null 2>&1; then
-    echo "pre-commit: a generated page is out of date." >&2
+    echo "pre-commit: $PAGES is out of date." >&2
     echo "            You changed a source document without rebuilding." >&2
     echo >&2
     echo "            make build && git add $PAGES" >&2
     exit 1
 fi
 
-# 2. They are current, but was the rebuild actually included in this commit?
+# 2. It is current, but was the rebuild actually included in this commit?
 for page in $PAGES; do
     if ! git diff --quiet -- "$page"; then
         echo "pre-commit: $page was rebuilt but is not staged." >&2

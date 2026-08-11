@@ -2,15 +2,12 @@
 """Generate the web version of the handbook from the Markdown sources.
 
 The Markdown files are the source of truth. This script renders them into the
-design in web/template.html and writes two files. Neither is edited by hand.
-
-    web/handbook.html   a fragment, for the Claude artifact host, which supplies
-                        its own <!doctype>/<html>/<head>/<body> at publish time
-    docs/index.html     a complete standalone document, served by GitHub Pages
+design in web/template.html and writes docs/index.html, the page GitHub Pages
+serves. It is never edited by hand.
 
 Usage:
-    python3 web/build.py            # write both
-    python3 web/build.py --check    # exit 1 if either is out of date
+    python3 web/build.py            # write docs/index.html
+    python3 web/build.py --check    # exit 1 if it is out of date
 
 Requires markdown-it-py (`pip install markdown-it-py`).
 """
@@ -28,8 +25,7 @@ from markdown_it import MarkdownIt
 
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = ROOT / "web" / "template.html"
-OUTPUT = ROOT / "web" / "handbook.html"
-PAGES_OUTPUT = ROOT / "docs" / "index.html"
+OUTPUT = ROOT / "docs" / "index.html"
 
 DESCRIPTION = (
     "How to use AI agents such as Claude Code, Codex, opencode and pi for "
@@ -37,10 +33,8 @@ DESCRIPTION = (
     "write code, in English and Czech."
 )
 
-# The artifact host wraps the fragment in a document skeleton. A web server
-# does not, so the Pages build supplies its own. Without the viewport meta a
-# phone renders the desktop layout zoomed out; without the charset the page
-# depends on the server sending one.
+# Without the viewport meta a phone renders the desktop layout zoomed out;
+# without the charset the page depends on the server sending one.
 STANDALONE = """<!doctype html>
 <html lang="en">
 <head>
@@ -79,9 +73,9 @@ NAV_GROUPS = {
 
 NAV_LABEL = {"en": "Contents", "cs": "Obsah"}
 
-# Relative links that cannot resolve inside a single-page artifact. Links to a
-# sibling document become in-page anchors; everything else loses its link and
-# keeps its text.
+# Relative links cannot resolve inside a single page. Links to a sibling
+# document become in-page anchors; everything else loses its link and keeps
+# its text.
 DOC_LINKS = {
     "HANDBOOK.md": "handbook", "HANDBOOK.cs.md": "handbook",
     "WALKTHROUGHS.md": "walkthroughs", "WALKTHROUGHS.cs.md": "walkthroughs",
@@ -315,13 +309,13 @@ def build() -> str:
     return page
 
 
-def standalone(fragment: str) -> str:
-    """Wrap the fragment in a real document for GitHub Pages.
+def standalone(rendered: str) -> str:
+    """Wrap the rendered page in a complete HTML document.
 
     The split is on the <!--HEAD-END--> marker in the template rather than on
     the shape of the output, so changing the template cannot silently move it.
     """
-    head, marker, body = fragment.partition("<!--HEAD-END-->")
+    head, marker, body = rendered.partition("<!--HEAD-END-->")
     if not marker:
         raise SystemExit("web/template.html is missing the <!--HEAD-END--> marker")
     return STANDALONE.format(
@@ -331,33 +325,22 @@ def standalone(fragment: str) -> str:
     )
 
 
-def outputs() -> list[tuple[Path, str]]:
-    fragment = build()
-    return [
-        (OUTPUT, fragment.replace("<!--HEAD-END-->\n\n", "")),
-        (PAGES_OUTPUT, standalone(fragment)),
-    ]
-
-
 def main() -> int:
-    checking = "--check" in sys.argv
-    stale = False
+    text = standalone(build())
+    name = OUTPUT.relative_to(ROOT)
 
-    for path, text in outputs():
-        name = path.relative_to(ROOT)
-        if checking:
-            current = path.read_text(encoding="utf-8") if path.exists() else ""
-            if current != text:
-                print(f"{name} is out of date; run make build")
-                stale = True
-            else:
-                print(f"{name} is up to date")
-            continue
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(text, encoding="utf-8")
-        print(f"wrote {name} ({len(text.splitlines())} lines)")
+    if "--check" in sys.argv:
+        current = OUTPUT.read_text(encoding="utf-8") if OUTPUT.exists() else ""
+        if current != text:
+            print(f"{name} is out of date; run make build")
+            return 1
+        print(f"{name} is up to date")
+        return 0
 
-    return 1 if stale else 0
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(text, encoding="utf-8")
+    print(f"wrote {name} ({len(text.splitlines())} lines)")
+    return 0
 
 
 if __name__ == "__main__":

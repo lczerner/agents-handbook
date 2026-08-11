@@ -1,43 +1,42 @@
 # web/
 
-The published one-page handbook: both languages with a switcher, generated from
-the Markdown sources.
+The build for the published handbook: both languages on one page with a
+language switcher, generated from the Markdown sources.
 
-Published in two places, both generated from the same Markdown:
-
-- **GitHub Pages** — https://lczerner.github.io/agents-handbook/ (public,
-  served from `master` / `docs/`, updates on push)
-- **Claude artifact** — https://claude.ai/code/artifact/d4440c12-5a6d-46d1-b421-2bc930337e6c
-  (private until shared from the page's share menu, needs a manual republish)
+Published at **https://lczerner.github.io/agents-handbook/**, served by GitHub
+Pages from `master` / `docs/`. It goes live on push; there is no other publish
+step.
 
 ## Files
 
 | File | |
 |---|---|
-| `build.py` | The generator. Reads the six Markdown files, writes `handbook.html`. |
+| `build.py` | The generator. Reads the six Markdown files, writes `../docs/index.html`. |
 | `template.html` | The design: CSS, the language switcher, the page shell. |
-| `handbook.html` | **Generated.** Fragment for the artifact host, which supplies its own document skeleton. |
-| `../docs/index.html` | **Generated.** Standalone document for GitHub Pages. |
 
-Neither output may be edited by hand; the next build overwrites both.
+The output is `docs/index.html`. **Never edit it by hand** — the next build
+overwrites it.
 
 ## Rebuilding
 
 From the repository root:
 
 ```bash
-make setup      # once: create .venv and install requirements.txt
-make build      # regenerate handbook.html if any source changed
+make setup      # once: create .venv, install requirements.txt, enable the hook
+make build      # regenerate docs/index.html if any source changed
 make rebuild    # regenerate unconditionally
-make check      # exit 1 if handbook.html is out of date
+make check      # exit 1 if docs/index.html is out of date
 ```
 
 Run `make build` after changing any of `HANDBOOK.md`, `WALKTHROUGHS.md`,
-`PROMPTS.md` or their `.cs.md` counterparts, then republish to the URL above.
-`make build` is dependency-driven, so it does nothing when everything is current.
+`PROMPTS.md` or their `.cs.md` counterparts, then commit and push. `make build`
+is dependency-driven, so it does nothing when everything is current.
 
-Without the Makefile, `python3 web/build.py` works too, provided `markdown-it-py`
-is installed.
+If the page needs something the Markdown cannot express, change `template.html`
+or `build.py` — never the output.
+
+Without the Makefile, `python3 web/build.py` works too, provided
+`markdown-it-py` is installed.
 
 ## The pre-commit hook
 
@@ -51,9 +50,6 @@ refuses the commit in two cases:
 
 Both messages name the fix. `git commit --no-verify` bypasses it for one commit;
 `git config --unset core.hooksPath` disables it entirely.
-
-If the page needs something the Markdown cannot express, change `template.html`
-or `build.py` — never the output.
 
 ## How the generator maps Markdown to the design
 
@@ -72,6 +68,10 @@ or `build.py` — never the output.
   keeps the reader on the same section even though the two trees use different
   anchor ids.
 - Czech ids are prefixed `cs-`, which is what keeps both trees on one page.
+- The document skeleton — doctype, `charset`, `viewport`, `color-scheme`,
+  `description` — is added around the rendered page. The head/body split keys off
+  the `<!--HEAD-END-->` marker in `template.html`, so editing the template cannot
+  silently move it.
 
 ## Constraints worth knowing
 
@@ -81,8 +81,8 @@ or `build.py` — never the output.
 - **Links that cannot resolve in a single page lose the link and keep the text.**
   `starter-kit/` renders as code-styled words. Links to a sibling document become
   in-page anchors.
-- Self-contained by necessity: the artifact host blocks every external request,
-  so no CDN fonts, scripts or images.
+- **Self-contained.** No external requests: no CDN fonts, scripts or images, so
+  the page works offline and has nothing that can break from the outside.
 
 ## Checking a build
 
@@ -90,7 +90,7 @@ or `build.py` — never the output.
 python3 - <<'PY'
 import re, collections
 from pathlib import Path
-h = Path('web/handbook.html').read_text(encoding='utf-8')
+h = Path('docs/index.html').read_text(encoding='utf-8')
 ids = re.findall(r'\sid="([^"]+)"', h)
 print("dup ids :", [k for k,v in collections.Counter(ids).items() if v>1] or "none")
 print("broken  :", [a for a in set(re.findall(r'href="#([^"]+)"',h)) if a not in ids] or "none")
