@@ -120,8 +120,14 @@ Bumping means all four in one commit: `VERSION`, both READMEs, and a rebuilt
 ### Always
 
 - Always make the change in Markdown first.
-- Always match the surrounding prose: em dashes, British spelling, short
-  paragraphs, concrete examples in place of abstraction.
+- Always match the surrounding prose: short paragraphs, concrete examples in
+  place of abstraction.
+- Always write English prose in Lukáš's voice, which is described in his separate
+  style project and comes down to: a spaced hyphen ` - ` and never an em dash,
+  American spelling with `behaviour` as the one exception, long and short
+  sentences alternating, no semicolons in long-form, and nothing oversold —
+  least of all the kit itself. Example files inside fenced blocks are a
+  different thing: they belong to the fictional company, not to him.
 - Always write **directory**, never *folder*. In Czech **adresář**, never
   *složka*. This applies to prose, prompts and code comments alike.
 - Always keep the fictional Lighthouse company in `starter-kit/` and the examples.

@@ -64,9 +64,9 @@ STANDALONE = """<!doctype html>
 # counterpart when the reader switches language.
 DOCS = {
     "en": [
-        ("handbook", "HANDBOOK.md", "Part one — Concepts"),
-        ("walkthroughs", "WALKTHROUGHS.md", "Part two — Walkthroughs"),
-        ("prompts", "PROMPTS.md", "Part three — Prompt sheet"),
+        ("handbook", "HANDBOOK.md", "Part one - Concepts"),
+        ("walkthroughs", "WALKTHROUGHS.md", "Part two - Walkthroughs"),
+        ("prompts", "PROMPTS.md", "Part three - Prompt sheet"),
     ],
     "cs": [
         ("handbook", "HANDBOOK.cs.md", "Část první — Koncepty"),
