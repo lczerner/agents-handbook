@@ -1,7 +1,8 @@
-# Build the published web version of the handbook from the Markdown sources.
+# Build the published versions of the handbook from the Markdown sources.
 #
 #   make setup    create the virtualenv and install dependencies
 #   make build    regenerate docs/index.html
+#   make pdf      regenerate the two PDF editions
 #
 # Run `make` on its own for the full list.
 
@@ -12,12 +13,13 @@ STAMP   := $(VENV)/.installed
 
 TARGET  := docs/index.html
 BUILDER := web/build.py web/template.html
+PDFS    := docs/working-with-ai-agents.pdf docs/prace-s-ai-agenty.pdf
 SOURCES := HANDBOOK.md HANDBOOK.cs.md \
            WALKTHROUGHS.md WALKTHROUGHS.cs.md \
            PROMPTS.md PROMPTS.cs.md
 
 .DEFAULT_GOAL := help
-.PHONY: help setup hooks build rebuild check clean
+.PHONY: help setup hooks build pdf rebuild check clean
 
 help:
 	@echo "Handbook build targets:"
@@ -25,11 +27,15 @@ help:
 	@echo "  make setup     create $(VENV), install dependencies, enable the git hook"
 	@echo "  make hooks     enable the pre-commit hook only"
 	@echo "  make build     regenerate $(TARGET) if any source changed"
-	@echo "  make rebuild   regenerate it unconditionally"
-	@echo "  make check     fail if $(TARGET) is out of date"
+	@echo "  make pdf       regenerate the two PDF editions in docs/"
+	@echo "  make rebuild   regenerate the page unconditionally"
+	@echo "  make check     fail if $(TARGET) is out of date, and say so"
+	@echo "                 if the PDFs are behind"
 	@echo "  make clean     remove $(VENV)"
 	@echo ""
 	@echo "$(TARGET) is the GitHub Pages site. Commit it; it goes live on push."
+	@echo "The PDFs sit beside it and are published the same way, but only when"
+	@echo "you run 'make pdf' — the page build leaves them alone."
 
 ## Create the virtualenv and install requirements. The stamp file means this
 ## reruns only when requirements.txt changes.
@@ -58,9 +64,20 @@ $(TARGET): $(STAMP) $(BUILDER) $(SOURCES)
 rebuild: $(STAMP)
 	$(PYTHON) web/build.py
 
-## Verify the committed page matches what the sources produce.
+## Regenerate the PDF editions. Deliberately not part of `build`: a new PDF is
+## a republication, not a side effect of editing a paragraph. It always runs —
+## the render takes a few seconds and produces the same bytes from the same
+## sources, so a needless run leaves nothing for git to see.
+pdf: $(STAMP)
+	$(PYTHON) web/pdf.py
+
+## Verify the committed page matches what the sources produce. The PDFs are
+## reported on but do not fail the check: they are published by hand, so being
+## behind is a state you choose, not an error.
 check: $(STAMP)
 	$(PYTHON) web/build.py --check
+	@$(PYTHON) web/pdf.py --check \
+	    || echo "note: run 'make pdf' when you want to publish them again"
 
 clean:
 	rm -rf $(VENV)

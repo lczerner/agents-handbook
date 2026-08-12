@@ -1,0 +1,342 @@
+/* The printed edition, used by web/pdf.py.
+ *
+ * This is a stylesheet of its own rather than a print block added to
+ * web/template.html: the two designs share the palette and the typographic
+ * voice, but nothing else. A page has a viewport, a scrollbar, a sticky
+ * navigation column and two colour schemes; a PDF has a fixed measure, a
+ * physical page, running heads and an outline.
+ *
+ * Only the classes the generator actually emits are styled here: masthead,
+ * part, num, say, block, scroll, language-bash, language-markdown.
+ */
+
+/* ---------- the page ---------- */
+@page {
+  size: A4;
+  /* The side margins are what set the measure: 210mm less 2×27mm leaves a
+     156mm column, about 78 characters at this size. */
+  margin: 20mm 27mm 18mm;
+
+  @top-left {
+    content: string(part);
+    font-family: var(--f-mono);
+    font-size: 7.5pt;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--faint);
+    padding-bottom: 4mm;
+  }
+  @top-right {
+    /* `first`, not `start`: the sections are a page or two each, so a page
+       where one begins is mostly that section, and naming the one that ended
+       in its first two lines would be misleading. */
+    content: string(section, first);
+    font-family: var(--f-mono);
+    font-size: 7.5pt;
+    color: var(--faint);
+    padding-bottom: 4mm;
+  }
+  @bottom-center {
+    content: counter(page);
+    font-family: var(--f-mono);
+    font-size: 8.5pt;
+    color: var(--muted);
+    padding-top: 6mm;
+  }
+}
+
+/* The cover carries the title; a running head repeating it would be noise. */
+@page :first {
+  @top-left { content: none }
+  @top-right { content: none }
+  @bottom-center { content: none }
+}
+
+/* Nor does the page a part opens on: the heading is right there, two lines
+   below where the running head would print the same words. */
+@page opener {
+  @top-left { content: none }
+  @top-right { content: none }
+}
+
+/* ---------- tokens: the light palette of the web edition ---------- */
+:root {
+  --ink:#191D1A;
+  --ink-2:#3D443F;
+  --muted:#666E68;
+  --faint:#8B948D;
+  --rule:#D3D9D2;
+  --rule-soft:#E3E7E1;
+  --surface:#FBFCFA;
+  --sunken:#F0F2EE;
+  --accent:#1E5C45;
+  --accent-wash:#E6F0EA;
+
+  --f-text: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+  --f-mono: "SF Mono", SFMono-Regular, Menlo, "DejaVu Sans Mono", monospace;
+}
+
+/* ---------- base ---------- */
+html {
+  font-family: var(--f-text);
+  font-size: 10.8pt;
+  line-height: 1.5;
+  color: var(--ink);
+  hyphens: auto;
+}
+body { margin: 0 }
+
+p { margin: 0 0 .62em; orphans: 2; widows: 2 }
+
+/* Headings, code and table cells are set to a measure, or in a language whose
+   compounds are long: none of them should be broken across a line. */
+h1, h2, h3, h4, h5, pre, code, th, td { hyphens: manual }
+
+a { color: var(--accent); text-decoration: underline; text-underline-offset: .12em }
+strong { font-weight: 600 }
+em { font-style: italic }
+
+ul, ol { margin: 0 0 .62em; padding-left: 1.3em }
+li { margin-bottom: .22em }
+li > ul, li > ol { margin-top: .22em; margin-bottom: 0 }
+
+hr { border: 0; border-top: .5pt solid var(--rule); margin: 1.4em 0 }
+
+/* ---------- cover ---------- */
+/* The height is the page area — A4 less the top and bottom margins — so the
+   colophon can sit on the foot of the page rather than trailing the title. */
+.cover { break-after: page; position: relative; height: 259mm }
+.cover .masthead {
+  border-bottom: 1.5pt solid var(--ink);
+  padding: 6.5cm 0 1.1cm;
+  margin-bottom: 1cm;
+}
+.cover .eyebrow {
+  font-family: var(--f-mono);
+  font-size: 8pt;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.4cm;
+}
+.cover h1 {
+  font-size: 30pt;
+  line-height: 1.08;
+  letter-spacing: -.015em;
+  font-weight: 600;
+  margin: 0 0 .35em;
+}
+.cover .masthead p { font-size: 13pt; color: var(--ink-2); margin: 0 }
+.cover .colophon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  font-family: var(--f-mono);
+  font-size: 8.5pt;
+  line-height: 1.9;
+  color: var(--faint);
+}
+.cover .colophon a { color: var(--faint); text-decoration: none }
+
+/* ---------- contents ---------- */
+.toc { break-after: page }
+.toc h1 {
+  font-size: 17pt;
+  font-weight: 600;
+  margin: 0 0 1em;
+  padding-bottom: .4em;
+  border-bottom: 1pt solid var(--ink);
+}
+.toc h2 {
+  font-family: var(--f-mono);
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin: 1.3em 0 .6em;
+  /* The outline is the reader's other contents page. It does not need the
+     groups of this one hanging under it. */
+  bookmark-level: none;
+}
+.toc h2:first-of-type { margin-top: 0 }
+.toc ol { list-style: none; margin: 0; padding: 0 }
+/* Both languages come to a little over thirty rows, which fits one page with
+   this spacing. Add sections and it will break to a second; loosen it and it
+   will break sooner. */
+.toc li { margin-bottom: .26em }
+.toc a {
+  color: var(--ink-2);
+  text-decoration: none;
+  /* The dotted rule is drawn by the leader; the page number is resolved after
+     layout, when the section's page is known. */
+  display: block;
+}
+.toc a b {
+  font-family: var(--f-mono);
+  font-size: .84em;
+  font-weight: 400;
+  color: var(--accent);
+  padding-right: .8em;
+}
+.toc a::after {
+  content: leader('.') target-counter(attr(href url), page);
+  font-family: var(--f-mono);
+  font-size: .84em;
+  color: var(--muted);
+}
+
+/* ---------- parts and sections ---------- */
+h2.part {
+  string-set: part content(text);
+  break-before: page;
+  page: opener;
+  font-family: var(--f-mono);
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--faint);
+  border-top: .5pt solid var(--rule);
+  padding-top: .8em;
+  margin: 0 0 2.4em;
+  bookmark-level: 1;
+}
+/* The first part opens the body, which the contents page has already broken
+   to; a second forced break would leave a blank page. */
+main > h2.part:first-child { break-before: avoid }
+
+section { break-before: auto }
+
+h3 {
+  font-size: 16pt;
+  line-height: 1.22;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  margin: 1.8em 0 .8em;
+  break-after: avoid;
+  bookmark-level: 2;
+}
+h3 .num {
+  font-family: var(--f-mono);
+  font-size: .68em;
+  font-weight: 500;
+  color: var(--accent);
+}
+/* The running head names the section the page is inside, so it is set from the
+   title alone — the number is already in the contents and the outline. */
+h3 > span:last-child { string-set: section content(text) }
+
+h4 {
+  font-size: 11.5pt;
+  font-weight: 600;
+  margin: 1.5em 0 .5em;
+  break-after: avoid;
+  bookmark-level: 3;
+}
+h5 {
+  font-family: var(--f-mono);
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.4em 0 .5em;
+  break-after: avoid;
+  /* h5 titles the asides — "Before you start", "Watch out". In the outline
+     those would bury the sections. */
+  bookmark-level: none;
+}
+
+/* ---------- code ---------- */
+code {
+  font-family: var(--f-mono);
+  font-size: .82em;
+  background: var(--sunken);
+  border: .4pt solid var(--rule-soft);
+  padding: .08em .25em;
+  overflow-wrap: break-word;
+}
+pre {
+  font-family: var(--f-mono);
+  font-size: 8.4pt;
+  line-height: 1.5;
+  background: var(--sunken);
+  border: .5pt solid var(--rule);
+  padding: 8pt 10pt;
+  margin: 0 0 .8em;
+  color: var(--ink-2);
+  /* Nothing scrolls on paper: long lines wrap where they must. */
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: inherit;
+  white-space: inherit;
+}
+
+/* ---------- devices ---------- */
+/* The prompts. They are short — the longest runs twelve lines — so keeping one
+   whole is worth the white space it sometimes leaves at a page foot. */
+.say {
+  border-left: 2pt solid var(--accent);
+  background: var(--accent-wash);
+  padding: 8pt 10pt 3pt;
+  margin: 0 0 .8em;
+  break-inside: avoid;
+}
+.say::before {
+  content: "TYPE THIS";
+  display: block;
+  font-family: var(--f-mono);
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: .16em;
+  color: var(--accent);
+  margin-bottom: .5em;
+}
+.say p { margin-bottom: .4em }
+
+.block {
+  border: .5pt solid var(--rule);
+  background: var(--surface);
+  padding: 9pt 10pt 4pt;
+  margin: 0 0 .8em;
+  break-inside: avoid;
+}
+.block h5 { margin-top: 0 }
+.block > :last-child { margin-bottom: 0 }
+
+/* ---------- tables ---------- */
+/* The wrapper exists so wide tables scroll on the page; here it is inert. */
+.scroll { overflow: visible; margin: 0 0 .8em }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9.2pt;
+  margin: 0 0 .8em;
+}
+.scroll table { margin: 0 }
+thead { display: table-header-group }
+tr { break-inside: avoid }
+th, td {
+  text-align: left;
+  padding: 4pt 8pt 4pt 0;
+  border-bottom: .4pt solid var(--rule-soft);
+  vertical-align: top;
+}
+th {
+  font-family: var(--f-mono);
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: .5pt solid var(--rule);
+}
+td code { overflow-wrap: break-word }
+tbody tr:last-child td { border-bottom: 0 }

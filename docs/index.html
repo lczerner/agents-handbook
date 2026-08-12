@@ -321,6 +321,11 @@ hr{border:0;border-top:1px solid var(--rule);margin:var(--s5) 0}
 }
 .pill:hover{color:var(--ink);border-color:var(--muted);text-decoration:none}
 .pill svg{width:13px;height:13px;fill:currentColor;flex:none}
+/* One PDF per language, so the link follows the language switch. It is a
+   block-level pill either way, which is why it cannot reuse .doc's rules. */
+.outlinks [data-pdf="cs"]{display:none}
+:root[data-doc-lang="cs"] .outlinks [data-pdf="cs"]{display:inline-flex}
+:root[data-doc-lang="cs"] .outlinks [data-pdf="en"]{display:none}
 .langswitch{display:inline-flex;border:1px solid var(--rule);background:var(--surface)}
 .langswitch button{
   font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
@@ -538,6 +543,12 @@ hr{border:0;border-top:1px solid var(--rule);margin:var(--s5) 0}
 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
 GitHub</a>
 <a class="pill" href="https://czerner.cz" target="_blank" rel="noopener noreferrer">czerner.cz</a>
+<a class="pill" data-pdf="en" href="working-with-ai-agents.pdf">
+<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8.5 1v8.19l2.72-2.72.78.78L8 11.25 4 7.25l.78-.78L7.5 9.19V1h1ZM2 12h12v1.5H2V12Z"/></svg>
+PDF</a>
+<a class="pill" data-pdf="cs" href="prace-s-ai-agenty.pdf">
+<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8.5 1v8.19l2.72-2.72.78.78L8 11.25 4 7.25l.78-.78L7.5 9.19V1h1ZM2 12h12v1.5H2V12Z"/></svg>
+PDF</a>
 </div>
 
 <div class="langswitch" role="group" aria-label="Language / Jazyk">
@@ -594,7 +605,7 @@ GitHub</a>
 </section>
 
 <section id="1-the-one-idea" data-sec="handbook-2">
-<h3><span class="num">01</span><span>The one idea that makes everything else make sense</span></h3>
+<h3><span class="num">01</span> <span>The one idea that makes everything else make sense</span></h3>
 <p>Imagine you hire a colleague who is fast, tireless, well-read, willing to do anything you ask — and who <strong>loses their entire memory every evening</strong>.</p>
 <p>Every morning they arrive knowing nothing about your company, your brands, your tone of voice, what you decided last week, or what they themselves did yesterday. But they will read absolutely everything you leave on the desk before they start.</p>
 <p>That is exactly what an agent is. Every new session starts from zero.</p>
@@ -640,7 +651,7 @@ GitHub</a>
 </section>
 
 <section id="2-the-five-things-you-give-an-agent" data-sec="handbook-3">
-<h3><span class="num">02</span><span>The five things you give an agent</span></h3>
+<h3><span class="num">02</span> <span>The five things you give an agent</span></h3>
 <p>Everything you will ever set up falls into one of five buckets. Learn these five names and you can stop guessing.</p>
 <p><strong>1. Rules — <code>AGENTS.md</code></strong>
 Loaded every session, no exceptions. Short. This is who we are, what we never do, and how work gets done here. <em>Section 4.</em></p>
@@ -665,7 +676,7 @@ PROGRESS.md = this project's logbook
 </section>
 
 <section id="3-your-workspace" data-sec="handbook-4">
-<h3><span class="num">03</span><span>Your workspace</span></h3>
+<h3><span class="num">03</span> <span>Your workspace</span></h3>
 <p>A workspace is just a directory on your computer. You open a terminal in it and start the agent there. Everything the agent does happens inside it.</p>
 <p>Here is a layout that works for a content and campaigns team. Copy it, then delete what you don't need.</p>
 <pre><code>my-content-workspace/
@@ -710,7 +721,7 @@ PROGRESS.md = this project's logbook
 </section>
 
 <section id="4-agentsmd--the-house-rules" data-sec="handbook-5">
-<h3><span class="num">04</span><span>AGENTS.md — the house rules</span></h3>
+<h3><span class="num">04</span> <span>AGENTS.md — the house rules</span></h3>
 <p><code>AGENTS.md</code> is a plain text file (Markdown) in the root of your workspace. Every supported agent reads it at the start of every session, before it does anything else. It is the single highest-leverage file you will ever write.</p>
 <p>There is no required format. No special syntax. No fields you must fill in. It's a memo to a new colleague. Headings and bullet points, because those are easier to follow than paragraphs — for the agent as much as for a human.</p>
 <div class="block">
@@ -858,7 +869,7 @@ show me a draft AGENTS.md and I'll correct it.</p>
 </section>
 
 <section id="5-plans-phases-and-progress" data-sec="handbook-6">
-<h3><span class="num">05</span><span>Plans, phases, and progress</span></h3>
+<h3><span class="num">05</span> <span>Plans, phases, and progress</span></h3>
 <h4>5.1 The problem</h4>
 <p>Ask an agent for something big — &quot;plan our Q4 launch campaign&quot; — and one of two things happens.</p>
 <p>Either it produces a shallow, generic version of everything at once, because it tried to hold the entire job in its head. Or it starts well, works for twenty minutes, and then quietly loses the thread: it forgets a decision you made earlier, contradicts its own outline, repeats a section.</p>
@@ -944,7 +955,7 @@ Write it so someone who wasn't here today could pick it up cold.</p>
 </section>
 
 <section id="6-the-knowledge-base" data-sec="handbook-7">
-<h3><span class="num">06</span><span>The knowledge base</span></h3>
+<h3><span class="num">06</span> <span>The knowledge base</span></h3>
 <p><code>AGENTS.md</code> is what the agent reads <em>every</em> time, so it has to stay short. The knowledge base is everything else — read only when relevant. This is where you can be generous with detail.</p>
 <p>Four categories.</p>
 <h4>6.1 Channels — one file per place you publish</h4>
@@ -1143,7 +1154,7 @@ Read the file that matches your task. Don't read everything.
 </section>
 
 <section id="7-skills--teaching-it-your-procedures" data-sec="handbook-8">
-<h3><span class="num">07</span><span>Skills — teaching it your procedures</span></h3>
+<h3><span class="num">07</span> <span>Skills — teaching it your procedures</span></h3>
 <h4>7.1 What a skill is</h4>
 <p>A skill is a directory containing a file called <code>SKILL.md</code>. Inside is a step-by-step procedure for one kind of task, written in plain language.</p>
 <p>The clever part is <strong>how it loads</strong>. At startup the agent reads only the <em>name and description</em> of each skill — a couple of lines each, costing almost nothing. When your request matches a description, it opens the full file and follows it. Everything else stays on the shelf.</p>
@@ -1292,7 +1303,7 @@ Then tell me: what's done, where it is, what you need from me.
 </section>
 
 <section id="8-mcp--giving-it-reach-into-other-systems" data-sec="handbook-9">
-<h3><span class="num">08</span><span>MCP — giving it reach into other systems</span></h3>
+<h3><span class="num">08</span> <span>MCP — giving it reach into other systems</span></h3>
 <h4>8.1 What it is</h4>
 <p>By default the agent can only see the directory it's running in, plus the web. <strong>MCP</strong> (Model Context Protocol) is the standard that lets it reach into other systems: Google Drive, WebOps, Slack, your CMS, your analytics, your project tracker.</p>
 <p>You install a small connector called an <strong>MCP server</strong> — one per system — and the agent gains a set of new abilities: <em>search Drive, read this WebOps page, post to this Slack channel, pull last month's GA4 numbers.</em></p>
@@ -1369,7 +1380,7 @@ Then tell me: what's done, where it is, what you need from me.
 </section>
 
 <section id="9-where-does-this-belong" data-sec="handbook-10">
-<h3><span class="num">09</span><span>Where does this belong?</span></h3>
+<h3><span class="num">09</span> <span>Where does this belong?</span></h3>
 <p>The question you'll ask most often. Print this table.</p>
 <div class="scroll"><table>
 <thead>
@@ -1434,7 +1445,7 @@ Then tell me: what's done, where it is, what you need from me.
 </section>
 
 <section id="10-talking-to-it-day-to-day" data-sec="handbook-11">
-<h3><span class="num">10</span><span>Talking to it, day to day</span></h3>
+<h3><span class="num">10</span> <span>Talking to it, day to day</span></h3>
 <p>The setup does most of the work. But how you phrase a request still matters. Nine habits, roughly in order of impact.</p>
 <p><strong>1. Ask for a plan before the work.</strong> For anything non-trivial: <em>&quot;Plan this first. Don't write anything yet.&quot;</em> The plan is cheap to fix; a finished draft built on the wrong plan is not.</p>
 <p><strong>2. Point at the files.</strong> <em>&quot;Read <code>knowledge/channels/linkedin.md</code> and <code>knowledge/voice/house-voice.md</code> first.&quot;</em> The agent usually finds them itself, but naming them is free and removes all doubt.</p>
@@ -1451,7 +1462,7 @@ Then tell me: what's done, where it is, what you need from me.
 </section>
 
 <section id="11-when-things-go-wrong" data-sec="handbook-12">
-<h3><span class="num">11</span><span>When things go wrong</span></h3>
+<h3><span class="num">11</span> <span>When things go wrong</span></h3>
 <div class="scroll"><table>
 <thead>
 <tr>
@@ -1523,7 +1534,7 @@ Then tell me: what's done, where it is, what you need from me.
 </section>
 
 <section id="12-rolling-this-out-to-a-team" data-sec="handbook-13">
-<h3><span class="num">12</span><span>Rolling this out to a team</span></h3>
+<h3><span class="num">12</span> <span>Rolling this out to a team</span></h3>
 <p><strong>Week 1 — one person, one workspace.</strong> One person sets up <code>AGENTS.md</code>, two channel files, and one voice file. They use it for real work for a week. Nothing else. Resist building the whole system before you know which parts you need.</p>
 <p><strong>Week 2 — the first skill.</strong> Take the task you did most often last week and turn it into a skill. Do the task with the agent, then ask it to write the skill from what you just did together.</p>
 <p><strong>Week 3 — bring in the team.</strong> Share the workspace. Everyone uses the same <code>AGENTS.md</code>. Book 30 minutes at the end of the week: what did it get wrong, and which file should have prevented it? Edit the files together. This meeting is the whole rollout — it's where the system actually gets built.</p>
@@ -1539,7 +1550,7 @@ Then tell me: what's done, where it is, what you need from me.
 </section>
 
 <section id="appendix-a--which-file-does-my-tool-read" data-sec="handbook-14">
-<h3><span class="num">A</span><span>Which file does my tool read?</span></h3>
+<h3><span class="num">A</span> <span>Which file does my tool read?</span></h3>
 <p>All four tools work with the same workspace. They differ in file names and directory locations. <em>(Checked August 2026; these things move — if something doesn't load, check your tool's current docs.)</em></p>
 <h4>Instruction file</h4>
 <div class="scroll"><table>
@@ -1643,7 +1654,7 @@ Then tell me: what's done, where it is, what you need from me.
 </section>
 
 <section id="appendix-b--glossary" data-sec="handbook-15">
-<h3><span class="num">B</span><span>Glossary</span></h3>
+<h3><span class="num">B</span> <span>Glossary</span></h3>
 <p><strong>Agent</strong> — an AI that runs in a directory on your computer and can read, write and edit files and use tools, rather than only chatting.</p>
 <p><strong>AGENTS.md</strong> — the instructions file every agent reads at the start of every session. The open standard for this; Claude Code uses <code>CLAUDE.md</code> instead.</p>
 <p><strong>Context window</strong> — how much the agent can hold in mind at once. The desk surface. Finite, and the reason long jobs need a logbook.</p>
@@ -1733,7 +1744,7 @@ Then tell me: what's done, where it is, what you need from me.
 </section>
 
 <section id="walkthrough-1--set-up-your-workspace" data-sec="walkthroughs-1">
-<h3><span class="num">W1</span><span>Set up your workspace</span></h3>
+<h3><span class="num">W1</span> <span>Set up your workspace</span></h3>
 <p><strong>Goal:</strong> a directory with house rules the agent follows, and enough knowledge to write something that sounds like you.
 <strong>Time:</strong> about 45 minutes.</p>
 <h4>Step 1 — Make the directory</h4>
@@ -1821,7 +1832,7 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 </section>
 
 <section id="walkthrough-2--write-an-article" data-sec="walkthroughs-2">
-<h3><span class="num">W2</span><span>Write an article</span></h3>
+<h3><span class="num">W2</span> <span>Write an article</span></h3>
 <p><strong>Goal:</strong> a publish-ready draft, produced in phases with you as the editor at each gate.
 <strong>Time:</strong> about 90 minutes.
 <strong>Needs:</strong> Walkthrough 1 finished.</p>
@@ -1891,7 +1902,7 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 </section>
 
 <section id="walkthrough-3--plan-a-media-campaign" data-sec="walkthroughs-3">
-<h3><span class="num">W3</span><span>Plan a media campaign</span></h3>
+<h3><span class="num">W3</span> <span>Plan a media campaign</span></h3>
 <p><strong>Goal:</strong> a full multi-channel campaign plan, built across three separate sessions, proving the plan/phase/logbook system.
 <strong>Time:</strong> three sessions of ~45 minutes, ideally on different days.
 <strong>Needs:</strong> Walkthroughs 1–2.</p>
@@ -1961,7 +1972,7 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 </section>
 
 <section id="walkthrough-4--turn-a-repeated-task-into-a-skill" data-sec="walkthroughs-4">
-<h3><span class="num">W4</span><span>Turn a repeated task into a skill</span></h3>
+<h3><span class="num">W4</span> <span>Turn a repeated task into a skill</span></h3>
 <p><strong>Goal:</strong> the process from Walkthrough 2 becomes something you invoke with one word, that works identically for everyone on the team.
 <strong>Time:</strong> 30 minutes.
 <strong>Needs:</strong> Walkthrough 2 — you need to have done the task manually once.</p>
@@ -2336,7 +2347,7 @@ Projděte je po přečtení sekcí 1–8.</li>
 </section>
 
 <section id="cs-1-jedna-myšlenka" data-sec="handbook-2">
-<h3><span class="num">01</span><span>Jedna myšlenka, díky které dává všechno ostatní smysl</span></h3>
+<h3><span class="num">01</span> <span>Jedna myšlenka, díky které dává všechno ostatní smysl</span></h3>
 <p>Představte si, že přijmete kolegu, který je rychlý, neúnavný, sečtělý, ochotný
 udělat cokoli — a který <strong>každý večer ztratí veškerou paměť</strong>.</p>
 <p>Každé ráno přijde a neví nic o vaší firmě, vašich značkách, vašem stylu, o tom, co
@@ -2395,7 +2406,7 @@ sekce 5 je o tom, jak to obejít.</p>
 </section>
 
 <section id="cs-2-pět-věcí" data-sec="handbook-3">
-<h3><span class="num">02</span><span>Pět věcí, které agentovi dáváte</span></h3>
+<h3><span class="num">02</span> <span>Pět věcí, které agentovi dáváte</span></h3>
 <p>Všechno, co kdy budete nastavovat, patří do jedné z pěti skupin. Zapamatujte si
 jejich názvy a přestanete tápat.</p>
 <p><strong>1. Pravidla — <code>AGENTS.md</code></strong> Načítá se na začátku každého nového sezení, bez
@@ -2429,7 +2440,7 @@ konkrétní nedostatek, který každý z nich řeší.</p>
 </section>
 
 <section id="cs-3-váš-workspace" data-sec="handbook-4">
-<h3><span class="num">03</span><span>Váš workspace</span></h3>
+<h3><span class="num">03</span> <span>Váš workspace</span></h3>
 <p>Workspace je prostě adresář na vašem počítači. Otevřete v něm terminál a spusťte
 tam agenta. Všechno, co agent dělá, se odehrává v něm.</p>
 <p>Tady je rozvržení, které funguje pro obsahový a marketingový tým. Zkopírujte si ho
@@ -2484,7 +2495,7 @@ adresáře.</p>
 </section>
 
 <section id="cs-4-agentsmd" data-sec="handbook-5">
-<h3><span class="num">04</span><span>AGENTS.md — pravidla</span></h3>
+<h3><span class="num">04</span> <span>AGENTS.md — pravidla</span></h3>
 <p><code>AGENTS.md</code> je obyčejný textový soubor (Markdown) v kořeni vašeho workspace. Každý
 podporovaný agent si ho přečte na začátku každého sezení, dřív než cokoli udělá.
 Žádný jiný soubor neovlivní výsledek projektu tolik jako tenhle.</p>
@@ -2668,7 +2679,7 @@ prázdného dokumentu. Pak ho upravte ručně — je váš, ne agentův.</p>
 </section>
 
 <section id="cs-5-plány-fáze-progress" data-sec="handbook-6">
-<h3><span class="num">05</span><span>Plány, fáze a progress</span></h3>
+<h3><span class="num">05</span> <span>Plány, fáze a progress</span></h3>
 <h4>5.1 Problém</h4>
 <p>Zadejte agentovi něco velkého — „naplánuj nám kampaň na Q4&quot; — a stane se jedna
 ze dvou věcí.</p>
@@ -2776,7 +2787,7 @@ pamatovat si dlouhou konverzaci.</p>
 </section>
 
 <section id="cs-6-knowledge-base" data-sec="handbook-7">
-<h3><span class="num">06</span><span>Knowledge base</span></h3>
+<h3><span class="num">06</span> <span>Knowledge base</span></h3>
 <p><code>AGENTS.md</code> je to, co agent čte <em>pokaždé</em>, takže musí zůstat krátký. Knowledge
 base je všechno ostatní — čte se jen tehdy, když je to relevantní. Tady si
 můžete dovolit být podrobní.</p>
@@ -3004,7 +3015,7 @@ udělejte si z toho zvyk. Když je něco předběžné, napište to do souboru:
 </section>
 
 <section id="cs-7-skills" data-sec="handbook-8">
-<h3><span class="num">07</span><span>Skills — jak ho naučit vaše postupy</span></h3>
+<h3><span class="num">07</span> <span>Skills — jak ho naučit vaše postupy</span></h3>
 <h4>7.1 Co je skill</h4>
 <p>Skill je adresář obsahující soubor <code>SKILL.md</code>. Uvnitř je postup krok za krokem
 pro jeden typ práce, napsaný běžným jazykem.</p>
@@ -3197,7 +3208,7 @@ I made along the way.&quot;</em></p>
 </section>
 
 <section id="cs-8-mcp" data-sec="handbook-9">
-<h3><span class="num">08</span><span>MCP — dosah do dalších systémů</span></h3>
+<h3><span class="num">08</span> <span>MCP — dosah do dalších systémů</span></h3>
 <h4>8.1 Co to je</h4>
 <p>Ve výchozím stavu vidí agent jen adresář, ve kterém běží, plus web. <strong>MCP</strong>
 (Model Context Protocol) je standard, který mu umožní sáhnout do dalších
@@ -3307,7 +3318,7 @@ další.</p>
 </section>
 
 <section id="cs-9-kam-to-patří" data-sec="handbook-10">
-<h3><span class="num">09</span><span>Kam co patří?</span></h3>
+<h3><span class="num">09</span> <span>Kam co patří?</span></h3>
 <p>Otázka, kterou si budete klást nejčastěji. Tuhle tabulku si vytiskněte.</p>
 <div class="scroll"><table>
 <thead>
@@ -3375,7 +3386,7 @@ odkaz.</p>
 </section>
 
 <section id="cs-10-každodenní-práce" data-sec="handbook-11">
-<h3><span class="num">10</span><span>Každodenní práce s agentem</span></h3>
+<h3><span class="num">10</span> <span>Každodenní práce s agentem</span></h3>
 <p>Většinu práce odvede nastavení. Ale na formulaci požadavku pořád záleží. Devět
 návyků, zhruba podle míry dopadu.</p>
 <p><strong>1. Před prací si vyžádejte plán.</strong> U čehokoli netriviálního: <em>„Plan this
@@ -3417,7 +3428,7 @@ nejdřív.</p>
 </section>
 
 <section id="cs-11-když-se-něco-pokazí" data-sec="handbook-12">
-<h3><span class="num">11</span><span>Když se něco pokazí</span></h3>
+<h3><span class="num">11</span> <span>Když se něco pokazí</span></h3>
 <div class="scroll"><table>
 <thead>
 <tr>
@@ -3492,7 +3503,7 @@ z odpovědi zjistíte, co přepsat.</p>
 </section>
 
 <section id="cs-12-zavedení-v-týmu" data-sec="handbook-13">
-<h3><span class="num">12</span><span>Zavedení v týmu</span></h3>
+<h3><span class="num">12</span> <span>Zavedení v týmu</span></h3>
 <p><strong>Týden 1 — jeden člověk, jeden workspace.</strong> Jeden člověk nastaví <code>AGENTS.md</code>, dva
 channel soubory a jeden voice soubor. Týden s tím dělá reálnou práci. Nic dalšího.
 Odolejte tomu stavět celý systém dřív, než víte, které části potřebujete.</p>
@@ -3520,7 +3531,7 @@ je taky knowledge soubor.</li>
 </section>
 
 <section id="cs-příloha-a--který-soubor-čte-můj-nástroj" data-sec="handbook-14">
-<h3><span class="num">A</span><span>Který soubor čte můj nástroj?</span></h3>
+<h3><span class="num">A</span> <span>Který soubor čte můj nástroj?</span></h3>
 <p>Všechny čtyři nástroje pracují se stejným workspace. Liší se v názvech souborů a
 umístění adresářů. <em>(Ověřeno v srpnu 2026; tyhle věci se mění — když se něco
 nenačte, podívejte se do aktuální dokumentace svého nástroje.)</em></p>
@@ -3635,7 +3646,7 @@ v Codexu. Nebo neřeknete nic a necháte to spustit popisem.</p>
 </section>
 
 <section id="cs-příloha-b--slovníček" data-sec="handbook-15">
-<h3><span class="num">B</span><span>Slovníček</span></h3>
+<h3><span class="num">B</span> <span>Slovníček</span></h3>
 <p>Termíny zůstávají anglicky — jsou to slova, na která narazíte v dokumentaci
 i v samotných nástrojích.</p>
 <p><strong>Agent</strong> — AI, která běží v adresáři na vašem počítači a umí číst, psát a
@@ -3782,7 +3793,7 @@ prvního walkthrough.</p>
 </section>
 
 <section id="cs-walkthrough-1--nastavení-workspace" data-sec="walkthroughs-1">
-<h3><span class="num">W1</span><span>Nastavení workspace</span></h3>
+<h3><span class="num">W1</span> <span>Nastavení workspace</span></h3>
 <p><strong>Cíl:</strong> adresář s pravidly, který agent dodržuje, a dost znalostí na to,
 aby napsal něco, co zní jako vy.
 <strong>Čas:</strong> zhruba 45 minut.</p>
@@ -3901,7 +3912,7 @@ jste agenta dodržet pravidlo, které jste napsali.</p>
 </section>
 
 <section id="cs-walkthrough-2--napsat-článek" data-sec="walkthroughs-2">
-<h3><span class="num">W2</span><span>Napsat článek</span></h3>
+<h3><span class="num">W2</span> <span>Napsat článek</span></h3>
 <p><strong>Cíl:</strong> draft připravený k publikaci, vytvořený po fázích, kde jste v každém kroku
 editorem vy.
 <strong>Čas:</strong> zhruba 90 minut.
@@ -3983,7 +3994,7 @@ jedno pravidlo přibylo do některého souboru kvůli tomu, co se dnes pokazilo.
 </section>
 
 <section id="cs-walkthrough-3--naplánovat-mediální-kampaň" data-sec="walkthroughs-3">
-<h3><span class="num">W3</span><span>Naplánovat mediální kampaň</span></h3>
+<h3><span class="num">W3</span> <span>Naplánovat mediální kampaň</span></h3>
 <p><strong>Cíl:</strong> kompletní multikanálový plán kampaně, postavený ve třech oddělených
 sezeních, který ověří systém plán / fáze / deník.
 <strong>Čas:</strong> tři sezení po ~45 minutách, ideálně v různé dny.
@@ -4061,7 +4072,7 @@ pořád s deníkem na konci každé.</p>
 </section>
 
 <section id="cs-walkthrough-4--udělat-z-opakované-práce-skill" data-sec="walkthroughs-4">
-<h3><span class="num">W4</span><span>Udělat z opakované práce skill</span></h3>
+<h3><span class="num">W4</span> <span>Udělat z opakované práce skill</span></h3>
 <p><strong>Cíl:</strong> postup z Walkthroughu 2 se změní v něco, co spustíte jedním slovem a co
 funguje stejně všem v týmu.
 <strong>Čas:</strong> 30 minut.

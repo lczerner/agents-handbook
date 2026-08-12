@@ -1,3 +1,5 @@
-# Dependencies for web/build.py, which generates web/handbook.html.
-# Pinned so the same Markdown always produces the same page.
+# Dependencies for the generators: web/build.py, which writes docs/index.html,
+# and web/pdf.py, which writes the two PDF editions beside it.
+# Pinned so the same Markdown always produces the same page and the same bytes.
 markdown-it-py==4.2.0
+weasyprint==69.0

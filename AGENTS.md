@@ -39,9 +39,14 @@ They read it and refer back to it. Lukáš is the only person who edits the repo
 - `starter-kit/` — a complete example workspace for a fictional company,
   Lighthouse. People copy it and replace the content.
 - `web/build.py` — the generator. `web/template.html` holds the design.
+- `web/pdf.py` — the PDF generator. It reuses `build.py`'s rendering and puts it
+  in a printed shell; `web/print.css` holds that design.
 - `docs/index.html` — **generated. Never edit it by hand.** The published site,
   https://lczerner.github.io/agents-handbook/, served from `master` / `/docs`.
   It goes live on push; there is no separate publish step.
+- `docs/working-with-ai-agents.pdf` / `docs/prace-s-ai-agenty.pdf` — **generated.**
+  The same three documents as the page, one PDF per language, published from the
+  same directory and linked from the page.
 - `notes` — Lukáš's, untracked. Do not read, edit or commit it.
 
 **The Markdown files are the source of truth.** After changing any of the six
@@ -50,12 +55,17 @@ source documents, regenerate:
 ```bash
 make setup    # once: create .venv, install dependencies, enable the git hook
 make build    # regenerate docs/index.html
-make check    # fail if it is out of date
+make check    # fail if it is out of date, and say if the PDFs are behind
+make pdf      # regenerate the two PDFs — a republication, so only when asked
 ```
+
+The page is rebuilt with every change; the PDFs are not. Run `make pdf` when
+Lukáš asks for a new edition, not because a paragraph moved.
 
 A pre-commit hook in `.githooks/` blocks a commit that changes a source document
 without staging the rebuilt page. If it fires, run `make build` and stage
-`docs/index.html` — don't reach for `--no-verify`.
+`docs/index.html` — don't reach for `--no-verify`. The same hook mentions PDFs
+that have fallen behind, but never blocks on them.
 
 Any hand edit to the generated file is destroyed by the next build. If the page
 needs something the Markdown cannot express, change `web/template.html` or the

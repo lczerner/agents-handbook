@@ -1,6 +1,7 @@
 #!/bin/sh
 # Refuse a commit that would leave the generated page out of step with the
-# Markdown it is built from.
+# Markdown it is built from. The PDF editions are only mentioned, never
+# refused: they are published by hand.
 #
 # Enabled by `make hooks`, which points core.hooksPath at .githooks/ so the
 # hook is versioned with the repo instead of living only in one clone.
@@ -11,6 +12,8 @@ set -u
 cd "$(git rev-parse --show-toplevel)" || exit 1
 
 PAGES="docs/index.html"
+PDFS="docs/working-with-ai-agents.pdf
+docs/prace-s-ai-agenty.pdf"
 SOURCES="HANDBOOK.md
 HANDBOOK.cs.md
 WALKTHROUGHS.md
@@ -18,11 +21,13 @@ WALKTHROUGHS.cs.md
 PROMPTS.md
 PROMPTS.cs.md
 web/template.html
-web/build.py"
+web/build.py
+web/print.css
+web/pdf.py"
 
 staged=$(git diff --cached --name-only --diff-filter=ACMR)
 
-# Only look when this commit touches something the page is built from.
+# Only look when this commit touches something one of the builds reads.
 touched=0
 for f in $SOURCES; do
     if printf '%s\n' "$staged" | grep -qxF "$f"; then
@@ -56,6 +61,21 @@ for page in $PAGES; do
         echo "            git add $page" >&2
         exit 1
     fi
+done
+
+# 3. The PDFs are published by hand, so this only says they have fallen behind.
+#    The comparison is by modification time rather than by rebuilding them:
+#    it costs nothing, and the commit goes through either way. `make check`
+#    is the one that compares the bytes.
+for pdf in $PDFS; do
+    [ -f "$pdf" ] || continue
+    for src in $SOURCES; do
+        if [ "$src" -nt "$pdf" ]; then
+            echo "pre-commit: the PDF editions are older than the sources." >&2
+            echo "            Run 'make pdf' when you next want to publish them." >&2
+            exit 0
+        fi
+    done
 done
 
 exit 0

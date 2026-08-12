@@ -283,10 +283,18 @@ def fix_links(out: str, lang: str) -> str:
     return out
 
 
-def build_lang(lang: str) -> tuple[str, str]:
+def build_lang(lang: str) -> tuple[str, str, list[tuple[str, str, str, str]]]:
+    """Render one language.
+
+    Returns the page content, the navigation column, and the contents as
+    (group, id, number, title) rows — the same list the navigation is built
+    from, handed over unformatted so web/pdf.py can set it as a printed table
+    of contents instead.
+    """
     prefix = "cs-" if lang == "cs" else ""
     content: list[str] = []
     nav: dict[str, list[str]] = {}
+    toc: list[tuple[str, str, str, str]] = []
     seen: set[str] = set()
     masthead_done = False
 
@@ -318,7 +326,11 @@ def build_lang(lang: str) -> tuple[str, str]:
             seen.add(ident)
 
             num, title = split_number(heading)
-            num_html = f'<span class="num">{html.escape(num)}</span>' if num else ""
+            # The trailing space is for the PDF: it is what separates the two
+            # runs in the outline entry and the running head, both of which read
+            # the heading as plain text. The web page lays the heading out as a
+            # grid, where whitespace between items is not rendered.
+            num_html = f'<span class="num">{html.escape(num)}</span> ' if num else ""
             content.append(
                 f'<section id="{ident}" data-sec="{sec}">\n'
                 f"<h3>{num_html}<span>{inline(title)}</span></h3>\n"
@@ -328,8 +340,9 @@ def build_lang(lang: str) -> tuple[str, str]:
                 f'<li><a href="#{ident}"><b>{html.escape(num or "·")}</b>'
                 f"<span>{inline(title)}</span></a></li>"
             )
+            toc.append((NAV_GROUPS[lang][key], ident, num, inline(title)))
 
-    return "\n\n".join(content), render_nav(lang, nav)
+    return "\n\n".join(content), render_nav(lang, nav), toc
 
 
 def inline(text: str) -> str:
@@ -367,7 +380,7 @@ def build() -> str:
     template = TEMPLATE.read_text(encoding="utf-8")
     navs, docs = [], []
     for lang in ("en", "cs"):
-        content, nav = build_lang(lang)
+        content, nav, _toc = build_lang(lang)
         navs.append(nav)
         docs.append(
             f'<div class="doc" data-lang="{lang}"'
