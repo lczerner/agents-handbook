@@ -119,6 +119,9 @@ hr { border: 0; border-top: .5pt solid var(--rule); margin: 1.4em 0 }
   color: var(--accent);
   margin: 0 0 1.4cm;
 }
+/* The edition number sits beside the eyebrow; it is a version, not a word, so
+   it keeps its lowercase v. */
+.cover .eyebrow .ver { text-transform: none; color: var(--faint) }
 .cover h1 {
   font-size: 30pt;
   line-height: 1.08;

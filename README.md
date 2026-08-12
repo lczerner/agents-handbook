@@ -2,6 +2,9 @@
 
 ### A training kit for people who don't write code
 
+**Version 0.1.2** — the published page and the PDF editions carry the same
+number, so you can tell whether the copy you are reading is the current one.
+
 This kit teaches a marketing, content or operations team how to use an AI agent —
 **Claude Code, OpenAI Codex CLI, opencode, or pi** — for writing, planning,
 research and campaign work.

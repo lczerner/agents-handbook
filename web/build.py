@@ -33,6 +33,15 @@ DESCRIPTION = (
     "write code, in English and Czech."
 )
 
+# The version of the kit, written in one place. The page masthead and the PDF
+# covers take it from here, so a reader can tell which edition they are holding.
+# Bumping it is a decision, never a side effect of an edit: see AGENTS.md.
+VERSION = "0.1.2"
+
+# Where the two READMEs state the same number in prose, which is the one copy
+# that can quietly fall behind.
+README_VERSION = re.compile(r"\*\*(?:Version|Verze)\s+(\d+\.\d+\.\d+)\*\*")
+
 # Without the viewport meta a phone renders the desktop layout zoomed out;
 # without the charset the page depends on the server sending one.
 STANDALONE = """<!doctype html>
@@ -92,6 +101,26 @@ md = MarkdownIt("commonmark", {"html": False}).enable("table").enable("strikethr
 # contents that go into their own files. An untagged fence is a directory tree
 # or a sample of the agent's output, and gets no copy button.
 COPY_FENCES = ("bash", "markdown")
+
+
+def version() -> str:
+    """VERSION, once the READMEs have been checked to agree with it.
+
+    Three files tell the reader which edition this is: the page, the PDF covers
+    and the two READMEs. The first two are generated from the constant above;
+    the READMEs say it in prose, and a bump that misses them would publish two
+    different answers to the same question. So stop instead.
+    """
+    for name in ("README.md", "README.cs.md"):
+        m = README_VERSION.search((ROOT / name).read_text(encoding="utf-8"))
+        if not m:
+            raise SystemExit(f"{name} states no version; it needs **Version {VERSION}**")
+        if m.group(1) != VERSION:
+            raise SystemExit(
+                f"{name} says {m.group(1)}, web/build.py says {VERSION}; "
+                "bump both or neither"
+            )
+    return VERSION
 
 
 def slugify(text: str) -> str:
@@ -297,6 +326,7 @@ def build_lang(lang: str) -> tuple[str, str, list[tuple[str, str, str, str]]]:
     toc: list[tuple[str, str, str, str]] = []
     seen: set[str] = set()
     masthead_done = False
+    ver = version()
 
     for key, filename, part_title in DOCS[lang]:
         source = strip_comments((ROOT / filename).read_text(encoding="utf-8"))
@@ -312,7 +342,7 @@ def build_lang(lang: str) -> tuple[str, str, list[tuple[str, str, str, str]]]:
                 sub_m = re.search(r"^###\s+(.*)$", body, re.M)
                 intro = re.sub(r"^#\s+.*$|^###\s+.*$", "", body, flags=re.M)
                 if not masthead_done:
-                    content.insert(0, masthead(lang, title_m, sub_m))
+                    content.insert(0, masthead(lang, ver, title_m, sub_m))
                     masthead_done = True
                 rendered = render_body(intro, lang)
                 if rendered:
@@ -350,12 +380,16 @@ def inline(text: str) -> str:
     return md.renderInline(text)
 
 
-def masthead(lang: str, title_m: re.Match | None, sub_m: re.Match | None) -> str:
+def masthead(lang: str, ver: str, title_m: re.Match | None, sub_m: re.Match | None) -> str:
     eyebrow = "Team handbook" if lang == "en" else "Týmová příručka"
     title = inline(title_m.group(1)) if title_m else "Handbook"
     sub = inline(sub_m.group(1)) if sub_m else ""
+    # The version rides in the eyebrow, so it is the first thing on the page and
+    # on the PDF cover without taking a line of its own. The span keeps it out
+    # of the uppercasing the rest of the eyebrow gets: v0.1.2, not V0.1.2.
     return (
-        f'<header class="masthead">\n<p class="eyebrow">{eyebrow}</p>\n'
+        f'<header class="masthead">\n'
+        f'<p class="eyebrow">{eyebrow} · <span class="ver">v{html.escape(ver)}</span></p>\n'
         f"<h1>{title}</h1>\n<p>{sub}</p>\n</header>"
     )
 
