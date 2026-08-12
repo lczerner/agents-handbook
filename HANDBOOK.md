@@ -588,7 +588,7 @@ Write one of these for each channel. It takes twenty minutes each and it is the 
 
 Separate from channel, because voice is often shared across channels and authors are not.
 
-The trick to a voice guide that actually works: **contrast pairs.** Abstract adjectives ("confident, warm, human") mean nothing to an agent and, if we're honest, not much to a new copywriter either. Before-and-after pairs mean everything.
+The trick to a voice guide that actually works: **contrast pairs.** Abstract adjectives ("confident, warm, human") mean nothing to an agent and, if we're honest, not much to a new copywriter either. Do this-not that pairs mean everything.
 
 `knowledge/voice/house-voice.md`:
 
@@ -1019,7 +1019,7 @@ MCP is the one section of this handbook with real risk attached, because it's th
 <a id="9-where-does-this-belong"></a>
 ## 9. Where does this belong?
 
-The question you'll ask most often. Print this table.
+The question you'll ask most often.
 
 | You want to... | Put it in | Why |
 |---|---|---|
