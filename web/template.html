@@ -259,6 +259,12 @@ hr{border:0;border-top:1px solid var(--rule);margin:var(--s5) 0}
   font-size:.9rem;color:var(--muted);max-width:var(--measure)
 }
 .foot h5{margin-top:0}
+.foot p:last-child{margin-bottom:0}
+/* The byline follows the language switch. It is inline, so it cannot reuse
+   the .doc rules below, which show their language as a block. */
+.foot [data-byline="cs"]{display:none}
+:root[data-doc-lang="cs"] .foot [data-byline="cs"]{display:inline}
+:root[data-doc-lang="cs"] .foot [data-byline="en"]{display:none}
 
 /* ---------- language switching ---------- */
 /* English is the default and the no-JS fallback. */
@@ -345,6 +351,10 @@ GitHub</a>
 </div>
 
 <!--CONTENT-->
+
+<footer class="foot">
+<p><span data-byline="en">Created by</span><span data-byline="cs">Vytvořil</span> <a href="https://czerner.cz">Lukáš Czerner</a>.</p>
+</footer>
 
 </main>
 </div>
