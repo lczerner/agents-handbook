@@ -47,6 +47,18 @@ mentions it, but neither refuses.
 If the page needs something the Markdown cannot express, change `template.html`
 or `build.py` — never the output. The same goes for `print.css` and `pdf.py`.
 
+## The version
+
+`VERSION` in `build.py` is the only place the kit's version is written. The
+build sets it beside the eyebrow in the masthead, which puts it at the top of
+the page and on both PDF covers. `../README.md` and `../README.cs.md` repeat it
+in prose, and `build.py` compares them against the constant and exits rather
+than build a page that disagrees with the READMEs.
+
+Bumping it is a decision, not a step in an edit: see `Versioning` in
+`../AGENTS.md`. To bump, change `VERSION` and both README lines, then
+`make build`.
+
 Without the Makefile, `python3 web/build.py` and `python3 web/pdf.py` work too,
 provided the requirements are installed.
 

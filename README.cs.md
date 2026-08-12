@@ -2,6 +2,9 @@
 
 ### Příručka pro lidi, kteří neprogramují
 
+**Verze 0.1.2** — stejné číslo najdete na webu i v PDF, takže poznáte, jestli
+čtete aktuální vydání.
+
 ---
 
 > ## ⚠️ Než začnete číst

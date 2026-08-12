@@ -71,6 +71,32 @@ Any hand edit to the generated file is destroyed by the next build. If the page
 needs something the Markdown cannot express, change `web/template.html` or the
 generator, not the output.
 
+## Versioning
+
+The kit carries a version so a reader can tell which edition they have. It is
+written in exactly one place: `VERSION` in `web/build.py`. From there it reaches
+the masthead of the page and the cover of both PDFs. The two READMEs state the
+same number in prose — `**Version 0.1.2**` and `**Verze 0.1.2**` — and
+`web/build.py` refuses to build if they disagree with the constant, so a bump
+that misses one stops instead of publishing two answers.
+
+What a bump means:
+
+- **patch** (0.1.2 → 0.1.3) — corrections, wording, a paragraph, a fixed link
+- **minor** (0.1.2 → 0.2.0) — a new section, a new walkthrough, a new feature of
+  the page or the build
+- **major** — a restructuring that invalidates what people already learnt.
+  Unused so far
+
+**The version is bumped before a push, and never by you.** Pushing publishes, so
+the number people see should already match what they are about to read. Before
+any push, say: what the current version is, what has changed since it, and which
+bump you would suggest. Then stop. Whether it is time for a new version, and
+which number it gets, is Lukáš's decision — a reminder is your part of it.
+
+Bumping means all four in one commit: `VERSION`, both READMEs, and a rebuilt
+`docs/index.html`. The PDFs are still republished only when he asks.
+
 ## Guardrails
 
 ### Never
@@ -88,6 +114,8 @@ generator, not the output.
   nothing may imply they do.
 - Never add motivational or summarising closers. He has cut two already.
 - Never translate Czech word-for-word. See below.
+- Never bump the version on your own initiative. Remind him it is due, propose a
+  number, and leave it to him.
 
 ### Always
 
@@ -103,6 +131,8 @@ generator, not the output.
 ### Ask first
 
 - Before committing or pushing.
+- Before every push, whether the version should be bumped first. Ask, propose,
+  wait — see [Versioning](#versioning).
 - Before cutting or restructuring a whole section.
 - Before adding a new top-level file.
 - Before changing anything in `starter-kit/`. It is a worked example people copy,
@@ -190,6 +220,8 @@ A change is done when:
   tags still balanced.
 - Links and anchors resolve across all files.
 - Nothing has been committed and nothing has been pushed.
+- If a push is in sight, the version has been raised with him — raised, not
+  changed.
 - You have said in three lines: what changed, which files, what needs a decision.
 
 ## How to talk to Lukáš
