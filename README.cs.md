@@ -2,7 +2,7 @@
 
 ### Příručka pro lidi, kteří neprogramují
 
-**Verze 0.1.2** — stejné číslo najdete na webu i v PDF, takže poznáte, jestli
+**Verze 0.1.2** - stejné číslo najdete na webu i v PDF, takže poznáte, jestli
 čtete aktuální vydání.
 
 ---
@@ -11,16 +11,16 @@
 >
 > **Toto je český překlad. Závazný je anglický originál: [README.md](README.md), [HANDBOOK.md](HANDBOOK.md), [WALKTHROUGHS.md](WALKTHROUGHS.md).**
 >
-> Překlad existuje z jediného důvodu — aby se koncepty pochopily rychleji. Jakmile je pochopíte, přejděte na angličtinu.
+> Překlad je tu z jediného důvodu: abyste koncepty pochopili rychleji. Jakmile je pochopíte, přejděte na angličtinu.
 >
 > **Co zůstalo anglicky, a schválně:**
 > - názvy souborů a adresářů (`AGENTS.md`, `knowledge/`, `PROGRESS.md`, `SKILL.md`)
 > - odborné termíny (agent, skill, context window, MCP, prompt, session)
-> - **všechny prompty a ukázky souborů** — všechno, co je v blocích kódu nebo v rámečku „TYPE THIS". Tyto texty jsou určené ke zkopírování. Nepřekládejte je.
+> - **všechny prompty a ukázky souborů** - všechno, co je v blocích kódu nebo v rámečku „TYPE THIS". Ty se kopírují tak, jak jsou. Nepřekládejte je.
 >
-> **Proč anglicky:** jazykové modely fungují v angličtině výrazně spolehlivěji než v češtině. Instrukce se dodržují přesněji, pravidla se méně obcházejí a výsledky jsou konzistentnější. Pracovním jazykem workspace — tedy `AGENTS.md`, knowledge base, prompty, plány i poznámky — by proto měla být **angličtina**.
+> **Proč anglicky:** jazykové modely fungují v angličtině výrazně spolehlivěji než v češtině. Instrukce se dodržují přesněji, pravidla se méně obcházejí a výsledky jsou konzistentnější. Pracovním jazykem workspace - tedy `AGENTS.md`, knowledge base, prompty, plány i poznámky - by proto měla být **angličtina**.
 >
-> To nijak neomezuje jazyk výstupu. Pokud publikujete česky, napište to do pravidel jako kteroukoli jinou instrukci:
+> To nijak neomezuje, v jakém jazyce publikujete. Pokud píšete česky, napište to do pravidel jako kteroukoli jinou instrukci:
 >
 > ```
 > - Always write published copy in Czech. Internal notes and planning: English.
@@ -28,23 +28,23 @@
 
 ---
 
-Tato sada učí marketingový, obsahový nebo provozní tým používat AI agenta —
-**Claude Code, OpenAI Codex CLI, opencode nebo pi** — na psaní, plánování,
-rešerše a tvorbu kampaní.
+Tahle sada učí marketingový, obsahový nebo provozní tým, jak používat AI
+agenta - **Claude Code, OpenAI Codex CLI, opencode nebo pi** - na psaní,
+plánování, rešerše a tvorbu kampaní.
 
 Agent není ChatGPT v záložce prohlížeče. Běží na vašem počítači a zapisuje
-skutečné soubory. Než z toho bude užitek, musíte mít jednoho nainstalovaného —
-[Než začnete](HANDBOOK.cs.md#než-začnete) říká, které čtyři nástroje to jsou,
-jak jeden nainstalovat a jak si za minutu ověříte, že opravdu mluvíte
-s agentem. Zbytek sady učí tu část, která ve skutečnosti rozhoduje o kvalitě
-výstupu: **co dáte do adresáře.**
+skutečné soubory. Bez nainstalovaného agenta je zbytek k ničemu.
+V sekci [Než začnete](HANDBOOK.cs.md#než-začnete) najdete, které čtyři nástroje
+to jsou, jak si jeden nainstalovat a jak si za minutu ověříte, že opravdu
+mluvíte s agentem. Zbytek sady učí to, na čem kvalita výstupu stojí nejvíc:
+**co dáte do adresáře.**
 
 > ### 📖 Čtěte online
 >
 > **https://lczerner.github.io/agents-handbook/**
 >
 > Příručka, cvičení i tahák s prompty na jedné stránce, česky i anglicky,
-> s přepínačem jazyka. Je to stejný obsah jako v souborech tady — stránka se
+> s přepínačem jazyka. Je to stejný obsah jako v souborech tady - stránka se
 > z nich generuje, takže se nemůže rozejít. Kolegům posílejte tenhle odkaz.
 
 ---
@@ -53,14 +53,14 @@ výstupu: **co dáte do adresáře.**
 
 | Přečtěte si | Čas | Co z toho máte |
 |---|---|---|
-| **[Než začnete](HANDBOOK.cs.md#než-začnete)** | 5 min | Co je agent, co je harness, který nástroj si nainstalovat a minutové ověření, že ho máte. Začněte tímhle — všechno ostatní na tom stojí. |
+| **[Než začnete](HANDBOOK.cs.md#než-začnete)** | 5 min | Co je agent, co je harness, který nástroj si nainstalovat a minutové ověření, že ho máte. Začněte tímhle - všechno ostatní na tom stojí. |
 | **[HANDBOOK.cs.md](HANDBOOK.cs.md)** | 40 min | Koncepty. `AGENTS.md`, plány a progress, knowledge base, skills, MCP. Sekce 1–8 přečtěte dřív, než začnete cokoli dělat. |
 | **[WALKTHROUGHS.cs.md](WALKTHROUGHS.cs.md)** | Projděte je | Čtyři praktická cvičení. Příklady, na kterých si osaháte chování agenta, ideálně upravené podle toho, co chcete tvořit. |
-| **[PROMPTS.cs.md](PROMPTS.cs.md)** | Mějte otevřené | Tahák s prompty. Popisky česky, samotné prompty anglicky — jsou k okopírování. |
-| **[starter-kit/](starter-kit/)** | Zkopírujte si ji | Kompletní ukázkový workspace. Každý soubor vyplněný a funkční. |
+| **[PROMPTS.cs.md](PROMPTS.cs.md)** | Mějte otevřené | Tahák s prompty. Popisky česky, samotné prompty anglicky - jsou k okopírování. |
+| **[starter-kit/](starter-kit/)** | Zkopírujte si ho | Kompletní ukázkový workspace. Každý soubor vyplněný a funkční. |
 
 **Pokud máte deset minut:** přečtěte si [sekci 1 příručky](HANDBOOK.cs.md#1-jedna-myšlenka)
-a pak krok 2 z prvního walkthroughu. To stačí na začátek.
+a pak krok 2 z prvního cvičení. To stačí na začátek.
 
 ---
 
@@ -69,34 +69,32 @@ a pak krok 2 z prvního walkthroughu. To stačí na začátek.
 Agent není chatbot. Běží uvnitř adresáře na vašem počítači, čte a zapisuje
 soubory v něm, hledá na webu a používá vaše další nástroje. Zároveň **mezi
 sezeními všechno zapomene**. Nejde o to psát chytré prompty, ale nechat mu
-v adresáři správné věci. Pět druhů věcí: pravidla,
-který čte pokaždé (`AGENTS.md`), referenční materiály, které čte, když jsou
-relevantní (`knowledge/`), plán a deník, aby dlouhá práce přežila napříč dny
-(`PLAN.md`, `PROGRESS.md`), zapsané postupy, které si vezme, když sedí na zadání
-(skills), a napojení na systémy mimo adresář (MCP).
+v adresáři správné věci. Pět druhů věcí: pravidla, která čte pokaždé
+(`AGENTS.md`), referenční materiály, do kterých se podívá, když jsou potřeba
+(`knowledge/`), plán a deník, aby dlouhá práce přežila i několik dní
+(`PLAN.md`, `PROGRESS.md`), zapsané postupy, po kterých sáhne, když jim zadání
+odpovídá (skills), a napojení na systémy mimo adresář (MCP).
 
 ---
 
 ## Co lidé dělají špatně
 
-- **Vůbec si nepořídí agenta.** Čtou walkthroughy a prompty z nich vkládají do
+- **Vůbec si nepořídí agenta.** Čtou cvičení a prompty z nich vkládají do
   ChatGPT nebo Claude v prohlížeči. Dostanou věrohodné odpovědi a ani jeden
   soubor na svém počítači. Ověřte si to dřív, než začnete:
   [Než začnete](HANDBOOK.cs.md#než-začnete).
 - **Chovají se k tomu jako k ChatGPT.** Chtějí text v chatovacím okně a kopírují
   si ho ven. Výstup má přistát v souboru, v projektovém adresáři, kde na něm
   můžete dál pracovat.
-- **Přeskočí `AGENTS.md`.** A pak donekonečna vysvětlují
-  styl v každém sezení.
-- **Napíšou `AGENTS.md` na 900 řádků.** Delší soubory se
-  dodržují *hůř*. Držte ho pod 200 řádky a detaily přesuňte do `knowledge/`.
+- **Přeskočí `AGENTS.md`.** A pak v každém sezení znovu vysvětlují styl.
+- **Napíšou `AGENTS.md` na 900 řádků.** Delší soubory se dodržují *hůř*. Držte
+  ho pod 200 řádky a detaily přesuňte do `knowledge/`.
 - **Píšou vágní pravidla.** „Buď profesionální" se nedá dodržet. „Žádná věta nad
-  25 slov" se dá zkontrolovat.
-- **Zadají celou práci najednou.** Vyžádejte si
-  plán, schvalte ho a pak nechte běžet jednu fázi po druhé.
-- **Věří číslu,
-  protože zní věrohodně.** Zkontrolujte každou statistiku, citaci, datum a
-  jméno, které se dostane do publikovaného textu.
+  25 slov" se zkontrolovat dá.
+- **Zadají celou práci najednou.** Vyžádejte si plán, schvalte ho a pak nechte
+  běžet jednu fázi po druhé.
+- **Věří číslu, protože zní věrohodně.** Zkontrolujte každou statistiku, citaci,
+  datum a jméno, které se dostane do publikovaného textu.
 
 ---
 
@@ -105,14 +103,14 @@ relevantní (`knowledge/`), plán a deník, aby dlouhá práce přežila napří
 - [ ] Nainstalujte si jeden ze čtyř nástrojů a ověřte si, že umí na vašem
       počítači vytvořit soubor ([Než začnete](HANDBOOK.cs.md#než-začnete))
 - [ ] Vytvořte adresář workspace, který bude tým sdílet
-- [ ] Napište `AGENTS.md` (Walkthrough 1 — nechte se od agenta vyzpovídat)
+- [ ] Napište `AGENTS.md` (Walkthrough 1 - nechte se od agenta vyzpovídat)
 - [ ] Přidejte `CLAUDE.md` s obsahem `@AGENTS.md`, pokud někdo používá Claude Code
 - [ ] Napište jeden channel file a jeden voice file
 - [ ] Udělejte s tím jeden reálný kus práce (Walkthrough 2)
 - [ ] Po něm se zeptejte: *„co jsem si měl zapsat a nezapsal?"*
 
-Všechno ostatní — další kanály, entity files, skills, MCP konektory — přijde
-později, až ucítíte konkrétní problém, který každá z těch věcí řeší.
+Všechno ostatní - další kanály, entity files, skills, MCP konektory - přijde
+později, až narazíte na konkrétní problém, který každá z těch věcí řeší.
 
 ---
 
@@ -123,17 +121,17 @@ Dvě pravidla, která se nemění:
 1. **Fakta si ověřte sami.** Mantinely v této sadě výmysly výrazně omezí.
    Neodstraní je.
 2. **Bez člověka se nic nepublikuje.** Nechte to pravidlo v `AGENTS.md` a nechte
-   ho platit — zvlášť až připojíte nástroje, které by to technicky uměly.
+   ho platit - zvlášť až připojíte nástroje, které by to technicky uměly.
 
 ---
 
 ## Zdroje
 
-Psáno v srpnu 2026 proti aktuální dokumentaci:
+Psáno v srpnu 2026 podle aktuální dokumentace:
 
-- [AGENTS.md](https://agents.md/) — otevřený standard, dnes pod Agentic AI
+- [AGENTS.md](https://agents.md/) - otevřený standard, dnes pod Agentic AI
   Foundation při Linux Foundation
-- [Agent Skills specification](https://agentskills.io/specification) — formát
+- [Agent Skills specification](https://agentskills.io/specification) - formát
   `SKILL.md`, podporovaný 40+ nástroji
 - [Claude Code: quickstart](https://code.claude.com/docs/en/quickstart) ·
   [memory](https://code.claude.com/docs/en/memory) ·
@@ -149,4 +147,4 @@ Psáno v srpnu 2026 proti aktuální dokumentaci:
 
 Detaily nástrojů se mění rychle. Pokud nějaká cesta k souboru
 v [Příloze A](HANDBOOK.cs.md#příloha-a--který-soubor-čte-můj-nástroj) nefunguje,
-podívejte se do aktuální dokumentace svého nástroje — koncepty platí dál.
+podívejte se do aktuální dokumentace svého nástroje - koncepty platí dál.

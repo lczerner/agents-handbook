@@ -69,9 +69,9 @@ DOCS = {
         ("prompts", "PROMPTS.md", "Part three - Prompt sheet"),
     ],
     "cs": [
-        ("handbook", "HANDBOOK.cs.md", "Část první — Koncepty"),
-        ("walkthroughs", "WALKTHROUGHS.cs.md", "Část druhá — Walkthroughs"),
-        ("prompts", "PROMPTS.cs.md", "Část třetí — Tahák s prompty"),
+        ("handbook", "HANDBOOK.cs.md", "Část první - Koncepty"),
+        ("walkthroughs", "WALKTHROUGHS.cs.md", "Část druhá - Walkthroughs"),
+        ("prompts", "PROMPTS.cs.md", "Část třetí - Tahák s prompty"),
     ],
 }
 

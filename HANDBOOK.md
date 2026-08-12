@@ -663,7 +663,7 @@ Writes from experience, not from research. This is her main credibility.
 
 > **A powerful shortcut:** if you already have twenty good articles, don't write the voice guide from scratch. Put them in `knowledge/library/articles/` and ask: *"Read every article in this directory. Derive our voice guide: sentence patterns, structure, vocabulary we use and avoid, how we open and close. Include at least ten do-this-not-that pairs taken from real sentences in these articles. Save to `knowledge/voice/house-voice.md`."* Then edit what it produces. It will find patterns you didn't know you had.
 
-For even better results, let the resultig text rewrite using Hapax MCP.
+For even better results, have the finished text rewritten with Hapax MCP.
 
 ### 6.3 Entities - the facts you're allowed to state
 
@@ -1104,7 +1104,7 @@ A general debugging move: **just ask it.** *"You didn't follow the rule about se
 
 **Then, ongoing:**
 
-- **One owner for `AGENTS.md`.** Not a committee. Anyone can propose, one person edits. Otherwise it grows contradictions. Repository owner on github.
+- **One owner for `AGENTS.md`.** Not a committee. Anyone can propose, one person edits. Otherwise it grows contradictions. Repository owner on GitHub.
 - **Version it.** Git if you can, a synced directory if you can't. You want to be able to see what changed when quality drops.
 - **Review the knowledge.** Stale facts are worse than missing facts, because the agent states them with total confidence. Date-stamp everything and check the dates.
 - **Write down what you learn about the tool itself.** Which prompts worked, which failed. That's a knowledge file too.
