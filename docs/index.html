@@ -358,6 +358,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:var(--s5) 0}
 <li><a href="#12-rolling-this-out-to-a-team"><b>12</b><span>Rolling this out to a team</span></a></li>
 <li><a href="#appendix-a--which-file-does-my-tool-read"><b>A</b><span>Which file does my tool read?</span></a></li>
 <li><a href="#appendix-b--glossary"><b>B</b><span>Glossary</span></a></li>
+<li><a href="#where-to-learn-more"><b>·</b><span>Where to learn more</span></a></li>
 <li><a href="#where-to-go-next"><b>·</b><span>Where to go next</span></a></li>
 <li><a href="#walkthrough-1--set-up-your-workspace"><b>W1</b><span>Set up your workspace</span></a></li>
 <li><a href="#walkthrough-2--write-an-article"><b>W2</b><span>Write an article</span></a></li>
@@ -395,6 +396,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:var(--s5) 0}
 <li><a href="#12-rolling-this-out-to-a-team"><b>12</b><span>Rolling this out to a team</span></a></li>
 <li><a href="#appendix-a--which-file-does-my-tool-read"><b>A</b><span>Which file does my tool read?</span></a></li>
 <li><a href="#appendix-b--glossary"><b>B</b><span>Glossary</span></a></li>
+<li><a href="#where-to-learn-more"><b>·</b><span>Where to learn more</span></a></li>
 <li><a href="#where-to-go-next"><b>·</b><span>Where to go next</span></a></li>
 </ol>
 <h2>Walkthroughs</h2>
@@ -442,6 +444,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:var(--s5) 0}
 <li><a href="#cs-12-zavedení-v-týmu"><b>12</b><span>Zavedení v týmu</span></a></li>
 <li><a href="#cs-příloha-a--který-soubor-čte-můj-nástroj"><b>A</b><span>Který soubor čte můj nástroj?</span></a></li>
 <li><a href="#cs-příloha-b--slovníček"><b>B</b><span>Slovníček</span></a></li>
+<li><a href="#cs-kde-se-dozvědět-víc"><b>·</b><span>Kde se dozvědět víc</span></a></li>
 <li><a href="#cs-kam-dal"><b>·</b><span>Kam dál</span></a></li>
 <li><a href="#cs-walkthrough-1--nastavení-workspace"><b>W1</b><span>Nastavení workspace</span></a></li>
 <li><a href="#cs-walkthrough-2--napsat-článek"><b>W2</b><span>Napsat článek</span></a></li>
@@ -479,6 +482,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:var(--s5) 0}
 <li><a href="#cs-12-zavedení-v-týmu"><b>12</b><span>Zavedení v týmu</span></a></li>
 <li><a href="#cs-příloha-a--který-soubor-čte-můj-nástroj"><b>A</b><span>Který soubor čte můj nástroj?</span></a></li>
 <li><a href="#cs-příloha-b--slovníček"><b>B</b><span>Slovníček</span></a></li>
+<li><a href="#cs-kde-se-dozvědět-víc"><b>·</b><span>Kde se dozvědět víc</span></a></li>
 <li><a href="#cs-kam-dal"><b>·</b><span>Kam dál</span></a></li>
 </ol>
 <h2>Walkthroughs</h2>
@@ -558,7 +562,8 @@ GitHub</a>
 <li><a href="#12-rolling-this-out-to-a-team">Rolling this out to a team</a></li>
 </ol>
 <p><strong>Appendix A</strong> — <a href="#appendix-a--which-file-does-my-tool-read">Which file does my tool read?</a>
-<strong>Appendix B</strong> — <a href="#appendix-b--glossary">Glossary</a></p>
+<strong>Appendix B</strong> — <a href="#appendix-b--glossary">Glossary</a>
+<strong>Where to learn more</strong> — <a href="#where-to-learn-more">videos and documentation from outside this kit</a></p>
 <p>Companion files in this kit:</p>
 <ul>
 <li><a href="#walkthroughs"><code>WALKTHROUGHS.md</code></a> — four step-by-step exercises. Do these after reading sections 1–8.</li>
@@ -1635,7 +1640,20 @@ Then tell me: what's done, where it is, what you need from me.
 <hr />
 </section>
 
-<section id="where-to-go-next" data-sec="handbook-16">
+<section id="where-to-learn-more" data-sec="handbook-16">
+<h3><span>Where to learn more</span></h3>
+<p>Five things from outside this kit, in the order that makes most sense to take them in.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=LPZh9BOjkQs">Large Language Models explained briefly</a> — what a model is actually doing when it answers you: predicting the next word, over and over, from the text in front of it. This is why the colleague in <a href="#1-the-one-idea">section 1</a> remembers nothing about yesterday.</li>
+<li><a href="https://www.youtube.com/watch?v=1a1VXDdIyrk">Agent Harness explained in 8min..</a> — the program around the model: the part that hands it your files, runs the tools it asks for, and decides when the job is done. Claude Code, Codex, opencode and pi are all this.</li>
+<li><a href="https://www.youtube.com/watch?v=Lg-meK5IU8Q">What AI Agent Skills Are and How They Work</a> — what goes inside a <code>SKILL.md</code> and how the agent decides to load it. Read alongside <a href="#7-skills--teaching-it-your-procedures">section 7</a>.</li>
+<li><a href="https://www.youtube.com/watch?v=goU9VIXA8II">MCP vs Skills: Which Is Right for Your AI Agent and LLMs?</a> — the same question as <a href="#9-where-does-this-belong">section 9</a>, answered by someone else.</li>
+<li><a href="https://code.claude.com/docs/en/best-practices">Best practices for Claude Code</a> — Anthropic's own guide. Written for programmers, but most of it is not about code: keeping the context window clear, planning before doing, and giving the agent a way to check its own work.</li>
+</ul>
+<hr />
+</section>
+
+<section id="where-to-go-next" data-sec="handbook-17">
 <h3><span>Where to go next</span></h3>
 <ol>
 <li>Read <a href="#walkthroughs"><code>WALKTHROUGHS.md</code></a> and do <strong>Walkthrough 1</strong>. It takes 30 minutes and produces your real <code>AGENTS.md</code>.</li>
@@ -2285,7 +2303,8 @@ doopravdy záleží: <strong>co dáte do adresáře.</strong></p>
 <li><a href="#cs-12-zavedení-v-týmu">Zavedení v týmu</a></li>
 </ol>
 <p><strong>Příloha A</strong> — <a href="#cs-příloha-a--který-soubor-čte-můj-nástroj">Který soubor čte můj nástroj?</a>
-<strong>Příloha B</strong> — <a href="#cs-příloha-b--slovníček">Slovníček</a></p>
+<strong>Příloha B</strong> — <a href="#cs-příloha-b--slovníček">Slovníček</a>
+<strong>Kde se dozvědět víc</strong> — <a href="#cs-kde-se-dozvědět-víc">videa a dokumentace mimo tuto sadu</a></p>
 <p>Doprovodné soubory v této sadě:</p>
 <ul>
 <li><a href="#cs-walkthroughs"><code>WALKTHROUGHS.cs.md</code></a> — čtyři cvičení krok za krokem.
@@ -3630,7 +3649,33 @@ příkazy celkem; někdo vám je ukáže.</p>
 <hr />
 </section>
 
-<section id="cs-kam-dal" data-sec="handbook-16">
+<section id="cs-kde-se-dozvědět-víc" data-sec="handbook-16">
+<h3><span>Kde se dozvědět víc</span></h3>
+<p>Pět věcí mimo tuto sadu, v pořadí, ve kterém na sebe navazují. Všechno je
+anglicky.</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=LPZh9BOjkQs">Large Language Models explained briefly</a>
+— co model doopravdy dělá, když vám odpovídá: předpovídá další slovo,
+pořád dokola, z textu, který má před sebou. Odsud plyne, proč si kolega ze
+<a href="#cs-1-jedna-myšlenka">sekce 1</a> nepamatuje nic ze včerejška.</li>
+<li><a href="https://www.youtube.com/watch?v=1a1VXDdIyrk">Agent Harness explained in 8min..</a>
+— program kolem modelu: ta část, která mu podá vaše soubory, spustí
+nástroje, o které si řekne, a pozná, kdy je práce hotová. Claude Code,
+Codex, opencode i pi jsou přesně tohle.</li>
+<li><a href="https://www.youtube.com/watch?v=Lg-meK5IU8Q">What AI Agent Skills Are and How They Work</a>
+— co se píše do <code>SKILL.md</code> a podle čeho se agent rozhodne ho načíst. Čtěte
+k <a href="#cs-7-skills">sekci 7</a>.</li>
+<li><a href="https://www.youtube.com/watch?v=goU9VIXA8II">MCP vs Skills: Which Is Right for Your AI Agent and LLMs?</a>
+— stejná otázka jako <a href="#cs-9-kam-to-patří">sekce 9</a>, odpovězená někým jiným.</li>
+<li><a href="https://code.claude.com/docs/en/best-practices">Best practices for Claude Code</a>
+— návod přímo od Anthropicu. Psaný pro programátory, ale většina není
+o kódu: jak si nezahltit context window, plánovat dřív než se pustíte do
+práce a dát agentovi možnost ověřit si vlastní výsledek.</li>
+</ul>
+<hr />
+</section>
+
+<section id="cs-kam-dal" data-sec="handbook-17">
 <h3><span>Kam dál</span></h3>
 <ol>
 <li>Přečtěte si <a href="#cs-walkthroughs"><code>WALKTHROUGHS.cs.md</code></a> a udělejte

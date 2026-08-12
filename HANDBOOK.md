@@ -31,6 +31,7 @@ This handbook assumes the tool is already installed and running. It teaches you 
 
 **Appendix A** — [Which file does my tool read?](#appendix-a--which-file-does-my-tool-read)
 **Appendix B** — [Glossary](#appendix-b--glossary)
+**Where to learn more** — [videos and documentation from outside this kit](#where-to-learn-more)
 
 Companion files in this kit:
 - [`WALKTHROUGHS.md`](WALKTHROUGHS.md) — four step-by-step exercises. Do these after reading sections 1–8.
@@ -1112,6 +1113,19 @@ To run one on demand: `/skill-name` in Claude Code and opencode, `$skill-name` i
 **Repository / repo** — a directory tracked by Git, so every change is recorded and undoable. Nice to have, not required.
 
 **Terminal** — the text window you type commands into. You need about four commands total; someone will show you.
+
+---
+
+<a id="where-to-learn-more"></a>
+## Where to learn more
+
+Five things from outside this kit, in the order that makes most sense to take them in.
+
+- [Large Language Models explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs) — what a model is actually doing when it answers you: predicting the next word, over and over, from the text in front of it. This is why the colleague in [section 1](#1-the-one-idea) remembers nothing about yesterday.
+- [Agent Harness explained in 8min..](https://www.youtube.com/watch?v=1a1VXDdIyrk) — the program around the model: the part that hands it your files, runs the tools it asks for, and decides when the job is done. Claude Code, Codex, opencode and pi are all this.
+- [What AI Agent Skills Are and How They Work](https://www.youtube.com/watch?v=Lg-meK5IU8Q) — what goes inside a `SKILL.md` and how the agent decides to load it. Read alongside [section 7](#7-skills--teaching-it-your-procedures).
+- [MCP vs Skills: Which Is Right for Your AI Agent and LLMs?](https://www.youtube.com/watch?v=goU9VIXA8II) — the same question as [section 9](#9-where-does-this-belong), answered by someone else.
+- [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) — Anthropic's own guide. Written for programmers, but most of it is not about code: keeping the context window clear, planning before doing, and giving the agent a way to check its own work.
 
 ---
 

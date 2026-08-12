@@ -70,6 +70,7 @@ doopravdy záleží: **co dáte do adresáře.**
 
 **Příloha A** — [Který soubor čte můj nástroj?](#příloha-a--který-soubor-čte-můj-nástroj)
 **Příloha B** — [Slovníček](#příloha-b--slovníček)
+**Kde se dozvědět víc** — [videa a dokumentace mimo tuto sadu](#kde-se-dozvědět-víc)
 
 Doprovodné soubory v této sadě:
 - [`WALKTHROUGHS.cs.md`](WALKTHROUGHS.cs.md) — čtyři cvičení krok za krokem.
@@ -1420,6 +1421,32 @@ zaznamenaná a vratná. Příjemné mít, není nutné.
 
 **Terminál** — textové okno, do kterého píšete příkazy. Potřebujete zhruba čtyři
 příkazy celkem; někdo vám je ukáže.
+
+---
+
+<a id="kde-se-dozvědět-víc"></a>
+## Kde se dozvědět víc
+
+Pět věcí mimo tuto sadu, v pořadí, ve kterém na sebe navazují. Všechno je
+anglicky.
+
+- [Large Language Models explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs)
+  — co model doopravdy dělá, když vám odpovídá: předpovídá další slovo,
+  pořád dokola, z textu, který má před sebou. Odsud plyne, proč si kolega ze
+  [sekce 1](#1-jedna-myšlenka) nepamatuje nic ze včerejška.
+- [Agent Harness explained in 8min..](https://www.youtube.com/watch?v=1a1VXDdIyrk)
+  — program kolem modelu: ta část, která mu podá vaše soubory, spustí
+  nástroje, o které si řekne, a pozná, kdy je práce hotová. Claude Code,
+  Codex, opencode i pi jsou přesně tohle.
+- [What AI Agent Skills Are and How They Work](https://www.youtube.com/watch?v=Lg-meK5IU8Q)
+  — co se píše do `SKILL.md` a podle čeho se agent rozhodne ho načíst. Čtěte
+  k [sekci 7](#7-skills).
+- [MCP vs Skills: Which Is Right for Your AI Agent and LLMs?](https://www.youtube.com/watch?v=goU9VIXA8II)
+  — stejná otázka jako [sekce 9](#9-kam-to-patří), odpovězená někým jiným.
+- [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices)
+  — návod přímo od Anthropicu. Psaný pro programátory, ale většina není
+  o kódu: jak si nezahltit context window, plánovat dřív než se pustíte do
+  práce a dát agentovi možnost ověřit si vlastní výsledek.
 
 ---
 
