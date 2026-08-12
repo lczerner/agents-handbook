@@ -369,6 +369,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:var(--s5) 0}
 <nav class="nav" style="margin-top:1rem">
 <ol>
 <li><a href="#contents"><b>·</b><span>Contents</span></a></li>
+<li><a href="#before-you-start"><b>·</b><span>Before you start</span></a></li>
 <li><a href="#1-the-one-idea"><b>01</b><span>The one idea that makes everything else make sense</span></a></li>
 <li><a href="#2-the-five-things-you-give-an-agent"><b>02</b><span>The five things you give an agent</span></a></li>
 <li><a href="#3-your-workspace"><b>03</b><span>Your workspace</span></a></li>
@@ -407,6 +408,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:var(--s5) 0}
 <h2>Concepts</h2>
 <ol>
 <li><a href="#contents"><b>·</b><span>Contents</span></a></li>
+<li><a href="#before-you-start"><b>·</b><span>Before you start</span></a></li>
 <li><a href="#1-the-one-idea"><b>01</b><span>The one idea that makes everything else make sense</span></a></li>
 <li><a href="#2-the-five-things-you-give-an-agent"><b>02</b><span>The five things you give an agent</span></a></li>
 <li><a href="#3-your-workspace"><b>03</b><span>Your workspace</span></a></li>
@@ -455,6 +457,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:var(--s5) 0}
 <nav class="nav" style="margin-top:1rem">
 <ol>
 <li><a href="#cs-obsah"><b>·</b><span>Obsah</span></a></li>
+<li><a href="#cs-než-začnete"><b>·</b><span>Než začnete</span></a></li>
 <li><a href="#cs-1-jedna-myšlenka"><b>01</b><span>Jedna myšlenka, díky které dává všechno ostatní smysl</span></a></li>
 <li><a href="#cs-2-pět-věcí"><b>02</b><span>Pět věcí, které agentovi dáváte</span></a></li>
 <li><a href="#cs-3-váš-workspace"><b>03</b><span>Váš workspace</span></a></li>
@@ -493,6 +496,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:var(--s5) 0}
 <h2>Koncepty</h2>
 <ol>
 <li><a href="#cs-obsah"><b>·</b><span>Obsah</span></a></li>
+<li><a href="#cs-než-začnete"><b>·</b><span>Než začnete</span></a></li>
 <li><a href="#cs-1-jedna-myšlenka"><b>01</b><span>Jedna myšlenka, díky které dává všechno ostatní smysl</span></a></li>
 <li><a href="#cs-2-pět-věcí"><b>02</b><span>Pět věcí, které agentovi dáváte</span></a></li>
 <li><a href="#cs-3-váš-workspace"><b>03</b><span>Váš workspace</span></a></li>
@@ -572,12 +576,13 @@ PDF</a>
 <p>You have probably used ChatGPT or Claude in a browser. You type, it answers, you copy the answer somewhere else. That is a <strong>chat assistant</strong>.</p>
 <p>This handbook is about something different: an <strong>agent</strong>. An agent runs on your computer, inside a directory. It can read the files in that directory, write new ones, edit existing ones, search the web, and use your other tools. You don't copy anything anywhere. You tell it what you want and it does the work in the directory, and the directory is the deliverable.</p>
 <p>Tools that work this way include <strong>Claude Code</strong>, <strong>OpenAI Codex CLI</strong>, <strong>opencode</strong>, and <strong>pi</strong>. They are marketed at programmers. They are not only for programmers. A directory full of Markdown files is just as valid a project as a directory full of code, and everything in this handbook works the same way for an article, a campaign brief, or a content calendar.</p>
-<p>This handbook assumes the tool is already installed and running. It teaches you the part that actually determines whether you get good work out of it: <strong>what you put in the directory.</strong></p>
+<p>You need one of them installed before any of this is useful. <a href="#before-you-start">Before you start</a> covers what to install, and how to check in a minute that you are really talking to an agent rather than to a chat window. After that, this handbook teaches the part that actually determines whether you get good work out of it: <strong>what you put in the directory.</strong></p>
 <hr />
 </section>
 
 <section id="contents" data-sec="handbook-1">
 <h3><span>Contents</span></h3>
+<p><strong>Before you start</strong> — <a href="#before-you-start">what you need installed, and how to tell an agent from a chat window</a></p>
 <ol>
 <li><a href="#1-the-one-idea">The one idea that makes everything else make sense</a></li>
 <li><a href="#2-the-five-things-you-give-an-agent">The five things you give an agent</a></li>
@@ -604,7 +609,83 @@ PDF</a>
 <hr />
 </section>
 
-<section id="1-the-one-idea" data-sec="handbook-2">
+<section id="before-you-start" data-sec="handbook-2">
+<h3><span>Before you start</span></h3>
+<p>Everything in this handbook assumes you are running an agent. That sounds too obvious to say. It is also the first thing people get wrong, and it costs them a week, so it is worth two minutes now.</p>
+<h4>The mistake</h4>
+<p>A walkthrough tells you to type this:</p>
+<div class="say" data-copy="Create a directory called `knowledge` with subdirectories `channels`, `voice`, `entities`, and `library`.">
+<p>Create a directory called <code>knowledge</code> with subdirectories <code>channels</code>, <code>voice</code>, <code>entities</code>, and <code>library</code>.</p>
+</div>
+<p>You paste it into ChatGPT or Claude in your browser. You get a confident, well-formatted reply — a tidy list of directories, perhaps some commands you could run. Nothing has happened on your computer. Nothing will. You move on to the next step, and the kit quietly turns into a reading exercise about files that do not exist.</p>
+<p>A browser chat window cannot reach your computer. It cannot see what is on it, cannot create anything on it, and cannot check anything it tells you about it. What it can do is describe all of that fluently, in the same confident voice it uses for everything else.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>Browser chat</th>
+<th>Agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Where it runs</td>
+<td>On the provider's servers, in a tab</td>
+<td>On your computer, in one directory</td>
+</tr>
+<tr>
+<td>What it can do</td>
+<td>Produce text in the window</td>
+<td>Read, write and edit files in that directory, run commands, search the web</td>
+</tr>
+<tr>
+<td>Where the work ends up</td>
+<td>You copy it out by hand</td>
+<td>In the directory, as files</td>
+</tr>
+<tr>
+<td>What it knows about your work</td>
+<td>Whatever you paste in, that once</td>
+<td>Whatever you left in the directory, every time</td>
+</tr>
+</tbody>
+</table></div>
+<p>It is the same underlying AI in both columns. What differs is what it has been given to work with — and that is the entire subject of this handbook.</p>
+<h4>Model, harness, agent</h4>
+<p>Three words used as though they meant the same thing. Keeping them apart explains what went wrong above.</p>
+<p><strong>The model</strong> is the part that produces text — Claude, GPT, Gemini. On its own it does exactly one thing: text goes in, text comes out. It cannot open a file, run a command, or remember yesterday.</p>
+<p><strong>The harness</strong> is the program that runs on your computer around the model. It is the part with hands. It reads your files and shows them to the model, carries out what the model asks for — create this file, run this command, fetch this page — hands the result back, and goes round again until the job is done. <strong>Claude Code, OpenAI Codex CLI, opencode and pi are harnesses.</strong> The browser chat is one too, but a very thin one: its hands reach nothing outside the tab.</p>
+<p><strong>An agent</strong> is a harness and a model together, pointed at a directory on your computer.</p>
+<p>The colleague in <a href="#1-the-one-idea">section 1</a> is the model: capable, and remembering nothing. The harness is the office they walk into — the desk, the hands, the way to the filing cabinet. What you write in your workspace is what is in that office when they arrive. You install the harness once and then never think about it again; what is in the office is written by you, and it is what everything from <a href="#2-the-five-things-you-give-an-agent">section 2</a> onwards is about.</p>
+<h4>What you need</h4>
+<p>Four things:</p>
+<ul>
+<li><strong>A terminal</strong> — the text window you type commands into. You need about four commands in total, and someone can show you all four in five minutes.</li>
+<li><strong>One of the four tools, installed.</strong> See below.</li>
+<li><strong>An account with whoever provides the model.</strong> Usually a paid subscription. The tool walks you through logging in the first time you start it.</li>
+<li><strong>A directory to work in.</strong> Walkthrough 1 creates it.</li>
+</ul>
+<p>The four tools, checked August 2026:</p>
+<p><strong>Claude Code</strong> — from Anthropic. Install with <code>curl -fsSL https://claude.ai/install.sh | bash</code> on macOS or Linux, <code>brew install --cask claude-code</code> if you use Homebrew, or <code>irm https://claude.ai/install.ps1 | iex</code> in Windows PowerShell. Needs a Claude Pro, Max, Team or Enterprise subscription, or a Claude Console account. Start it by typing <code>claude</code>. <a href="https://code.claude.com/docs/en/quickstart">Quickstart</a></p>
+<p><strong>OpenAI Codex CLI</strong> — from OpenAI. Install with <code>curl -fsSL https://chatgpt.com/codex/install.sh | sh</code>. Sign in with your ChatGPT account. Start it by typing <code>codex</code>. <a href="https://learn.chatgpt.com/docs/codex/cli">Quickstart</a></p>
+<p><strong>opencode</strong> — open source, and not tied to one provider: you bring an API key for whichever model you want to use. Install with <code>curl -fsSL https://opencode.ai/install | bash</code>. Start it by typing <code>opencode</code>. <a href="https://opencode.ai/docs/">Docs</a></p>
+<p><strong>pi</strong> — open source, also provider-agnostic, and it can log in with a Claude Pro/Max, ChatGPT Plus/Pro or GitHub Copilot subscription you already pay for. Install with <code>npm install -g --ignore-scripts @earendil-works/pi-coding-agent</code>, which needs Node.js on your machine. Start it by typing <code>pi</code>. <a href="https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/quickstart.md">Quickstart</a></p>
+<p>If you have no reason to prefer one, use whichever your company already pays for. Everything in this handbook works the same way in all four; where they differ is a file name or a directory name, and <a href="#appendix-a--which-file-does-my-tool-read">Appendix A</a> lists every difference.</p>
+<p>Installing takes about five minutes. If those commands mean nothing to you, that is expected and it is not your job — send this section to whoever looks after laptops where you work, or ask them to sit with you for ten minutes. It is a one-time job. Install instructions also change; if a command fails, open the linked guide rather than fighting it.</p>
+<h4>One minute to check you are in the right place</h4>
+<p>Do this before Walkthrough 1. Open your terminal in any directory, start the tool, and type:</p>
+<div class="say" data-copy="Create a file called `hello.md` containing one line: it worked.">
+<p>Create a file called <code>hello.md</code> containing one line: it worked.</p>
+</div>
+<p>If it asks permission to write the file, say yes — being asked is the agent working as intended. Then leave the terminal and open that directory in Finder on a Mac, or File Explorer on Windows.</p>
+<ul>
+<li><strong><code>hello.md</code> is there.</strong> You are running an agent. Carry on to section 1.</li>
+<li><strong>No file, but a nicely formatted answer telling you what the file would contain.</strong> You are in a chat window. Nothing else in this handbook will work until that changes.</li>
+</ul>
+<hr />
+</section>
+
+<section id="1-the-one-idea" data-sec="handbook-3">
 <h3><span class="num">01</span> <span>The one idea that makes everything else make sense</span></h3>
 <p>Imagine you hire a colleague who is fast, tireless, well-read, willing to do anything you ask — and who <strong>loses their entire memory every evening</strong>.</p>
 <p>Every morning they arrive knowing nothing about your company, your brands, your tone of voice, what you decided last week, or what they themselves did yesterday. But they will read absolutely everything you leave on the desk before they start.</p>
@@ -650,7 +731,7 @@ PDF</a>
 <hr />
 </section>
 
-<section id="2-the-five-things-you-give-an-agent" data-sec="handbook-3">
+<section id="2-the-five-things-you-give-an-agent" data-sec="handbook-4">
 <h3><span class="num">02</span> <span>The five things you give an agent</span></h3>
 <p>Everything you will ever set up falls into one of five buckets. Learn these five names and you can stop guessing.</p>
 <p><strong>1. Rules — <code>AGENTS.md</code></strong>
@@ -675,7 +756,7 @@ PROGRESS.md = this project's logbook
 <hr />
 </section>
 
-<section id="3-your-workspace" data-sec="handbook-4">
+<section id="3-your-workspace" data-sec="handbook-5">
 <h3><span class="num">03</span> <span>Your workspace</span></h3>
 <p>A workspace is just a directory on your computer. You open a terminal in it and start the agent there. Everything the agent does happens inside it.</p>
 <p>Here is a layout that works for a content and campaigns team. Copy it, then delete what you don't need.</p>
@@ -720,7 +801,7 @@ PROGRESS.md = this project's logbook
 <hr />
 </section>
 
-<section id="4-agentsmd--the-house-rules" data-sec="handbook-5">
+<section id="4-agentsmd--the-house-rules" data-sec="handbook-6">
 <h3><span class="num">04</span> <span>AGENTS.md — the house rules</span></h3>
 <p><code>AGENTS.md</code> is a plain text file (Markdown) in the root of your workspace. Every supported agent reads it at the start of every session, before it does anything else. It is the single highest-leverage file you will ever write.</p>
 <p>There is no required format. No special syntax. No fields you must fill in. It's a memo to a new colleague. Headings and bullet points, because those are easier to follow than paragraphs — for the agent as much as for a human.</p>
@@ -868,7 +949,7 @@ show me a draft AGENTS.md and I'll correct it.</p>
 <hr />
 </section>
 
-<section id="5-plans-phases-and-progress" data-sec="handbook-6">
+<section id="5-plans-phases-and-progress" data-sec="handbook-7">
 <h3><span class="num">05</span> <span>Plans, phases, and progress</span></h3>
 <h4>5.1 The problem</h4>
 <p>Ask an agent for something big — &quot;plan our Q4 launch campaign&quot; — and one of two things happens.</p>
@@ -954,7 +1035,7 @@ Write it so someone who wasn't here today could pick it up cold.</p>
 <hr />
 </section>
 
-<section id="6-the-knowledge-base" data-sec="handbook-7">
+<section id="6-the-knowledge-base" data-sec="handbook-8">
 <h3><span class="num">06</span> <span>The knowledge base</span></h3>
 <p><code>AGENTS.md</code> is what the agent reads <em>every</em> time, so it has to stay short. The knowledge base is everything else — read only when relevant. This is where you can be generous with detail.</p>
 <p>Four categories.</p>
@@ -1153,7 +1234,7 @@ Read the file that matches your task. Don't read everything.
 <hr />
 </section>
 
-<section id="7-skills--teaching-it-your-procedures" data-sec="handbook-8">
+<section id="7-skills--teaching-it-your-procedures" data-sec="handbook-9">
 <h3><span class="num">07</span> <span>Skills — teaching it your procedures</span></h3>
 <h4>7.1 What a skill is</h4>
 <p>A skill is a directory containing a file called <code>SKILL.md</code>. Inside is a step-by-step procedure for one kind of task, written in plain language.</p>
@@ -1302,7 +1383,7 @@ Then tell me: what's done, where it is, what you need from me.
 <hr />
 </section>
 
-<section id="8-mcp--giving-it-reach-into-other-systems" data-sec="handbook-9">
+<section id="8-mcp--giving-it-reach-into-other-systems" data-sec="handbook-10">
 <h3><span class="num">08</span> <span>MCP — giving it reach into other systems</span></h3>
 <h4>8.1 What it is</h4>
 <p>By default the agent can only see the directory it's running in, plus the web. <strong>MCP</strong> (Model Context Protocol) is the standard that lets it reach into other systems: Google Drive, WebOps, Slack, your CMS, your analytics, your project tracker.</p>
@@ -1379,7 +1460,7 @@ Then tell me: what's done, where it is, what you need from me.
 <hr />
 </section>
 
-<section id="9-where-does-this-belong" data-sec="handbook-10">
+<section id="9-where-does-this-belong" data-sec="handbook-11">
 <h3><span class="num">09</span> <span>Where does this belong?</span></h3>
 <p>The question you'll ask most often. Print this table.</p>
 <div class="scroll"><table>
@@ -1444,7 +1525,7 @@ Then tell me: what's done, where it is, what you need from me.
 <hr />
 </section>
 
-<section id="10-talking-to-it-day-to-day" data-sec="handbook-11">
+<section id="10-talking-to-it-day-to-day" data-sec="handbook-12">
 <h3><span class="num">10</span> <span>Talking to it, day to day</span></h3>
 <p>The setup does most of the work. But how you phrase a request still matters. Nine habits, roughly in order of impact.</p>
 <p><strong>1. Ask for a plan before the work.</strong> For anything non-trivial: <em>&quot;Plan this first. Don't write anything yet.&quot;</em> The plan is cheap to fix; a finished draft built on the wrong plan is not.</p>
@@ -1461,7 +1542,7 @@ Then tell me: what's done, where it is, what you need from me.
 <hr />
 </section>
 
-<section id="11-when-things-go-wrong" data-sec="handbook-12">
+<section id="11-when-things-go-wrong" data-sec="handbook-13">
 <h3><span class="num">11</span> <span>When things go wrong</span></h3>
 <div class="scroll"><table>
 <thead>
@@ -1533,7 +1614,7 @@ Then tell me: what's done, where it is, what you need from me.
 <hr />
 </section>
 
-<section id="12-rolling-this-out-to-a-team" data-sec="handbook-13">
+<section id="12-rolling-this-out-to-a-team" data-sec="handbook-14">
 <h3><span class="num">12</span> <span>Rolling this out to a team</span></h3>
 <p><strong>Week 1 — one person, one workspace.</strong> One person sets up <code>AGENTS.md</code>, two channel files, and one voice file. They use it for real work for a week. Nothing else. Resist building the whole system before you know which parts you need.</p>
 <p><strong>Week 2 — the first skill.</strong> Take the task you did most often last week and turn it into a skill. Do the task with the agent, then ask it to write the skill from what you just did together.</p>
@@ -1549,7 +1630,7 @@ Then tell me: what's done, where it is, what you need from me.
 <hr />
 </section>
 
-<section id="appendix-a--which-file-does-my-tool-read" data-sec="handbook-14">
+<section id="appendix-a--which-file-does-my-tool-read" data-sec="handbook-15">
 <h3><span class="num">A</span> <span>Which file does my tool read?</span></h3>
 <p>All four tools work with the same workspace. They differ in file names and directory locations. <em>(Checked August 2026; these things move — if something doesn't load, check your tool's current docs.)</em></p>
 <h4>Instruction file</h4>
@@ -1653,15 +1734,18 @@ Then tell me: what's done, where it is, what you need from me.
 <hr />
 </section>
 
-<section id="appendix-b--glossary" data-sec="handbook-15">
+<section id="appendix-b--glossary" data-sec="handbook-16">
 <h3><span class="num">B</span> <span>Glossary</span></h3>
 <p><strong>Agent</strong> — an AI that runs in a directory on your computer and can read, write and edit files and use tools, rather than only chatting.</p>
 <p><strong>AGENTS.md</strong> — the instructions file every agent reads at the start of every session. The open standard for this; Claude Code uses <code>CLAUDE.md</code> instead.</p>
+<p><strong>Chat assistant</strong> — ChatGPT or Claude in a browser tab. The same model, with no access to your computer. It produces text you copy out by hand. Not an agent; see <a href="#before-you-start">Before you start</a>.</p>
 <p><strong>Context window</strong> — how much the agent can hold in mind at once. The desk surface. Finite, and the reason long jobs need a logbook.</p>
 <p><strong>Compacting</strong> — what happens when the desk fills up: the tool summarises the earlier conversation to make room. Detail is lost. A signal to save your progress and start fresh.</p>
+<p><strong>Harness</strong> — the program that runs on your computer around the model and gives it hands: it reads your files, carries out what the model asks for, and repeats until the job is done. Claude Code, Codex CLI, opencode and pi are harnesses.</p>
 <p><strong>Markdown</strong> — plain text with <code>#</code> for headings and <code>-</code> for bullets. What all these files are written in. That's the whole syntax you need.</p>
 <p><strong>MCP (Model Context Protocol)</strong> — the standard that lets an agent reach systems outside the directory: Drive, WebOps, Slack, your CMS.</p>
 <p><strong>MCP server / connector</strong> — one such connection. You install it once.</p>
+<p><strong>Model</strong> — the part that produces the text: Claude, GPT, Gemini. Text in, text out, and nothing else. Everything it can do to your files, it does through the harness.</p>
 <p><strong>Prompt injection</strong> — when text the agent reads from the outside world contains instructions, and the agent follows them as if you'd typed them. The reason to keep a human between the agent and anything that publishes or sends.</p>
 <p><strong>Session</strong> — one continuous conversation. Ends when you close the tool or clear it. The next one starts with no memory of it.</p>
 <p><strong>Skill</strong> — a directory with a <code>SKILL.md</code> inside: a written procedure the agent picks up when the task matches its description.</p>
@@ -1671,12 +1755,12 @@ Then tell me: what's done, where it is, what you need from me.
 <hr />
 </section>
 
-<section id="where-to-learn-more" data-sec="handbook-16">
+<section id="where-to-learn-more" data-sec="handbook-17">
 <h3><span>Where to learn more</span></h3>
 <p>Five things from outside this kit, in the order that makes most sense to take them in.</p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=LPZh9BOjkQs">Large Language Models explained briefly</a> — what a model is actually doing when it answers you: predicting the next word, over and over, from the text in front of it. This is why the colleague in <a href="#1-the-one-idea">section 1</a> remembers nothing about yesterday.</li>
-<li><a href="https://www.youtube.com/watch?v=1a1VXDdIyrk">Agent Harness explained in 8min..</a> — the program around the model: the part that hands it your files, runs the tools it asks for, and decides when the job is done. Claude Code, Codex, opencode and pi are all this.</li>
+<li><a href="https://www.youtube.com/watch?v=1a1VXDdIyrk">Agent Harness explained in 8min..</a> — the program around the model: the part that hands it your files, runs the tools it asks for, and decides when the job is done. Claude Code, Codex, opencode and pi are all this. The same distinction, in one page, is in <a href="#before-you-start">Before you start</a>.</li>
 <li><a href="https://www.youtube.com/watch?v=Lg-meK5IU8Q">What AI Agent Skills Are and How They Work</a> — what goes inside a <code>SKILL.md</code> and how the agent decides to load it. Read alongside <a href="#7-skills--teaching-it-your-procedures">section 7</a>.</li>
 <li><a href="https://www.youtube.com/watch?v=goU9VIXA8II">MCP vs Skills: Which Is Right for Your AI Agent and LLMs?</a> — the same question as <a href="#9-where-does-this-belong">section 9</a>, answered by someone else.</li>
 <li><a href="https://code.claude.com/docs/en/best-practices">Best practices for Claude Code</a> — Anthropic's own guide. Written for programmers, but most of it is not about code: keeping the context window clear, planning before doing, and giving the agent a way to check its own work.</li>
@@ -1684,7 +1768,7 @@ Then tell me: what's done, where it is, what you need from me.
 <hr />
 </section>
 
-<section id="where-to-go-next" data-sec="handbook-17">
+<section id="where-to-go-next" data-sec="handbook-18">
 <h3><span>Where to go next</span></h3>
 <ol>
 <li>Read <a href="#walkthroughs"><code>WALKTHROUGHS.md</code></a> and do <strong>Walkthrough 1</strong>. It takes 30 minutes and produces your real <code>AGENTS.md</code>.</li>
@@ -1739,7 +1823,7 @@ Then tell me: what's done, where it is, what you need from me.
 </tr>
 </tbody>
 </table></div>
-<p>Before you start: your agent tool should be installed and working, and you should be able to open a terminal in a directory and run it. If that sentence is doing a lot of work, get whoever set it up to sit with you for the first ten minutes of Walkthrough 1.</p>
+<p><strong>Before you start, you need an agent.</strong> Not ChatGPT or Claude in a browser tab — those cannot create a single file on your computer, and every exercise here ends in a file. Claude Code, OpenAI Codex CLI, opencode or pi, installed, with a terminal you can open in a directory and run it from. If that sentence is doing a lot of work, read <a href="#before-you-start">Before you start</a> in the handbook and get whoever set it up to sit with you for the first ten minutes of Walkthrough 1.</p>
 <hr />
 </section>
 
@@ -1754,6 +1838,7 @@ Then tell me: what's done, where it is, what you need from me.
 <p>Create a directory called <code>knowledge</code> with subdirectories <code>channels</code>, <code>voice</code>, <code>entities</code>, and <code>library</code>. Also create a directory called <code>projects</code>. Then show me the directory structure.</p>
 </div>
 <p>You should see the directories appear on disk. If it asks permission to create files, say yes. <strong>This is the whole trick of working with agents: you are not asking for text, you are asking for changes to a directory.</strong></p>
+<p><strong>If nothing appeared on disk, stop here.</strong> An answer describing the directories is not the same as the directories existing. Check in Finder or File Explorer, not in the reply. If they are not there, you are not running an agent — go back to <a href="#before-you-start">Before you start</a>.</p>
 <h4>Step 2 — Let it interview you</h4>
 <p>Don't write <code>AGENTS.md</code> from a blank page. Type this:</p>
 <div class="say" data-copy="I want to create an `AGENTS.md` for this workspace. This is where our team will plan and write everything we publish.&#10;&#10;Don&#x27;t write the file yet. First, interview me. Ask me **one question at a time**, up to about fifteen questions, covering:&#10;- what our company does and who we sell to&#10;- what we publish and where&#10;- who reads it&#10;- our writing rules and the words we hate&#10;- mistakes you could make that would embarrass us&#10;- what you should never do without asking&#10;- what a finished piece of work looks like&#10;&#10;Wait for my answer before each next question. When you have enough, say so and stop.">
@@ -2312,13 +2397,16 @@ výsledek.</p>
 plný Markdown souborů je stejně legitimní projekt jako adresář plný kódu a
 všechno v této příručce funguje stejně pro článek, brief kampaně nebo tuto
 příručku.</p>
-<p>Příručka předpokládá, že nástroj už je nainstalovaný a běží. Učí to, na čem
-doopravdy záleží: <strong>co dáte do adresáře.</strong></p>
+<p>Než z toho bude užitek, musíte mít jeden z nich nainstalovaný.
+<a href="#cs-než-začnete">Než začnete</a> říká, co nainstalovat a jak si za minutu ověříte,
+že opravdu mluvíte s agentem, a ne s chatovacím oknem. Zbytek příručky učí to,
+na čem doopravdy záleží: <strong>co dáte do adresáře.</strong></p>
 <hr />
 </section>
 
 <section id="cs-obsah" data-sec="handbook-1">
 <h3><span>Obsah</span></h3>
+<p><strong>Než začnete</strong> — <a href="#cs-než-začnete">co potřebujete nainstalovat a jak poznáte agenta od chatu</a></p>
 <ol>
 <li><a href="#cs-1-jedna-myšlenka">Jedna myšlenka, díky které dává všechno ostatní smysl</a></li>
 <li><a href="#cs-2-pět-věcí">Pět věcí, které agentovi dáváte</a></li>
@@ -2346,7 +2434,132 @@ Projděte je po přečtení sekcí 1–8.</li>
 <hr />
 </section>
 
-<section id="cs-1-jedna-myšlenka" data-sec="handbook-2">
+<section id="cs-než-začnete" data-sec="handbook-2">
+<h3><span>Než začnete</span></h3>
+<p>Celá příručka počítá s tím, že máte spuštěného agenta. Zní to jako samozřejmost.
+Zároveň je to první věc, kterou lidé udělají špatně.</p>
+<h4>Nejčastější chyba</h4>
+<p>Ve walkthrough stojí, že máte napsat tohle:</p>
+<div class="say" data-copy="Create a directory called `knowledge` with subdirectories `channels`, `voice`, `entities`, and `library`.">
+<p>Create a directory called <code>knowledge</code> with subdirectories <code>channels</code>, <code>voice</code>, <code>entities</code>, and <code>library</code>.</p>
+</div>
+<p>Vy to vložíte do ChatGPT nebo Claude v prohlížeči. Přijde sebejistá, pěkně
+naformátovaná odpověď — seznam adresářů, možná i příkazy, které byste mohli
+spustit. Ale na vašem počítači se nestalo nic. A ani nestane. Jdete na další krok
+a z celého sezení se pomalu stává čtení o souborech, které neexistují.</p>
+<p>Chatovací okno v prohlížeči se k vašemu počítači nedostane. Nevidí, co na něm
+máte, nic na něm nevytvoří a nemá jak si ověřit nic, co vám o něm řekne. Umí
+to všechno plynule popsat — stejně sebejistě jako cokoli jiného.</p>
+<div class="scroll"><table>
+<thead>
+<tr>
+<th></th>
+<th>Chat v prohlížeči</th>
+<th>Agent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kde běží</td>
+<td>Na serverech poskytovatele, v záložce</td>
+<td>Na vašem počítači, v jednom adresáři</td>
+</tr>
+<tr>
+<td>Co umí</td>
+<td>Napsat text do okna</td>
+<td>Číst, psát a upravovat soubory v tom adresáři, spouštět příkazy, hledat na webu</td>
+</tr>
+<tr>
+<td>Kde skončí výsledek</td>
+<td>Zkopírujete ho ručně jinam</td>
+<td>V adresáři, jako soubory</td>
+</tr>
+<tr>
+<td>Co ví o vaší práci</td>
+<td>Jen to, co mu vložíte, a jen tentokrát</td>
+<td>Všechno, co jste nechali v adresáři, pokaždé</td>
+</tr>
+</tbody>
+</table></div>
+<p>Pod oběma sloupci je stejná umělá inteligence. Liší se tím, s čím může
+pracovat — a přesně o tom je celá tahle příručka.</p>
+<h4>Model, harness, agent</h4>
+<p>Tři slova, která se používají, jako by znamenala totéž. Neznamenají, a ten
+rozdíl vysvětluje problém popsaný výše.</p>
+<p><strong>Model</strong> je ta část, která tvoří text — Claude, GPT, Gemini. Sám o sobě umí
+přesně jednu věc: dostane text, vrátí text. Neotevře soubor, nespustí příkaz,
+nepamatuje si včerejšek.</p>
+<p><strong>Harness</strong> je program, který běží na vašem počítači okolo modelu. To je ta
+část, která umí konat. Přečte vaše soubory a ukáže je modelu, provede, co model
+řekne — vytvoř tenhle soubor, spusť tenhle příkaz, stáhni tuhle stránku —
+vrátí mu výsledek a jde na to znovu, dokud není práce hotová. <strong>Claude Code,
+OpenAI Codex CLI, opencode a pi, to je harness.</strong> Chat v prohlížeči je taky
+harness, ale hodně tenký: nedosáhne nikam mimo záložku prohlížeče.</p>
+<p><strong>Agent</strong> je harness a model dohromady, namířený na adresář na vašem počítači.</p>
+<p>Kolega ze <a href="#cs-1-jedna-myšlenka">sekce 1</a> je ten model: schopný a bez paměti.
+Harness je kancelář, do které ráno přijde — stůl, cesta ke kartotéce, dokukmenty.
+A co si napíšete do svého workspace, to je přesně to, co v té kanceláři najde.
+Harness jednou nainstalujete a pak už na něj nemyslíte; obsah kanceláře píšete
+vy a je o něm všechno od <a href="#cs-2-pět-věcí">sekce 2</a> dál.</p>
+<h4>Co potřebujete</h4>
+<p>Čtyři věci:</p>
+<ul>
+<li><strong>Terminál</strong> — textové okno, do kterého se píšou příkazy. Potřebujete asi
+čtyři příkazy. Někdo vám je ukáže během instalace.</li>
+<li><strong>Jeden ze čtyř nástrojů, nainstalovaný.</strong> Viz níž.</li>
+<li><strong>Účet u toho, kdo poskytuje model.</strong> Většinou placené předplatné. Nástroj
+vás přihlášením provede při prvním spuštění.</li>
+<li><strong>Adresář, ve kterém budete pracovat.</strong> Vytvoříte ho ve Walkthrough 1.</li>
+</ul>
+<p>Čtyři nástroje, ověřeno v srpnu 2026:</p>
+<p><strong>Claude Code</strong> — od Anthropicu. Instalace <code>curl -fsSL https://claude.ai/install.sh | bash</code>
+na macOS a Linuxu, <code>brew install --cask claude-code</code> přes Homebrew, nebo
+<code>irm https://claude.ai/install.ps1 | iex</code> ve Windows PowerShellu. Potřebuje
+předplatné Claude Pro, Max, Team nebo Enterprise, případně účet v Claude
+Console. Spustíte příkazem <code>claude</code>.
+<a href="https://code.claude.com/docs/en/quickstart">Quickstart</a></p>
+<p><strong>OpenAI Codex CLI</strong> — od OpenAI. Instalace
+<code>curl -fsSL https://chatgpt.com/codex/install.sh | sh</code>. Přihlásíte se účtem
+ChatGPT. Spustíte příkazem <code>codex</code>.
+<a href="https://learn.chatgpt.com/docs/codex/cli">Quickstart</a></p>
+<p><strong>opencode</strong> — open source a nevázaný na jednoho poskytovatele: přinesete si
+API klíč k modelu, který chcete používat. Instalace
+<code>curl -fsSL https://opencode.ai/install | bash</code>. Spustíte příkazem <code>opencode</code>.
+<a href="https://opencode.ai/docs/">Dokumentace</a></p>
+<p><strong>pi</strong> — open source, také nezávislý na poskytovateli, a umí se přihlásit
+předplatným Claude Pro/Max, ChatGPT Plus/Pro nebo GitHub Copilot, které už
+platíte. Instalace <code>npm install -g --ignore-scripts @earendil-works/pi-coding-agent</code>,
+potřebuje na počítači Node.js. Spustíte příkazem <code>pi</code>.
+<a href="https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/quickstart.md">Quickstart</a></p>
+<p>Pokud nemáte důvod preferovat konkrétní nástroj, vezměte ten, který už vaše
+firma platí. Všechno v téhle příručce funguje ve všech čtyřech stejně; liší se
+jen názvy souborů a adresářů a
+<a href="#cs-příloha-a--který-soubor-čte-můj-nástroj">Příloha A</a> vypisuje každý takový
+rozdíl.</p>
+<p>Instalace zabere asi pět minut. Pokud vám ty příkazy nic neříkají, je to
+v pořádku a není to vaše práce — pošlete tuhle sekci tomu, kdo se u vás stará
+o notebooky, nebo ho poproste, ať si k vám na deset minut sedne. Je to
+jednorázová věc. Instalační postupy se navíc mění; když příkaz neprojde,
+otevřete odkazovaný návod.</p>
+<h4>Minuta na ověření, že jste na správném místě</h4>
+<p>Udělejte to ještě před Walkthrough 1. Otevřete terminál v libovolném
+adresáři, spusťte nástroj a napište:</p>
+<div class="say" data-copy="Create a file called `hello.md` containing one line: it worked.">
+<p>Create a file called <code>hello.md</code> containing one line: it worked.</p>
+</div>
+<p>Když si řekne o svolení soubor zapsat, dejte mu ho — že se ptá, je správně.
+Pak terminál opusťte a podívejte se do toho adresáře ve Finderu (Mac) nebo
+v Průzkumníku souborů (Windows).</p>
+<ul>
+<li><strong><code>hello.md</code> tam je.</strong> Máte agenta. Pokračujte sekcí 1.</li>
+<li><strong>Žádný soubor, jen pěkně naformátovaná odpověď o tom, co by v souboru
+bylo.</strong> Jste v chatovacím okně. Nic dalšího z téhle příručky nebude fungovat,
+dokukud jej nenainstalujete.</li>
+</ul>
+<hr />
+</section>
+
+<section id="cs-1-jedna-myšlenka" data-sec="handbook-3">
 <h3><span class="num">01</span> <span>Jedna myšlenka, díky které dává všechno ostatní smysl</span></h3>
 <p>Představte si, že přijmete kolegu, který je rychlý, neúnavný, sečtělý, ochotný
 udělat cokoli — a který <strong>každý večer ztratí veškerou paměť</strong>.</p>
@@ -2405,7 +2618,7 @@ sekce 5 je o tom, jak to obejít.</p>
 <hr />
 </section>
 
-<section id="cs-2-pět-věcí" data-sec="handbook-3">
+<section id="cs-2-pět-věcí" data-sec="handbook-4">
 <h3><span class="num">02</span> <span>Pět věcí, které agentovi dáváte</span></h3>
 <p>Všechno, co kdy budete nastavovat, patří do jedné z pěti skupin. Zapamatujte si
 jejich názvy a přestanete tápat.</p>
@@ -2439,7 +2652,7 @@ konkrétní nedostatek, který každý z nich řeší.</p>
 <hr />
 </section>
 
-<section id="cs-3-váš-workspace" data-sec="handbook-4">
+<section id="cs-3-váš-workspace" data-sec="handbook-5">
 <h3><span class="num">03</span> <span>Váš workspace</span></h3>
 <p>Workspace je prostě adresář na vašem počítači. Otevřete v něm terminál a spusťte
 tam agenta. Všechno, co agent dělá, se odehrává v něm.</p>
@@ -2494,7 +2707,7 @@ adresáře.</p>
 <hr />
 </section>
 
-<section id="cs-4-agentsmd" data-sec="handbook-5">
+<section id="cs-4-agentsmd" data-sec="handbook-6">
 <h3><span class="num">04</span> <span>AGENTS.md — pravidla</span></h3>
 <p><code>AGENTS.md</code> je obyčejný textový soubor (Markdown) v kořeni vašeho workspace. Každý
 podporovaný agent si ho přečte na začátku každého sezení, dřív než cokoli udělá.
@@ -2678,7 +2891,7 @@ prázdného dokumentu. Pak ho upravte ručně — je váš, ne agentův.</p>
 <hr />
 </section>
 
-<section id="cs-5-plány-fáze-progress" data-sec="handbook-6">
+<section id="cs-5-plány-fáze-progress" data-sec="handbook-7">
 <h3><span class="num">05</span> <span>Plány, fáze a progress</span></h3>
 <h4>5.1 Problém</h4>
 <p>Zadejte agentovi něco velkého — „naplánuj nám kampaň na Q4&quot; — a stane se jedna
@@ -2786,7 +2999,7 @@ pamatovat si dlouhou konverzaci.</p>
 <hr />
 </section>
 
-<section id="cs-6-knowledge-base" data-sec="handbook-7">
+<section id="cs-6-knowledge-base" data-sec="handbook-8">
 <h3><span class="num">06</span> <span>Knowledge base</span></h3>
 <p><code>AGENTS.md</code> je to, co agent čte <em>pokaždé</em>, takže musí zůstat krátký. Knowledge
 base je všechno ostatní — čte se jen tehdy, když je to relevantní. Tady si
@@ -3014,7 +3227,7 @@ udělejte si z toho zvyk. Když je něco předběžné, napište to do souboru:
 <hr />
 </section>
 
-<section id="cs-7-skills" data-sec="handbook-8">
+<section id="cs-7-skills" data-sec="handbook-9">
 <h3><span class="num">07</span> <span>Skills — jak ho naučit vaše postupy</span></h3>
 <h4>7.1 Co je skill</h4>
 <p>Skill je adresář obsahující soubor <code>SKILL.md</code>. Uvnitř je postup krok za krokem
@@ -3207,7 +3420,7 @@ I made along the way.&quot;</em></p>
 <hr />
 </section>
 
-<section id="cs-8-mcp" data-sec="handbook-9">
+<section id="cs-8-mcp" data-sec="handbook-10">
 <h3><span class="num">08</span> <span>MCP — dosah do dalších systémů</span></h3>
 <h4>8.1 Co to je</h4>
 <p>Ve výchozím stavu vidí agent jen adresář, ve kterém běží, plus web. <strong>MCP</strong>
@@ -3317,7 +3530,7 @@ další.</p>
 <hr />
 </section>
 
-<section id="cs-9-kam-to-patří" data-sec="handbook-10">
+<section id="cs-9-kam-to-patří" data-sec="handbook-11">
 <h3><span class="num">09</span> <span>Kam co patří?</span></h3>
 <p>Otázka, kterou si budete klást nejčastěji. Tuhle tabulku si vytiskněte.</p>
 <div class="scroll"><table>
@@ -3385,7 +3598,7 @@ odkaz.</p>
 <hr />
 </section>
 
-<section id="cs-10-každodenní-práce" data-sec="handbook-11">
+<section id="cs-10-každodenní-práce" data-sec="handbook-12">
 <h3><span class="num">10</span> <span>Každodenní práce s agentem</span></h3>
 <p>Většinu práce odvede nastavení. Ale na formulaci požadavku pořád záleží. Devět
 návyků, zhruba podle míry dopadu.</p>
@@ -3427,7 +3640,7 @@ nejdřív.</p>
 <hr />
 </section>
 
-<section id="cs-11-když-se-něco-pokazí" data-sec="handbook-12">
+<section id="cs-11-když-se-něco-pokazí" data-sec="handbook-13">
 <h3><span class="num">11</span> <span>Když se něco pokazí</span></h3>
 <div class="scroll"><table>
 <thead>
@@ -3502,7 +3715,7 @@ z odpovědi zjistíte, co přepsat.</p>
 <hr />
 </section>
 
-<section id="cs-12-zavedení-v-týmu" data-sec="handbook-13">
+<section id="cs-12-zavedení-v-týmu" data-sec="handbook-14">
 <h3><span class="num">12</span> <span>Zavedení v týmu</span></h3>
 <p><strong>Týden 1 — jeden člověk, jeden workspace.</strong> Jeden člověk nastaví <code>AGENTS.md</code>, dva
 channel soubory a jeden voice soubor. Týden s tím dělá reálnou práci. Nic dalšího.
@@ -3530,7 +3743,7 @@ je taky knowledge soubor.</li>
 <hr />
 </section>
 
-<section id="cs-příloha-a--který-soubor-čte-můj-nástroj" data-sec="handbook-14">
+<section id="cs-příloha-a--který-soubor-čte-můj-nástroj" data-sec="handbook-15">
 <h3><span class="num">A</span> <span>Který soubor čte můj nástroj?</span></h3>
 <p>Všechny čtyři nástroje pracují se stejným workspace. Liší se v názvech souborů a
 umístění adresářů. <em>(Ověřeno v srpnu 2026; tyhle věci se mění — když se něco
@@ -3645,7 +3858,7 @@ v Codexu. Nebo neřeknete nic a necháte to spustit popisem.</p>
 <hr />
 </section>
 
-<section id="cs-příloha-b--slovníček" data-sec="handbook-15">
+<section id="cs-příloha-b--slovníček" data-sec="handbook-16">
 <h3><span class="num">B</span> <span>Slovníček</span></h3>
 <p>Termíny zůstávají anglicky — jsou to slova, na která narazíte v dokumentaci
 i v samotných nástrojích.</p>
@@ -3653,8 +3866,14 @@ i v samotných nástrojích.</p>
 upravovat soubory a používat nástroje, místo aby jen chatovala.</p>
 <p><strong>AGENTS.md</strong> — soubor s instrukcemi, který každý agent čte na začátku každého
 sezení. Otevřený standard; Claude Code místo něj používá <code>CLAUDE.md</code>.</p>
+<p><strong>Chatovací asistent</strong> — ChatGPT nebo Claude v záložce prohlížeče. Stejný
+model, ale bez přístupu k vašemu počítači. Vyrobí text, který si ručně
+zkopírujete jinam. Není to agent; viz <a href="#cs-než-začnete">Než začnete</a>.</p>
 <p><strong>Context window</strong> — kolik toho agent udrží najednou v hlavě. Plocha stolu.
 Konečná, a proto dlouhá práce potřebuje deník.</p>
+<p><strong>Harness</strong> — program, který běží na vašem počítači okolo modelu a dává mu
+ruce: čte vaše soubory, provádí, co model řekne, a opakuje to, dokud není
+práce hotová. Claude Code, Codex CLI, opencode a pi jsou harnessy.</p>
 <p><strong>Compacting</strong> — co se stane, když se stůl zaplní: nástroj shrne dřívější
 konverzaci, aby udělal místo. Detaily se ztratí. Signál, že máte uložit progress
 a začít načisto.</p>
@@ -3663,6 +3882,8 @@ všechny tyhle soubory. To je celá syntaxe, kterou potřebujete.</p>
 <p><strong>MCP (Model Context Protocol)</strong> — standard, který agentovi umožní sáhnout do
 systémů mimo adresář: Drive, WebOps, Slack, váš CMS.</p>
 <p><strong>MCP server / konektor</strong> — jedno takové napojení. Instaluje se jednou.</p>
+<p><strong>Model</strong> — ta část, která tvoří text: Claude, GPT, Gemini. Text dovnitř, text
+ven, a nic víc. Všechno, co dokáže s vašimi soubory, dělá přes harness.</p>
 <p><strong>Prompt injection</strong> — situace, kdy text, který agent přečte z vnějšího světa,
 obsahuje instrukce a agent je vykoná, jako byste je napsali vy. Důvod, proč mezi
 agentem a čímkoli, co publikuje nebo odesílá, má stát člověk.</p>
@@ -3680,7 +3901,7 @@ příkazy celkem; někdo vám je ukáže.</p>
 <hr />
 </section>
 
-<section id="cs-kde-se-dozvědět-víc" data-sec="handbook-16">
+<section id="cs-kde-se-dozvědět-víc" data-sec="handbook-17">
 <h3><span>Kde se dozvědět víc</span></h3>
 <p>Pět věcí mimo tuto sadu, v pořadí, ve kterém na sebe navazují. Všechno je
 anglicky.</p>
@@ -3692,7 +3913,8 @@ pořád dokola, z textu, který má před sebou. Odsud plyne, proč si kolega ze
 <li><a href="https://www.youtube.com/watch?v=1a1VXDdIyrk">Agent Harness explained in 8min..</a>
 — program kolem modelu: ta část, která mu podá vaše soubory, spustí
 nástroje, o které si řekne, a pozná, kdy je práce hotová. Claude Code,
-Codex, opencode i pi jsou přesně tohle.</li>
+Codex, opencode i pi jsou přesně tohle. Totéž na jednu stránku je
+v <a href="#cs-než-začnete">Než začnete</a>.</li>
 <li><a href="https://www.youtube.com/watch?v=Lg-meK5IU8Q">What AI Agent Skills Are and How They Work</a>
 — co se píše do <code>SKILL.md</code> a podle čeho se agent rozhodne ho načíst. Čtěte
 k <a href="#cs-7-skills">sekci 7</a>.</li>
@@ -3706,7 +3928,7 @@ práce a dát agentovi možnost ověřit si vlastní výsledek.</li>
 <hr />
 </section>
 
-<section id="cs-kam-dal" data-sec="handbook-17">
+<section id="cs-kam-dal" data-sec="handbook-18">
 <h3><span>Kam dál</span></h3>
 <ol>
 <li>Přečtěte si <a href="#cs-walkthroughs"><code>WALKTHROUGHS.cs.md</code></a> a udělejte
@@ -3785,10 +4007,13 @@ v <code>blocích kódu</code> je soubor nebo příkaz do terminálu.</p>
 </tr>
 </tbody>
 </table></div>
-<p>Než začnete: váš agentní nástroj by měl být nainstalovaný a funkční a měli byste
-umět otevřít terminál v adresáři a spustit ho. Pokud vám ta věta dělá potíže,
-požádejte toho, kdo vám to instaloval, ať s vámi stráví prvních deset minut
-prvního walkthrough.</p>
+<p><strong>Než začnete, potřebujete agenta.</strong> Ne ChatGPT nebo Claude v prohlížeči — ti
+na vašem počítači nevytvoří jediný soubor a každé cvičení tady končí souborem.
+Claude Code, OpenAI Codex CLI, opencode nebo pi, nainstalovaný, a k tomu
+terminál, který umíte otevřít v adresáři a spustit ho z něj. Pokud vám ta věta
+dělá potíže, přečtěte si v příručce
+<a href="#cs-než-začnete">Než začnete</a> a požádejte toho, kdo vám to
+instaloval, ať s vámi stráví prvních deset minut prvního walkthrough.</p>
 <hr />
 </section>
 
@@ -3808,6 +4033,11 @@ Otevřete v něm terminál a spusťte agenta (<code>claude</code>, <code>codex</
 <p>Adresáře by se měly objevit na disku. Pokud si řekne o svolení k vytvoření
 souborů, dejte mu ho. <strong>V tomhle je celý trik: nechcete po něm text, chcete po něm
 změny v adresáři.</strong></p>
+<p><strong>Pokud se na disku neobjevilo nic, zastavte se tady.</strong> Odpověď, která ty
+adresáře popisuje, není totéž jako adresáře, které existují. Ověřte si to ve
+Finderu nebo v Průzkumníku souborů, ne v odpovědi. Pokud tam nejsou, nemáte
+spuštěného agenta — vraťte se na
+<a href="#cs-než-začnete">Než začnete</a>.</p>
 <h4>Krok 2 — Nechte se vyzpovídat</h4>
 <p>Nepište <code>AGENTS.md</code> sami od začátku. Napište tohle:</p>
 <div class="say" data-copy="I want to create an `AGENTS.md` for this workspace. This is where our team will plan and write everything we publish.&#10;&#10;Don&#x27;t write the file yet. First, interview me. Ask me **one question at a time**, up to about fifteen questions, covering:&#10;- what our company does and who we sell to&#10;- what we publish and where&#10;- who reads it&#10;- our writing rules and the words we hate&#10;- mistakes you could make that would embarrass us&#10;- what you should never do without asking&#10;- what a finished piece of work looks like&#10;&#10;Wait for my answer before each next question. When you have enough, say so and stop.">

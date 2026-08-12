@@ -33,10 +33,13 @@ v `blocích kódu` je soubor nebo příkaz do terminálu.
 | 3 | [Naplánovat kampaň](#walkthrough-3--naplánovat-mediální-kampaň) | 3 sezení za 2 dny | Kompletní multikanálový plán kampaně, postavený napříč sezeními |
 | 4 | [Udělat z toho skill](#walkthrough-4--udělat-z-opakované-práce-skill) | 30 min | Znovupoužitelný postup, který spustíte jedním slovem |
 
-Než začnete: váš agentní nástroj by měl být nainstalovaný a funkční a měli byste
-umět otevřít terminál v adresáři a spustit ho. Pokud vám ta věta dělá potíže,
-požádejte toho, kdo vám to instaloval, ať s vámi stráví prvních deset minut
-prvního walkthrough.
+**Než začnete, potřebujete agenta.** Ne ChatGPT nebo Claude v prohlížeči — ti
+na vašem počítači nevytvoří jediný soubor a každé cvičení tady končí souborem.
+Claude Code, OpenAI Codex CLI, opencode nebo pi, nainstalovaný, a k tomu
+terminál, který umíte otevřít v adresáři a spustit ho z něj. Pokud vám ta věta
+dělá potíže, přečtěte si v příručce
+[Než začnete](HANDBOOK.cs.md#než-začnete) a požádejte toho, kdo vám to
+instaloval, ať s vámi stráví prvních deset minut prvního walkthrough.
 
 ---
 
@@ -60,6 +63,12 @@ Pak si ověřte, že opravdu vidí soubory a umí je zapisovat:
 Adresáře by se měly objevit na disku. Pokud si řekne o svolení k vytvoření
 souborů, dejte mu ho. **V tomhle je celý trik: nechcete po něm text, chcete po něm
 změny v adresáři.**
+
+**Pokud se na disku neobjevilo nic, zastavte se tady.** Odpověď, která ty
+adresáře popisuje, není totéž jako adresáře, které existují. Ověřte si to ve
+Finderu nebo v Průzkumníku souborů, ne v odpovědi. Pokud tam nejsou, nemáte
+spuštěného agenta — vraťte se na
+[Než začnete](HANDBOOK.cs.md#než-začnete).
 
 ### Krok 2 — Nechte se vyzpovídat
 

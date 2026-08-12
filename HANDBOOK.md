@@ -10,11 +10,13 @@ This handbook is about something different: an **agent**. An agent runs on your 
 
 Tools that work this way include **Claude Code**, **OpenAI Codex CLI**, **opencode**, and **pi**. They are marketed at programmers. They are not only for programmers. A directory full of Markdown files is just as valid a project as a directory full of code, and everything in this handbook works the same way for an article, a campaign brief, or a content calendar.
 
-This handbook assumes the tool is already installed and running. It teaches you the part that actually determines whether you get good work out of it: **what you put in the directory.**
+You need one of them installed before any of this is useful. [Before you start](#before-you-start) covers what to install, and how to check in a minute that you are really talking to an agent rather than to a chat window. After that, this handbook teaches the part that actually determines whether you get good work out of it: **what you put in the directory.**
 
 ---
 
 ## Contents
+
+**Before you start** — [what you need installed, and how to tell an agent from a chat window](#before-you-start)
 
 1. [The one idea that makes everything else make sense](#1-the-one-idea)
 2. [The five things you give an agent](#2-the-five-things-you-give-an-agent)
@@ -37,6 +39,78 @@ Companion files in this kit:
 - [`WALKTHROUGHS.md`](WALKTHROUGHS.md) — four step-by-step exercises. Do these after reading sections 1–8.
 - [`PROMPTS.md`](PROMPTS.md) — a cheat sheet of things to type.
 - [`starter-kit/`](starter-kit/) — a complete example workspace you can copy and edit.
+
+---
+
+<a id="before-you-start"></a>
+## Before you start
+
+Everything in this handbook assumes you are running an agent. That sounds too obvious to say. It is also the first thing people get wrong, and it costs them a week, so it is worth two minutes now.
+
+### The mistake
+
+A walkthrough tells you to type this:
+
+> Create a directory called `knowledge` with subdirectories `channels`, `voice`, `entities`, and `library`.
+
+You paste it into ChatGPT or Claude in your browser. You get a confident, well-formatted reply — a tidy list of directories, perhaps some commands you could run. Nothing has happened on your computer. Nothing will. You move on to the next step, and the kit quietly turns into a reading exercise about files that do not exist.
+
+A browser chat window cannot reach your computer. It cannot see what is on it, cannot create anything on it, and cannot check anything it tells you about it. What it can do is describe all of that fluently, in the same confident voice it uses for everything else.
+
+|  | Browser chat | Agent |
+|---|---|---|
+| Where it runs | On the provider's servers, in a tab | On your computer, in one directory |
+| What it can do | Produce text in the window | Read, write and edit files in that directory, run commands, search the web |
+| Where the work ends up | You copy it out by hand | In the directory, as files |
+| What it knows about your work | Whatever you paste in, that once | Whatever you left in the directory, every time |
+
+It is the same underlying AI in both columns. What differs is what it has been given to work with — and that is the entire subject of this handbook.
+
+### Model, harness, agent
+
+Three words used as though they meant the same thing. Keeping them apart explains what went wrong above.
+
+**The model** is the part that produces text — Claude, GPT, Gemini. On its own it does exactly one thing: text goes in, text comes out. It cannot open a file, run a command, or remember yesterday.
+
+**The harness** is the program that runs on your computer around the model. It is the part with hands. It reads your files and shows them to the model, carries out what the model asks for — create this file, run this command, fetch this page — hands the result back, and goes round again until the job is done. **Claude Code, OpenAI Codex CLI, opencode and pi are harnesses.** The browser chat is one too, but a very thin one: its hands reach nothing outside the tab.
+
+**An agent** is a harness and a model together, pointed at a directory on your computer.
+
+The colleague in [section 1](#1-the-one-idea) is the model: capable, and remembering nothing. The harness is the office they walk into — the desk, the hands, the way to the filing cabinet. What you write in your workspace is what is in that office when they arrive. You install the harness once and then never think about it again; what is in the office is written by you, and it is what everything from [section 2](#2-the-five-things-you-give-an-agent) onwards is about.
+
+### What you need
+
+Four things:
+
+- **A terminal** — the text window you type commands into. You need about four commands in total, and someone can show you all four in five minutes.
+- **One of the four tools, installed.** See below.
+- **An account with whoever provides the model.** Usually a paid subscription. The tool walks you through logging in the first time you start it.
+- **A directory to work in.** Walkthrough 1 creates it.
+
+The four tools, checked August 2026:
+
+**Claude Code** — from Anthropic. Install with `curl -fsSL https://claude.ai/install.sh | bash` on macOS or Linux, `brew install --cask claude-code` if you use Homebrew, or `irm https://claude.ai/install.ps1 | iex` in Windows PowerShell. Needs a Claude Pro, Max, Team or Enterprise subscription, or a Claude Console account. Start it by typing `claude`. [Quickstart](https://code.claude.com/docs/en/quickstart)
+
+**OpenAI Codex CLI** — from OpenAI. Install with `curl -fsSL https://chatgpt.com/codex/install.sh | sh`. Sign in with your ChatGPT account. Start it by typing `codex`. [Quickstart](https://learn.chatgpt.com/docs/codex/cli)
+
+**opencode** — open source, and not tied to one provider: you bring an API key for whichever model you want to use. Install with `curl -fsSL https://opencode.ai/install | bash`. Start it by typing `opencode`. [Docs](https://opencode.ai/docs/)
+
+**pi** — open source, also provider-agnostic, and it can log in with a Claude Pro/Max, ChatGPT Plus/Pro or GitHub Copilot subscription you already pay for. Install with `npm install -g --ignore-scripts @earendil-works/pi-coding-agent`, which needs Node.js on your machine. Start it by typing `pi`. [Quickstart](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/quickstart.md)
+
+If you have no reason to prefer one, use whichever your company already pays for. Everything in this handbook works the same way in all four; where they differ is a file name or a directory name, and [Appendix A](#appendix-a--which-file-does-my-tool-read) lists every difference.
+
+Installing takes about five minutes. If those commands mean nothing to you, that is expected and it is not your job — send this section to whoever looks after laptops where you work, or ask them to sit with you for ten minutes. It is a one-time job. Install instructions also change; if a command fails, open the linked guide rather than fighting it.
+
+### One minute to check you are in the right place
+
+Do this before Walkthrough 1. Open your terminal in any directory, start the tool, and type:
+
+> Create a file called `hello.md` containing one line: it worked.
+
+If it asks permission to write the file, say yes — being asked is the agent working as intended. Then leave the terminal and open that directory in Finder on a Mac, or File Explorer on Windows.
+
+- **`hello.md` is there.** You are running an agent. Carry on to section 1.
+- **No file, but a nicely formatted answer telling you what the file would contain.** You are in a chat window. Nothing else in this handbook will work until that changes.
 
 ---
 
@@ -1092,15 +1166,21 @@ To run one on demand: `/skill-name` in Claude Code and opencode, `$skill-name` i
 
 **AGENTS.md** — the instructions file every agent reads at the start of every session. The open standard for this; Claude Code uses `CLAUDE.md` instead.
 
+**Chat assistant** — ChatGPT or Claude in a browser tab. The same model, with no access to your computer. It produces text you copy out by hand. Not an agent; see [Before you start](#before-you-start).
+
 **Context window** — how much the agent can hold in mind at once. The desk surface. Finite, and the reason long jobs need a logbook.
 
 **Compacting** — what happens when the desk fills up: the tool summarises the earlier conversation to make room. Detail is lost. A signal to save your progress and start fresh.
+
+**Harness** — the program that runs on your computer around the model and gives it hands: it reads your files, carries out what the model asks for, and repeats until the job is done. Claude Code, Codex CLI, opencode and pi are harnesses.
 
 **Markdown** — plain text with `#` for headings and `-` for bullets. What all these files are written in. That's the whole syntax you need.
 
 **MCP (Model Context Protocol)** — the standard that lets an agent reach systems outside the directory: Drive, WebOps, Slack, your CMS.
 
 **MCP server / connector** — one such connection. You install it once.
+
+**Model** — the part that produces the text: Claude, GPT, Gemini. Text in, text out, and nothing else. Everything it can do to your files, it does through the harness.
 
 **Prompt injection** — when text the agent reads from the outside world contains instructions, and the agent follows them as if you'd typed them. The reason to keep a human between the agent and anything that publishes or sends.
 
@@ -1122,7 +1202,7 @@ To run one on demand: `/skill-name` in Claude Code and opencode, `$skill-name` i
 Five things from outside this kit, in the order that makes most sense to take them in.
 
 - [Large Language Models explained briefly](https://www.youtube.com/watch?v=LPZh9BOjkQs) — what a model is actually doing when it answers you: predicting the next word, over and over, from the text in front of it. This is why the colleague in [section 1](#1-the-one-idea) remembers nothing about yesterday.
-- [Agent Harness explained in 8min..](https://www.youtube.com/watch?v=1a1VXDdIyrk) — the program around the model: the part that hands it your files, runs the tools it asks for, and decides when the job is done. Claude Code, Codex, opencode and pi are all this.
+- [Agent Harness explained in 8min..](https://www.youtube.com/watch?v=1a1VXDdIyrk) — the program around the model: the part that hands it your files, runs the tools it asks for, and decides when the job is done. Claude Code, Codex, opencode and pi are all this. The same distinction, in one page, is in [Before you start](#before-you-start).
 - [What AI Agent Skills Are and How They Work](https://www.youtube.com/watch?v=Lg-meK5IU8Q) — what goes inside a `SKILL.md` and how the agent decides to load it. Read alongside [section 7](#7-skills--teaching-it-your-procedures).
 - [MCP vs Skills: Which Is Right for Your AI Agent and LLMs?](https://www.youtube.com/watch?v=goU9VIXA8II) — the same question as [section 9](#9-where-does-this-belong), answered by someone else.
 - [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) — Anthropic's own guide. Written for programmers, but most of it is not about code: keeping the context window clear, planning before doing, and giving the agent a way to check its own work.

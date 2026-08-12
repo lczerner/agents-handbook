@@ -48,12 +48,16 @@ plný Markdown souborů je stejně legitimní projekt jako adresář plný kódu
 všechno v této příručce funguje stejně pro článek, brief kampaně nebo tuto
 příručku. 
 
-Příručka předpokládá, že nástroj už je nainstalovaný a běží. Učí to, na čem
-doopravdy záleží: **co dáte do adresáře.**
+Než z toho bude užitek, musíte mít jeden z nich nainstalovaný.
+[Než začnete](#než-začnete) říká, co nainstalovat a jak si za minutu ověříte,
+že opravdu mluvíte s agentem, a ne s chatovacím oknem. Zbytek příručky učí to,
+na čem doopravdy záleží: **co dáte do adresáře.**
 
 ---
 
 ## Obsah
+
+**Než začnete** — [co potřebujete nainstalovat a jak poznáte agenta od chatu](#než-začnete)
 
 1. [Jedna myšlenka, díky které dává všechno ostatní smysl](#1-jedna-myšlenka)
 2. [Pět věcí, které agentovi dáváte](#2-pět-věcí)
@@ -77,6 +81,127 @@ Doprovodné soubory v této sadě:
   Projděte je po přečtení sekcí 1–8.
 - [`PROMPTS.md`](PROMPTS.md) — tahák s prompty (anglicky, jsou k okopírování).
 - [`starter-kit/`](starter-kit/) — kompletní ukázkový workspace ke zkopírování.
+
+---
+
+<a id="než-začnete"></a>
+## Než začnete
+
+Celá příručka počítá s tím, že máte spuštěného agenta. Zní to jako samozřejmost.
+Zároveň je to první věc, kterou lidé udělají špatně.
+
+### Nejčastější chyba
+
+Ve walkthrough stojí, že máte napsat tohle:
+
+> Create a directory called `knowledge` with subdirectories `channels`, `voice`, `entities`, and `library`.
+
+Vy to vložíte do ChatGPT nebo Claude v prohlížeči. Přijde sebejistá, pěkně
+naformátovaná odpověď — seznam adresářů, možná i příkazy, které byste mohli
+spustit. Ale na vašem počítači se nestalo nic. A ani nestane. Jdete na další krok
+a z celého sezení se pomalu stává čtení o souborech, které neexistují.
+
+Chatovací okno v prohlížeči se k vašemu počítači nedostane. Nevidí, co na něm
+máte, nic na něm nevytvoří a nemá jak si ověřit nic, co vám o něm řekne. Umí
+to všechno plynule popsat — stejně sebejistě jako cokoli jiného.
+
+|  | Chat v prohlížeči | Agent |
+|---|---|---|
+| Kde běží | Na serverech poskytovatele, v záložce | Na vašem počítači, v jednom adresáři |
+| Co umí | Napsat text do okna | Číst, psát a upravovat soubory v tom adresáři, spouštět příkazy, hledat na webu |
+| Kde skončí výsledek | Zkopírujete ho ručně jinam | V adresáři, jako soubory |
+| Co ví o vaší práci | Jen to, co mu vložíte, a jen tentokrát | Všechno, co jste nechali v adresáři, pokaždé |
+
+Pod oběma sloupci je stejná umělá inteligence. Liší se tím, s čím může
+pracovat — a přesně o tom je celá tahle příručka.
+
+### Model, harness, agent
+
+Tři slova, která se používají, jako by znamenala totéž. Neznamenají, a ten
+rozdíl vysvětluje problém popsaný výše.
+
+**Model** je ta část, která tvoří text — Claude, GPT, Gemini. Sám o sobě umí
+přesně jednu věc: dostane text, vrátí text. Neotevře soubor, nespustí příkaz,
+nepamatuje si včerejšek.
+
+**Harness** je program, který běží na vašem počítači okolo modelu. To je ta
+část, která umí konat. Přečte vaše soubory a ukáže je modelu, provede, co model
+řekne — vytvoř tenhle soubor, spusť tenhle příkaz, stáhni tuhle stránku —
+vrátí mu výsledek a jde na to znovu, dokud není práce hotová. **Claude Code,
+OpenAI Codex CLI, opencode a pi, to je harness.** Chat v prohlížeči je taky
+harness, ale hodně tenký: nedosáhne nikam mimo záložku prohlížeče.
+
+**Agent** je harness a model dohromady, namířený na adresář na vašem počítači.
+
+Kolega ze [sekce 1](#1-jedna-myšlenka) je ten model: schopný a bez paměti.
+Harness je kancelář, do které ráno přijde — stůl, cesta ke kartotéce, dokukmenty.
+A co si napíšete do svého workspace, to je přesně to, co v té kanceláři najde.
+Harness jednou nainstalujete a pak už na něj nemyslíte; obsah kanceláře píšete
+vy a je o něm všechno od [sekce 2](#2-pět-věcí) dál.
+
+### Co potřebujete
+
+Čtyři věci:
+
+- **Terminál** — textové okno, do kterého se píšou příkazy. Potřebujete asi
+  čtyři příkazy. Někdo vám je ukáže během instalace.
+- **Jeden ze čtyř nástrojů, nainstalovaný.** Viz níž.
+- **Účet u toho, kdo poskytuje model.** Většinou placené předplatné. Nástroj
+  vás přihlášením provede při prvním spuštění.
+- **Adresář, ve kterém budete pracovat.** Vytvoříte ho ve Walkthrough 1.
+
+Čtyři nástroje, ověřeno v srpnu 2026:
+
+**Claude Code** — od Anthropicu. Instalace `curl -fsSL https://claude.ai/install.sh | bash`
+na macOS a Linuxu, `brew install --cask claude-code` přes Homebrew, nebo
+`irm https://claude.ai/install.ps1 | iex` ve Windows PowerShellu. Potřebuje
+předplatné Claude Pro, Max, Team nebo Enterprise, případně účet v Claude
+Console. Spustíte příkazem `claude`.
+[Quickstart](https://code.claude.com/docs/en/quickstart)
+
+**OpenAI Codex CLI** — od OpenAI. Instalace
+`curl -fsSL https://chatgpt.com/codex/install.sh | sh`. Přihlásíte se účtem
+ChatGPT. Spustíte příkazem `codex`.
+[Quickstart](https://learn.chatgpt.com/docs/codex/cli)
+
+**opencode** — open source a nevázaný na jednoho poskytovatele: přinesete si
+API klíč k modelu, který chcete používat. Instalace
+`curl -fsSL https://opencode.ai/install | bash`. Spustíte příkazem `opencode`.
+[Dokumentace](https://opencode.ai/docs/)
+
+**pi** — open source, také nezávislý na poskytovateli, a umí se přihlásit
+předplatným Claude Pro/Max, ChatGPT Plus/Pro nebo GitHub Copilot, které už
+platíte. Instalace `npm install -g --ignore-scripts @earendil-works/pi-coding-agent`,
+potřebuje na počítači Node.js. Spustíte příkazem `pi`.
+[Quickstart](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/quickstart.md)
+
+Pokud nemáte důvod preferovat konkrétní nástroj, vezměte ten, který už vaše
+firma platí. Všechno v téhle příručce funguje ve všech čtyřech stejně; liší se
+jen názvy souborů a adresářů a
+[Příloha A](#příloha-a--který-soubor-čte-můj-nástroj) vypisuje každý takový
+rozdíl.
+
+Instalace zabere asi pět minut. Pokud vám ty příkazy nic neříkají, je to
+v pořádku a není to vaše práce — pošlete tuhle sekci tomu, kdo se u vás stará
+o notebooky, nebo ho poproste, ať si k vám na deset minut sedne. Je to
+jednorázová věc. Instalační postupy se navíc mění; když příkaz neprojde,
+otevřete odkazovaný návod.
+
+### Minuta na ověření, že jste na správném místě
+
+Udělejte to ještě před Walkthrough 1. Otevřete terminál v libovolném
+adresáři, spusťte nástroj a napište:
+
+> Create a file called `hello.md` containing one line: it worked.
+
+Když si řekne o svolení soubor zapsat, dejte mu ho — že se ptá, je správně.
+Pak terminál opusťte a podívejte se do toho adresáře ve Finderu (Mac) nebo
+v Průzkumníku souborů (Windows).
+
+- **`hello.md` tam je.** Máte agenta. Pokračujte sekcí 1.
+- **Žádný soubor, jen pěkně naformátovaná odpověď o tom, co by v souboru
+  bylo.** Jste v chatovacím okně. Nic dalšího z téhle příručky nebude fungovat,
+  dokukud jej nenainstalujete.
 
 ---
 
@@ -1387,8 +1512,16 @@ upravovat soubory a používat nástroje, místo aby jen chatovala.
 **AGENTS.md** — soubor s instrukcemi, který každý agent čte na začátku každého
 sezení. Otevřený standard; Claude Code místo něj používá `CLAUDE.md`.
 
+**Chatovací asistent** — ChatGPT nebo Claude v záložce prohlížeče. Stejný
+model, ale bez přístupu k vašemu počítači. Vyrobí text, který si ručně
+zkopírujete jinam. Není to agent; viz [Než začnete](#než-začnete).
+
 **Context window** — kolik toho agent udrží najednou v hlavě. Plocha stolu.
 Konečná, a proto dlouhá práce potřebuje deník.
+
+**Harness** — program, který běží na vašem počítači okolo modelu a dává mu
+ruce: čte vaše soubory, provádí, co model řekne, a opakuje to, dokud není
+práce hotová. Claude Code, Codex CLI, opencode a pi jsou harnessy.
 
 **Compacting** — co se stane, když se stůl zaplní: nástroj shrne dřívější
 konverzaci, aby udělal místo. Detaily se ztratí. Signál, že máte uložit progress
@@ -1401,6 +1534,9 @@ všechny tyhle soubory. To je celá syntaxe, kterou potřebujete.
 systémů mimo adresář: Drive, WebOps, Slack, váš CMS.
 
 **MCP server / konektor** — jedno takové napojení. Instaluje se jednou.
+
+**Model** — ta část, která tvoří text: Claude, GPT, Gemini. Text dovnitř, text
+ven, a nic víc. Všechno, co dokáže s vašimi soubory, dělá přes harness.
 
 **Prompt injection** — situace, kdy text, který agent přečte z vnějšího světa,
 obsahuje instrukce a agent je vykoná, jako byste je napsali vy. Důvod, proč mezi
@@ -1437,7 +1573,8 @@ anglicky.
 - [Agent Harness explained in 8min..](https://www.youtube.com/watch?v=1a1VXDdIyrk)
   — program kolem modelu: ta část, která mu podá vaše soubory, spustí
   nástroje, o které si řekne, a pozná, kdy je práce hotová. Claude Code,
-  Codex, opencode i pi jsou přesně tohle.
+  Codex, opencode i pi jsou přesně tohle. Totéž na jednu stránku je
+  v [Než začnete](#než-začnete).
 - [What AI Agent Skills Are and How They Work](https://www.youtube.com/watch?v=Lg-meK5IU8Q)
   — co se píše do `SKILL.md` a podle čeho se agent rozhodne ho načíst. Čtěte
   k [sekci 7](#7-skills).

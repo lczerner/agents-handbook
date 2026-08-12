@@ -6,8 +6,12 @@ This kit teaches a marketing, content or operations team how to use an AI agent 
 **Claude Code, OpenAI Codex CLI, opencode, or pi** — for writing, planning,
 research and campaign work.
 
-It assumes the tool is already installed. It teaches the part that actually
-determines output quality: **what you put in the directory.**
+An agent is not ChatGPT in a browser tab. It runs on your computer and writes
+real files. You need one installed before any of this is useful —
+[Before you start](HANDBOOK.md#before-you-start) covers which four tools qualify,
+how to install one, and how to check in a minute that you are really talking to
+an agent. After that, this kit teaches the part that actually determines output
+quality: **what you put in the directory.**
 
 > ### 📖 Read it online
 >
@@ -32,6 +36,7 @@ determines output quality: **what you put in the directory.**
 
 | Read this | Time | What it gives you |
 |---|---|---|
+| **[Before you start](HANDBOOK.md#before-you-start)** | 5 min | What an agent is, what a harness is, which tool to install, and a one-minute check that you have one. Do this first — everything else depends on it. |
 | **[HANDBOOK.md](HANDBOOK.md)** | 40 min | The concepts. `AGENTS.md`, plans and progress, the knowledge base, skills, MCP. Read sections 1–8 before doing anything. |
 | **[WALKTHROUGHS.md](WALKTHROUGHS.md)** | Do them | Four hands-on exercises. Examples to get a feel for the agent, ideally adapted to what you actually want to produce. |
 | **[PROMPTS.md](PROMPTS.md)** | Keep open | A cheat sheet of things to type. |
@@ -57,14 +62,23 @@ task matches (skills), and connections to systems outside the directory (MCP).
 
 ## What people get wrong
 
+- **Never getting an agent at all.** Reading the walkthroughs and pasting the
+  prompts into ChatGPT or Claude in a browser. You get plausible answers and not
+  one file on your computer. Check before you start:
+  [Before you start](HANDBOOK.md#before-you-start).
 - **Treating it like ChatGPT.** Asking for text in the chat window and copying it
   out. The output should land in a file, in a project directory, where you can
-  iterate. - **Skipping `AGENTS.md`.** Then re-explaining the brand voice every
-  session, forever. - **Writing a 900-line `AGENTS.md`.** Longer files get
+  iterate.
+- **Skipping `AGENTS.md`.** Then re-explaining the brand voice every
+  session, forever.
+- **Writing a 900-line `AGENTS.md`.** Longer files get
   followed *less*. Keep it under 200 lines and move the detail into
-  `knowledge/`. - **Vague rules.** "Be professional" is unfollowable. "No
-  sentence over 25 words" is checkable. - **Asking for the whole job at once.**
-  Ask for a plan, approve it, then run one phase at a time. - **Trusting a
+  `knowledge/`.
+- **Vague rules.** "Be professional" is unfollowable. "No
+  sentence over 25 words" is checkable.
+- **Asking for the whole job at once.**
+  Ask for a plan, approve it, then run one phase at a time.
+- **Trusting a
   number because it sounds right.** Check every statistic, quote, date and name
   that reaches a published page.
 
@@ -74,6 +88,8 @@ task matches (skills), and connections to systems outside the directory (MCP).
 
 Your first week, in order:
 
+- [ ] Install one of the four tools, and confirm it can write a file on your
+      computer ([Before you start](HANDBOOK.md#before-you-start))
 - [ ] Create a workspace directory your team shares
 - [ ] Write `AGENTS.md` (Walkthrough 1 — let the agent interview you)
 - [ ] Add `CLAUDE.md` containing `@AGENTS.md`, if anyone uses Claude Code
@@ -105,13 +121,17 @@ Written August 2026 against current documentation:
   Foundation's Agentic AI Foundation
 - [Agent Skills specification](https://agentskills.io/specification) — the
   `SKILL.md` format, supported by 40+ tools
-- [Claude Code: memory](https://code.claude.com/docs/en/memory) ·
+- [Claude Code: quickstart](https://code.claude.com/docs/en/quickstart) ·
+  [memory](https://code.claude.com/docs/en/memory) ·
   [skills](https://code.claude.com/docs/en/skills) ·
   [MCP](https://code.claude.com/docs/en/mcp)
-- [Codex: AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) ·
+- [Codex: quickstart](https://learn.chatgpt.com/docs/codex/cli) ·
+  [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) ·
   [skills](https://learn.chatgpt.com/docs/build-skills)
-- [opencode: rules](https://opencode.ai/docs/rules/)
-- [pi: coding agent docs](https://github.com/earendil-works/pi)
+- [opencode: docs](https://opencode.ai/docs/) ·
+  [rules](https://opencode.ai/docs/rules/)
+- [pi: quickstart](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/quickstart.md) ·
+  [coding agent docs](https://github.com/earendil-works/pi)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 
 Tool details move quickly. If a file path in [Appendix A](HANDBOOK.md#appendix-a--which-file-does-my-tool-read)

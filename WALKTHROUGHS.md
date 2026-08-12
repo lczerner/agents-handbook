@@ -15,7 +15,7 @@ Do these in order. Everything in **`> blockquote`** is meant to be typed to the 
 | 3 | [Plan a campaign](#walkthrough-3--plan-a-media-campaign) | 3 sessions over 2 days | A full multi-channel campaign plan, built across sessions |
 | 4 | [Turn it into a skill](#walkthrough-4--turn-a-repeated-task-into-a-skill) | 30 min | A reusable procedure you invoke with one word |
 
-Before you start: your agent tool should be installed and working, and you should be able to open a terminal in a directory and run it. If that sentence is doing a lot of work, get whoever set it up to sit with you for the first ten minutes of Walkthrough 1.
+**Before you start, you need an agent.** Not ChatGPT or Claude in a browser tab — those cannot create a single file on your computer, and every exercise here ends in a file. Claude Code, OpenAI Codex CLI, opencode or pi, installed, with a terminal you can open in a directory and run it from. If that sentence is doing a lot of work, read [Before you start](HANDBOOK.md#before-you-start) in the handbook and get whoever set it up to sit with you for the first ten minutes of Walkthrough 1.
 
 ---
 
@@ -34,6 +34,8 @@ Then, to check it can actually see and write files:
 > Create a directory called `knowledge` with subdirectories `channels`, `voice`, `entities`, and `library`. Also create a directory called `projects`. Then show me the directory structure.
 
 You should see the directories appear on disk. If it asks permission to create files, say yes. **This is the whole trick of working with agents: you are not asking for text, you are asking for changes to a directory.**
+
+**If nothing appeared on disk, stop here.** An answer describing the directories is not the same as the directories existing. Check in Finder or File Explorer, not in the reply. If they are not there, you are not running an agent — go back to [Before you start](HANDBOOK.md#before-you-start).
 
 ### Step 2 — Let it interview you
 

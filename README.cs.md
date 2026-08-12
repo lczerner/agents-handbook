@@ -29,8 +29,12 @@ Tato sada učí marketingový, obsahový nebo provozní tým používat AI agent
 **Claude Code, OpenAI Codex CLI, opencode nebo pi** — na psaní, plánování,
 rešerše a tvorbu kampaní.
 
-Předpokládá, že nástroj už máte nainstalovaný. Učí tu část, která ve skutečnosti
-rozhoduje o kvalitě výstupu: **co dáte do adresáře.**
+Agent není ChatGPT v záložce prohlížeče. Běží na vašem počítači a zapisuje
+skutečné soubory. Než z toho bude užitek, musíte mít jednoho nainstalovaného —
+[Než začnete](HANDBOOK.cs.md#než-začnete) říká, které čtyři nástroje to jsou,
+jak jeden nainstalovat a jak si za minutu ověříte, že opravdu mluvíte
+s agentem. Zbytek sady učí tu část, která ve skutečnosti rozhoduje o kvalitě
+výstupu: **co dáte do adresáře.**
 
 > ### 📖 Čtěte online
 >
@@ -46,6 +50,7 @@ rozhoduje o kvalitě výstupu: **co dáte do adresáře.**
 
 | Přečtěte si | Čas | Co z toho máte |
 |---|---|---|
+| **[Než začnete](HANDBOOK.cs.md#než-začnete)** | 5 min | Co je agent, co je harness, který nástroj si nainstalovat a minutové ověření, že ho máte. Začněte tímhle — všechno ostatní na tom stojí. |
 | **[HANDBOOK.cs.md](HANDBOOK.cs.md)** | 40 min | Koncepty. `AGENTS.md`, plány a progress, knowledge base, skills, MCP. Sekce 1–8 přečtěte dřív, než začnete cokoli dělat. |
 | **[WALKTHROUGHS.cs.md](WALKTHROUGHS.cs.md)** | Projděte je | Čtyři praktická cvičení. Příklady, na kterých si osaháte chování agenta, ideálně upravené podle toho, co chcete tvořit. |
 | **[PROMPTS.cs.md](PROMPTS.cs.md)** | Mějte otevřené | Tahák s prompty. Popisky česky, samotné prompty anglicky — jsou k okopírování. |
@@ -71,14 +76,22 @@ relevantní (`knowledge/`), plán a deník, aby dlouhá práce přežila napří
 
 ## Co lidé dělají špatně
 
+- **Vůbec si nepořídí agenta.** Čtou walkthroughy a prompty z nich vkládají do
+  ChatGPT nebo Claude v prohlížeči. Dostanou věrohodné odpovědi a ani jeden
+  soubor na svém počítači. Ověřte si to dřív, než začnete:
+  [Než začnete](HANDBOOK.cs.md#než-začnete).
 - **Chovají se k tomu jako k ChatGPT.** Chtějí text v chatovacím okně a kopírují
   si ho ven. Výstup má přistát v souboru, v projektovém adresáři, kde na něm
-  můžete dál pracovat. - **Přeskočí `AGENTS.md`.** A pak donekonečna vysvětlují
-  styl v každém sezení. - **Napíšou `AGENTS.md` na 900 řádků.** Delší soubory se
-  dodržují *hůř*. Držte ho pod 200 řádky a detaily přesuňte do `knowledge/`. -
-  **Píšou vágní pravidla.** „Buď profesionální" se nedá dodržet. „Žádná věta nad
-  25 slov" se dá zkontrolovat. - **Zadají celou práci najednou.** Vyžádejte si
-  plán, schvalte ho a pak nechte běžet jednu fázi po druhé. - **Věří číslu,
+  můžete dál pracovat.
+- **Přeskočí `AGENTS.md`.** A pak donekonečna vysvětlují
+  styl v každém sezení.
+- **Napíšou `AGENTS.md` na 900 řádků.** Delší soubory se
+  dodržují *hůř*. Držte ho pod 200 řádky a detaily přesuňte do `knowledge/`.
+- **Píšou vágní pravidla.** „Buď profesionální" se nedá dodržet. „Žádná věta nad
+  25 slov" se dá zkontrolovat.
+- **Zadají celou práci najednou.** Vyžádejte si
+  plán, schvalte ho a pak nechte běžet jednu fázi po druhé.
+- **Věří číslu,
   protože zní věrohodně.** Zkontrolujte každou statistiku, citaci, datum a
   jméno, které se dostane do publikovaného textu.
 
@@ -86,6 +99,8 @@ relevantní (`knowledge/`), plán a deník, aby dlouhá práce přežila napří
 
 ## Checklist pro první týden
 
+- [ ] Nainstalujte si jeden ze čtyř nástrojů a ověřte si, že umí na vašem
+      počítači vytvořit soubor ([Než začnete](HANDBOOK.cs.md#než-začnete))
 - [ ] Vytvořte adresář workspace, který bude tým sdílet
 - [ ] Napište `AGENTS.md` (Walkthrough 1 — nechte se od agenta vyzpovídat)
 - [ ] Přidejte `CLAUDE.md` s obsahem `@AGENTS.md`, pokud někdo používá Claude Code
@@ -117,12 +132,15 @@ Psáno v srpnu 2026 proti aktuální dokumentaci:
   Foundation při Linux Foundation
 - [Agent Skills specification](https://agentskills.io/specification) — formát
   `SKILL.md`, podporovaný 40+ nástroji
-- [Claude Code: memory](https://code.claude.com/docs/en/memory) ·
+- [Claude Code: quickstart](https://code.claude.com/docs/en/quickstart) ·
+  [memory](https://code.claude.com/docs/en/memory) ·
   [skills](https://code.claude.com/docs/en/skills) ·
   [MCP](https://code.claude.com/docs/en/mcp)
-- [Codex: AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) ·
+- [Codex: quickstart](https://learn.chatgpt.com/docs/codex/cli) ·
+  [AGENTS.md](https://learn.chatgpt.com/docs/agent-configuration/agents-md) ·
   [skills](https://learn.chatgpt.com/docs/build-skills)
-- [opencode: rules](https://opencode.ai/docs/rules/)
+- [opencode: dokumentace](https://opencode.ai/docs/) ·
+  [rules](https://opencode.ai/docs/rules/)
 - [pi: coding agent docs](https://github.com/earendil-works/pi)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 
