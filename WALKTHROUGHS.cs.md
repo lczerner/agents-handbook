@@ -465,7 +465,7 @@ jak byste ho udělali vy.
 
 ---
 
-## Co dělat po všech čtyřech
+## Co dělat dál
 
 Teď máte celý systém. Návyk, který ho udržuje funkční, je jediná otázka na konci
 každého kusu práce:

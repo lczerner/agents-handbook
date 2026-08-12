@@ -133,7 +133,7 @@ harness, ale hodně tenký: nedosáhne nikam mimo záložku prohlížeče.
 **Agent** je harness a model dohromady, namířený na adresář na vašem počítači.
 
 Kolega ze [sekce 1](#1-jedna-myšlenka) je ten model: schopný a bez paměti.
-Harness je kancelář, do které ráno přijde - stůl, ruce, cesta ke kartotéce.
+Harness je kancelář, do které ráno přijde - stůl, židle, kartotéka.
 A co si napíšete do svého workspace, to je přesně to, co v té kanceláři najde.
 Harness jednou nainstalujete a pak už na něj nemyslíte. Obsah kanceláře píšete
 vy a právě o něm je všechno od [sekce 2](#2-pět-věcí) dál.
@@ -182,7 +182,7 @@ rozdíl.
 
 Instalace zabere asi pět minut. Pokud vám ty příkazy nic neříkají, je to
 v pořádku a není to vaše práce - pošlete tuhle sekci tomu, kdo se u vás stará
-o notebooky, nebo ho poproste, ať si k vám na deset minut sedne. Je to
+o počítače, nebo ho poproste, ať si k vám na deset minut sedne. Je to
 jednorázová věc. Instalační postupy se navíc mění. Když příkaz neprojde,
 otevřete odkazovaný návod.
 
@@ -208,16 +208,16 @@ v Průzkumníku souborů (Windows).
 ## 1. Jedna myšlenka, díky které dává všechno ostatní smysl
 
 Představte si, že přijmete kolegu: rychlého, neúnavného, sečtělého a ochotného
-udělat cokoli. Každý večer **ztratí veškerou paměť**.
+udělat cokoli. A každý večer **ztratí veškerou paměť**.
 
-Každé ráno přijde a neví nic o firmě, o značkách, o stylu, o tom, co jste
+Každé ráno přijde a neví nic o firmě, o značce, o stylu, o tom, co jste
 minulý týden rozhodli, ani o tom, co sám včera dělal. Ale přečte si úplně
 všechno, co mu necháte na stole, ještě než začne pracovat.
 
 Tohle je agent. Každé sezení začíná od nuly.
 
 Nejde tedy o to napsat chytrý prompt. Jde o to **nechat na stole správné
-věci**. Všechno v téhle příručce je jiný druh věci, kterou na stole necháváte:
+věci**. Všechno v téhle příručce jsou věci, které mu na stole necháváte:
 
 | Co necháte | Co to je |
 |---|---|
@@ -267,7 +267,7 @@ domluvili. Progress je to, co se skutečně stalo. *Sekce 5.*
 „Takhle přesně děláme tiskovou zprávu, v devíti krocích." Agent si je vezme
 automaticky, když zadání sedí na daný skill. *Sekce 7.*
 
-**5. Dosah - MCP servery**
+**5. Konektory - MCP servery**
 Napojení na systémy mimo adresář: Google Drive, WebOps, Slack, váš CMS,
 analytika. *Sekce 8.*
 
@@ -553,14 +553,14 @@ do `AGENTS.md`.* Poprvé je to výjimka. Podruhé je to vzorec, a vzorec patří
 souboru. Stačí říct: *„Add that to AGENTS.md so you don't do it again"* a agent
 si soubor upraví sám.
 
-**Je to vodítko, ne zámek.** Tohle je potřeba říci na rovinu: `AGENTS.md` chování
+**Je to jen vodítko.** Tohle je potřeba říci na rovinu: `AGENTS.md` chování
 formuje, ale nevynucuje. Agent si ho přečte a snaží se ho dodržet. Jasná,
 konkrétní a nerozporná pravidla se dodržují spolehlivě. Vágní nebo zapadlá občas
 ne. U čehokoli, kde by chyba byla drahá - publikování, odesílání, mazání - se
 nespoléhejte jen na zapsané pravidlo. Spoléhejte na to, že než něco vyjde ven,
 projde to přes vás.
 
-### 4.3 Nejrychlejší způsob, jak napsat ten první
+### 4.3 Nejrychlejší způsob, jak napsat váš první AGENTS.md
 
 Nepište ho sami od začátku. Nechte se od agenta vyzpovídat:
 
@@ -592,17 +592,17 @@ To je zaplňování stolu. Context window je konečný. Při dlouhé práci zač
 ze stolu padat na zem.
 
 A pak je tu ještě lidská verze téhož problému: v úterý zavřete notebook, ve
-čtvrtek se vrátíte a agent nemá tušení, že se něco z toho vůbec stalo.
+čtvrtek se k němu vrátíte a agent nemá tušení, že se něco z toho vůbec stalo.
 
 ### 5.2 Řešení: plán → fáze → deník
 
 Tři soubory, jedna disciplína.
 
 **`BRIEF.md`** - co bylo zadáno. Píšete vy, jednou, na začátku. Původní požadavek,
-deadline, publikum, omezení, jak vypadá úspěch. Tohle není úplně nutné.
+deadline, publikum, omezení, jak vypadá úspěch.
 
 **`PLAN.md`** - na čem jsme se domluvili, rozdělené do fází. Píše agent, schvalujete
-vy, mění se zřídka. Tohle už ano.
+vy, mění se zřídka.
 
 **`PROGRESS.md`** - co se skutečně stalo. Agent ho aktualizuje na konci každého
 pracovního sezení. Právě tenhle soubor umožňuje novému sezení navázat přesně tam,
@@ -773,9 +773,10 @@ Napište jeden takový pro každý kanál. Zabere to dvacet minut a je to rozdí
 
 Odděleně od kanálu, protože styl bývá pro kanály společný, kdežto autoři ne.
 
-Trik, díky kterému voice guide opravdu funguje: **kontrastní dvojice.** Abstraktní
-přídavná jména („sebevědomý, vřelý, lidský") neznamenají pro agenta nic - a
-upřímně řečeno ani pro nového copywritera moc. Dvojice „před a po" fungují.
+Trik, díky kterému voice guide opravdu funguje: **kontrastní dvojice.**
+Abstraktní přídavná jména („sebevědomý, vřelý, lidský") neznamenají pro agenta
+nic - a upřímně řečeno ani pro nového copywritera moc. Dvojice „dělej toto, ne
+tohle" fungují.
 
 `knowledge/voice/house-voice.md`:
 
@@ -972,7 +973,7 @@ Read the file that matches your task. Don't read everything.
 - `library/articles/` — full archive. Search here before proposing a topic.
 ```
 
-**Všechno datujte a označte, co je nejisté.** Fakt bez data tiše hnije. Dejte `Last verified: 2026-06-30` nahoru do každého entity souboru a
+**Všechno datujte a označte, co je nejisté.** Fakta bez data tiše hnijí. Dejte `Last verified: 2026-06-30` nahoru do každého entity souboru a
 udělejte si z toho zvyk. Když je něco předběžné, napište to do souboru:
 `Status: not yet announced, do not reference before 15 September.`
 
@@ -1060,7 +1061,7 @@ nečeká - a pak se bez něj neobejde.
 Mechanické kontroly jazykovým modelům nejdou. Zeptejte se, jestli
 je meta description pod 155 znaků, a model odpoví „148", i když je jich ve
 skutečnosti 163. Není to nedbalost - počítat prostě neumí.
-Čtyřřádkový skript spočítá správně pokaždé a v pondělí stejně jako v pátek.
+Čtyřřádkový skript spočítá správně pokaždé - v pondělí stejně jako v pátek.
 
 Do `scripts/` proto patří všechno, co je **kontrola**, ne **úsudek**:
 
@@ -1070,7 +1071,7 @@ Do `scripts/` proto patří všechno, co je **kontrola**, ne **úsudek**:
 - Povinná pole u každého článku: title, slug, datum, autor, rubrika
 - Interní odkazy mířící na soubory, které neexistují
 - Názvy souborů a URL slug podle vaší konvence
-- Platnost CSV nebo JSON exportu, než ho někomu předáte
+- Validita CSV nebo JSON exportu, než ho někomu předáte
 
 Skill pak jen řekne, kdy se má spustit:
 
@@ -1194,7 +1195,7 @@ Zhruba v pořadí podle přínosu pro obsahový tým:
    skutečný brief. S „napiš něco o launchi" se nespokojí.
 6. **`weekly-roundup`** - ta opakovaná věc, co váš tým dělá každé pondělí.
 
-Dobrý způsob, jak vytvořit ten první: projděte si práci jednou ručně s agentem a
+Dobrý způsob, jak vytvořit skill: projděte si práci jednou ručně s agentem a
 sledujte každou opravu, kterou uděláte. Pak řekněte: *„Turn everything we just did
 into a skill at `.claude/skills/article-draft/SKILL.md`, including every correction
 I made along the way."*
@@ -1223,7 +1224,7 @@ Prakticky vzato MCP nahrazuje krok „vyexportuj a vlož". Místo stahování CS
 uklízení a vkládání řeknete: *„pull last month's blog traffic and tell me which
 three posts to update."*
 
-### 8.2 Co stojí za připojení pro obsahový tým
+### 8.2 Co stojí za připojení pro marketingový tým
 
 Začněte se dvěma. Vážně, se dvěma. Každý konektor přidává nástroje, které musí
 agent zvážit při každém požadavku, a stoh patnácti ho udělá pomalejším a méně
@@ -1303,7 +1304,7 @@ další.
 <a id="9-kam-to-patří"></a>
 ## 9. Kam co patří?
 
-Otázka, kterou si budete klást nejčastěji. Tuhle tabulku si vytiskněte.
+Otázka, kterou si budete klást nejčastěji.
 
 | Chcete… | Patří to do | Proč |
 |---|---|---|
@@ -1311,10 +1312,10 @@ Otázka, kterou si budete klást nejčastěji. Tuhle tabulku si vytiskněte.
 | Definovat formát blogu | `knowledge/channels/blog.md` | Relevantní jen při psaní pro ten kanál |
 | Zaznamenat, co produkt umí | `knowledge/entities/products.md` | Je to fakt, a fakta potřebují jedno místo |
 | Definovat styl autora | `knowledge/voice/author-x.md` | Relevantní jen pro jeho texty |
-| Standardizovat sedmikrokový proces | Skill | Je to postup - načte se jen, když se spustí |
+| Standardizovat proces | Skill | Je to postup - načte se jen, když se spustí |
 | Číst váš WebOps | MCP konektor | Je to mimo adresář |
 | Říct, co znamená „hotovo" | `AGENTS.md` → Definition of done | Platí pro všechno, co vyrobíte |
-| Zaznamenat, proč jste zvolili přístup | `PROGRESS.md` → Decisions | Specifické pro projekt a s časovou značkou |
+| Zaznamenat rozhodnutí | `PROGRESS.md` → Decisions | Specifické pro projekt a s časovou značkou |
 | Změnit styl jednoho e-mailu | Prostě to řekněte v chatu | Jednorázovka. Jednorázovky se nezakládají. |
 
 Dvě věci, které stojí za zapamatování:
@@ -1518,8 +1519,9 @@ zkopírujete jinam. Není to agent - viz [Než začnete](#než-začnete).
 Konečná, a proto dlouhá práce potřebuje deník.
 
 **Harness** - program, který běží na vašem počítači okolo modelu a dává mu
-ruce: čte vaše soubory, provádí, co model řekne, a opakuje to, dokud není
-práce hotová. Claude Code, Codex CLI, opencode a pi - to všechno je harness.
+schopnost vykonávat práci: čte vaše soubory, provádí, co model řekne, a opakuje
+to, dokud není práce hotová. Claude Code, Codex CLI, opencode a pi - to všechno
+je harness.
 
 **Compacting** - co se stane, když se stůl zaplní: nástroj shrne dřívější
 konverzaci, aby udělal místo. Detaily se ztratí. Signál, že máte uložit progress
