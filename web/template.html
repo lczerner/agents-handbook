@@ -187,6 +187,7 @@ pre code{background:none;border:0;padding:0;font-size:inherit;white-space:pre}
 
 /* ---------- devices ---------- */
 .say{
+  position:relative;
   border-left:3px solid var(--accent);background:var(--accent-wash);
   padding:var(--s3) var(--s3) calc(var(--s3) - .38rem);margin:0 0 var(--s3)
 }
@@ -207,6 +208,25 @@ pre code{background:none;border:0;padding:0;font-size:inherit;white-space:pre}
 .block.warn h5{color:var(--warn)}
 .block.stop{border-color:var(--stop);background:var(--stop-wash)}
 .block.stop h5{color:var(--stop)}
+
+/* ---------- copy buttons ---------- */
+/* The buttons are added by the script at the foot of the page, never by the
+   generator, so a reader without JavaScript is not shown a control that could
+   not work. A code block scrolls, so its button hangs off a wrapper instead —
+   otherwise it would slide away with the text. */
+.copywrap{position:relative;margin:0 0 var(--s3)}
+.copywrap pre{margin:0}
+.copy{
+  position:absolute;top:var(--s2);right:var(--s2);
+  font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;line-height:1;
+  color:var(--muted);background:var(--surface);
+  border:1px solid var(--rule);padding:.34rem .5rem;cursor:pointer
+}
+.copy:hover{color:var(--accent);border-color:var(--accent)}
+.copy[data-state="done"]{color:var(--accent);border-color:var(--accent);background:var(--accent-wash)}
+.copy[data-state="fail"]{color:var(--stop);border-color:var(--stop);background:var(--stop-wash)}
+@media print{.copy{display:none}}
 
 .kicker{
   font-family:var(--f-mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;
@@ -403,5 +423,94 @@ GitHub</a>
   });
 
   sync(root.getAttribute("data-doc-lang") || "en");
+})();
+</script>
+
+<script>
+/* Copy buttons on the prompts and on the code people are meant to paste.
+   The clipboard text comes from data-copy, which holds the Markdown as it was
+   written — backticks and line breaks included — not what the browser shows. */
+(function(){
+  var TEXT = {
+    en: {copy:"Copy", done:"Copied", fail:"Failed",
+         say:"Copy this prompt", code:"Copy this example"},
+    cs: {copy:"Kopírovat", done:"Zkopírováno", fail:"Nepovedlo se",
+         say:"Kopírovat tento prompt", code:"Kopírovat tuto ukázku"}
+  };
+
+  /* Both languages sit in one page, so a button takes its wording from the
+     document it is in, not from the language currently on screen. */
+  function words(el){
+    var doc = el.closest(".doc");
+    return TEXT[doc && doc.getAttribute("data-lang")] || TEXT.en;
+  }
+
+  function write(text){
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    /* Opened from disk there is no clipboard API: use a throwaway textarea. */
+    return new Promise(function(resolve, reject){
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.cssText = "position:fixed;top:-1000px;opacity:0";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) { resolve(); } else { reject(); }
+    });
+  }
+
+  function button(source, kind){
+    var t = words(source);
+    var b = document.createElement("button");
+    var timer;
+    b.type = "button";
+    b.className = "copy";
+    b.textContent = t.copy;
+    b.setAttribute("aria-label", t[kind]);
+    b.setAttribute("aria-live", "polite");
+
+    /* The label is the whole confirmation, so it has to be the accessible name
+       as well: aria-label wins over the text for a screen reader. */
+    function flash(word, state){
+      clearTimeout(timer);
+      b.textContent = word;
+      b.setAttribute("aria-label", word);
+      b.setAttribute("data-state", state);
+      timer = setTimeout(function(){
+        b.textContent = t.copy;
+        b.setAttribute("aria-label", t[kind]);
+        b.removeAttribute("data-state");
+      }, 1600);
+    }
+
+    b.addEventListener("click", function(){
+      write(source.getAttribute("data-copy")).then(
+        function(){ flash(t.done, "done"); },
+        function(){ flash(t.fail, "fail"); }
+      );
+    });
+    return b;
+  }
+
+  function each(sel, fn){
+    Array.prototype.forEach.call(document.querySelectorAll(sel), fn);
+  }
+
+  each(".say[data-copy]", function(el){
+    el.appendChild(button(el, "say"));
+  });
+
+  each("pre[data-copy]", function(el){
+    var wrap = document.createElement("div");
+    wrap.className = "copywrap";
+    el.parentNode.insertBefore(wrap, el);
+    wrap.appendChild(el);
+    wrap.appendChild(button(el, "code"));
+  });
 })();
 </script>

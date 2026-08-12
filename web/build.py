@@ -88,6 +88,11 @@ DOC_LINKS = {
 # written. The `<a id="...">` anchors are consumed before rendering.
 md = MarkdownIt("commonmark", {"html": False}).enable("table").enable("strikethrough")
 
+# Fences whose contents people are meant to copy: terminal commands, and file
+# contents that go into their own files. An untagged fence is a directory tree
+# or a sample of the agent's output, and gets no copy button.
+COPY_FENCES = ("bash", "markdown")
+
 
 def slugify(text: str) -> str:
     text = re.sub(r"<[^>]+>", "", text)
@@ -153,8 +158,60 @@ def split_sections(text: str) -> list[tuple[str | None, str, str]]:
     return out
 
 
+def raw_blockquotes(body: str) -> list[str]:
+    """The Markdown source of every blockquote, in document order.
+
+    Blockquotes are classified after rendering, by which point the source is
+    gone — but the copy button has to hand back what was written, backticks and
+    line breaks included, not what the browser happens to show. The sources use
+    no lazy continuation, so a blockquote is exactly a run of `>` lines.
+    """
+    out: list[str] = []
+    buf: list[str] = []
+    fence = False
+
+    for line in body.split("\n"):
+        if line.lstrip().startswith("```"):
+            fence = not fence
+        if not fence and line.startswith(">"):
+            buf.append(re.sub(r"^>[ \t]?", "", line))
+            continue
+        if buf:
+            out.append("\n".join(buf).strip())
+            buf = []
+    if buf:
+        out.append("\n".join(buf).strip())
+    return out
+
+
+def copy_attr(text: str) -> str:
+    """A data-copy attribute carrying `text` verbatim for the clipboard.
+
+    Newlines become `&#10;` so one prompt stays one line of generated HTML;
+    the browser turns them back into newlines when it reads the attribute.
+    """
+    return ' data-copy="' + html.escape(text, quote=True).replace("\n", "&#10;") + '"'
+
+
+def mark_code(out: str) -> str:
+    """Give the copyable fences their clipboard text; leave the rest alone."""
+
+    def code(m: re.Match) -> str:
+        lang, body = m.group(1), m.group(2)
+        if lang not in COPY_FENCES:
+            return m.group(0)
+        # A trailing newline would run a pasted command before it was read.
+        attr = copy_attr(html.unescape(body).rstrip("\n"))
+        return f'<pre{attr}><code class="language-{lang}">{body}</code></pre>'
+
+    return re.sub(r'<pre><code class="language-([\w-]+)">(.*?)</code></pre>',
+                  code, out, flags=re.S)
+
+
 def render_body(body: str, lang: str) -> str:
     """Markdown to HTML, then the presentational conventions of this design."""
+    quotes = raw_blockquotes(body)
+    used = 0
     out = md.render(body)
 
     # Headings shift down one level: `##` is a section title (h3), so the
@@ -165,6 +222,9 @@ def render_body(body: str, lang: str) -> str:
     # A blockquote opening in bold is an aside; anything else is text meant to
     # be typed to the agent, and gets the "TYPE THIS" treatment.
     def blockquote(m: re.Match) -> str:
+        nonlocal used
+        raw = quotes[used] if used < len(quotes) else ""
+        used += 1
         inner = m.group(1).strip()
         # A quote that opens with a heading is an aside titled by that heading.
         head = re.match(r"<h\d>(.*?)</h\d>(.*)$", inner, re.S)
@@ -175,10 +235,20 @@ def render_body(body: str, lang: str) -> str:
         if lead:
             rest = (f"<p>{lead.group(2)}</p>" if lead.group(2).strip() else "") + lead.group(3)
             return f'<div class="block">\n<h5>{lead.group(1)}</h5>\n{rest.strip()}\n</div>'
-        # Anything else is text meant to be typed to the agent.
-        return f'<div class="say">\n{inner}\n</div>'
+        # Anything else is text meant to be typed to the agent, and carries the
+        # source of the prompt so the page can offer it to the clipboard.
+        return f'<div class="say"{copy_attr(raw)}>\n{inner}\n</div>'
 
     out = re.sub(r"<blockquote>(.*?)</blockquote>", blockquote, out, flags=re.S)
+    # The pairing above is positional. If the two counts ever drift — a nested
+    # blockquote, a change of parser — every prompt after that point would copy
+    # the wrong text, so stop rather than publish it.
+    if used != len(quotes):
+        raise SystemExit(
+            f"blockquote mismatch: {used} rendered, {len(quotes)} in the source"
+        )
+
+    out = mark_code(out)
 
     # Wide content scrolls inside its own container rather than the page body.
     out = re.sub(r"<table>.*?</table>", lambda m: f'<div class="scroll">{m.group(0)}</div>',

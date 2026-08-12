@@ -194,6 +194,7 @@ pre code{background:none;border:0;padding:0;font-size:inherit;white-space:pre}
 
 /* ---------- devices ---------- */
 .say{
+  position:relative;
   border-left:3px solid var(--accent);background:var(--accent-wash);
   padding:var(--s3) var(--s3) calc(var(--s3) - .38rem);margin:0 0 var(--s3)
 }
@@ -214,6 +215,25 @@ pre code{background:none;border:0;padding:0;font-size:inherit;white-space:pre}
 .block.warn h5{color:var(--warn)}
 .block.stop{border-color:var(--stop);background:var(--stop-wash)}
 .block.stop h5{color:var(--stop)}
+
+/* ---------- copy buttons ---------- */
+/* The buttons are added by the script at the foot of the page, never by the
+   generator, so a reader without JavaScript is not shown a control that could
+   not work. A code block scrolls, so its button hangs off a wrapper instead —
+   otherwise it would slide away with the text. */
+.copywrap{position:relative;margin:0 0 var(--s3)}
+.copywrap pre{margin:0}
+.copy{
+  position:absolute;top:var(--s2);right:var(--s2);
+  font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;line-height:1;
+  color:var(--muted);background:var(--surface);
+  border:1px solid var(--rule);padding:.34rem .5rem;cursor:pointer
+}
+.copy:hover{color:var(--accent);border-color:var(--accent)}
+.copy[data-state="done"]{color:var(--accent);border-color:var(--accent);background:var(--accent-wash)}
+.copy[data-state="fail"]{color:var(--stop);border-color:var(--stop);background:var(--stop-wash)}
+@media print{.copy{display:none}}
 
 .kicker{
   font-family:var(--f-mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;
@@ -701,7 +721,7 @@ PROGRESS.md = this project's logbook
 <p>Seven sections. In this order.</p>
 <h5>1. What this project is</h5>
 <p>Two or three sentences. What the workspace is for, who the company is, what the agent is helping with.</p>
-<pre><code class="language-markdown">## What this is
+<pre data-copy="## What this is&#10;&#10;Lighthouse is a B2B software company selling project-tracking tools to&#10;mid-size construction firms. This workspace is where our two-person content&#10;team plans and writes everything we publish: the blog, the weekly newsletter,&#10;LinkedIn, and campaign materials for product launches.&#10;&#10;You are helping us research, plan, draft and edit. You are not publishing&#10;anything — a human always does that."><code class="language-markdown">## What this is
 
 Lighthouse is a B2B software company selling project-tracking tools to
 mid-size construction firms. This workspace is where our two-person content
@@ -714,7 +734,7 @@ anything — a human always does that.
 <p>That last sentence does a lot of work. Say what the agent is <em>not</em> doing as clearly as what it is.</p>
 <h5>2. Who we're writing for</h5>
 <p>The agent will otherwise write for &quot;a general business audience,&quot; which reads like nothing anyone wrote on purpose.</p>
-<pre><code class="language-markdown">## Who we write for
+<pre data-copy="## Who we write for&#10;&#10;Primary reader: an operations manager at a construction firm with 50–500&#10;employees. Time-poor, sceptical of software vendors, has been burned by a&#10;failed rollout before. They are not technical. They care about whether their&#10;site foremen will actually use a tool.&#10;&#10;They are not the buyer of last resort — they usually have to convince a&#10;finance director. Give them arguments they can forward."><code class="language-markdown">## Who we write for
 
 Primary reader: an operations manager at a construction firm with 50–500
 employees. Time-poor, sceptical of software vendors, has been burned by a
@@ -726,7 +746,7 @@ finance director. Give them arguments they can forward.
 </code></pre>
 <h5>3. Where things live</h5>
 <p>A short map. This is what lets the agent find your knowledge base without you naming files every time.</p>
-<pre><code class="language-markdown">## Where things live
+<pre data-copy="## Where things live&#10;&#10;- `knowledge/INDEX.md` — start here; it lists everything below&#10;- `knowledge/channels/` — one file per website/channel: audience, formats, rules&#10;- `knowledge/voice/` — house voice, plus per-author voices&#10;- `knowledge/entities/` — approved facts about our products, people, events&#10;- `knowledge/library/` — our own past work, including gold-standard examples&#10;- `projects/&lt;date&gt;-&lt;name&gt;/` — active work. Each has BRIEF, PLAN, PROGRESS.&#10;&#10;Before writing anything for a specific channel, read that channel&#x27;s file in&#10;`knowledge/channels/` and the relevant file in `knowledge/voice/`."><code class="language-markdown">## Where things live
 
 - `knowledge/INDEX.md` — start here; it lists everything below
 - `knowledge/channels/` — one file per website/channel: audience, formats, rules
@@ -741,7 +761,7 @@ Before writing anything for a specific channel, read that channel's file in
 <h5>4. Guardrails</h5>
 <p><strong>The most important section.</strong> Three lists: never, always, ask first.</p>
 <p>Be specific enough that a person could check whether the rule was followed. &quot;Write well&quot; is unverifiable and therefore useless. &quot;No sentence over 25 words&quot; is checkable.</p>
-<pre><code class="language-markdown">## Guardrails
+<pre data-copy="## Guardrails&#10;&#10;### Never&#10;- Never invent a statistic, a customer name, a quote, or a case study.&#10;  If you need a number and don&#x27;t have a source, write `[NEEDS SOURCE: what&#10;  you need]` and keep going.&#10;- Never state a product capability that isn&#x27;t in `knowledge/entities/products.md`.&#10;  That file is the only source of truth for what our product does.&#10;- Never name a competitor in published copy.&#10;- Never publish, post, send, or schedule anything. Draft only.&#10;- Never use the words: &quot;leverage&quot;, &quot;seamless&quot;, &quot;game-changing&quot;, &quot;in today&#x27;s&#10;  fast-paced world&quot;, &quot;delve&quot;, &quot;it&#x27;s not just X, it&#x27;s Y&quot;.&#10;- Never use em dashes. Use commas or full stops.&#10;&#10;### Always&#10;- Always write in British English.&#10;- Always cite a source with a link for any claim about the industry, and&#10;  include the date the source was published.&#10;- Always save work to a file in the project directory. Don&#x27;t print a long draft&#10;  into the chat and stop there.&#10;- Always end a draft with a short &quot;Open questions&quot; list of anything you&#10;  guessed at.&#10;&#10;### Ask me first&#10;- Before starting to write, if the brief is missing the audience, the channel,&#10;  or the desired length.&#10;- Before restructuring an existing published article.&#10;- Before using any statistic that would go in a headline.&#10;- Before deleting or overwriting any file in `knowledge/` or `library/`."><code class="language-markdown">## Guardrails
 
 ### Never
 - Never invent a statistic, a customer name, a quote, or a case study.
@@ -779,7 +799,7 @@ Before writing anything for a specific channel, read that channel's file in
 </ul>
 <h5>5. How work gets done here</h5>
 <p>Your default workflow. What the agent should do when you give it a task, without being told.</p>
-<pre><code class="language-markdown">## How we work
+<pre data-copy="## How we work&#10;&#10;For anything longer than a social post:&#10;&#10;1. Read the brief and the relevant channel + voice files.&#10;2. Write a plan to `PLAN.md` and stop. Do not start drafting. Wait for me&#10;   to approve it.&#10;3. Work through the plan one phase at a time. After each phase, update&#10;   `PROGRESS.md` and tell me what changed.&#10;4. Never do more than one phase without checking in.&#10;&#10;For research tasks: collect sources into a `research/` file with links and&#10;publication dates first; summarise second. Never summarise from memory."><code class="language-markdown">## How we work
 
 For anything longer than a social post:
 
@@ -795,7 +815,7 @@ publication dates first; summarise second. Never summarise from memory.
 </code></pre>
 <h5>6. What &quot;done&quot; looks like</h5>
 <p>The agent's idea of finished is not yours unless you say so.</p>
-<pre><code class="language-markdown">## Definition of done
+<pre data-copy="## Definition of done&#10;&#10;A draft is done when:&#10;- It has a headline plus two alternatives.&#10;- It has a meta description under 155 characters.&#10;- Every factual claim has a source link or a [NEEDS SOURCE] marker.&#10;- It passes the checks in `knowledge/voice/house-voice.md`.&#10;- It is saved as `projects/&lt;project&gt;/drafts/&lt;slug&gt;.md`.&#10;- Open questions are listed at the bottom."><code class="language-markdown">## Definition of done
 
 A draft is done when:
 - It has a headline plus two alternatives.
@@ -807,7 +827,7 @@ A draft is done when:
 </code></pre>
 <h5>7. How to talk to me</h5>
 <p>Small section, big quality-of-life improvement.</p>
-<pre><code class="language-markdown">## How to talk to me
+<pre data-copy="## How to talk to me&#10;&#10;- Be direct. Skip the preamble, skip &quot;Great question!&quot;, skip summarising&#10;  what I just said back to me.&#10;- When you finish a task, tell me in three lines: what you did, what file&#10;  it&#x27;s in, what needs my decision.&#10;- If you disagree with my instruction, say so once, briefly, then do what&#10;  I asked.&#10;- Internal notes and our conversation: English. Anything for publication:&#10;  British English unless the channel file says otherwise."><code class="language-markdown">## How to talk to me
 
 - Be direct. Skip the preamble, skip &quot;Great question!&quot;, skip summarising
   what I just said back to me.
@@ -826,7 +846,7 @@ A draft is done when:
 <p><strong>It's guidance, not a lock.</strong> This is important to understand honestly: <code>AGENTS.md</code> shapes behaviour, it does not enforce it. The agent reads it and tries to comply. Clear, specific, non-contradictory rules get followed reliably; vague or buried ones sometimes don't. For anything where a mistake would be expensive — publishing, sending, deleting — don't rely on a written rule alone. Rely on the fact that you review before anything goes out.</p>
 <h4>4.3 The fastest way to write your first one</h4>
 <p>Don't write it from a blank page. Have the agent interview you:</p>
-<div class="say">
+<div class="say" data-copy="I want to create an AGENTS.md for this workspace. Don&#x27;t write it yet.&#10;First interview me: ask me one question at a time, up to fifteen questions,&#10;about what we publish, who reads it, what our rules are, what mistakes&#10;you should avoid, and what &quot;done&quot; looks like. When you have enough,&#10;show me a draft AGENTS.md and I&#x27;ll correct it.">
 <p>I want to create an AGENTS.md for this workspace. Don't write it yet.
 First interview me: ask me one question at a time, up to fifteen questions,
 about what we publish, who reads it, what our rules are, what mistakes
@@ -852,7 +872,7 @@ show me a draft AGENTS.md and I'll correct it.</p>
 <p>The discipline: <strong>one phase per session.</strong> Then stop, update the log, and start a fresh session for the next phase. A fresh session with a good logbook beats a tired session with a full desk, every time.</p>
 <h4>5.3 Making the plan</h4>
 <p>Step one is always: <strong>ask for the plan, and explicitly forbid the work.</strong></p>
-<div class="say">
+<div class="say" data-copy="Read `BRIEF.md`, `knowledge/INDEX.md`, and the channel files for blog and&#10;newsletter. Then write a plan to `PLAN.md`.&#10;&#10;Do not write any campaign content yet. The plan only.&#10;&#10;Break it into 4–7 phases. Each phase must have: a goal in one sentence,&#10;the inputs you need, the files you&#x27;ll produce, and how I&#x27;ll know it&#x27;s done.&#10;Phases must be small enough that one is a single sitting of work.&#10;&#10;At the end, list anything you&#x27;re unsure about or had to assume.">
 <p>Read <code>BRIEF.md</code>, <code>knowledge/INDEX.md</code>, and the channel files for blog and
 newsletter. Then write a plan to <code>PLAN.md</code>.</p>
 <p>Do not write any campaign content yet. The plan only.</p>
@@ -863,7 +883,7 @@ Phases must be small enough that one is a single sitting of work.</p>
 </div>
 <p>Then <strong>read the plan and change it.</strong> This is your main point of control over the whole project, and it costs five minutes. If the plan is wrong, everything downstream is wrong, and you'll spend far longer fixing drafts than you would have spent fixing the plan.</p>
 <p>A good phase list for a campaign looks something like:</p>
-<pre><code class="language-markdown">## Phase 1 — Research and positioning
+<pre data-copy="## Phase 1 — Research and positioning&#10;Goal: Establish what we&#x27;re claiming and why anyone should believe it.&#10;Inputs: BRIEF.md, knowledge/entities/products.md, competitor sites&#10;Outputs: research/positioning.md with 3 candidate angles, evidence for each&#10;Done when: Lukas has picked one angle and it&#x27;s marked CHOSEN in the file.&#10;&#10;## Phase 2 — Channel plan and calendar&#10;..."><code class="language-markdown">## Phase 1 — Research and positioning
 Goal: Establish what we're claiming and why anyone should believe it.
 Inputs: BRIEF.md, knowledge/entities/products.md, competitor sites
 Outputs: research/positioning.md with 3 candidate angles, evidence for each
@@ -876,7 +896,7 @@ Done when: Lukas has picked one angle and it's marked CHOSEN in the file.
 <h4>5.4 The logbook</h4>
 <p><code>PROGRESS.md</code> is the single most underrated file in this handbook. It is what turns a series of disconnected sessions into a project.</p>
 <p>Put this in <code>AGENTS.md</code> so it happens automatically:</p>
-<pre><code class="language-markdown">## Progress logging
+<pre data-copy="## Progress logging&#10;&#10;At the end of every working session, and after finishing any phase, update&#10;`PROGRESS.md` in the current project directory. Keep it in this format, newest&#10;entry at the top, and keep the whole file under 100 lines by summarising&#10;older entries:&#10;&#10;## Status&#10;Current phase: &lt;number and name&gt;&#10;Next action: &lt;the single next thing to do&gt;&#10;Blocked on: &lt;what you need from a human, or &quot;nothing&quot;&gt;&#10;&#10;## Decisions made&#10;- &lt;date&gt; — &lt;decision&gt; — &lt;why&gt;&#10;&#10;## Log&#10;### &lt;date&gt; — Phase &lt;n&gt;&#10;Did: ...&#10;Produced: &lt;file paths&gt;&#10;Learned: &lt;anything that changed our understanding&gt;&#10;Open questions: ..."><code class="language-markdown">## Progress logging
 
 At the end of every working session, and after finishing any phase, update
 `PROGRESS.md` in the current project directory. Keep it in this format, newest
@@ -902,13 +922,13 @@ Open questions: ...
 <h4>5.5 Starting and ending a session</h4>
 <p>Two short rituals. Type these until they're muscle memory.</p>
 <p><strong>Starting:</strong></p>
-<div class="say">
+<div class="say" data-copy="Read `PROGRESS.md` and `PLAN.md` in `projects/2026-09-atlas-launch/`.&#10;Tell me in five lines where we are and what the next action is.&#10;Don&#x27;t start work yet.">
 <p>Read <code>PROGRESS.md</code> and <code>PLAN.md</code> in <code>projects/2026-09-atlas-launch/</code>.
 Tell me in five lines where we are and what the next action is.
 Don't start work yet.</p>
 </div>
 <p><strong>Ending:</strong></p>
-<div class="say">
+<div class="say" data-copy="Stop here. Update `PROGRESS.md`: what you did, what files changed,&#10;what decisions we made and why, and the single next action for next time.&#10;Write it so someone who wasn&#x27;t here today could pick it up cold.">
 <p>Stop here. Update <code>PROGRESS.md</code>: what you did, what files changed,
 what decisions we made and why, and the single next action for next time.
 Write it so someone who wasn't here today could pick it up cold.</p>
@@ -916,7 +936,7 @@ Write it so someone who wasn't here today could pick it up cold.</p>
 <p>That last sentence is the trick. &quot;Someone who wasn't here today&quot; is, in fact, the agent tomorrow.</p>
 <h4>5.6 When the desk fills up mid-session</h4>
 <p>Agents will tell you when they're compacting or summarising, or you'll notice the quality drop — it forgets a decision, repeats itself, contradicts the outline. When that happens: <strong>don't push through.</strong> Say:</p>
-<div class="say">
+<div class="say" data-copy="Update PROGRESS.md with where we are, then I&#x27;m starting a fresh session.">
 <p>Update PROGRESS.md with where we are, then I'm starting a fresh session.</p>
 </div>
 <p>Then start a new session (in Claude Code, <code>/clear</code>). Reading a clean logbook is far more reliable than remembering a long conversation.</p>
@@ -930,7 +950,7 @@ Write it so someone who wasn't here today could pick it up cold.</p>
 <h4>6.1 Channels — one file per place you publish</h4>
 <p>Every website, newsletter, and social channel gets its own file. This is what stops the agent writing the same beige paragraph for your technical blog and your Instagram.</p>
 <p><code>knowledge/channels/lighthouse-blog.md</code>:</p>
-<pre><code class="language-markdown"># Channel: Lighthouse Blog (lighthouse.com/blog)
+<pre data-copy="# Channel: Lighthouse Blog (lighthouse.com/blog)&#10;&#10;## Purpose&#10;Organic search acquisition. Every post targets a keyword a construction ops&#10;manager would actually type. This is not a company news channel.&#10;&#10;## Reader&#10;Ops manager, 50–500 person construction firm. Arrives from Google with a&#10;specific problem. Skims first, reads second. Often on a phone, on site.&#10;&#10;## Format&#10;- 1,200–1,800 words&#10;- H2 every 250–350 words, sentence case&#10;- Answer the title question in the first 100 words. Do not build up to it.&#10;- One table or checklist minimum&#10;- Ends with a single CTA to the relevant product page&#10;&#10;## Rules&#10;- Target keyword in title, first paragraph, and one H2. Nowhere else forced.&#10;- Meta description under 155 characters, written as a promise not a summary.&#10;- Internal-link to 2–3 existing posts (see knowledge/library/articles/)&#10;- No stock-photo clichés in image briefs. Describe a real jobsite scene.&#10;&#10;## Never on this channel&#10;- Product announcements (those go to the newsletter)&#10;- First-person company voice (&quot;we&#x27;re excited to...&quot;)&#10;&#10;## Good examples&#10;- knowledge/library/articles/why-site-diaries-fail.md&#10;- knowledge/library/articles/rfi-turnaround-benchmarks.md"><code class="language-markdown"># Channel: Lighthouse Blog (lighthouse.com/blog)
 
 ## Purpose
 Organic search acquisition. Every post targets a keyword a construction ops
@@ -966,7 +986,7 @@ specific problem. Skims first, reads second. Often on a phone, on site.
 <p>Separate from channel, because voice is often shared across channels and authors are not.</p>
 <p>The trick to a voice guide that actually works: <strong>contrast pairs.</strong> Abstract adjectives (&quot;confident, warm, human&quot;) mean nothing to an agent and, if we're honest, not much to a new copywriter either. Before-and-after pairs mean everything.</p>
 <p><code>knowledge/voice/house-voice.md</code>:</p>
-<pre><code class="language-markdown"># House voice
+<pre data-copy="# House voice&#10;&#10;## In one line&#10;We sound like an experienced site manager explaining something to a&#10;colleague over coffee. Direct, specific, slightly dry. Never a vendor.&#10;&#10;## Rules&#10;- Second person. &quot;You&quot; not &quot;companies&quot; or &quot;organisations&quot;.&#10;- Active voice. Name who does the thing.&#10;- Sentences under 25 words. Vary the length or it reads like a manual.&#10;- Concrete numbers over vague scale. &quot;cut RFI turnaround from 9 days to 3&quot;&#10;  not &quot;dramatically improves efficiency&quot;.&#10;- One idea per paragraph. Three sentences maximum.&#10;- British English.&#10;&#10;## Do this, not that&#10;&#10;❌ &quot;Leveraging our innovative platform, teams can seamlessly streamline&#10;   their documentation workflows.&quot;&#10;✅ &quot;Your site team files an RFI from their phone. The office sees it the&#10;   same minute.&quot;&#10;&#10;❌ &quot;In today&#x27;s fast-paced construction environment, staying ahead is&#10;   more important than ever.&quot;&#10;✅ &quot;Most delays don&#x27;t start on site. They start in an inbox.&quot;&#10;&#10;❌ &quot;Our solution empowers stakeholders to optimise outcomes.&quot;&#10;✅ &quot;Foremen stop chasing paperwork. Project managers stop chasing foremen.&quot;&#10;&#10;## Banned words and phrases&#10;leverage · seamless · game-changing · robust · delve · in today&#x27;s&#10;fast-paced world · it&#x27;s not just X, it&#x27;s Y · unlock · elevate · journey&#10;(unless literal) · revolutionary · cutting-edge&#10;&#10;## Punctuation&#10;- No em dashes. Comma or full stop.&#10;- No exclamation marks in body copy.&#10;- Serial comma: no."><code class="language-markdown"># House voice
 
 ## In one line
 We sound like an experienced site manager explaining something to a
@@ -1007,7 +1027,7 @@ fast-paced world · it's not just X, it's Y · unlock · elevate · journey
 </code></pre>
 <p>Then per-author files for anything published under a byline:</p>
 <p><code>knowledge/voice/author-jana-novak.md</code>:</p>
-<pre><code class="language-markdown"># Author voice: Jana Novák, Head of Operations
+<pre data-copy="# Author voice: Jana Novák, Head of Operations&#10;&#10;## Who she is&#10;15 years in construction project management before joining Lighthouse.&#10;Writes from experience, not from research. This is her main credibility.&#10;&#10;## How she writes&#10;- Opens with a specific thing that happened, not a general claim.&#10;- Uses &quot;I&quot; and tells stories from sites she worked on.&#10;- Sceptical of software claims, including ours. Will name trade-offs.&#10;- Short paragraphs. Occasional one-line paragraph for emphasis.&#10;- Never uses statistics she hasn&#x27;t personally checked.&#10;&#10;## Phrases she actually uses&#10;&quot;In practice, that means...&quot; · &quot;The honest version is...&quot; ·&#10;&quot;That worked on paper.&quot;&#10;&#10;## Never in her voice&#10;- Marketing superlatives of any kind&#10;- Third-person corporate (&quot;Lighthouse believes...&quot;)&#10;- Anything that sounds like it came from a product page"><code class="language-markdown"># Author voice: Jana Novák, Head of Operations
 
 ## Who she is
 15 years in construction project management before joining Lighthouse.
@@ -1037,7 +1057,7 @@ Writes from experience, not from research. This is her main credibility.
 <h4>6.3 Entities — the facts you're allowed to state</h4>
 <p>This is your defence against confident invention. If it's not in these files, the agent is not permitted to claim it.</p>
 <p><code>knowledge/entities/products.md</code>:</p>
-<pre><code class="language-markdown"># Products — the only source of truth for what we sell
+<pre data-copy="# Products — the only source of truth for what we sell&#10;&#10;If a capability is not listed here, we do not claim it. If asked about&#10;something not here, write [NEEDS PRODUCT INPUT: question] and continue.&#10;&#10;---&#10;&#10;## Atlas&#10;**One-liner:** Site documentation that works without signal.&#10;**Launched:** March 2024 · **Current version:** 4.2 (June 2026)&#10;**Price:** From €39/user/month, annual. Minimum 10 users.&#10;&#10;### What it does&#10;- Photo and note capture on site, offline, syncs when back in range&#10;- RFI creation and tracking with automatic reminders&#10;- Daily site diary generated from the day&#x27;s captures&#10;- Exports to PDF and to Procore, Autodesk Build&#10;&#10;### What it does NOT do — do not imply otherwise&#10;- No scheduling or Gantt functionality&#10;- No cost or budget tracking&#10;- No BIM model viewing&#10;- Android and iOS only. There is no desktop app for site use.&#10;&#10;### Approved claims (use verbatim or close)&#10;- &quot;Works with no signal and syncs later.&quot; ✅&#10;- &quot;Average RFI turnaround across our customers dropped from 9 days to 3.&quot;&#10;  ✅ — source: internal 2026 customer study, n=41. Always say &quot;across our&#10;  customers&quot;, never &quot;in the industry&quot;.&#10;&#10;### Claims we must NOT make&#10;- ❌ Anything about ROI in a specific timeframe. Legal has said no.&#10;- ❌ &quot;Fastest&quot; or &quot;most-used&quot; anything. Unsubstantiated.&#10;- ❌ Any comparison naming a competitor.&#10;&#10;### Boilerplate (press releases, footer)&#10;Atlas is Lighthouse&#x27;s site documentation tool for construction teams&#10;working in low-connectivity environments. [50 words, approved by legal&#10;2026-04-02, do not edit without asking Legal.]"><code class="language-markdown"># Products — the only source of truth for what we sell
 
 If a capability is not listed here, we do not claim it. If asked about
 something not here, write [NEEDS PRODUCT INPUT: question] and continue.
@@ -1081,7 +1101,7 @@ working in low-connectivity environments. [50 words, approved by legal
 <h4>6.4 Library — your own past work</h4>
 <p>Two things live here, and they do different jobs.</p>
 <p><strong>Gold standard examples.</strong> Three to five pieces per format that you'd be happy to see repeated. Not your whole archive — your <em>best</em>. In <code>GOLD-STANDARD.md</code>, say what each one gets right:</p>
-<pre><code class="language-markdown"># Gold standard
+<pre data-copy="# Gold standard&#10;&#10;## Blog: why-site-diaries-fail.md&#10;Why it works: opens with a specific failure, not a definition. The table in&#10;the middle is the thing people screenshot. Ends without a hard sell.&#10;Copy: the structure and the willingness to say what doesn&#x27;t work.&#10;&#10;## Newsletter: 2026-05-14-the-signal.md&#10;Why it works: one idea, 400 words, a clear opinion. No round-ups.&#10;Copy: the opinion-first structure. Don&#x27;t copy the jokes."><code class="language-markdown"># Gold standard
 
 ## Blog: why-site-diaries-fail.md
 Why it works: opens with a specific failure, not a definition. The table in
@@ -1096,7 +1116,7 @@ Copy: the opinion-first structure. Don't copy the jokes.
 <h4>6.5 Making the knowledge base findable</h4>
 <p>Two habits keep it working as it grows.</p>
 <p><strong>Write an <code>INDEX.md</code>.</strong> One line per file saying what's in it and <em>when to read it</em>. The agent reads the index cheaply, then opens only what it needs.</p>
-<pre><code class="language-markdown"># Knowledge index
+<pre data-copy="# Knowledge index&#10;&#10;Read the file that matches your task. Don&#x27;t read everything.&#10;&#10;## Channels — read before writing for that channel&#10;- `channels/lighthouse-blog.md` — SEO blog. Format, keyword rules, examples.&#10;- `channels/the-signal-newsletter.md` — weekly newsletter. Opinion-led, 400w.&#10;- `channels/linkedin.md` — company page + founder profile. Different rules.&#10;&#10;## Voice — read alongside the channel file&#10;- `voice/house-voice.md` — applies to everything. Read this one always.&#10;- `voice/author-jana-novak.md` — only for pieces bylined Jana.&#10;&#10;## Entities — read before making any factual claim&#10;- `entities/products.md` — THE source of truth on capabilities and claims.&#10;- `entities/people.md` — names, titles, pronouns, bios, quote permissions.&#10;- `entities/events.md` — dates, venues, official names, embargo status.&#10;&#10;## Library&#10;- `library/GOLD-STANDARD.md` — our best work and why it works.&#10;- `library/articles/` — full archive. Search here before proposing a topic."><code class="language-markdown"># Knowledge index
 
 Read the file that matches your task. Don't read everything.
 
@@ -1151,7 +1171,7 @@ Read the file that matches your task. Don't read everything.
         └── outline-template.md
 </code></pre>
 <p><code>SKILL.md</code> needs exactly two things at the top, between <code>---</code> lines:</p>
-<pre><code class="language-markdown">---
+<pre data-copy="---&#10;name: article-draft&#10;description: Produce a publish-ready article draft from a brief, following our channel and voice rules. Use when asked to write, draft, or outline a blog post, article, or newsletter piece.&#10;---"><code class="language-markdown">---
 name: article-draft
 description: Produce a publish-ready article draft from a brief, following our channel and voice rules. Use when asked to write, draft, or outline a blog post, article, or newsletter piece.
 ---
@@ -1177,7 +1197,7 @@ description: Produce a publish-ready article draft from a brief, following our c
 <li>A CSV or JSON export being valid before you hand it to anyone</li>
 </ul>
 <p>Then the skill just says when to run it:</p>
-<pre><code class="language-markdown">## Phase 6 — Self-review
+<pre data-copy="## Phase 6 — Self-review&#10;First run `scripts/check-copy.py drafts/&lt;slug&gt;.md` and fix everything it&#10;reports. Then do the judgement pass: read the draft against&#10;`knowledge/voice/house-voice.md` and the channel file, and produce a&#10;checklist with ✅/❌ per rule."><code class="language-markdown">## Phase 6 — Self-review
 First run `scripts/check-copy.py drafts/&lt;slug&gt;.md` and fix everything it
 reports. Then do the judgement pass: read the draft against
 `knowledge/voice/house-voice.md` and the channel file, and produce a
@@ -1185,7 +1205,7 @@ checklist with ✅/❌ per rule.
 </code></pre>
 <p>That division is the whole point. <strong>The script checks what's countable; you and the agent judge what isn't.</strong> &quot;No sentence over 25 words&quot; belongs in a script. &quot;Does this sound like us&quot; never will.</p>
 <p>You don't have to write the script yourself. Describe the check and ask:</p>
-<div class="say">
+<div class="say" data-copy="Write `scripts/check-copy.py` for the `article-draft` skill. It takes a&#10;markdown file path and reports: every sentence over 25 words with its line&#10;number, every banned word from `knowledge/voice/house-voice.md`, the meta&#10;description length, and any sentence containing a number but no link.&#10;Print a plain list and exit with an error if anything failed.&#10;Standard library only, nothing to install.">
 <p>Write <code>scripts/check-copy.py</code> for the <code>article-draft</code> skill. It takes a
 markdown file path and reports: every sentence over 25 words with its line
 number, every banned word from <code>knowledge/voice/house-voice.md</code>, the meta
@@ -1198,7 +1218,7 @@ Standard library only, nothing to install.</p>
 <p><strong><code>assets/</code> — fixed files the skill uses.</strong> Outline templates, an approved boilerplate paragraph, a spreadsheet layout. Things to be used as they are, rather than read for guidance.</p>
 <h4>7.4 A real one</h4>
 <p><code>.claude/skills/article-draft/SKILL.md</code>:</p>
-<pre><code class="language-markdown">---
+<pre data-copy="---&#10;name: article-draft&#10;description: Produce a publish-ready article draft from a brief, following our channel and voice rules. Use when asked to write, draft, or outline a blog post, article, or newsletter piece.&#10;---&#10;&#10;# Article draft&#10;&#10;Work through these phases in order. Stop at each ⏸ and wait for me.&#10;&#10;## Phase 1 — Load context&#10;1. Read the brief.&#10;2. Read `knowledge/channels/&lt;the target channel&gt;.md`.&#10;3. Read `knowledge/voice/house-voice.md`, plus the author file if bylined.&#10;4. Search `knowledge/library/articles/` for anything we&#x27;ve published on&#10;   this topic. List what you found and how this piece differs.&#10;&#10;If the brief doesn&#x27;t name a channel, a target reader, or a length: ask.&#10;Don&#x27;t guess. ⏸&#10;&#10;## Phase 2 — Angle&#10;Propose three angles. For each: the promise to the reader in one sentence,&#10;who it&#x27;s for, why we&#x27;re credible on it, and what evidence we&#x27;d need.&#10;Recommend one and say why. ⏸ Wait for me to choose.&#10;&#10;## Phase 3 — Evidence&#10;Collect what the piece needs: sources with links and publication dates,&#10;approved product claims from `knowledge/entities/products.md`, internal&#10;link targets.&#10;Save to `research.md` in the project directory.&#10;Anything you can&#x27;t source: `[NEEDS SOURCE: ...]`. Never fill a gap with a&#10;plausible-sounding number. ⏸&#10;&#10;## Phase 4 — Outline&#10;H2s with one line on what each section does for the reader, plus the&#10;opening paragraph written in full — the opening sets the voice and is the&#10;cheapest thing to fix now. ⏸&#10;&#10;## Phase 5 — Draft&#10;Write it. Save to `drafts/&lt;slug&gt;.md`. Follow the channel file&#x27;s format&#10;rules exactly.&#10;&#10;## Phase 6 — Self-review&#10;Re-read your own draft against `knowledge/voice/house-voice.md` and the&#10;channel file. Produce a checklist with ✅/❌ per rule. Fix every ❌ and&#10;say what you changed. Be genuinely critical — a review that finds nothing&#10;is a review you didn&#x27;t do.&#10;&#10;Check specifically: banned words, sentences over 25 words, paragraphs over&#10;three sentences, passive voice, unsourced claims, em dashes.&#10;&#10;## Phase 7 — Package&#10;Add at the top of the file: three headline options, meta description&#10;(&lt;155 characters), suggested slug, two internal links, one image brief.&#10;Add at the bottom: open questions and every [NEEDS SOURCE] marker,&#10;collected in one list.&#10;&#10;Then tell me: what&#x27;s done, where it is, what you need from me."><code class="language-markdown">---
 name: article-draft
 description: Produce a publish-ready article draft from a brief, following our channel and voice rules. Use when asked to write, draft, or outline a blog post, article, or newsletter piece.
 ---
@@ -1328,10 +1348,10 @@ Then tell me: what's done, where it is, what you need from me.
 </table></div>
 <h4>8.3 Adding one</h4>
 <p>In Claude Code, most hosted connectors are one command. Then <code>/mcp</code> inside a session to log in with your normal account:</p>
-<pre><code class="language-bash">claude mcp add --transport http notion https://mcp.notion.com/mcp
+<pre data-copy="claude mcp add --transport http notion https://mcp.notion.com/mcp"><code class="language-bash">claude mcp add --transport http notion https://mcp.notion.com/mcp
 </code></pre>
 <p>Scope decides who gets it:</p>
-<pre><code class="language-bash">claude mcp add --transport http hubspot --scope user  https://mcp.hubspot.com/anthropic
+<pre data-copy="claude mcp add --transport http hubspot --scope user  https://mcp.hubspot.com/anthropic&#10;#   --scope local    just you, just this workspace (default)&#10;#   --scope user     just you, all your workspaces&#10;#   --scope project  written to .mcp.json and shared with the whole team"><code class="language-bash">claude mcp add --transport http hubspot --scope user  https://mcp.hubspot.com/anthropic
 #   --scope local    just you, just this workspace (default)
 #   --scope user     just you, all your workspaces
 #   --scope project  written to .mcp.json and shared with the whole team
@@ -1554,7 +1574,7 @@ Then tell me: what's done, where it is, what you need from me.
 </tbody>
 </table></div>
 <p><strong>To make one file serve all four:</strong> write your real content in <code>AGENTS.md</code>, then create <code>CLAUDE.md</code> next to it containing one line:</p>
-<pre><code class="language-markdown">@AGENTS.md
+<pre data-copy="@AGENTS.md"><code class="language-markdown">@AGENTS.md
 </code></pre>
 <p>That's Claude Code's import syntax — it pulls in the whole file. You can add Claude-specific notes underneath. (A symlink works too: <code>ln -s AGENTS.md CLAUDE.md</code> — but not on Windows without developer mode, so the import line is the safer choice.)</p>
 <p>Nested files are supported everywhere: put an <code>AGENTS.md</code> inside a subdirectory and it applies to work in that subdirectory, on top of the root one. Useful if one client or brand needs different rules.</p>
@@ -1719,13 +1739,13 @@ Then tell me: what's done, where it is, what you need from me.
 <h4>Step 1 — Make the directory</h4>
 <p>Make a new directory somewhere sensible — <code>Documents/content-workspace</code> is fine. Open your terminal in it and start your agent (<code>claude</code>, <code>codex</code>, <code>opencode</code>, or <code>pi</code>).</p>
 <p>Then, to check it can actually see and write files:</p>
-<div class="say">
+<div class="say" data-copy="Create a directory called `knowledge` with subdirectories `channels`, `voice`, `entities`, and `library`. Also create a directory called `projects`. Then show me the directory structure.">
 <p>Create a directory called <code>knowledge</code> with subdirectories <code>channels</code>, <code>voice</code>, <code>entities</code>, and <code>library</code>. Also create a directory called <code>projects</code>. Then show me the directory structure.</p>
 </div>
 <p>You should see the directories appear on disk. If it asks permission to create files, say yes. <strong>This is the whole trick of working with agents: you are not asking for text, you are asking for changes to a directory.</strong></p>
 <h4>Step 2 — Let it interview you</h4>
 <p>Don't write <code>AGENTS.md</code> from a blank page. Type this:</p>
-<div class="say">
+<div class="say" data-copy="I want to create an `AGENTS.md` for this workspace. This is where our team will plan and write everything we publish.&#10;&#10;Don&#x27;t write the file yet. First, interview me. Ask me **one question at a time**, up to about fifteen questions, covering:&#10;- what our company does and who we sell to&#10;- what we publish and where&#10;- who reads it&#10;- our writing rules and the words we hate&#10;- mistakes you could make that would embarrass us&#10;- what you should never do without asking&#10;- what a finished piece of work looks like&#10;&#10;Wait for my answer before each next question. When you have enough, say so and stop.">
 <p>I want to create an <code>AGENTS.md</code> for this workspace. This is where our team will plan and write everything we publish.</p>
 <p>Don't write the file yet. First, interview me. Ask me <strong>one question at a time</strong>, up to about fifteen questions, covering:</p>
 <ul>
@@ -1742,7 +1762,7 @@ Then tell me: what's done, where it is, what you need from me.
 <p>Then answer honestly, in short sentences. Don't try to sound polished — this is raw input, not a document.</p>
 <p><strong>Where people get this wrong:</strong> answering vaguely. &quot;We're professional but friendly&quot; is worthless. &quot;We sound like a site manager explaining something to a colleague, never like a vendor&quot; is worth an hour of editing later. When it asks about words you hate, actually list ten.</p>
 <h4>Step 3 — Get the draft, then take it over</h4>
-<div class="say">
+<div class="say" data-copy="Now write `AGENTS.md` based on my answers. Use these sections in this order:&#10;What this is · Who we write for · Where things live · Guardrails (Never / Always / Ask me first) · How we work · Definition of done · How to talk to me.&#10;&#10;Keep it under 150 lines. Make every rule specific enough that I could check whether you followed it — no &quot;write well&quot;, no &quot;be professional&quot;.">
 <p>Now write <code>AGENTS.md</code> based on my answers. Use these sections in this order:
 What this is · Who we write for · Where things live · Guardrails (Never / Always / Ask me first) · How we work · Definition of done · How to talk to me.</p>
 <p>Keep it under 150 lines. Make every rule specific enough that I could check whether you followed it — no &quot;write well&quot;, no &quot;be professional&quot;.</p>
@@ -1754,25 +1774,25 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <li><strong>Is the &quot;Never&quot; list honest?</strong> Add the things that would actually get you in trouble: inventing statistics, naming competitors, claiming a product does something it doesn't, publishing anything at all.</li>
 </ol>
 <p>Make sure these two lines are in there, whatever else is:</p>
-<pre><code class="language-markdown">- Never invent a statistic, quote, customer name, or case study. If you need
+<pre data-copy="- Never invent a statistic, quote, customer name, or case study. If you need&#10;  one and don&#x27;t have a source, write [NEEDS SOURCE: what you need] and continue.&#10;- Never publish, post, send, or schedule anything. You draft, a human ships."><code class="language-markdown">- Never invent a statistic, quote, customer name, or case study. If you need
   one and don't have a source, write [NEEDS SOURCE: what you need] and continue.
 - Never publish, post, send, or schedule anything. You draft, a human ships.
 </code></pre>
 <h4>Step 4 — If you use Claude Code, add one more file</h4>
 <p>Claude Code reads <code>CLAUDE.md</code>, not <code>AGENTS.md</code>. Ask for it:</p>
-<div class="say">
+<div class="say" data-copy="Create a `CLAUDE.md` in the project root containing exactly one line: `@AGENTS.md`">
 <p>Create a <code>CLAUDE.md</code> in the project root containing exactly one line: <code>@AGENTS.md</code></p>
 </div>
 <p>Now both work from the same source and you never maintain two files. (Codex, opencode and pi read <code>AGENTS.md</code> directly — nothing else to do.)</p>
 <h4>Step 5 — Your first channel file</h4>
 <p>Pick the one channel you publish to most.</p>
-<div class="say">
+<div class="say" data-copy="Interview me about our blog, one question at a time, so you can write a channel file. Ask about: its purpose, who arrives there and why, format and length, structure rules, SEO rules, what we never do on this channel, and which past pieces are good examples.&#10;&#10;Then write it to `knowledge/channels/blog.md`.">
 <p>Interview me about our blog, one question at a time, so you can write a channel file. Ask about: its purpose, who arrives there and why, format and length, structure rules, SEO rules, what we never do on this channel, and which past pieces are good examples.</p>
 <p>Then write it to <code>knowledge/channels/blog.md</code>.</p>
 </div>
 <h4>Step 6 — Your voice file</h4>
 <p>If you already have published work, use it — this produces a far better result than describing your voice from memory:</p>
-<div class="say">
+<div class="say" data-copy="I&#x27;m going to put five of our best published articles in `knowledge/library/articles/`. Read all of them, then write `knowledge/voice/house-voice.md` containing:&#10;- our voice in one sentence&#10;- concrete rules (sentence length, person, tense, paragraph length)&#10;- **at least ten &quot;do this, not that&quot; pairs using real sentences from those articles**&#10;- a banned words list of anything that would sound wrong in our voice&#10;- punctuation conventions you can see us following&#10;&#10;Base it only on what&#x27;s actually in the articles. Don&#x27;t invent rules that sound good.">
 <p>I'm going to put five of our best published articles in <code>knowledge/library/articles/</code>. Read all of them, then write <code>knowledge/voice/house-voice.md</code> containing:</p>
 <ul>
 <li>our voice in one sentence</li>
@@ -1787,13 +1807,13 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <p>If you have nothing published yet, have it interview you instead, and insist on the do/don't pairs.</p>
 <h4>Step 7 — Prove the whole thing works</h4>
 <p>Fresh session (in Claude Code, type <code>/clear</code>). Then:</p>
-<div class="say">
+<div class="say" data-copy="Read `AGENTS.md` and everything in `knowledge/`. Then write me a 150-word LinkedIn post announcing that we&#x27;ve published a new guide about [any topic you actually cover].&#10;&#10;After you write it, audit your own post against `knowledge/voice/house-voice.md`, rule by rule, with ✅ or ❌ and a fix for each ❌.">
 <p>Read <code>AGENTS.md</code> and everything in <code>knowledge/</code>. Then write me a 150-word LinkedIn post announcing that we've published a new guide about [any topic you actually cover].</p>
 <p>After you write it, audit your own post against <code>knowledge/voice/house-voice.md</code>, rule by rule, with ✅ or ❌ and a fix for each ❌.</p>
 </div>
 <p>Read the output. It won't be perfect. That's the point — <strong>whatever is wrong with it tells you exactly which file is missing something.</strong></p>
 <p>Then close the loop:</p>
-<div class="say">
+<div class="say" data-copy="The tone is off in the second paragraph — it sounds like a press release, and we never do that. Add a rule to the right file so this doesn&#x27;t happen again, and tell me which file you chose and why.">
 <p>The tone is off in the second paragraph — it sounds like a press release, and we never do that. Add a rule to the right file so this doesn't happen again, and tell me which file you chose and why.</p>
 </div>
 <p><strong>✅ Done when:</strong> you have <code>AGENTS.md</code>, one channel file, one voice file, and you've watched the agent follow a rule you wrote.</p>
@@ -1806,12 +1826,12 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <strong>Time:</strong> about 90 minutes.
 <strong>Needs:</strong> Walkthrough 1 finished.</p>
 <h4>Step 1 — Set up the project</h4>
-<div class="say">
+<div class="say" data-copy="Create `projects/2026-08-guide-article/` with a `drafts/` subdirectory. In it, create `BRIEF.md` and interview me to fill it in: what we&#x27;re writing, for which channel, target reader, the one thing they should take away, target length, deadline, and what success looks like.">
 <p>Create <code>projects/2026-08-guide-article/</code> with a <code>drafts/</code> subdirectory. In it, create <code>BRIEF.md</code> and interview me to fill it in: what we're writing, for which channel, target reader, the one thing they should take away, target length, deadline, and what success looks like.</p>
 </div>
 <p>A brief is the cheapest thing to get right and the most expensive thing to get wrong. Five minutes here.</p>
 <h4>Step 2 — Angles, not a draft</h4>
-<div class="say">
+<div class="say" data-copy="Read `BRIEF.md`, the channel file, and `knowledge/voice/house-voice.md`.&#10;&#10;Then search `knowledge/library/articles/` for anything we&#x27;ve already published on this topic and tell me what you found.&#10;&#10;Then give me **three angles** for this piece. For each: the promise to the reader in one sentence, why we&#x27;re credible on it, and what evidence we&#x27;d need to make it stand up.&#10;&#10;Do not write the article. Recommend one angle and say why.">
 <p>Read <code>BRIEF.md</code>, the channel file, and <code>knowledge/voice/house-voice.md</code>.</p>
 <p>Then search <code>knowledge/library/articles/</code> for anything we've already published on this topic and tell me what you found.</p>
 <p>Then give me <strong>three angles</strong> for this piece. For each: the promise to the reader in one sentence, why we're credible on it, and what evidence we'd need to make it stand up.</p>
@@ -1819,7 +1839,7 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 </div>
 <p>Pick one. Push back if none are right — <em>&quot;None of these. The interesting thing is X. Give me three angles on that.&quot;</em> Two rounds here beats fixing a finished draft.</p>
 <h4>Step 3 — Evidence before prose</h4>
-<div class="say">
+<div class="say" data-copy="Angle 2, please. Now collect the evidence.&#10;&#10;Search the web for supporting data. For every source: the link, the publication date, and the exact claim it supports. Prefer primary sources — original research, official statistics, named studies. Skip anything you can&#x27;t date.&#10;&#10;Pull the approved product claims from `knowledge/entities/products.md`. Do not use any product claim that isn&#x27;t in that file.&#10;&#10;Save it all to `research.md` in the project directory. Anything we need but can&#x27;t source, list as `[NEEDS SOURCE: ...]`.">
 <p>Angle 2, please. Now collect the evidence.</p>
 <p>Search the web for supporting data. For every source: the link, the publication date, and the exact claim it supports. Prefer primary sources — original research, official statistics, named studies. Skip anything you can't date.</p>
 <p>Pull the approved product claims from <code>knowledge/entities/products.md</code>. Do not use any product claim that isn't in that file.</p>
@@ -1827,18 +1847,18 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 </div>
 <p>Then — and this is the step people skip — <strong>open <code>research.md</code> and click two of the links.</strong> You are checking whether its sources are real and say what it claims. Do this every time for the first month. It calibrates your trust, and you will find it useful to know exactly where the weak points are.</p>
 <h4>Step 4 — Outline</h4>
-<div class="say">
+<div class="say" data-copy="Write an outline: H2 headings, one line under each on what that section does for the reader, plus **the opening paragraph written out in full**.&#10;&#10;Follow the structure rules in the channel file. Don&#x27;t draft the rest.">
 <p>Write an outline: H2 headings, one line under each on what that section does for the reader, plus <strong>the opening paragraph written out in full</strong>.</p>
 <p>Follow the structure rules in the channel file. Don't draft the rest.</p>
 </div>
 <p>The opening in full is deliberate. It's where voice lives, and it costs nothing to redo now. If the opening is right, the draft usually follows.</p>
 <h4>Step 5 — Draft</h4>
-<div class="say">
+<div class="say" data-copy="Good. Write the full draft to `drafts/&lt;slug&gt;.md`, following the outline and the channel format rules.">
 <p>Good. Write the full draft to <code>drafts/&lt;slug&gt;.md</code>, following the outline and the channel format rules.</p>
 </div>
 <p>Then leave it alone. Don't read it yet — the next step will fix half of what you'd have commented on.</p>
 <h4>Step 6 — Make it review itself</h4>
-<div class="say">
+<div class="say" data-copy="Now audit your own draft against `knowledge/voice/house-voice.md` and the channel file.&#10;&#10;Produce a table: each rule, ✅ or ❌, and the specific fix for each ❌. Check especially: banned words, sentences over 25 words, paragraphs over three sentences, passive voice, em dashes, and any claim without a source.&#10;&#10;Be genuinely critical. A review that finds nothing is a review you didn&#x27;t do.&#10;&#10;Then apply every fix to the file and tell me what you changed.">
 <p>Now audit your own draft against <code>knowledge/voice/house-voice.md</code> and the channel file.</p>
 <p>Produce a table: each rule, ✅ or ❌, and the specific fix for each ❌. Check especially: banned words, sentences over 25 words, paragraphs over three sentences, passive voice, em dashes, and any claim without a source.</p>
 <p>Be genuinely critical. A review that finds nothing is a review you didn't do.</p>
@@ -1847,22 +1867,22 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <p>This step consistently produces a bigger improvement than any amount of re-prompting. Generating and judging are different jobs; doing them separately works better than doing them at once.</p>
 <h4>Step 7 — Now you read it</h4>
 <p>Open the draft. Edit as an editor, not a prompter — ask for surgical changes, in place:</p>
-<div class="say">
+<div class="say" data-copy="In the draft file: cut the third section entirely, it repeats section one. Tighten the intro to four sentences. Leave everything else exactly as it is.">
 <p>In the draft file: cut the third section entirely, it repeats section one. Tighten the intro to four sentences. Leave everything else exactly as it is.</p>
 </div>
 <p>Note &quot;leave everything else exactly as it is.&quot; Without it you sometimes get a full rewrite and lose the parts you liked.</p>
 <p>Then a harder pass:</p>
-<div class="say">
+<div class="say" data-copy="Read the draft as our most sceptical reader — an ops manager who&#x27;s been sold bad software before. List every sentence they&#x27;d roll their eyes at, and why. Don&#x27;t fix anything yet.">
 <p>Read the draft as our most sceptical reader — an ops manager who's been sold bad software before. List every sentence they'd roll their eyes at, and why. Don't fix anything yet.</p>
 </div>
 <h4>Step 8 — Package it</h4>
-<div class="say">
+<div class="say" data-copy="Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from `knowledge/library/articles/`.&#10;&#10;Add at the bottom: an image brief, and every `[NEEDS SOURCE]` marker collected into one list.&#10;&#10;Then tell me in three lines: what&#x27;s done, where it is, what you need from me.">
 <p>Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from <code>knowledge/library/articles/</code>.</p>
 <p>Add at the bottom: an image brief, and every <code>[NEEDS SOURCE]</code> marker collected into one list.</p>
 <p>Then tell me in three lines: what's done, where it is, what you need from me.</p>
 </div>
 <h4>Step 9 — Bank the learning</h4>
-<div class="say">
+<div class="say" data-copy="Which corrections did I make today that you should have got right the first time? For each, tell me which file should have prevented it, and make the edit.">
 <p>Which corrections did I make today that you should have got right the first time? For each, tell me which file should have prevented it, and make the edit.</p>
 </div>
 <p>Do this after every piece for the first month. It is how the workspace gets good.</p>
@@ -1878,27 +1898,27 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <p>This one is deliberately spread over days. The point is to watch the agent pick up cold from a logbook — the skill that makes long projects possible.</p>
 <h4>Session 1 — Brief and plan</h4>
 <p><strong>Step 1.</strong> Set up:</p>
-<div class="say">
+<div class="say" data-copy="Create `projects/2026-09-atlas-launch/` with `drafts/` and `research/` subdirectories.&#10;&#10;Create `BRIEF.md` and interview me one question at a time: what we&#x27;re launching, the date, the audience, the one message, which channels, budget, who&#x27;s involved, what success looks like in numbers, and any hard constraints (embargoes, legal, approvals).">
 <p>Create <code>projects/2026-09-atlas-launch/</code> with <code>drafts/</code> and <code>research/</code> subdirectories.</p>
 <p>Create <code>BRIEF.md</code> and interview me one question at a time: what we're launching, the date, the audience, the one message, which channels, budget, who's involved, what success looks like in numbers, and any hard constraints (embargoes, legal, approvals).</p>
 </div>
 <p><strong>Step 2.</strong> Get a plan and nothing else:</p>
-<div class="say">
+<div class="say" data-copy="Read `BRIEF.md`, `knowledge/INDEX.md`, and the channel files for every channel in the brief.&#10;&#10;Write a phased plan to `PLAN.md`. **Do not produce any campaign content.**&#10;&#10;5–7 phases. For each: goal in one sentence, inputs needed, files produced, and how we&#x27;ll know it&#x27;s done. Every phase must be small enough to finish in one sitting. At least two phases must end with a decision I have to make.&#10;&#10;At the end, list your assumptions and anything the brief doesn&#x27;t answer.">
 <p>Read <code>BRIEF.md</code>, <code>knowledge/INDEX.md</code>, and the channel files for every channel in the brief.</p>
 <p>Write a phased plan to <code>PLAN.md</code>. <strong>Do not produce any campaign content.</strong></p>
 <p>5–7 phases. For each: goal in one sentence, inputs needed, files produced, and how we'll know it's done. Every phase must be small enough to finish in one sitting. At least two phases must end with a decision I have to make.</p>
 <p>At the end, list your assumptions and anything the brief doesn't answer.</p>
 </div>
 <p><strong>Step 3.</strong> Read the plan properly. This is your one big steering moment. Typical corrections:</p>
-<div class="say">
+<div class="say" data-copy="Three changes. Phase 2 is too big — split it into messaging and calendar. Move the press list to Phase 1, we need it earlier for embargoes. And add a phase for the sales enablement one-pager, I forgot it in the brief. Update `PLAN.md` and `BRIEF.md`.">
 <p>Three changes. Phase 2 is too big — split it into messaging and calendar. Move the press list to Phase 1, we need it earlier for embargoes. And add a phase for the sales enablement one-pager, I forgot it in the brief. Update <code>PLAN.md</code> and <code>BRIEF.md</code>.</p>
 </div>
 <p><strong>Step 4.</strong> Do exactly one phase:</p>
-<div class="say">
+<div class="say" data-copy="Now do Phase 1 only. Stop when it&#x27;s done.">
 <p>Now do Phase 1 only. Stop when it's done.</p>
 </div>
 <p><strong>Step 5.</strong> Close the session — this step is the whole exercise:</p>
-<div class="say">
+<div class="say" data-copy="Stop here. Create `PROGRESS.md` with:&#10;&#10;**Status** — current phase, the single next action, anything you&#x27;re blocked on&#10;**Decisions made** — dated, with the reason for each&#10;**Log** — what you did today, which files you produced, what you learned, open questions&#10;&#10;Write it so someone who wasn&#x27;t here today could pick this up cold with no other context.">
 <p>Stop here. Create <code>PROGRESS.md</code> with:</p>
 <p><strong>Status</strong> — current phase, the single next action, anything you're blocked on
 <strong>Decisions made</strong> — dated, with the reason for each
@@ -1908,32 +1928,32 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <p>Then close the tool.</p>
 <h4>Session 2 — The cold start</h4>
 <p><strong>Step 6.</strong> New day, fresh session. Type only this:</p>
-<div class="say">
+<div class="say" data-copy="Read `PROGRESS.md` and `PLAN.md` in `projects/2026-09-atlas-launch/`. Tell me in five lines where we are and what the next action is. Don&#x27;t start work yet.">
 <p>Read <code>PROGRESS.md</code> and <code>PLAN.md</code> in <code>projects/2026-09-atlas-launch/</code>. Tell me in five lines where we are and what the next action is. Don't start work yet.</p>
 </div>
 <p>Watch what happens. It will tell you exactly where you left off, including why you made the decisions you made. <strong>This is the moment the system clicks.</strong> No re-explaining, no scrolling back through a chat.</p>
 <p>If it's confused or vague, that's diagnostic: <code>PROGRESS.md</code> wasn't specific enough. Fix the log format now, while it's obvious what was missing.</p>
 <p><strong>Step 7.</strong> Continue:</p>
-<div class="say">
+<div class="say" data-copy="Correct. Do Phase 2 only, then stop.">
 <p>Correct. Do Phase 2 only, then stop.</p>
 </div>
 <p><strong>Step 8.</strong> Same closing ritual. Every time:</p>
-<div class="say">
+<div class="say" data-copy="Stop here. Update `PROGRESS.md` — status, next action, decisions with reasons, and today&#x27;s log entry. Keep the whole file under 100 lines by summarising older entries.">
 <p>Stop here. Update <code>PROGRESS.md</code> — status, next action, decisions with reasons, and today's log entry. Keep the whole file under 100 lines by summarising older entries.</p>
 </div>
 <h4>Session 3 — Finish and package</h4>
 <p><strong>Step 9.</strong> Cold start again, then work through the remaining phases — still one at a time, still logging at the end of each.</p>
 <p><strong>Step 10.</strong> When the plan is complete:</p>
-<div class="say">
+<div class="say" data-copy="The plan is finished. Produce `CAMPAIGN.md` in the project root: the full campaign on one page — messaging spine, channel-by-channel calendar with dates, the asset list with file paths and owners, dependencies and deadlines, and how we&#x27;ll measure it.&#10;&#10;Then list everything still blocked on a human, and who needs to do what.">
 <p>The plan is finished. Produce <code>CAMPAIGN.md</code> in the project root: the full campaign on one page — messaging spine, channel-by-channel calendar with dates, the asset list with file paths and owners, dependencies and deadlines, and how we'll measure it.</p>
 <p>Then list everything still blocked on a human, and who needs to do what.</p>
 </div>
 <p><strong>Step 11.</strong> Stress-test it before anyone else sees it:</p>
-<div class="say">
+<div class="say" data-copy="Now be our CFO reading this for the first time. What are the three weakest points? What would you refuse to approve and why?">
 <p>Now be our CFO reading this for the first time. What are the three weakest points? What would you refuse to approve and why?</p>
 </div>
 <p><strong>Step 12.</strong> Bank it:</p>
-<div class="say">
+<div class="say" data-copy="What did we learn about how we plan campaigns that isn&#x27;t written down anywhere? Propose additions to `AGENTS.md` or a new knowledge file. Show me the changes before making them.">
 <p>What did we learn about how we plan campaigns that isn't written down anywhere? Propose additions to <code>AGENTS.md</code> or a new knowledge file. Show me the changes before making them.</p>
 </div>
 <p><strong>✅ Done when:</strong> you've had at least one cold start that worked, and <code>CAMPAIGN.md</code> is something you'd actually send to a colleague.</p>
@@ -1974,7 +1994,7 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 </tbody>
 </table></div>
 <h4>Step 2 — Have it write the skill from what you actually did</h4>
-<div class="say">
+<div class="say" data-copy="Look back at how we produced the article in `projects/2026-08-guide-article/`, including every correction I made along the way.&#10;&#10;Turn that into a skill at `.claude/skills/article-draft/SKILL.md`.&#10;&#10;Requirements:&#10;- YAML frontmatter with `name: article-draft` and a `description` that says what it does **and when to use it**, using words I&#x27;d actually type — write, draft, article, blog post, outline, newsletter.&#10;- The body is the procedure, in numbered phases.&#10;- Mark with ⏸ every point where you must stop and wait for me.&#10;- Include the self-review phase where you audit your own draft against the voice file with ✅/❌ and fix every ❌.&#10;- Include every correction I made during the walkthrough as an explicit rule.&#10;- Under 200 lines. Push anything long into `references/`.">
 <p>Look back at how we produced the article in <code>projects/2026-08-guide-article/</code>, including every correction I made along the way.</p>
 <p>Turn that into a skill at <code>.claude/skills/article-draft/SKILL.md</code>.</p>
 <p>Requirements:</p>
@@ -1995,7 +2015,7 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <h4>Step 4 — Test both ways</h4>
 <p><strong>Directly</strong> — fresh session, then type <code>/article-draft</code> (Claude Code, opencode) or <code>$article-draft</code> (Codex). It should start at Phase 1.</p>
 <p><strong>Automatically</strong> — fresh session, then type something natural:</p>
-<div class="say">
+<div class="say" data-copy="I need a blog post about how site diaries actually get filled in.">
 <p>I need a blog post about how site diaries actually get filled in.</p>
 </div>
 <p>If the skill was written well, it starts following the procedure without being told. If it doesn't, the <code>description</code> is the problem — rewrite it with the words you just used.</p>
@@ -2015,7 +2035,7 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <section id="what-to-do-after-all-four" data-sec="walkthroughs-5">
 <h3><span>What to do after all four</span></h3>
 <p>You now have the full system. The habit that keeps it working is a single question, asked at the end of every piece of work:</p>
-<div class="say">
+<div class="say" data-copy="What did I correct today that you should have known already — and which file should have told you?">
 <p>What did I correct today that you should have known already — and which file should have told you?</p>
 </div>
 <p>Ask it every time for a month. The workspace will teach itself your job.</p>
@@ -2035,15 +2055,15 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <section id="every-session" data-sec="prompts-1">
 <h3><span>Every session</span></h3>
 <p><strong>Start of a session on an existing project</strong></p>
-<div class="say">
+<div class="say" data-copy="Read `PROGRESS.md` and `PLAN.md` in `projects/&lt;name&gt;/`. Tell me in five lines where we are and what the next action is. Don&#x27;t start work yet.">
 <p>Read <code>PROGRESS.md</code> and <code>PLAN.md</code> in <code>projects/&lt;name&gt;/</code>. Tell me in five lines where we are and what the next action is. Don't start work yet.</p>
 </div>
 <p><strong>End of every session — never skip this</strong></p>
-<div class="say">
+<div class="say" data-copy="Stop here. Update `PROGRESS.md`: status, the single next action, decisions made today with the reason for each, and today&#x27;s log entry with the files you produced. Write it so someone who wasn&#x27;t here today could pick it up cold.">
 <p>Stop here. Update <code>PROGRESS.md</code>: status, the single next action, decisions made today with the reason for each, and today's log entry with the files you produced. Write it so someone who wasn't here today could pick it up cold.</p>
 </div>
 <p><strong>When quality drops mid-session</strong> <em>(it repeats itself, forgets a decision, contradicts the outline)</em></p>
-<div class="say">
+<div class="say" data-copy="Update `PROGRESS.md` with where we are. I&#x27;m starting a fresh session.">
 <p>Update <code>PROGRESS.md</code> with where we are. I'm starting a fresh session.</p>
 </div>
 <p>Then clear the session (<code>/clear</code> in Claude Code) and start again.</p>
@@ -2053,19 +2073,19 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <section id="getting-set-up" data-sec="prompts-2">
 <h3><span>Getting set up</span></h3>
 <p><strong>Write your AGENTS.md</strong></p>
-<div class="say">
+<div class="say" data-copy="I want to create an `AGENTS.md` for this workspace. Don&#x27;t write it yet. First interview me, one question at a time, up to fifteen questions, about what we publish, who reads it, our rules, the mistakes you could make that would embarrass us, what you should never do without asking, and what &quot;done&quot; looks like. Wait for my answer before each next question.">
 <p>I want to create an <code>AGENTS.md</code> for this workspace. Don't write it yet. First interview me, one question at a time, up to fifteen questions, about what we publish, who reads it, our rules, the mistakes you could make that would embarrass us, what you should never do without asking, and what &quot;done&quot; looks like. Wait for my answer before each next question.</p>
 </div>
 <p><strong>Derive a voice guide from your own published work</strong></p>
-<div class="say">
+<div class="say" data-copy="Read every article in `knowledge/library/articles/`. Write `knowledge/voice/house-voice.md`: our voice in one sentence, concrete rules, at least ten &quot;do this, not that&quot; pairs using real sentences from those articles, a banned words list, and punctuation conventions. Base it only on what&#x27;s actually there — don&#x27;t invent rules that sound good.">
 <p>Read every article in <code>knowledge/library/articles/</code>. Write <code>knowledge/voice/house-voice.md</code>: our voice in one sentence, concrete rules, at least ten &quot;do this, not that&quot; pairs using real sentences from those articles, a banned words list, and punctuation conventions. Base it only on what's actually there — don't invent rules that sound good.</p>
 </div>
 <p><strong>Write a channel file</strong></p>
-<div class="say">
+<div class="say" data-copy="Interview me about our &lt;channel&gt;, one question at a time, then write `knowledge/channels/&lt;name&gt;.md`: purpose, who arrives and why, format and length, structure rules, SEO rules, what we never do here, and which past pieces are good examples.">
 <p>Interview me about our &lt;channel&gt;, one question at a time, then write <code>knowledge/channels/&lt;name&gt;.md</code>: purpose, who arrives and why, format and length, structure rules, SEO rules, what we never do here, and which past pieces are good examples.</p>
 </div>
 <p><strong>Build a product fact sheet</strong></p>
-<div class="say">
+<div class="say" data-copy="Interview me about &lt;product&gt; and write `knowledge/entities/products.md`. Include what it does, **what it explicitly does not do**, approved claims with their sources, claims we must never make, pricing, and approved boilerplate. Add &quot;Last verified: &lt;today&gt;&quot; at the top.">
 <p>Interview me about &lt;product&gt; and write <code>knowledge/entities/products.md</code>. Include what it does, <strong>what it explicitly does not do</strong>, approved claims with their sources, claims we must never make, pricing, and approved boilerplate. Add &quot;Last verified: &lt;today&gt;&quot; at the top.</p>
 </div>
 <hr />
@@ -2074,15 +2094,15 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <section id="planning" data-sec="prompts-3">
 <h3><span>Planning</span></h3>
 <p><strong>Get a plan, not a draft</strong></p>
-<div class="say">
+<div class="say" data-copy="Read `BRIEF.md` and the relevant knowledge files. Write a phased plan to `PLAN.md`. **Do not do any of the work yet.** 5–7 phases; for each: goal in one sentence, inputs needed, files produced, how we&#x27;ll know it&#x27;s done. Each phase small enough for one sitting. At least two must end with a decision I have to make. List your assumptions at the end.">
 <p>Read <code>BRIEF.md</code> and the relevant knowledge files. Write a phased plan to <code>PLAN.md</code>. <strong>Do not do any of the work yet.</strong> 5–7 phases; for each: goal in one sentence, inputs needed, files produced, how we'll know it's done. Each phase small enough for one sitting. At least two must end with a decision I have to make. List your assumptions at the end.</p>
 </div>
 <p><strong>Work one phase</strong></p>
-<div class="say">
+<div class="say" data-copy="Do Phase 2 only. Stop when it&#x27;s done.">
 <p>Do Phase 2 only. Stop when it's done.</p>
 </div>
 <p><strong>Change the plan</strong></p>
-<div class="say">
+<div class="say" data-copy="Three changes to `PLAN.md`: &lt;...&gt;. Update the file and tell me what else those changes affect.">
 <p>Three changes to <code>PLAN.md</code>: &lt;...&gt;. Update the file and tell me what else those changes affect.</p>
 </div>
 <hr />
@@ -2091,31 +2111,31 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <section id="writing" data-sec="prompts-4">
 <h3><span>Writing</span></h3>
 <p><strong>Angles before drafting</strong></p>
-<div class="say">
+<div class="say" data-copy="Give me three angles. For each: the promise to the reader in one sentence, why we&#x27;re credible on it, and what evidence we&#x27;d need. Recommend one and say why. Don&#x27;t write the piece.">
 <p>Give me three angles. For each: the promise to the reader in one sentence, why we're credible on it, and what evidence we'd need. Recommend one and say why. Don't write the piece.</p>
 </div>
 <p><strong>Research with real sources</strong></p>
-<div class="say">
+<div class="say" data-copy="Search the web for supporting data. For every source give the link, the publication date, and the exact claim it supports. Prefer primary sources. Skip anything you can&#x27;t date. Save to `research.md`. Anything we need but can&#x27;t source: `[NEEDS SOURCE: ...]`.">
 <p>Search the web for supporting data. For every source give the link, the publication date, and the exact claim it supports. Prefer primary sources. Skip anything you can't date. Save to <code>research.md</code>. Anything we need but can't source: <code>[NEEDS SOURCE: ...]</code>.</p>
 </div>
 <p><strong>Outline with the opening written out</strong></p>
-<div class="say">
+<div class="say" data-copy="Write an outline: H2s with one line each on what that section does for the reader, plus the opening paragraph in full. Don&#x27;t draft the rest.">
 <p>Write an outline: H2s with one line each on what that section does for the reader, plus the opening paragraph in full. Don't draft the rest.</p>
 </div>
 <p><strong>Draft to a file</strong></p>
-<div class="say">
+<div class="say" data-copy="Write the full draft to `drafts/&lt;slug&gt;.md`, following the outline and the channel format rules.">
 <p>Write the full draft to <code>drafts/&lt;slug&gt;.md</code>, following the outline and the channel format rules.</p>
 </div>
 <p><strong>Self-review — the highest-value prompt in this document</strong></p>
-<div class="say">
+<div class="say" data-copy="Audit your own draft against `knowledge/voice/house-voice.md` and the channel file. A table: each rule, ✅ or ❌, and the specific fix for each ❌. Check especially banned words, sentences over 25 words, paragraphs over three sentences, passive voice, em dashes, and unsourced claims. Be genuinely critical — a review that finds nothing is a review you didn&#x27;t do. Then apply every fix and tell me what you changed.">
 <p>Audit your own draft against <code>knowledge/voice/house-voice.md</code> and the channel file. A table: each rule, ✅ or ❌, and the specific fix for each ❌. Check especially banned words, sentences over 25 words, paragraphs over three sentences, passive voice, em dashes, and unsourced claims. Be genuinely critical — a review that finds nothing is a review you didn't do. Then apply every fix and tell me what you changed.</p>
 </div>
 <p><strong>Surgical edits</strong></p>
-<div class="say">
+<div class="say" data-copy="In the draft file: cut section 3, it repeats section 1. Tighten the intro to four sentences. **Leave everything else exactly as it is.**">
 <p>In the draft file: cut section 3, it repeats section 1. Tighten the intro to four sentences. <strong>Leave everything else exactly as it is.</strong></p>
 </div>
 <p><strong>Package it</strong></p>
-<div class="say">
+<div class="say" data-copy="Add to the top: three headline options, a meta description under 155 characters, a suggested slug, two internal links from our library. Add at the bottom: an image brief and every `[NEEDS SOURCE]` marker collected in one list.">
 <p>Add to the top: three headline options, a meta description under 155 characters, a suggested slug, two internal links from our library. Add at the bottom: an image brief and every <code>[NEEDS SOURCE]</code> marker collected in one list.</p>
 </div>
 <hr />
@@ -2124,19 +2144,19 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <section id="pressure-testing" data-sec="prompts-5">
 <h3><span>Pressure-testing</span></h3>
 <p><strong>Hostile reader</strong></p>
-<div class="say">
+<div class="say" data-copy="Read this as our most sceptical reader — &lt;describe them&gt;. List every sentence they&#x27;d roll their eyes at, and why. Don&#x27;t fix anything yet.">
 <p>Read this as our most sceptical reader — &lt;describe them&gt;. List every sentence they'd roll their eyes at, and why. Don't fix anything yet.</p>
 </div>
 <p><strong>The approver</strong></p>
-<div class="say">
+<div class="say" data-copy="You&#x27;re the CFO / Legal / our head of sales reading this for the first time. What would you refuse to approve, and why?">
 <p>You're the CFO / Legal / our head of sales reading this for the first time. What would you refuse to approve, and why?</p>
 </div>
 <p><strong>Find the weak claims</strong></p>
-<div class="say">
+<div class="say" data-copy="List every factual claim in this draft. For each: the source, or mark it unsourced. Then tell me which unsourced claim would be most damaging if it were wrong.">
 <p>List every factual claim in this draft. For each: the source, or mark it unsourced. Then tell me which unsourced claim would be most damaging if it were wrong.</p>
 </div>
 <p><strong>Kill the AI smell</strong></p>
-<div class="say">
+<div class="say" data-copy="Find every sentence that sounds like it was written by AI rather than by us. Quote it, say why, and rewrite it in our voice.">
 <p>Find every sentence that sounds like it was written by AI rather than by us. Quote it, say why, and rewrite it in our voice.</p>
 </div>
 <hr />
@@ -2144,7 +2164,7 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 
 <section id="repurposing" data-sec="prompts-6">
 <h3><span>Repurposing</span></h3>
-<div class="say">
+<div class="say" data-copy="Turn `drafts/&lt;slug&gt;.md` into: a 400-word newsletter piece, five LinkedIn posts, and an Instagram carousel outline. Read each channel&#x27;s file first and write each one properly for that channel — do not paste the same paragraphs across formats. Save each to `drafts/repurposed/`.">
 <p>Turn <code>drafts/&lt;slug&gt;.md</code> into: a 400-word newsletter piece, five LinkedIn posts, and an Instagram carousel outline. Read each channel's file first and write each one properly for that channel — do not paste the same paragraphs across formats. Save each to <code>drafts/repurposed/</code>.</p>
 </div>
 <hr />
@@ -2153,19 +2173,19 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <section id="maintaining-the-system" data-sec="prompts-7">
 <h3><span>Maintaining the system</span></h3>
 <p><strong>After every piece of work</strong></p>
-<div class="say">
+<div class="say" data-copy="What did I correct today that you should have got right the first time? For each, tell me which file should have prevented it, and make the edit.">
 <p>What did I correct today that you should have got right the first time? For each, tell me which file should have prevented it, and make the edit.</p>
 </div>
 <p><strong>File a correction immediately</strong></p>
-<div class="say">
+<div class="say" data-copy="Add that to the right file so it holds from now on. Tell me which file you chose and why.">
 <p>Add that to the right file so it holds from now on. Tell me which file you chose and why.</p>
 </div>
 <p><strong>Health check on your setup</strong></p>
-<div class="say">
+<div class="say" data-copy="Read `AGENTS.md` and everything in `knowledge/`. Tell me: anything that contradicts anything else, anything too vague for you to actually follow, anything out of date, and the three things missing that would most improve your output.">
 <p>Read <code>AGENTS.md</code> and everything in <code>knowledge/</code>. Tell me: anything that contradicts anything else, anything too vague for you to actually follow, anything out of date, and the three things missing that would most improve your output.</p>
 </div>
 <p><strong>Turn a session into a skill</strong></p>
-<div class="say">
+<div class="say" data-copy="Turn what we just did into a skill at `&lt;skills directory&gt;/&lt;name&gt;/SKILL.md`, including every correction I made along the way. Frontmatter with `name` matching the directory and a `description` saying what it does and when to use it, using the words I&#x27;d actually type. Mark with ⏸ every point where you must stop and wait for me.">
 <p>Turn what we just did into a skill at <code>&lt;skills directory&gt;/&lt;name&gt;/SKILL.md</code>, including every correction I made along the way. Frontmatter with <code>name</code> matching the directory and a <code>description</code> saying what it does and when to use it, using the words I'd actually type. Mark with ⏸ every point where you must stop and wait for me.</p>
 </div>
 <hr />
@@ -2484,7 +2504,7 @@ s jediným řádkem <code>@AGENTS.md</code>, a oba pak pracují ze stejného zdr
 <h5>1. Co je tenhle projekt</h5>
 <p>Dvě tři věty. Na co workspace slouží, kdo jsme, co je to za projekt, s čím
 agent pomáhá.</p>
-<pre><code class="language-markdown">## What this is
+<pre data-copy="## What this is&#10;&#10;Lighthouse is a B2B software company selling project-tracking tools to&#10;mid-size construction firms. This workspace is where our two-person content&#10;team plans and writes everything we publish: the blog, the weekly newsletter,&#10;LinkedIn, and campaign materials for product launches.&#10;&#10;You are helping us research, plan, draft and edit. You are not publishing&#10;anything — a human always does that."><code class="language-markdown">## What this is
 
 Lighthouse is a B2B software company selling project-tracking tools to
 mid-size construction firms. This workspace is where our two-person content
@@ -2499,7 +2519,7 @@ anything — a human always does that.
 <h5>2. Pro koho píšeme</h5>
 <p>Jinak bude psát pro „obecné byznysové publikum&quot;, což vypadá, jako by to ani
 nepsal člověk.</p>
-<pre><code class="language-markdown">## Who we write for
+<pre data-copy="## Who we write for&#10;&#10;Primary reader: an operations manager at a construction firm with 50–500&#10;employees. Time-poor, sceptical of software vendors, has been burned by a&#10;failed rollout before. They are not technical. They care about whether their&#10;site foremen will actually use a tool.&#10;&#10;They are not the buyer of last resort — they usually have to convince a&#10;finance director. Give them arguments they can forward."><code class="language-markdown">## Who we write for
 
 Primary reader: an operations manager at a construction firm with 50–500
 employees. Time-poor, sceptical of software vendors, has been burned by a
@@ -2512,7 +2532,7 @@ finance director. Give them arguments they can forward.
 <h5>3. Kde co leží</h5>
 <p>Krátká mapa. Právě díky ní agent najde vaši knowledge base, aniž byste mu pokaždé
 jmenovali soubory.</p>
-<pre><code class="language-markdown">## Where things live
+<pre data-copy="## Where things live&#10;&#10;- `knowledge/INDEX.md` — start here; it lists everything below&#10;- `knowledge/channels/` — one file per website/channel: audience, formats, rules&#10;- `knowledge/voice/` — house voice, plus per-author voices&#10;- `knowledge/entities/` — approved facts about our products, people, events&#10;- `knowledge/library/` — our own past work, including gold-standard examples&#10;- `projects/&lt;date&gt;-&lt;name&gt;/` — active work. Each has BRIEF, PLAN, PROGRESS.&#10;&#10;Before writing anything for a specific channel, read that channel&#x27;s file in&#10;`knowledge/channels/` and the relevant file in `knowledge/voice/`."><code class="language-markdown">## Where things live
 
 - `knowledge/INDEX.md` — start here; it lists everything below
 - `knowledge/channels/` — one file per website/channel: audience, formats, rules
@@ -2529,7 +2549,7 @@ Before writing anything for a specific channel, read that channel's file in
 <p>Buďte tak konkrétní, aby se dalo ověřit, jestli bylo pravidlo dodrženo. „Piš
 dobře&quot; se ověřit nedá, a je tedy k ničemu. „Žádná věta nad 25 slov&quot; zkontrolovat
 jde.</p>
-<pre><code class="language-markdown">## Guardrails
+<pre data-copy="## Guardrails&#10;&#10;### Never&#10;- Never invent a statistic, a customer name, a quote, or a case study.&#10;  If you need a number and don&#x27;t have a source, write `[NEEDS SOURCE: what&#10;  you need]` and keep going.&#10;- Never state a product capability that isn&#x27;t in `knowledge/entities/products.md`.&#10;  That file is the only source of truth for what our product does.&#10;- Never name a competitor in published copy.&#10;- Never publish, post, send, or schedule anything. Draft only.&#10;- Never use the words: &quot;leverage&quot;, &quot;seamless&quot;, &quot;game-changing&quot;, &quot;in today&#x27;s&#10;  fast-paced world&quot;, &quot;delve&quot;, &quot;it&#x27;s not just X, it&#x27;s Y&quot;.&#10;- Never use em dashes. Use commas or full stops.&#10;&#10;### Always&#10;- Always write in British English.&#10;- Always cite a source with a link for any claim about the industry, and&#10;  include the date the source was published.&#10;- Always save work to a file in the project directory. Don&#x27;t print a long draft&#10;  into the chat and stop there.&#10;- Always end a draft with a short &quot;Open questions&quot; list of anything you&#10;  guessed at.&#10;&#10;### Ask me first&#10;- Before starting to write, if the brief is missing the audience, the channel,&#10;  or the desired length.&#10;- Before restructuring an existing published article.&#10;- Before using any statistic that would go in a headline.&#10;- Before deleting or overwriting any file in `knowledge/` or `library/`."><code class="language-markdown">## Guardrails
 
 ### Never
 - Never invent a statistic, a customer name, a quote, or a case study.
@@ -2573,7 +2593,7 @@ momenty, na kterých záleží, aniž byste mikromanažovali každý krok.</li>
 <h5>5. Jak se tady pracuje</h5>
 <p>Váš výchozí postup. Co má agent udělat, když mu zadáte úkol, aniž byste to museli
 říkat.</p>
-<pre><code class="language-markdown">## How we work
+<pre data-copy="## How we work&#10;&#10;For anything longer than a social post:&#10;&#10;1. Read the brief and the relevant channel + voice files.&#10;2. Write a plan to `PLAN.md` and stop. Do not start drafting. Wait for me&#10;   to approve it.&#10;3. Work through the plan one phase at a time. After each phase, update&#10;   `PROGRESS.md` and tell me what changed.&#10;4. Never do more than one phase without checking in.&#10;&#10;For research tasks: collect sources into a `research/` file with links and&#10;publication dates first; summarise second. Never summarise from memory."><code class="language-markdown">## How we work
 
 For anything longer than a social post:
 
@@ -2589,7 +2609,7 @@ publication dates first; summarise second. Never summarise from memory.
 </code></pre>
 <h5>6. Jak vypadá „hotovo&quot;</h5>
 <p>Agentova představa o dokončené práci není ta vaše, dokud mu to neřeknete.</p>
-<pre><code class="language-markdown">## Definition of done
+<pre data-copy="## Definition of done&#10;&#10;A draft is done when:&#10;- It has a headline plus two alternatives.&#10;- It has a meta description under 155 characters.&#10;- Every factual claim has a source link or a [NEEDS SOURCE] marker.&#10;- It passes the checks in `knowledge/voice/house-voice.md`.&#10;- It is saved as `projects/&lt;project&gt;/drafts/&lt;slug&gt;.md`.&#10;- Open questions are listed at the bottom."><code class="language-markdown">## Definition of done
 
 A draft is done when:
 - It has a headline plus two alternatives.
@@ -2601,7 +2621,7 @@ A draft is done when:
 </code></pre>
 <h5>7. Jak se mnou mluvit</h5>
 <p>Malá sekce, velké zlepšení komfortu.</p>
-<pre><code class="language-markdown">## How to talk to me
+<pre data-copy="## How to talk to me&#10;&#10;- Be direct. Skip the preamble, skip &quot;Great question!&quot;, skip summarising&#10;  what I just said back to me.&#10;- When you finish a task, tell me in three lines: what you did, what file&#10;  it&#x27;s in, what needs my decision.&#10;- If you disagree with my instruction, say so once, briefly, then do what&#10;  I asked.&#10;- Internal notes and our conversation: English. Anything for publication:&#10;  British English unless the channel file says otherwise."><code class="language-markdown">## How to talk to me
 
 - Be direct. Skip the preamble, skip &quot;Great question!&quot;, skip summarising
   what I just said back to me.
@@ -2635,7 +2655,7 @@ nespoléhejte jen na zapsané pravidlo. Spoléhejte na to, že než něco vyjde 
 projde to přes vás.</p>
 <h4>4.3 Nejrychlejší způsob, jak napsat ten první</h4>
 <p>Nepište ho sami od začátku. Nechte se od agenta vyzpovídat:</p>
-<div class="say">
+<div class="say" data-copy="I want to create an AGENTS.md for this workspace. Don&#x27;t write it yet.&#10;First interview me: ask me one question at a time, up to fifteen questions,&#10;about what we publish, who reads it, what our rules are, what mistakes&#10;you should avoid, and what &quot;done&quot; looks like. When you have enough,&#10;show me a draft AGENTS.md and I&#x27;ll correct it.">
 <p>I want to create an AGENTS.md for this workspace. Don't write it yet.
 First interview me: ask me one question at a time, up to fifteen questions,
 about what we publish, who reads it, what our rules are, what mistakes
@@ -2673,7 +2693,7 @@ fázi spustit nové sezení, vyčistit, nebo zkomprimovat kontext window. Čerst
 sezení s dobrým deníkem pokaždé zvítězí nad utahaným sezením s plným stolem.</p>
 <h4>5.3 Jak vzniká plán</h4>
 <p>První krok je vždycky: <strong>vyžádat si plán a výslovně zakázat začínat s prací.</strong></p>
-<div class="say">
+<div class="say" data-copy="Read `BRIEF.md`, `knowledge/INDEX.md`, and the channel files for blog and&#10;newsletter. Then write a plan to `PLAN.md`.&#10;&#10;Do not write any campaign content yet. The plan only.&#10;&#10;Break it into 4–7 phases. Each phase must have: a goal in one sentence,&#10;the inputs you need, the files you&#x27;ll produce, and how I&#x27;ll know it&#x27;s done.&#10;Phases must be small enough that one is a single sitting of work.&#10;&#10;At the end, list anything you&#x27;re unsure about or had to assume.">
 <p>Read <code>BRIEF.md</code>, <code>knowledge/INDEX.md</code>, and the channel files for blog and
 newsletter. Then write a plan to <code>PLAN.md</code>.</p>
 <p>Do not write any campaign content yet. The plan only.</p>
@@ -2687,7 +2707,7 @@ celým projektem a stojí to za těch pět minut. Když je plán špatně, je š
 všechno, co z něj plyne, a opravováním draftů strávíte mnohem víc času, než
 byste strávili opravou plánu.</p>
 <p>Dobrý seznam fází pro kampaň vypadá zhruba takhle:</p>
-<pre><code class="language-markdown">## Phase 1 — Research and positioning
+<pre data-copy="## Phase 1 — Research and positioning&#10;Goal: Establish what we&#x27;re claiming and why anyone should believe it.&#10;Inputs: BRIEF.md, knowledge/entities/products.md, competitor sites&#10;Outputs: research/positioning.md with 3 candidate angles, evidence for each&#10;Done when: Lukas has picked one angle and it&#x27;s marked CHOSEN in the file.&#10;&#10;## Phase 2 — Channel plan and calendar&#10;..."><code class="language-markdown">## Phase 1 — Research and positioning
 Goal: Establish what we're claiming and why anyone should believe it.
 Inputs: BRIEF.md, knowledge/entities/products.md, competitor sites
 Outputs: research/positioning.md with 3 candidate angles, evidence for each
@@ -2702,7 +2722,7 @@ je tam záměrně. Jsou to vaše kontrolní body.</p>
 <p><code>PROGRESS.md</code> je nejvíc podceňovaný soubor v celé příručce. Právě on mění sérii
 nesouvisejících sezení v projekt.</p>
 <p>Dejte tohle do <code>AGENTS.md</code>, ať se to děje automaticky:</p>
-<pre><code class="language-markdown">## Progress logging
+<pre data-copy="## Progress logging&#10;&#10;At the end of every working session, and after finishing any phase, update&#10;`PROGRESS.md` in the current project directory. Keep it in this format, newest&#10;entry at the top, and keep the whole file under 100 lines by summarising&#10;older entries:&#10;&#10;## Status&#10;Current phase: &lt;number and name&gt;&#10;Next action: &lt;the single next thing to do&gt;&#10;Blocked on: &lt;what you need from a human, or &quot;nothing&quot;&gt;&#10;&#10;## Decisions made&#10;- &lt;date&gt; — &lt;decision&gt; — &lt;why&gt;&#10;&#10;## Log&#10;### &lt;date&gt; — Phase &lt;n&gt;&#10;Did: ...&#10;Produced: &lt;file paths&gt;&#10;Learned: &lt;anything that changed our understanding&gt;&#10;Open questions: ..."><code class="language-markdown">## Progress logging
 
 At the end of every working session, and after finishing any phase, update
 `PROGRESS.md` in the current project directory. Keep it in this format, newest
@@ -2730,13 +2750,13 @@ toho, aby se ztratila v chatu, který už se nedá prohledat.</p>
 <h4>5.5 Začátek a konec sezení</h4>
 <p>Dva krátké rituály. Opakujte je, dokud je nebudete psát automaticky.</p>
 <p><strong>Začátek:</strong></p>
-<div class="say">
+<div class="say" data-copy="Read `PROGRESS.md` and `PLAN.md` in `projects/2026-09-atlas-launch/`.&#10;Tell me in five lines where we are and what the next action is.&#10;Don&#x27;t start work yet.">
 <p>Read <code>PROGRESS.md</code> and <code>PLAN.md</code> in <code>projects/2026-09-atlas-launch/</code>.
 Tell me in five lines where we are and what the next action is.
 Don't start work yet.</p>
 </div>
 <p><strong>Konec:</strong></p>
-<div class="say">
+<div class="say" data-copy="Stop here. Update `PROGRESS.md`: what you did, what files changed,&#10;what decisions we made and why, and the single next action for next time.&#10;Write it so someone who wasn&#x27;t here today could pick it up cold.">
 <p>Stop here. Update <code>PROGRESS.md</code>: what you did, what files changed,
 what decisions we made and why, and the single next action for next time.
 Write it so someone who wasn't here today could pick it up cold.</p>
@@ -2746,7 +2766,7 @@ Write it so someone who wasn't here today could pick it up cold.</p>
 <p>Agenti vám řeknou, že komprimují nebo shrnují, případně si všimnete poklesu
 kvality — zapomene rozhodnutí, opakuje se, popírá osnovu. Když se to stane:
 <strong>netlačte na pilu.</strong> Řekněte:</p>
-<div class="say">
+<div class="say" data-copy="Update PROGRESS.md with where we are, then I&#x27;m starting a fresh session.">
 <p>Update PROGRESS.md with where we are, then I'm starting a fresh session.</p>
 </div>
 <p>Pak spusťte nové sezení (v Claude Code <code>/clear</code>), případně zkomprimujte kontext
@@ -2766,7 +2786,7 @@ můžete dovolit být podrobní.</p>
 tomu, aby agent psal stejný nevýrazný odstavec pro váš technický blog i pro
 Instagram.</p>
 <p><code>knowledge/channels/lighthouse-blog.md</code>:</p>
-<pre><code class="language-markdown"># Channel: Lighthouse Blog (lighthouse.com/blog)
+<pre data-copy="# Channel: Lighthouse Blog (lighthouse.com/blog)&#10;&#10;## Purpose&#10;Organic search acquisition. Every post targets a keyword a construction ops&#10;manager would actually type. This is not a company news channel.&#10;&#10;## Reader&#10;Ops manager, 50–500 person construction firm. Arrives from Google with a&#10;specific problem. Skims first, reads second. Often on a phone, on site.&#10;&#10;## Format&#10;- 1,200–1,800 words&#10;- H2 every 250–350 words, sentence case&#10;- Answer the title question in the first 100 words. Do not build up to it.&#10;- One table or checklist minimum&#10;- Ends with a single CTA to the relevant product page&#10;&#10;## Rules&#10;- Target keyword in title, first paragraph, and one H2. Nowhere else forced.&#10;- Meta description under 155 characters, written as a promise not a summary.&#10;- Internal-link to 2–3 existing posts (see knowledge/library/articles/)&#10;- No stock-photo clichés in image briefs. Describe a real jobsite scene.&#10;&#10;## Never on this channel&#10;- Product announcements (those go to the newsletter)&#10;- First-person company voice (&quot;we&#x27;re excited to...&quot;)&#10;&#10;## Good examples&#10;- knowledge/library/articles/why-site-diaries-fail.md&#10;- knowledge/library/articles/rfi-turnaround-benchmarks.md"><code class="language-markdown"># Channel: Lighthouse Blog (lighthouse.com/blog)
 
 ## Purpose
 Organic search acquisition. Every post targets a keyword a construction ops
@@ -2805,7 +2825,7 @@ specific problem. Skims first, reads second. Often on a phone, on site.
 přídavná jména („sebevědomý, vřelý, lidský&quot;) neznamenají pro agenta nic — a
 upřímně řečeno ani pro nového copywritera moc. Dvojice „před a po&quot; fungují.</p>
 <p><code>knowledge/voice/house-voice.md</code>:</p>
-<pre><code class="language-markdown"># House voice
+<pre data-copy="# House voice&#10;&#10;## In one line&#10;We sound like an experienced site manager explaining something to a&#10;colleague over coffee. Direct, specific, slightly dry. Never a vendor.&#10;&#10;## Rules&#10;- Second person. &quot;You&quot; not &quot;companies&quot; or &quot;organisations&quot;.&#10;- Active voice. Name who does the thing.&#10;- Sentences under 25 words. Vary the length or it reads like a manual.&#10;- Concrete numbers over vague scale. &quot;cut RFI turnaround from 9 days to 3&quot;&#10;  not &quot;dramatically improves efficiency&quot;.&#10;- One idea per paragraph. Three sentences maximum.&#10;- British English.&#10;&#10;## Do this, not that&#10;&#10;❌ &quot;Leveraging our innovative platform, teams can seamlessly streamline&#10;   their documentation workflows.&quot;&#10;✅ &quot;Your site team files an RFI from their phone. The office sees it the&#10;   same minute.&quot;&#10;&#10;❌ &quot;In today&#x27;s fast-paced construction environment, staying ahead is&#10;   more important than ever.&quot;&#10;✅ &quot;Most delays don&#x27;t start on site. They start in an inbox.&quot;&#10;&#10;❌ &quot;Our solution empowers stakeholders to optimise outcomes.&quot;&#10;✅ &quot;Foremen stop chasing paperwork. Project managers stop chasing foremen.&quot;&#10;&#10;## Banned words and phrases&#10;leverage · seamless · game-changing · robust · delve · in today&#x27;s&#10;fast-paced world · it&#x27;s not just X, it&#x27;s Y · unlock · elevate · journey&#10;(unless literal) · revolutionary · cutting-edge&#10;&#10;## Punctuation&#10;- No em dashes. Comma or full stop.&#10;- No exclamation marks in body copy.&#10;- Serial comma: no."><code class="language-markdown"># House voice
 
 ## In one line
 We sound like an experienced site manager explaining something to a
@@ -2846,7 +2866,7 @@ fast-paced world · it's not just X, it's Y · unlock · elevate · journey
 </code></pre>
 <p>Pak soubory na autory pro cokoli, co vychází pod podpisem:</p>
 <p><code>knowledge/voice/author-jana-novak.md</code>:</p>
-<pre><code class="language-markdown"># Author voice: Jana Novák, Head of Operations
+<pre data-copy="# Author voice: Jana Novák, Head of Operations&#10;&#10;## Who she is&#10;15 years in construction project management before joining Lighthouse.&#10;Writes from experience, not from research. This is her main credibility.&#10;&#10;## How she writes&#10;- Opens with a specific thing that happened, not a general claim.&#10;- Uses &quot;I&quot; and tells stories from sites she worked on.&#10;- Sceptical of software claims, including ours. Will name trade-offs.&#10;- Short paragraphs. Occasional one-line paragraph for emphasis.&#10;- Never uses statistics she hasn&#x27;t personally checked.&#10;&#10;## Phrases she actually uses&#10;&quot;In practice, that means...&quot; · &quot;The honest version is...&quot; ·&#10;&quot;That worked on paper.&quot;&#10;&#10;## Never in her voice&#10;- Marketing superlatives of any kind&#10;- Third-person corporate (&quot;Lighthouse believes...&quot;)&#10;- Anything that sounds like it came from a product page"><code class="language-markdown"># Author voice: Jana Novák, Head of Operations
 
 ## Who she is
 15 years in construction project management before joining Lighthouse.
@@ -2884,7 +2904,7 @@ Hapax MCP.</p>
 <p>Tohle je vaše obrana proti sebevědomému vymýšlení. Co není v těchhle souborech, to
 agent tvrdit nesmí.</p>
 <p><code>knowledge/entities/products.md</code>:</p>
-<pre><code class="language-markdown"># Products — the only source of truth for what we sell
+<pre data-copy="# Products — the only source of truth for what we sell&#10;&#10;If a capability is not listed here, we do not claim it. If asked about&#10;something not here, write [NEEDS PRODUCT INPUT: question] and continue.&#10;&#10;---&#10;&#10;## Atlas&#10;**One-liner:** Site documentation that works without signal.&#10;**Launched:** March 2024 · **Current version:** 4.2 (June 2026)&#10;**Price:** From €39/user/month, annual. Minimum 10 users.&#10;&#10;### What it does&#10;- Photo and note capture on site, offline, syncs when back in range&#10;- RFI creation and tracking with automatic reminders&#10;- Daily site diary generated from the day&#x27;s captures&#10;- Exports to PDF and to Procore, Autodesk Build&#10;&#10;### What it does NOT do — do not imply otherwise&#10;- No scheduling or Gantt functionality&#10;- No cost or budget tracking&#10;- No BIM model viewing&#10;- Android and iOS only. There is no desktop app for site use.&#10;&#10;### Approved claims (use verbatim or close)&#10;- &quot;Works with no signal and syncs later.&quot; ✅&#10;- &quot;Average RFI turnaround across our customers dropped from 9 days to 3.&quot;&#10;  ✅ — source: internal 2026 customer study, n=41. Always say &quot;across our&#10;  customers&quot;, never &quot;in the industry&quot;.&#10;&#10;### Claims we must NOT make&#10;- ❌ Anything about ROI in a specific timeframe. Legal has said no.&#10;- ❌ &quot;Fastest&quot; or &quot;most-used&quot; anything. Unsubstantiated.&#10;- ❌ Any comparison naming a competitor.&#10;&#10;### Boilerplate (press releases, footer)&#10;Atlas is Lighthouse&#x27;s site documentation tool for construction teams&#10;working in low-connectivity environments. [50 words, approved by legal&#10;2026-04-02, do not edit without asking Legal.]"><code class="language-markdown"># Products — the only source of truth for what we sell
 
 If a capability is not listed here, we do not claim it. If asked about
 something not here, write [NEEDS PRODUCT INPUT: question] and continue.
@@ -2933,7 +2953,7 @@ oznámené).</p>
 <p><strong>Zlaté standardy.</strong> Tři až pět kusů na formát, které byste rádi viděli zopakované.
 Ne celý archiv — vaše <strong>nejlepší</strong>. V <code>GOLD-STANDARD.md</code> napište, co každý z nich
 dělá dobře:</p>
-<pre><code class="language-markdown"># Gold standard
+<pre data-copy="# Gold standard&#10;&#10;## Blog: why-site-diaries-fail.md&#10;Why it works: opens with a specific failure, not a definition. The table in&#10;the middle is the thing people screenshot. Ends without a hard sell.&#10;Copy: the structure and the willingness to say what doesn&#x27;t work.&#10;&#10;## Newsletter: 2026-05-14-the-signal.md&#10;Why it works: one idea, 400 words, a clear opinion. No round-ups.&#10;Copy: the opinion-first structure. Don&#x27;t copy the jokes."><code class="language-markdown"># Gold standard
 
 ## Blog: why-site-diaries-fail.md
 Why it works: opens with a specific failure, not a definition. The table in
@@ -2954,7 +2974,7 @@ server s vaším archivem, pokud takový máte.</p>
 <p>Dva návyky ji udrží funkční, i když poroste.</p>
 <p><strong>Napište <code>INDEX.md</code>.</strong> Jeden řádek na soubor s tím, co v něm je a <em>kdy ho číst</em>.
 Agent nejdříve přečte index a otevře jen to, co potřebuje.</p>
-<pre><code class="language-markdown"># Knowledge index
+<pre data-copy="# Knowledge index&#10;&#10;Read the file that matches your task. Don&#x27;t read everything.&#10;&#10;## Channels — read before writing for that channel&#10;- `channels/lighthouse-blog.md` — SEO blog. Format, keyword rules, examples.&#10;- `channels/the-signal-newsletter.md` — weekly newsletter. Opinion-led, 400w.&#10;- `channels/linkedin.md` — company page + founder profile. Different rules.&#10;&#10;## Voice — read alongside the channel file&#10;- `voice/house-voice.md` — applies to everything. Read this one always.&#10;- `voice/author-jana-novak.md` — only for pieces bylined Jana.&#10;&#10;## Entities — read before making any factual claim&#10;- `entities/products.md` — THE source of truth on capabilities and claims.&#10;- `entities/people.md` — names, titles, pronouns, bios, quote permissions.&#10;- `entities/events.md` — dates, venues, official names, embargo status.&#10;&#10;## Library&#10;- `library/GOLD-STANDARD.md` — our best work and why it works.&#10;- `library/articles/` — full archive. Search here before proposing a topic."><code class="language-markdown"># Knowledge index
 
 Read the file that matches your task. Don't read everything.
 
@@ -3024,7 +3044,7 @@ Posloupnost kroků do skillu.</strong></p>
         └── outline-template.md
 </code></pre>
 <p><code>SKILL.md</code> potřebuje nahoře přesně dvě věci, mezi řádky <code>---</code>:</p>
-<pre><code class="language-markdown">---
+<pre data-copy="---&#10;name: article-draft&#10;description: Produce a publish-ready article draft from a brief, following our channel and voice rules. Use when asked to write, draft, or outline a blog post, article, or newsletter piece.&#10;---"><code class="language-markdown">---
 name: article-draft
 description: Produce a publish-ready article draft from a brief, following our channel and voice rules. Use when asked to write, draft, or outline a blog post, article, or newsletter piece.
 ---
@@ -3060,7 +3080,7 @@ skutečnosti 163. Není to nedbalost — počítat prostě neumí.
 <li>Platnost CSV nebo JSON exportu, než ho někomu předáte</li>
 </ul>
 <p>Skill pak jen řekne, kdy se má spustit:</p>
-<pre><code class="language-markdown">## Phase 6 — Self-review
+<pre data-copy="## Phase 6 — Self-review&#10;First run `scripts/check-copy.py drafts/&lt;slug&gt;.md` and fix everything it&#10;reports. Then do the judgement pass: read the draft against&#10;`knowledge/voice/house-voice.md` and the channel file, and produce a&#10;checklist with ✅/❌ per rule."><code class="language-markdown">## Phase 6 — Self-review
 First run `scripts/check-copy.py drafts/&lt;slug&gt;.md` and fix everything it
 reports. Then do the judgement pass: read the draft against
 `knowledge/voice/house-voice.md` and the channel file, and produce a
@@ -3070,7 +3090,7 @@ checklist with ✅/❌ per rule.
 vy a agent posuzujete to, co se spočítat nedá.</strong> „Žádná věta nad 25 slov&quot; patří
 do skriptu. „Zní to jako my?&quot; tam nebude patřit nikdy.</p>
 <p>Skript nemusíte psát sami. Popište kontrolu a zadejte:</p>
-<div class="say">
+<div class="say" data-copy="Write `scripts/check-copy.py` for the `article-draft` skill. It takes a&#10;markdown file path and reports: every sentence over 25 words with its line&#10;number, every banned word from `knowledge/voice/house-voice.md`, the meta&#10;description length, and any sentence containing a number but no link.&#10;Print a plain list and exit with an error if anything failed.&#10;Standard library only, nothing to install.">
 <p>Write <code>scripts/check-copy.py</code> for the <code>article-draft</code> skill. It takes a
 markdown file path and reports: every sentence over 25 words with its line
 number, every banned word from <code>knowledge/voice/house-voice.md</code>, the meta
@@ -3090,7 +3110,7 @@ boilerplate odstavec, rozvržení tabulky. Používají se tak, jak jsou; nečto
 kvůli poučení.</p>
 <h4>7.4 Reálný příklad</h4>
 <p><code>.claude/skills/article-draft/SKILL.md</code>:</p>
-<pre><code class="language-markdown">---
+<pre data-copy="---&#10;name: article-draft&#10;description: Produce a publish-ready article draft from a brief, following our channel and voice rules. Use when asked to write, draft, or outline a blog post, article, or newsletter piece.&#10;---&#10;&#10;# Article draft&#10;&#10;Work through these phases in order. Stop at each ⏸ and wait for me.&#10;&#10;## Phase 1 — Load context&#10;1. Read the brief.&#10;2. Read `knowledge/channels/&lt;the target channel&gt;.md`.&#10;3. Read `knowledge/voice/house-voice.md`, plus the author file if bylined.&#10;4. Search `knowledge/library/articles/` for anything we&#x27;ve published on&#10;   this topic. List what you found and how this piece differs.&#10;&#10;If the brief doesn&#x27;t name a channel, a target reader, or a length: ask.&#10;Don&#x27;t guess. ⏸&#10;&#10;## Phase 2 — Angle&#10;Propose three angles. For each: the promise to the reader in one sentence,&#10;who it&#x27;s for, why we&#x27;re credible on it, and what evidence we&#x27;d need.&#10;Recommend one and say why. ⏸ Wait for me to choose.&#10;&#10;## Phase 3 — Evidence&#10;Collect what the piece needs: sources with links and publication dates,&#10;approved product claims from `knowledge/entities/products.md`, internal&#10;link targets.&#10;Save to `research.md` in the project directory.&#10;Anything you can&#x27;t source: `[NEEDS SOURCE: ...]`. Never fill a gap with a&#10;plausible-sounding number. ⏸&#10;&#10;## Phase 4 — Outline&#10;H2s with one line on what each section does for the reader, plus the&#10;opening paragraph written in full — the opening sets the voice and is the&#10;cheapest thing to fix now. ⏸&#10;&#10;## Phase 5 — Draft&#10;Write it. Save to `drafts/&lt;slug&gt;.md`. Follow the channel file&#x27;s format&#10;rules exactly.&#10;&#10;## Phase 6 — Self-review&#10;Re-read your own draft against `knowledge/voice/house-voice.md` and the&#10;channel file. Produce a checklist with ✅/❌ per rule. Fix every ❌ and&#10;say what you changed. Be genuinely critical — a review that finds nothing&#10;is a review you didn&#x27;t do.&#10;&#10;Check specifically: banned words, sentences over 25 words, paragraphs over&#10;three sentences, passive voice, unsourced claims, em dashes.&#10;&#10;## Phase 7 — Package&#10;Add at the top of the file: three headline options, meta description&#10;(&lt;155 characters), suggested slug, two internal links, one image brief.&#10;Add at the bottom: open questions and every [NEEDS SOURCE] marker,&#10;collected in one list.&#10;&#10;Then tell me: what&#x27;s done, where it is, what you need from me."><code class="language-markdown">---
 name: article-draft
 description: Produce a publish-ready article draft from a brief, following our channel and voice rules. Use when asked to write, draft, or outline a blog post, article, or newsletter piece.
 ---
@@ -3245,10 +3265,10 @@ přesným, ne schopnějším.</p>
 <h4>8.3 Jak konektor přidat</h4>
 <p>V Claude Code je většina hostovaných konektorů na jeden příkaz. Pak <code>/mcp</code> uvnitř
 sezení k přihlášení běžným účtem:</p>
-<pre><code class="language-bash">claude mcp add --transport http notion https://mcp.notion.com/mcp
+<pre data-copy="claude mcp add --transport http notion https://mcp.notion.com/mcp"><code class="language-bash">claude mcp add --transport http notion https://mcp.notion.com/mcp
 </code></pre>
 <p>Scope rozhoduje o tom, kdo ho dostane:</p>
-<pre><code class="language-bash">claude mcp add --transport http hubspot --scope user  https://mcp.hubspot.com/anthropic
+<pre data-copy="claude mcp add --transport http hubspot --scope user  https://mcp.hubspot.com/anthropic&#10;#   --scope local    just you, just this workspace (default)&#10;#   --scope user     just you, all your workspaces&#10;#   --scope project  written to .mcp.json and shared with the whole team"><code class="language-bash">claude mcp add --transport http hubspot --scope user  https://mcp.hubspot.com/anthropic
 #   --scope local    just you, just this workspace (default)
 #   --scope user     just you, all your workspaces
 #   --scope project  written to .mcp.json and shared with the whole team
@@ -3538,7 +3558,7 @@ nenačte, podívejte se do aktuální dokumentace svého nástroje.)</em></p>
 </table></div>
 <p><strong>Jak jedním souborem obsloužit všechny čtyři:</strong> skutečný obsah napište do
 <code>AGENTS.md</code> a vedle něj vytvořte <code>CLAUDE.md</code> s jediným řádkem:</p>
-<pre><code class="language-markdown">@AGENTS.md
+<pre data-copy="@AGENTS.md"><code class="language-markdown">@AGENTS.md
 </code></pre>
 <p>To je importovací syntaxe Claude Code — natáhne celý soubor. Pod ni můžete přidat
 poznámky specifické pro Claude. (Funguje i symlink: <code>ln -s AGENTS.md CLAUDE.md</code> —
@@ -3771,7 +3791,7 @@ aby napsal něco, co zní jako vy.
 Otevřete v něm terminál a spusťte agenta (<code>claude</code>, <code>codex</code>,
 <code>opencode</code> nebo <code>pi</code>).</p>
 <p>Pak si ověřte, že opravdu vidí soubory a umí je zapisovat:</p>
-<div class="say">
+<div class="say" data-copy="Create a directory called `knowledge` with subdirectories `channels`, `voice`, `entities`, and `library`. Also create a directory called `projects`. Then show me the directory structure.">
 <p>Create a directory called <code>knowledge</code> with subdirectories <code>channels</code>, <code>voice</code>, <code>entities</code>, and <code>library</code>. Also create a directory called <code>projects</code>. Then show me the directory structure.</p>
 </div>
 <p>Adresáře by se měly objevit na disku. Pokud si řekne o svolení k vytvoření
@@ -3779,7 +3799,7 @@ souborů, dejte mu ho. <strong>V tomhle je celý trik: nechcete po něm text, ch
 změny v adresáři.</strong></p>
 <h4>Krok 2 — Nechte se vyzpovídat</h4>
 <p>Nepište <code>AGENTS.md</code> sami od začátku. Napište tohle:</p>
-<div class="say">
+<div class="say" data-copy="I want to create an `AGENTS.md` for this workspace. This is where our team will plan and write everything we publish.&#10;&#10;Don&#x27;t write the file yet. First, interview me. Ask me **one question at a time**, up to about fifteen questions, covering:&#10;- what our company does and who we sell to&#10;- what we publish and where&#10;- who reads it&#10;- our writing rules and the words we hate&#10;- mistakes you could make that would embarrass us&#10;- what you should never do without asking&#10;- what a finished piece of work looks like&#10;&#10;Wait for my answer before each next question. When you have enough, say so and stop.">
 <p>I want to create an <code>AGENTS.md</code> for this workspace. This is where our team will plan and write everything we publish.</p>
 <p>Don't write the file yet. First, interview me. Ask me <strong>one question at a time</strong>, up to about fifteen questions, covering:</p>
 <ul>
@@ -3806,7 +3826,7 @@ aby výsledný <code>AGENTS.md</code> napsal anglicky. Přidejte si na konec pro
 <em>„Write the resulting file in English.&quot;</em></p>
 </div>
 <h4>Krok 3 — Vezměte si draft a převezměte ho</h4>
-<div class="say">
+<div class="say" data-copy="Now write `AGENTS.md` based on my answers. Use these sections in this order:&#10;What this is · Who we write for · Where things live · Guardrails (Never / Always / Ask me first) · How we work · Definition of done · How to talk to me.&#10;&#10;Keep it under 150 lines. Make every rule specific enough that I could check whether you followed it — no &quot;write well&quot;, no &quot;be professional&quot;.">
 <p>Now write <code>AGENTS.md</code> based on my answers. Use these sections in this order:
 What this is · Who we write for · Where things live · Guardrails (Never / Always / Ask me first) · How we work · Definition of done · How to talk to me.</p>
 <p>Keep it under 150 lines. Make every rule specific enough that I could check whether you followed it — no &quot;write well&quot;, no &quot;be professional&quot;.</p>
@@ -3823,27 +3843,27 @@ problém: vymýšlení statistik, jmenování konkurence, tvrzení o produktu, k
 neplatí, publikování čehokoli.</li>
 </ol>
 <p>Ať už tam bude cokoli dalšího, tyhle dva řádky tam musí být:</p>
-<pre><code class="language-markdown">- Never invent a statistic, quote, customer name, or case study. If you need
+<pre data-copy="- Never invent a statistic, quote, customer name, or case study. If you need&#10;  one and don&#x27;t have a source, write [NEEDS SOURCE: what you need] and continue.&#10;- Never publish, post, send, or schedule anything. You draft, a human ships."><code class="language-markdown">- Never invent a statistic, quote, customer name, or case study. If you need
   one and don't have a source, write [NEEDS SOURCE: what you need] and continue.
 - Never publish, post, send, or schedule anything. You draft, a human ships.
 </code></pre>
 <h4>Krok 4 — Pokud používáte Claude Code, přidejte ještě jeden soubor</h4>
 <p>Claude Code čte <code>CLAUDE.md</code>, ne <code>AGENTS.md</code>. Vyžádejte si ho:</p>
-<div class="say">
+<div class="say" data-copy="Create a `CLAUDE.md` in the project root containing exactly one line: `@AGENTS.md`">
 <p>Create a <code>CLAUDE.md</code> in the project root containing exactly one line: <code>@AGENTS.md</code></p>
 </div>
 <p>Teď oba pracují ze stejného zdroje a vy neudržujete dva soubory. (Codex, opencode
 a pi čtou <code>AGENTS.md</code> přímo — tam není co dělat.)</p>
 <h4>Krok 5 — První channel file</h4>
 <p>Vyberte kanál, na který publikujete nejvíc.</p>
-<div class="say">
+<div class="say" data-copy="Interview me about our blog, one question at a time, so you can write a channel file. Ask about: its purpose, who arrives there and why, format and length, structure rules, SEO rules, what we never do on this channel, and which past pieces are good examples.&#10;&#10;Then write it to `knowledge/channels/blog.md`.">
 <p>Interview me about our blog, one question at a time, so you can write a channel file. Ask about: its purpose, who arrives there and why, format and length, structure rules, SEO rules, what we never do on this channel, and which past pieces are good examples.</p>
 <p>Then write it to <code>knowledge/channels/blog.md</code>.</p>
 </div>
 <h4>Krok 6 — Voice file</h4>
 <p>Pokud už máte publikované texty, použijte je — výsledek je mnohem lepší než popis
 vašeho stylu po paměti:</p>
-<div class="say">
+<div class="say" data-copy="I&#x27;m going to put five of our best published articles in `knowledge/library/articles/`. Read all of them, then write `knowledge/voice/house-voice.md` containing:&#10;- our voice in one sentence&#10;- concrete rules (sentence length, person, tense, paragraph length)&#10;- **at least ten &quot;do this, not that&quot; pairs using real sentences from those articles**&#10;- a banned words list of anything that would sound wrong in our voice&#10;- punctuation conventions you can see us following&#10;&#10;Base it only on what&#x27;s actually in the articles. Don&#x27;t invent rules that sound good.">
 <p>I'm going to put five of our best published articles in <code>knowledge/library/articles/</code>. Read all of them, then write <code>knowledge/voice/house-voice.md</code> containing:</p>
 <ul>
 <li>our voice in one sentence</li>
@@ -3865,14 +3885,14 @@ ale zůstávají anglicky.</p>
 </div>
 <h4>Krok 7 — Ověřte, že to celé funguje</h4>
 <p>Nové sezení (v Claude Code napište <code>/clear</code>). Pak:</p>
-<div class="say">
+<div class="say" data-copy="Read `AGENTS.md` and everything in `knowledge/`. Then write me a 150-word LinkedIn post announcing that we&#x27;ve published a new guide about [any topic you actually cover].&#10;&#10;After you write it, audit your own post against `knowledge/voice/house-voice.md`, rule by rule, with ✅ or ❌ and a fix for each ❌.">
 <p>Read <code>AGENTS.md</code> and everything in <code>knowledge/</code>. Then write me a 150-word LinkedIn post announcing that we've published a new guide about [any topic you actually cover].</p>
 <p>After you write it, audit your own post against <code>knowledge/voice/house-voice.md</code>, rule by rule, with ✅ or ❌ and a fix for each ❌.</p>
 </div>
 <p>Přečtěte si výstup. Nebude dokonalý. O to jde — <strong>cokoli je na něm špatně, přesně
 vám ukazuje, kterému souboru něco chybí.</strong></p>
 <p>Pak uzavřete smyčku:</p>
-<div class="say">
+<div class="say" data-copy="The tone is off in the second paragraph — it sounds like a press release, and we never do that. Add a rule to the right file so this doesn&#x27;t happen again, and tell me which file you chose and why.">
 <p>The tone is off in the second paragraph — it sounds like a press release, and we never do that. Add a rule to the right file so this doesn't happen again, and tell me which file you chose and why.</p>
 </div>
 <p><strong>✅ Hotovo, když</strong> máte <code>AGENTS.md</code>, jeden channel file, jeden voice file a viděli
@@ -3887,12 +3907,12 @@ editorem vy.
 <strong>Čas:</strong> zhruba 90 minut.
 <strong>Potřebuje:</strong> dokončený Walkthrough 1.</p>
 <h4>Krok 1 — Založte projekt</h4>
-<div class="say">
+<div class="say" data-copy="Create `projects/2026-08-guide-article/` with a `drafts/` subdirectory. In it, create `BRIEF.md` and interview me to fill it in: what we&#x27;re writing, for which channel, target reader, the one thing they should take away, target length, deadline, and what success looks like.">
 <p>Create <code>projects/2026-08-guide-article/</code> with a <code>drafts/</code> subdirectory. In it, create <code>BRIEF.md</code> and interview me to fill it in: what we're writing, for which channel, target reader, the one thing they should take away, target length, deadline, and what success looks like.</p>
 </div>
 <p>Brief je základ celé práce, dejte si na něm záležet.</p>
 <h4>Krok 2 — Úhly pohledu, ne draft</h4>
-<div class="say">
+<div class="say" data-copy="Read `BRIEF.md`, the channel file, and `knowledge/voice/house-voice.md`.&#10;&#10;Then search `knowledge/library/articles/` for anything we&#x27;ve already published on this topic and tell me what you found.&#10;&#10;Then give me **three angles** for this piece. For each: the promise to the reader in one sentence, why we&#x27;re credible on it, and what evidence we&#x27;d need to make it stand up.&#10;&#10;Do not write the article. Recommend one angle and say why.">
 <p>Read <code>BRIEF.md</code>, the channel file, and <code>knowledge/voice/house-voice.md</code>.</p>
 <p>Then search <code>knowledge/library/articles/</code> for anything we've already published on this topic and tell me what you found.</p>
 <p>Then give me <strong>three angles</strong> for this piece. For each: the promise to the reader in one sentence, why we're credible on it, and what evidence we'd need to make it stand up.</p>
@@ -3902,7 +3922,7 @@ editorem vy.
 <em>„None of these. The interesting thing is X. Give me three angles on that.&quot;</em>
 Dvě kola tady jsou lepší než opravovat hotový draft.</p>
 <h4>Krok 3 — Podklady dřív než text</h4>
-<div class="say">
+<div class="say" data-copy="Angle 2, please. Now collect the evidence.&#10;&#10;Search the web for supporting data. For every source: the link, the publication date, and the exact claim it supports. Prefer primary sources — original research, official statistics, named studies. Skip anything you can&#x27;t date.&#10;&#10;Pull the approved product claims from `knowledge/entities/products.md`. Do not use any product claim that isn&#x27;t in that file.&#10;&#10;Save it all to `research.md` in the project directory. Anything we need but can&#x27;t source, list as `[NEEDS SOURCE: ...]`.">
 <p>Angle 2, please. Now collect the evidence.</p>
 <p>Search the web for supporting data. For every source: the link, the publication date, and the exact claim it supports. Prefer primary sources — original research, official statistics, named studies. Skip anything you can't date.</p>
 <p>Pull the approved product claims from <code>knowledge/entities/products.md</code>. Do not use any product claim that isn't in that file.</p>
@@ -3913,20 +3933,20 @@ odkazy.</strong> Ověřujete, jestli jsou zdroje skutečné a jestli říkají t
 tvrdí. Dělejte to první měsíc pokaždé. Zkalibruje vám to důvěru a budete vědět,
 kde přesně jsou slabá místa.</p>
 <h4>Krok 4 — Osnova</h4>
-<div class="say">
+<div class="say" data-copy="Write an outline: H2 headings, one line under each on what that section does for the reader, plus **the opening paragraph written out in full**.&#10;&#10;Follow the structure rules in the channel file. Don&#x27;t draft the rest.">
 <p>Write an outline: H2 headings, one line under each on what that section does for the reader, plus <strong>the opening paragraph written out in full</strong>.</p>
 <p>Follow the structure rules in the channel file. Don't draft the rest.</p>
 </div>
 <p>Úvodní odstavec celý je záměr. Právě od něj se odvíjí styl a teď nic nestojí ho předělat.
 Když sedí úvod, zbytek draftu obvykle sedí taky.</p>
 <h4>Krok 5 — Draft</h4>
-<div class="say">
+<div class="say" data-copy="Good. Write the full draft to `drafts/&lt;slug&gt;.md`, following the outline and the channel format rules.">
 <p>Good. Write the full draft to <code>drafts/&lt;slug&gt;.md</code>, following the outline and the channel format rules.</p>
 </div>
 <p>Pak ho nechte být. Ještě si ho nečtěte — další krok opraví polovinu věcí, které
 byste komentovali.</p>
 <h4>Krok 6 — Ať si to zkontroluje samo</h4>
-<div class="say">
+<div class="say" data-copy="Now audit your own draft against `knowledge/voice/house-voice.md` and the channel file.&#10;&#10;Produce a table: each rule, ✅ or ❌, and the specific fix for each ❌. Check especially: banned words, sentences over 25 words, paragraphs over three sentences, passive voice, em dashes, and any claim without a source.&#10;&#10;Be genuinely critical. A review that finds nothing is a review you didn&#x27;t do.&#10;&#10;Then apply every fix to the file and tell me what you changed.">
 <p>Now audit your own draft against <code>knowledge/voice/house-voice.md</code> and the channel file.</p>
 <p>Produce a table: each rule, ✅ or ❌, and the specific fix for each ❌. Check especially: banned words, sentences over 25 words, paragraphs over three sentences, passive voice, em dashes, and any claim without a source.</p>
 <p>Be genuinely critical. A review that finds nothing is a review you didn't do.</p>
@@ -3937,23 +3957,23 @@ Psát a soudit jsou dvě různé práce a dělat je odděleně funguje líp než
 <h4>Krok 7 — Teď to přečtete vy</h4>
 <p>Otevřete draft. Editujte jako editor, ne jako promptér — chtějte chirurgické
 zásahy, přímo v souboru:</p>
-<div class="say">
+<div class="say" data-copy="In the draft file: cut the third section entirely, it repeats section one. Tighten the intro to four sentences. Leave everything else exactly as it is.">
 <p>In the draft file: cut the third section entirely, it repeats section one. Tighten the intro to four sentences. Leave everything else exactly as it is.</p>
 </div>
 <p>Všimněte si té poslední věty. Bez ní občas dostanete kompletní přepis a přijdete
 o části, které se vám líbily.</p>
 <p>Pak tvrdší průchod:</p>
-<div class="say">
+<div class="say" data-copy="Read the draft as our most sceptical reader — an ops manager who&#x27;s been sold bad software before. List every sentence they&#x27;d roll their eyes at, and why. Don&#x27;t fix anything yet.">
 <p>Read the draft as our most sceptical reader — an ops manager who's been sold bad software before. List every sentence they'd roll their eyes at, and why. Don't fix anything yet.</p>
 </div>
 <h4>Krok 8 — Zabalte to</h4>
-<div class="say">
+<div class="say" data-copy="Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from `knowledge/library/articles/`.&#10;&#10;Add at the bottom: an image brief, and every `[NEEDS SOURCE]` marker collected into one list.&#10;&#10;Then tell me in three lines: what&#x27;s done, where it is, what you need from me.">
 <p>Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from <code>knowledge/library/articles/</code>.</p>
 <p>Add at the bottom: an image brief, and every <code>[NEEDS SOURCE]</code> marker collected into one list.</p>
 <p>Then tell me in three lines: what's done, where it is, what you need from me.</p>
 </div>
 <h4>Krok 9 — Uložte si, co jste se naučili</h4>
-<div class="say">
+<div class="say" data-copy="Which corrections did I make today that you should have got right the first time? For each, tell me which file should have prevented it, and make the edit.">
 <p>Which corrections did I make today that you should have got right the first time? For each, tell me which file should have prevented it, and make the edit.</p>
 </div>
 <p>Dělejte to první měsíc po každém kusu práce. Právě takhle se workspace zlepšuje.</p>
@@ -3972,12 +3992,12 @@ sezeních, který ověří systém plán / fáze / deník.
 deníku — dovednost, která teprve umožňuje dlouhé projekty.</p>
 <h4>Sezení 1 — Brief a plán</h4>
 <p><strong>Krok 1.</strong> Založení:</p>
-<div class="say">
+<div class="say" data-copy="Create `projects/2026-09-atlas-launch/` with `drafts/` and `research/` subdirectories.&#10;&#10;Create `BRIEF.md` and interview me one question at a time: what we&#x27;re launching, the date, the audience, the one message, which channels, budget, who&#x27;s involved, what success looks like in numbers, and any hard constraints (embargoes, legal, approvals).">
 <p>Create <code>projects/2026-09-atlas-launch/</code> with <code>drafts/</code> and <code>research/</code> subdirectories.</p>
 <p>Create <code>BRIEF.md</code> and interview me one question at a time: what we're launching, the date, the audience, the one message, which channels, budget, who's involved, what success looks like in numbers, and any hard constraints (embargoes, legal, approvals).</p>
 </div>
 <p><strong>Krok 2.</strong> Vyžádejte si plán a nic jiného:</p>
-<div class="say">
+<div class="say" data-copy="Read `BRIEF.md`, `knowledge/INDEX.md`, and the channel files for every channel in the brief.&#10;&#10;Write a phased plan to `PLAN.md`. **Do not produce any campaign content.**&#10;&#10;5–7 phases. For each: goal in one sentence, inputs needed, files produced, and how we&#x27;ll know it&#x27;s done. Every phase must be small enough to finish in one sitting. At least two phases must end with a decision I have to make.&#10;&#10;At the end, list your assumptions and anything the brief doesn&#x27;t answer.">
 <p>Read <code>BRIEF.md</code>, <code>knowledge/INDEX.md</code>, and the channel files for every channel in the brief.</p>
 <p>Write a phased plan to <code>PLAN.md</code>. <strong>Do not produce any campaign content.</strong></p>
 <p>5–7 phases. For each: goal in one sentence, inputs needed, files produced, and how we'll know it's done. Every phase must be small enough to finish in one sitting. At least two phases must end with a decision I have to make.</p>
@@ -3985,15 +4005,15 @@ deníku — dovednost, která teprve umožňuje dlouhé projekty.</p>
 </div>
 <p><strong>Krok 3.</strong> Pořádně si plán přečtěte. Tohle je váš jeden velký moment, kdy
 kormidlujete. Typické opravy:</p>
-<div class="say">
+<div class="say" data-copy="Three changes. Phase 2 is too big — split it into messaging and calendar. Move the press list to Phase 1, we need it earlier for embargoes. And add a phase for the sales enablement one-pager, I forgot it in the brief. Update `PLAN.md` and `BRIEF.md`.">
 <p>Three changes. Phase 2 is too big — split it into messaging and calendar. Move the press list to Phase 1, we need it earlier for embargoes. And add a phase for the sales enablement one-pager, I forgot it in the brief. Update <code>PLAN.md</code> and <code>BRIEF.md</code>.</p>
 </div>
 <p><strong>Krok 4.</strong> Udělejte přesně jednu fázi:</p>
-<div class="say">
+<div class="say" data-copy="Now do Phase 1 only. Stop when it&#x27;s done.">
 <p>Now do Phase 1 only. Stop when it's done.</p>
 </div>
 <p><strong>Krok 5.</strong> Uzavřete sezení — tenhle krok je celé cvičení:</p>
-<div class="say">
+<div class="say" data-copy="Stop here. Create `PROGRESS.md` with:&#10;&#10;**Status** — current phase, the single next action, anything you&#x27;re blocked on&#10;**Decisions made** — dated, with the reason for each&#10;**Log** — what you did today, which files you produced, what you learned, open questions&#10;&#10;Write it so someone who wasn&#x27;t here today could pick this up cold with no other context.">
 <p>Stop here. Create <code>PROGRESS.md</code> with:</p>
 <p><strong>Status</strong> — current phase, the single next action, anything you're blocked on
 <strong>Decisions made</strong> — dated, with the reason for each
@@ -4003,7 +4023,7 @@ kormidlujete. Typické opravy:</p>
 <p>Pak nástroj zavřete.</p>
 <h4>Sezení 2 — Studený start</h4>
 <p><strong>Krok 6.</strong> Nový den, nové sezení. Napište jenom tohle:</p>
-<div class="say">
+<div class="say" data-copy="Read `PROGRESS.md` and `PLAN.md` in `projects/2026-09-atlas-launch/`. Tell me in five lines where we are and what the next action is. Don&#x27;t start work yet.">
 <p>Read <code>PROGRESS.md</code> and <code>PLAN.md</code> in <code>projects/2026-09-atlas-launch/</code>. Tell me in five lines where we are and what the next action is. Don't start work yet.</p>
 </div>
 <p>Sledujte, co se stane. Agent vám přesně řekne, kde jste skončili, včetně důvodů,
@@ -4012,27 +4032,27 @@ proč jste se rozhodli tak, jak jste se rozhodli. <strong>V tuhle chvíli to cel
 <p>Pokud je zmatený nebo vágní, je to diagnóza: <code>PROGRESS.md</code> nebyl dost konkrétní.
 Opravte formát deníku hned teď, dokud je zjevné, co v něm chybělo.</p>
 <p><strong>Krok 7.</strong> Pokračujte:</p>
-<div class="say">
+<div class="say" data-copy="Correct. Do Phase 2 only, then stop.">
 <p>Correct. Do Phase 2 only, then stop.</p>
 </div>
 <p><strong>Krok 8.</strong> Stejný závěrečný rituál. Pokaždé:</p>
-<div class="say">
+<div class="say" data-copy="Stop here. Update `PROGRESS.md` — status, next action, decisions with reasons, and today&#x27;s log entry. Keep the whole file under 100 lines by summarising older entries.">
 <p>Stop here. Update <code>PROGRESS.md</code> — status, next action, decisions with reasons, and today's log entry. Keep the whole file under 100 lines by summarising older entries.</p>
 </div>
 <h4>Sezení 3 — Dokončit a zabalit</h4>
 <p><strong>Krok 9.</strong> Zase studený start, pak projděte zbývající fáze — pořád po jedné,
 pořád s deníkem na konci každé.</p>
 <p><strong>Krok 10.</strong> Až je plán hotový:</p>
-<div class="say">
+<div class="say" data-copy="The plan is finished. Produce `CAMPAIGN.md` in the project root: the full campaign on one page — messaging spine, channel-by-channel calendar with dates, the asset list with file paths and owners, dependencies and deadlines, and how we&#x27;ll measure it.&#10;&#10;Then list everything still blocked on a human, and who needs to do what.">
 <p>The plan is finished. Produce <code>CAMPAIGN.md</code> in the project root: the full campaign on one page — messaging spine, channel-by-channel calendar with dates, the asset list with file paths and owners, dependencies and deadlines, and how we'll measure it.</p>
 <p>Then list everything still blocked on a human, and who needs to do what.</p>
 </div>
 <p><strong>Krok 11.</strong> Otestujte to v zátěži, dřív než to uvidí kdokoli další:</p>
-<div class="say">
+<div class="say" data-copy="Now be our CFO reading this for the first time. What are the three weakest points? What would you refuse to approve and why?">
 <p>Now be our CFO reading this for the first time. What are the three weakest points? What would you refuse to approve and why?</p>
 </div>
 <p><strong>Krok 12.</strong> Uložte si poznatky:</p>
-<div class="say">
+<div class="say" data-copy="What did we learn about how we plan campaigns that isn&#x27;t written down anywhere? Propose additions to `AGENTS.md` or a new knowledge file. Show me the changes before making them.">
 <p>What did we learn about how we plan campaigns that isn't written down anywhere? Propose additions to <code>AGENTS.md</code> or a new knowledge file. Show me the changes before making them.</p>
 </div>
 <p><strong>✅ Hotovo, když</strong> jste zažili aspoň jeden studený start, který fungoval, a
@@ -4075,7 +4095,7 @@ funguje stejně všem v týmu.
 </tbody>
 </table></div>
 <h4>Krok 2 — Nechte ho napsat skill z toho, co jste opravdu dělali</h4>
-<div class="say">
+<div class="say" data-copy="Look back at how we produced the article in `projects/2026-08-guide-article/`, including every correction I made along the way.&#10;&#10;Turn that into a skill at `.claude/skills/article-draft/SKILL.md`.&#10;&#10;Requirements:&#10;- YAML frontmatter with `name: article-draft` and a `description` that says what it does **and when to use it**, using words I&#x27;d actually type — write, draft, article, blog post, outline, newsletter.&#10;- The body is the procedure, in numbered phases.&#10;- Mark with ⏸ every point where you must stop and wait for me.&#10;- Include the self-review phase where you audit your own draft against the voice file with ✅/❌ and fix every ❌.&#10;- Include every correction I made during the walkthrough as an explicit rule.&#10;- Under 200 lines. Push anything long into `references/`.">
 <p>Look back at how we produced the article in <code>projects/2026-08-guide-article/</code>, including every correction I made along the way.</p>
 <p>Turn that into a skill at <code>.claude/skills/article-draft/SKILL.md</code>.</p>
 <p>Requirements:</p>
@@ -4100,7 +4120,7 @@ názvu adresáře</strong>. To je nejčastější důvod, proč se skill tiše n
 <p><strong>Přímo</strong> — nové sezení, pak napište <code>/article-draft</code> (Claude Code, opencode) nebo
 <code>$article-draft</code> (Codex). Měl by začít fází 1.</p>
 <p><strong>Automaticky</strong> — nové sezení, pak napište něco přirozeného:</p>
-<div class="say">
+<div class="say" data-copy="I need a blog post about how site diaries actually get filled in.">
 <p>I need a blog post about how site diaries actually get filled in.</p>
 </div>
 <p>Pokud je skill napsaný dobře, začne postup dodržovat, aniž byste mu to řekli.
@@ -4130,7 +4150,7 @@ jak byste ho udělali vy.</p>
 <h3><span>Co dělat po všech čtyřech</span></h3>
 <p>Teď máte celý systém. Návyk, který ho udržuje funkční, je jediná otázka na konci
 každého kusu práce:</p>
-<div class="say">
+<div class="say" data-copy="What did I correct today that you should have known already — and which file should have told you?">
 <p>What did I correct today that you should have known already — and which file should have told you?</p>
 </div>
 <p>Ptejte se tak měsíc pokaždé. Workspace se sám naučí vaši práci.</p>
@@ -4159,15 +4179,15 @@ funguje nejlíp.</p>
 <section id="cs-kazde-sezeni" data-sec="prompts-1">
 <h3><span>Každé sezení</span></h3>
 <p><strong>Začátek sezení na rozpracovaném projektu</strong></p>
-<div class="say">
+<div class="say" data-copy="Read `PROGRESS.md` and `PLAN.md` in `projects/&lt;name&gt;/`. Tell me in five lines where we are and what the next action is. Don&#x27;t start work yet.">
 <p>Read <code>PROGRESS.md</code> and <code>PLAN.md</code> in <code>projects/&lt;name&gt;/</code>. Tell me in five lines where we are and what the next action is. Don't start work yet.</p>
 </div>
 <p><strong>Konec každého sezení — tohle nikdy nevynechávejte</strong></p>
-<div class="say">
+<div class="say" data-copy="Stop here. Update `PROGRESS.md`: status, the single next action, decisions made today with the reason for each, and today&#x27;s log entry with the files you produced. Write it so someone who wasn&#x27;t here today could pick it up cold.">
 <p>Stop here. Update <code>PROGRESS.md</code>: status, the single next action, decisions made today with the reason for each, and today's log entry with the files you produced. Write it so someone who wasn't here today could pick it up cold.</p>
 </div>
 <p><strong>Když se uprostřed sezení zhorší kvalita</strong> <em>(opakuje se, zapomene rozhodnutí, popírá osnovu)</em></p>
-<div class="say">
+<div class="say" data-copy="Update `PROGRESS.md` with where we are. I&#x27;m starting a fresh session.">
 <p>Update <code>PROGRESS.md</code> with where we are. I'm starting a fresh session.</p>
 </div>
 <p>Pak sezení vyčistěte (<code>/clear</code> v Claude Code) a začněte znovu.</p>
@@ -4177,19 +4197,19 @@ funguje nejlíp.</p>
 <section id="cs-nez-zacnete" data-sec="prompts-2">
 <h3><span>Než začnete</span></h3>
 <p><strong>Napsat AGENTS.md</strong></p>
-<div class="say">
+<div class="say" data-copy="I want to create an `AGENTS.md` for this workspace. Don&#x27;t write it yet. First interview me, one question at a time, up to fifteen questions, about what we publish, who reads it, our rules, the mistakes you could make that would embarrass us, what you should never do without asking, and what &quot;done&quot; looks like. Wait for my answer before each next question.">
 <p>I want to create an <code>AGENTS.md</code> for this workspace. Don't write it yet. First interview me, one question at a time, up to fifteen questions, about what we publish, who reads it, our rules, the mistakes you could make that would embarrass us, what you should never do without asking, and what &quot;done&quot; looks like. Wait for my answer before each next question.</p>
 </div>
 <p><strong>Odvodit voice guide z vlastních publikovaných textů</strong></p>
-<div class="say">
+<div class="say" data-copy="Read every article in `knowledge/library/articles/`. Write `knowledge/voice/house-voice.md`: our voice in one sentence, concrete rules, at least ten &quot;do this, not that&quot; pairs using real sentences from those articles, a banned words list, and punctuation conventions. Base it only on what&#x27;s actually there — don&#x27;t invent rules that sound good.">
 <p>Read every article in <code>knowledge/library/articles/</code>. Write <code>knowledge/voice/house-voice.md</code>: our voice in one sentence, concrete rules, at least ten &quot;do this, not that&quot; pairs using real sentences from those articles, a banned words list, and punctuation conventions. Base it only on what's actually there — don't invent rules that sound good.</p>
 </div>
 <p><strong>Napsat channel file</strong></p>
-<div class="say">
+<div class="say" data-copy="Interview me about our &lt;channel&gt;, one question at a time, then write `knowledge/channels/&lt;name&gt;.md`: purpose, who arrives and why, format and length, structure rules, SEO rules, what we never do here, and which past pieces are good examples.">
 <p>Interview me about our &lt;channel&gt;, one question at a time, then write <code>knowledge/channels/&lt;name&gt;.md</code>: purpose, who arrives and why, format and length, structure rules, SEO rules, what we never do here, and which past pieces are good examples.</p>
 </div>
 <p><strong>Sestavit produktový fact sheet</strong></p>
-<div class="say">
+<div class="say" data-copy="Interview me about &lt;product&gt; and write `knowledge/entities/products.md`. Include what it does, **what it explicitly does not do**, approved claims with their sources, claims we must never make, pricing, and approved boilerplate. Add &quot;Last verified: &lt;today&gt;&quot; at the top.">
 <p>Interview me about &lt;product&gt; and write <code>knowledge/entities/products.md</code>. Include what it does, <strong>what it explicitly does not do</strong>, approved claims with their sources, claims we must never make, pricing, and approved boilerplate. Add &quot;Last verified: &lt;today&gt;&quot; at the top.</p>
 </div>
 <hr />
@@ -4198,15 +4218,15 @@ funguje nejlíp.</p>
 <section id="cs-planovani" data-sec="prompts-3">
 <h3><span>Plánování</span></h3>
 <p><strong>Plán, ne draft</strong></p>
-<div class="say">
+<div class="say" data-copy="Read `BRIEF.md` and the relevant knowledge files. Write a phased plan to `PLAN.md`. **Do not do any of the work yet.** 5–7 phases; for each: goal in one sentence, inputs needed, files produced, how we&#x27;ll know it&#x27;s done. Each phase small enough for one sitting. At least two must end with a decision I have to make. List your assumptions at the end.">
 <p>Read <code>BRIEF.md</code> and the relevant knowledge files. Write a phased plan to <code>PLAN.md</code>. <strong>Do not do any of the work yet.</strong> 5–7 phases; for each: goal in one sentence, inputs needed, files produced, how we'll know it's done. Each phase small enough for one sitting. At least two must end with a decision I have to make. List your assumptions at the end.</p>
 </div>
 <p><strong>Udělat jednu fázi</strong></p>
-<div class="say">
+<div class="say" data-copy="Do Phase 2 only. Stop when it&#x27;s done.">
 <p>Do Phase 2 only. Stop when it's done.</p>
 </div>
 <p><strong>Změnit plán</strong></p>
-<div class="say">
+<div class="say" data-copy="Three changes to `PLAN.md`: &lt;...&gt;. Update the file and tell me what else those changes affect.">
 <p>Three changes to <code>PLAN.md</code>: &lt;...&gt;. Update the file and tell me what else those changes affect.</p>
 </div>
 <hr />
@@ -4215,31 +4235,31 @@ funguje nejlíp.</p>
 <section id="cs-psani" data-sec="prompts-4">
 <h3><span>Psaní</span></h3>
 <p><strong>Úhly pohledu před psaním</strong></p>
-<div class="say">
+<div class="say" data-copy="Give me three angles. For each: the promise to the reader in one sentence, why we&#x27;re credible on it, and what evidence we&#x27;d need. Recommend one and say why. Don&#x27;t write the piece.">
 <p>Give me three angles. For each: the promise to the reader in one sentence, why we're credible on it, and what evidence we'd need. Recommend one and say why. Don't write the piece.</p>
 </div>
 <p><strong>Rešerše se skutečnými zdroji</strong></p>
-<div class="say">
+<div class="say" data-copy="Search the web for supporting data. For every source give the link, the publication date, and the exact claim it supports. Prefer primary sources. Skip anything you can&#x27;t date. Save to `research.md`. Anything we need but can&#x27;t source: `[NEEDS SOURCE: ...]`.">
 <p>Search the web for supporting data. For every source give the link, the publication date, and the exact claim it supports. Prefer primary sources. Skip anything you can't date. Save to <code>research.md</code>. Anything we need but can't source: <code>[NEEDS SOURCE: ...]</code>.</p>
 </div>
 <p><strong>Osnova s napsaným úvodem</strong></p>
-<div class="say">
+<div class="say" data-copy="Write an outline: H2s with one line each on what that section does for the reader, plus the opening paragraph in full. Don&#x27;t draft the rest.">
 <p>Write an outline: H2s with one line each on what that section does for the reader, plus the opening paragraph in full. Don't draft the rest.</p>
 </div>
 <p><strong>Draft do souboru</strong></p>
-<div class="say">
+<div class="say" data-copy="Write the full draft to `drafts/&lt;slug&gt;.md`, following the outline and the channel format rules.">
 <p>Write the full draft to <code>drafts/&lt;slug&gt;.md</code>, following the outline and the channel format rules.</p>
 </div>
 <p><strong>Sebekontrola — nejhodnotnější prompt v tomhle dokumentu</strong></p>
-<div class="say">
+<div class="say" data-copy="Audit your own draft against `knowledge/voice/house-voice.md` and the channel file. A table: each rule, ✅ or ❌, and the specific fix for each ❌. Check especially banned words, sentences over 25 words, paragraphs over three sentences, passive voice, em dashes, and unsourced claims. Be genuinely critical — a review that finds nothing is a review you didn&#x27;t do. Then apply every fix and tell me what you changed.">
 <p>Audit your own draft against <code>knowledge/voice/house-voice.md</code> and the channel file. A table: each rule, ✅ or ❌, and the specific fix for each ❌. Check especially banned words, sentences over 25 words, paragraphs over three sentences, passive voice, em dashes, and unsourced claims. Be genuinely critical — a review that finds nothing is a review you didn't do. Then apply every fix and tell me what you changed.</p>
 </div>
 <p><strong>Chirurgické úpravy</strong></p>
-<div class="say">
+<div class="say" data-copy="In the draft file: cut section 3, it repeats section 1. Tighten the intro to four sentences. **Leave everything else exactly as it is.**">
 <p>In the draft file: cut section 3, it repeats section 1. Tighten the intro to four sentences. <strong>Leave everything else exactly as it is.</strong></p>
 </div>
 <p><strong>Zabalit to</strong></p>
-<div class="say">
+<div class="say" data-copy="Add to the top: three headline options, a meta description under 155 characters, a suggested slug, two internal links from our library. Add at the bottom: an image brief and every `[NEEDS SOURCE]` marker collected in one list.">
 <p>Add to the top: three headline options, a meta description under 155 characters, a suggested slug, two internal links from our library. Add at the bottom: an image brief and every <code>[NEEDS SOURCE]</code> marker collected in one list.</p>
 </div>
 <hr />
@@ -4248,19 +4268,19 @@ funguje nejlíp.</p>
 <section id="cs-zatezove-testy" data-sec="prompts-5">
 <h3><span>Zátěžové testy</span></h3>
 <p><strong>Nepřátelský čtenář</strong></p>
-<div class="say">
+<div class="say" data-copy="Read this as our most sceptical reader — &lt;describe them&gt;. List every sentence they&#x27;d roll their eyes at, and why. Don&#x27;t fix anything yet.">
 <p>Read this as our most sceptical reader — &lt;describe them&gt;. List every sentence they'd roll their eyes at, and why. Don't fix anything yet.</p>
 </div>
 <p><strong>Ten, kdo to schvaluje</strong></p>
-<div class="say">
+<div class="say" data-copy="You&#x27;re the CFO / Legal / our head of sales reading this for the first time. What would you refuse to approve, and why?">
 <p>You're the CFO / Legal / our head of sales reading this for the first time. What would you refuse to approve, and why?</p>
 </div>
 <p><strong>Najít slabá tvrzení</strong></p>
-<div class="say">
+<div class="say" data-copy="List every factual claim in this draft. For each: the source, or mark it unsourced. Then tell me which unsourced claim would be most damaging if it were wrong.">
 <p>List every factual claim in this draft. For each: the source, or mark it unsourced. Then tell me which unsourced claim would be most damaging if it were wrong.</p>
 </div>
 <p><strong>Zbavit to AI pachu</strong></p>
-<div class="say">
+<div class="say" data-copy="Find every sentence that sounds like it was written by AI rather than by us. Quote it, say why, and rewrite it in our voice.">
 <p>Find every sentence that sounds like it was written by AI rather than by us. Quote it, say why, and rewrite it in our voice.</p>
 </div>
 <hr />
@@ -4268,7 +4288,7 @@ funguje nejlíp.</p>
 
 <section id="cs-prepouziti-obsahu" data-sec="prompts-6">
 <h3><span>Přepoužití obsahu</span></h3>
-<div class="say">
+<div class="say" data-copy="Turn `drafts/&lt;slug&gt;.md` into: a 400-word newsletter piece, five LinkedIn posts, and an Instagram carousel outline. Read each channel&#x27;s file first and write each one properly for that channel — do not paste the same paragraphs across formats. Save each to `drafts/repurposed/`.">
 <p>Turn <code>drafts/&lt;slug&gt;.md</code> into: a 400-word newsletter piece, five LinkedIn posts, and an Instagram carousel outline. Read each channel's file first and write each one properly for that channel — do not paste the same paragraphs across formats. Save each to <code>drafts/repurposed/</code>.</p>
 </div>
 <hr />
@@ -4277,19 +4297,19 @@ funguje nejlíp.</p>
 <section id="cs-udrzba-systemu" data-sec="prompts-7">
 <h3><span>Údržba systému</span></h3>
 <p><strong>Po každém kusu práce</strong></p>
-<div class="say">
+<div class="say" data-copy="What did I correct today that you should have got right the first time? For each, tell me which file should have prevented it, and make the edit.">
 <p>What did I correct today that you should have got right the first time? For each, tell me which file should have prevented it, and make the edit.</p>
 </div>
 <p><strong>Založit opravu hned</strong></p>
-<div class="say">
+<div class="say" data-copy="Add that to the right file so it holds from now on. Tell me which file you chose and why.">
 <p>Add that to the right file so it holds from now on. Tell me which file you chose and why.</p>
 </div>
 <p><strong>Kontrola zdraví setupu</strong></p>
-<div class="say">
+<div class="say" data-copy="Read `AGENTS.md` and everything in `knowledge/`. Tell me: anything that contradicts anything else, anything too vague for you to actually follow, anything out of date, and the three things missing that would most improve your output.">
 <p>Read <code>AGENTS.md</code> and everything in <code>knowledge/</code>. Tell me: anything that contradicts anything else, anything too vague for you to actually follow, anything out of date, and the three things missing that would most improve your output.</p>
 </div>
 <p><strong>Udělat ze sezení skill</strong></p>
-<div class="say">
+<div class="say" data-copy="Turn what we just did into a skill at `&lt;skills directory&gt;/&lt;name&gt;/SKILL.md`, including every correction I made along the way. Frontmatter with `name` matching the directory and a `description` saying what it does and when to use it, using the words I&#x27;d actually type. Mark with ⏸ every point where you must stop and wait for me.">
 <p>Turn what we just did into a skill at <code>&lt;skills directory&gt;/&lt;name&gt;/SKILL.md</code>, including every correction I made along the way. Frontmatter with <code>name</code> matching the directory and a <code>description</code> saying what it does and when to use it, using the words I'd actually type. Mark with ⏸ every point where you must stop and wait for me.</p>
 </div>
 <hr />
@@ -4409,6 +4429,95 @@ funguje nejlíp.</p>
   });
 
   sync(root.getAttribute("data-doc-lang") || "en");
+})();
+</script>
+
+<script>
+/* Copy buttons on the prompts and on the code people are meant to paste.
+   The clipboard text comes from data-copy, which holds the Markdown as it was
+   written — backticks and line breaks included — not what the browser shows. */
+(function(){
+  var TEXT = {
+    en: {copy:"Copy", done:"Copied", fail:"Failed",
+         say:"Copy this prompt", code:"Copy this example"},
+    cs: {copy:"Kopírovat", done:"Zkopírováno", fail:"Nepovedlo se",
+         say:"Kopírovat tento prompt", code:"Kopírovat tuto ukázku"}
+  };
+
+  /* Both languages sit in one page, so a button takes its wording from the
+     document it is in, not from the language currently on screen. */
+  function words(el){
+    var doc = el.closest(".doc");
+    return TEXT[doc && doc.getAttribute("data-lang")] || TEXT.en;
+  }
+
+  function write(text){
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    /* Opened from disk there is no clipboard API: use a throwaway textarea. */
+    return new Promise(function(resolve, reject){
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.cssText = "position:fixed;top:-1000px;opacity:0";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      if (ok) { resolve(); } else { reject(); }
+    });
+  }
+
+  function button(source, kind){
+    var t = words(source);
+    var b = document.createElement("button");
+    var timer;
+    b.type = "button";
+    b.className = "copy";
+    b.textContent = t.copy;
+    b.setAttribute("aria-label", t[kind]);
+    b.setAttribute("aria-live", "polite");
+
+    /* The label is the whole confirmation, so it has to be the accessible name
+       as well: aria-label wins over the text for a screen reader. */
+    function flash(word, state){
+      clearTimeout(timer);
+      b.textContent = word;
+      b.setAttribute("aria-label", word);
+      b.setAttribute("data-state", state);
+      timer = setTimeout(function(){
+        b.textContent = t.copy;
+        b.setAttribute("aria-label", t[kind]);
+        b.removeAttribute("data-state");
+      }, 1600);
+    }
+
+    b.addEventListener("click", function(){
+      write(source.getAttribute("data-copy")).then(
+        function(){ flash(t.done, "done"); },
+        function(){ flash(t.fail, "fail"); }
+      );
+    });
+    return b;
+  }
+
+  function each(sel, fn){
+    Array.prototype.forEach.call(document.querySelectorAll(sel), fn);
+  }
+
+  each(".say[data-copy]", function(el){
+    el.appendChild(button(el, "say"));
+  });
+
+  each("pre[data-copy]", function(el){
+    var wrap = document.createElement("div");
+    wrap.className = "copywrap";
+    el.parentNode.insertBefore(wrap, el);
+    wrap.appendChild(el);
+    wrap.appendChild(button(el, "code"));
+  });
 })();
 </script>
 </body>

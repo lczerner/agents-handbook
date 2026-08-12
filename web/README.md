@@ -62,6 +62,15 @@ Both messages name the fix. `git commit --no-verify` bypasses it for one commit;
   becomes a bordered aside titled by it. Any other blockquote is text meant to be
   typed to the agent, and gets the green "TYPE THIS" box. This is why prompts in
   the sources must not open in bold.
+- **Copy buttons follow that classification.** Every "TYPE THIS" box gets one;
+  asides don't. A fenced code block gets one only if the fence is tagged —
+  ` ```bash ` and ` ```markdown ` are commands and file contents people paste,
+  an untagged fence is a directory tree or a sample of the agent's output. To
+  give a block a button, tag its fence; to take one away, untag it.
+  What gets copied is the Markdown as written, backticks and line breaks
+  included, carried into a `data-copy` attribute — not the text the browser
+  shows. The buttons themselves are added by the page's own script, so a reader
+  without JavaScript never sees a control that cannot work.
 - Tables are wrapped so wide content scrolls in its own container rather than the
   page body.
 - Sections carry a language-independent `data-sec` key, so switching language
