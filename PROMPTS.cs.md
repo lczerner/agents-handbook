@@ -4,7 +4,7 @@ Prvních čtrnáct dní ho mějte otevřený. Kopírujte, vkládejte, upravujte.
 
 > **⚠️ Toto je český překlad.** Závazný je anglický originál:
 > [PROMPTS.md](PROMPTS.md). **Samotné prompty zůstávají anglicky a jsou určené
-> ke zkopírování tak, jak jsou** — jazykové modely dodržují instrukce
+> ke zkopírování tak, jak jsou** - jazykové modely dodržují instrukce
 > v angličtině spolehlivěji. Česky jsou jen popisky a komentáře.
 
 > **Příklady na začátek, ne prověřené prompty.** Jsou to jednoduché příklady,
@@ -18,10 +18,10 @@ Prvních čtrnáct dní ho mějte otevřený. Kopírujte, vkládejte, upravujte.
 **Začátek sezení na rozpracovaném projektu**
 > Read `PROGRESS.md` and `PLAN.md` in `projects/<name>/`. Tell me in five lines where we are and what the next action is. Don't start work yet.
 
-**Konec každého sezení — tohle nikdy nevynechávejte**
+**Konec každého sezení - tohle nikdy nevynechávejte**
 > Stop here. Update `PROGRESS.md`: status, the single next action, decisions made today with the reason for each, and today's log entry with the files you produced. Write it so someone who wasn't here today could pick it up cold.
 
-**Když se uprostřed sezení zhorší kvalita** *(opakuje se, zapomene rozhodnutí, popírá osnovu)*
+**Když se uprostřed sezení zhorší kvalita** *(opakuje se, zapomene rozhodnutí, odporuje osnově)*
 > Update `PROGRESS.md` with where we are. I'm starting a fresh session.
 
 Pak sezení vyčistěte (`/clear` v Claude Code) a začněte znovu.
@@ -34,7 +34,7 @@ Pak sezení vyčistěte (`/clear` v Claude Code) a začněte znovu.
 > I want to create an `AGENTS.md` for this workspace. Don't write it yet. First interview me, one question at a time, up to fifteen questions, about what we publish, who reads it, our rules, the mistakes you could make that would embarrass us, what you should never do without asking, and what "done" looks like. Wait for my answer before each next question.
 
 **Odvodit voice guide z vlastních publikovaných textů**
-> Read every article in `knowledge/library/articles/`. Write `knowledge/voice/house-voice.md`: our voice in one sentence, concrete rules, at least ten "do this, not that" pairs using real sentences from those articles, a banned words list, and punctuation conventions. Base it only on what's actually there — don't invent rules that sound good.
+> Read every article in `knowledge/library/articles/`. Write `knowledge/voice/house-voice.md`: our voice in one sentence, concrete rules, at least ten "do this, not that" pairs using real sentences from those articles, a banned words list, and punctuation conventions. Base it only on what's actually there - don't invent rules that sound good.
 
 **Napsat channel file**
 > Interview me about our <channel>, one question at a time, then write `knowledge/channels/<name>.md`: purpose, who arrives and why, format and length, structure rules, SEO rules, what we never do here, and which past pieces are good examples.
@@ -71,8 +71,8 @@ Pak sezení vyčistěte (`/clear` v Claude Code) a začněte znovu.
 **Draft do souboru**
 > Write the full draft to `drafts/<slug>.md`, following the outline and the channel format rules.
 
-**Sebekontrola — nejhodnotnější prompt v tomhle dokumentu**
-> Audit your own draft against `knowledge/voice/house-voice.md` and the channel file. A table: each rule, ✅ or ❌, and the specific fix for each ❌. Check especially banned words, sentences over 25 words, paragraphs over three sentences, passive voice, em dashes, and unsourced claims. Be genuinely critical — a review that finds nothing is a review you didn't do. Then apply every fix and tell me what you changed.
+**Sebekontrola - prompt, který textu pomůže nejvíc**
+> Audit your own draft against `knowledge/voice/house-voice.md` and the channel file. A table: each rule, ✅ or ❌, and the specific fix for each ❌. Check especially banned words, sentences over 25 words, paragraphs over three sentences, passive voice, em dashes, and unsourced claims. Be genuinely critical - a review that finds nothing is a review you didn't do. Then apply every fix and tell me what you changed.
 
 **Chirurgické úpravy**
 > In the draft file: cut section 3, it repeats section 1. Tighten the intro to four sentences. **Leave everything else exactly as it is.**
@@ -85,7 +85,7 @@ Pak sezení vyčistěte (`/clear` v Claude Code) a začněte znovu.
 ## Zátěžové testy
 
 **Nepřátelský čtenář**
-> Read this as our most sceptical reader — <describe them>. List every sentence they'd roll their eyes at, and why. Don't fix anything yet.
+> Read this as our most skeptical reader - <describe them>. List every sentence they'd roll their eyes at, and why. Don't fix anything yet.
 
 **Ten, kdo to schvaluje**
 > You're the CFO / Legal / our head of sales reading this for the first time. What would you refuse to approve, and why?
@@ -93,14 +93,14 @@ Pak sezení vyčistěte (`/clear` v Claude Code) a začněte znovu.
 **Najít slabá tvrzení**
 > List every factual claim in this draft. For each: the source, or mark it unsourced. Then tell me which unsourced claim would be most damaging if it were wrong.
 
-**Zbavit to AI pachu**
+**Aby to nepůsobilo jako od AI**
 > Find every sentence that sounds like it was written by AI rather than by us. Quote it, say why, and rewrite it in our voice.
 
 ---
 
 ## Přepoužití obsahu
 
-> Turn `drafts/<slug>.md` into: a 400-word newsletter piece, five LinkedIn posts, and an Instagram carousel outline. Read each channel's file first and write each one properly for that channel — do not paste the same paragraphs across formats. Save each to `drafts/repurposed/`.
+> Turn `drafts/<slug>.md` into: a 400-word newsletter piece, five LinkedIn posts, and an Instagram carousel outline. Read each channel's file first and write each one properly for that channel - do not paste the same paragraphs across formats. Save each to `drafts/repurposed/`.
 
 ---
 
@@ -112,7 +112,7 @@ Pak sezení vyčistěte (`/clear` v Claude Code) a začněte znovu.
 **Založit opravu hned**
 > Add that to the right file so it holds from now on. Tell me which file you chose and why.
 
-**Kontrola zdraví setupu**
+**Kontrola zdraví nastavení**
 > Read `AGENTS.md` and everything in `knowledge/`. Tell me: anything that contradicts anything else, anything too vague for you to actually follow, anything out of date, and the three things missing that would most improve your output.
 
 **Udělat ze sezení skill**
@@ -139,6 +139,6 @@ Pak sezení vyčistěte (`/clear` v Claude Code) a začněte znovu.
 
 ## Dvě věci, které žádný prompt nespraví
 
-**Fakta si ověřte sami.** Každou statistiku, citaci, datum, cenu i pravopis jména, které se dostane na publikovanou stránku. Mantinely výmysly výrazně omezí, ale neodstraní je. Značky `[NEEDS SOURCE]` vám řeknou, kde hledat nejdřív, ale nejsou úplným seznamem toho, co zkontrolovat.
+**Fakta si ověřte sami.** Každou statistiku, citaci, datum, cenu i pravopis jména, které se dostane na publikovanou stránku. Mantinely výmysly výrazně omezí. Neodstraní je. Značky `[NEEDS SOURCE]` vám řeknou, kde hledat nejdřív, ale nejsou úplným seznamem toho, co zkontrolovat.
 
-**Bez člověka se nic nepublikuje.** Nechte v `AGENTS.md` pravidlo „never publish, post, send, or schedule" a nechte ho platit — zvlášť až připojíte MCP nástroje, které by to technicky uměly.
+**Bez člověka se nic nepublikuje.** Nechte v `AGENTS.md` pravidlo „never publish, post, send, or schedule" a nechte ho platit - zvlášť až připojíte MCP nástroje, které by to technicky uměly.

@@ -168,6 +168,7 @@ Every pair below is a real correction he made:
 | `chyba stála draho` | `chyba byla drahá` |
 | `nepište ho z prázdné stránky` | `nepište ho sami od začátku` |
 | `context window přeteče` | `věci začnou ze stolu padat na zem` |
+| `obsahový kalendář` | `redakční plán` |
 
 When you add a pair to this table, grep the Czech files for the left-hand side
 and fix every instance. A recorded rule that was never swept for is how
@@ -177,6 +178,26 @@ That last pair is the pattern worth learning: **the metaphors are welcome, the
 abstractions are not.** Keep the desk, the filing cabinet and the shelf of
 manuals, and make them physical in Czech rather than translating the abstract
 noun that sat on top of them in English.
+
+**Never decline an English word in Czech.** No `walkthroughu`, `draftů`,
+`harnessy`, `setupu`, `checklistu`, `slugy`. Two ways out, and only these two:
+leave the English word in its base form, or use a Czech word instead. Where the
+sentence needs a case, put a Czech head noun in front and decline that one:
+
+- `Ve walkthroughu stojí` → `Ve cvičení stojí`
+- `postup z Walkthroughu 2` → `postup z cvičení Walkthrough 2`
+- `opravováním draftů` → `opravováním hotových textů`
+- `přepisování checklistu` → `přepisování seznamu`
+- `pi jsou harnessy` → `pi - to všechno je harness`
+
+**`prompt` and `skill` are the two exceptions and decline normally** —
+`prompty`, `do skillu`, `přepisování promptu`. Lukáš named them: they are far
+enough into Czech that working around them reads worse than declining them.
+`Tahák s prompty` is the title of `PROMPTS.cs.md` and stays that way.
+
+The rule also does not cover words Czech has fully absorbed — `agent`,
+`server`, `model`, `text`, `projekt` decline normally — nor product names,
+which are still `v Codexu`, `na GitHubu`, `v Gitu`.
 
 Other fixed choices:
 

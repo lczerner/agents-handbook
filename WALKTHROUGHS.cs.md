@@ -5,11 +5,11 @@
 ---
 
 > **⚠️ Toto je český překlad.** Závazný je anglický originál:
-> [WALKTHROUGHS.md](WALKTHROUGHS.md). Překlad má jediný účel — rychlejší
+> [WALKTHROUGHS.md](WALKTHROUGHS.md). Překlad má jediný účel - rychlejší
 > pochopení. Pak pracujte anglicky.
 >
 > **Všechno v blocích `>` je text, který napíšete agentovi, a je schválně
-> anglicky.** Neposílejte agentovi český překlad promptu — jazykové modely
+> anglicky.** Neposílejte agentovi český překlad promptu - jazykové modely
 > dodržují instrukce v angličtině spolehlivěji. Stejně tak zůstávají anglicky
 > názvy souborů, adresářů a odborné termíny.
 
@@ -20,7 +20,7 @@
 > prací, ale dají vám možnost si osahat chování agenta a ukážou vám některé
 > možnosti přizpůsobení.
 >
-> Fantazii se meze nekladou — ideálně si zadání upravte podle toho, co chcete
+> Fantazii se meze nekladou - ideálně si zadání upravte podle toho, co chcete
 > tvořit, ale dodržte myšlenku cvičení.
 
 Cvičení dělejte v pořadí, ideálně na něčem, co chcete opravdu vytvořit. Všechno
@@ -33,26 +33,26 @@ v `blocích kódu` je soubor nebo příkaz do terminálu.
 | 3 | [Naplánovat kampaň](#walkthrough-3--naplánovat-mediální-kampaň) | 3 sezení za 2 dny | Kompletní multikanálový plán kampaně, postavený napříč sezeními |
 | 4 | [Udělat z toho skill](#walkthrough-4--udělat-z-opakované-práce-skill) | 30 min | Znovupoužitelný postup, který spustíte jedním slovem |
 
-**Než začnete, potřebujete agenta.** Ne ChatGPT nebo Claude v prohlížeči — ti
+**Než začnete, potřebujete agenta.** Ne ChatGPT nebo Claude v prohlížeči - ti
 na vašem počítači nevytvoří jediný soubor a každé cvičení tady končí souborem.
 Claude Code, OpenAI Codex CLI, opencode nebo pi, nainstalovaný, a k tomu
 terminál, který umíte otevřít v adresáři a spustit ho z něj. Pokud vám ta věta
 dělá potíže, přečtěte si v příručce
 [Než začnete](HANDBOOK.cs.md#než-začnete) a požádejte toho, kdo vám to
-instaloval, ať s vámi stráví prvních deset minut prvního walkthrough.
+instaloval, ať s vámi stráví prvních deset minut prvního cvičení.
 
 ---
 
 <a id="walkthrough-1--nastavení-workspace"></a>
-## Walkthrough 1 — Nastavení workspace
+## Walkthrough 1 - Nastavení workspace
 
 **Cíl:** adresář s pravidly, který agent dodržuje, a dost znalostí na to,
 aby napsal něco, co zní jako vy.
 **Čas:** zhruba 45 minut.
 
-### Krok 1 — Vytvořte adresář
+### Krok 1 - Vytvořte adresář
 
-Vytvořte nový adresář někde rozumně — `Documents/content-workspace` stačí.
+Vytvořte nový adresář někde rozumně - `Documents/content-workspace` stačí.
 Otevřete v něm terminál a spusťte agenta (`claude`, `codex`,
 `opencode` nebo `pi`).
 
@@ -67,10 +67,10 @@ změny v adresáři.**
 **Pokud se na disku neobjevilo nic, zastavte se tady.** Odpověď, která ty
 adresáře popisuje, není totéž jako adresáře, které existují. Ověřte si to ve
 Finderu nebo v Průzkumníku souborů, ne v odpovědi. Pokud tam nejsou, nemáte
-spuštěného agenta — vraťte se na
+spuštěného agenta - vraťte se na
 [Než začnete](HANDBOOK.cs.md#než-začnete).
 
-### Krok 2 — Nechte se vyzpovídat
+### Krok 2 - Nechte se vyzpovídat
 
 Nepište `AGENTS.md` sami od začátku. Napište tohle:
 
@@ -87,7 +87,7 @@ Nepište `AGENTS.md` sami od začátku. Napište tohle:
 >
 > Wait for my answer before each next question. When you have enough, say so and stop.
 
-Pak odpovídejte upřímně a v krátkých větách. Nesnažte se to uhladit — tohle je
+Pak odpovídejte upřímně a v krátkých větách. Nesnažte se to uhladit - tohle je
 surový vstup, ne dokument.
 
 **Kde to lidé kazí:** vágními odpověďmi. „Jsme profesionální, ale přátelští" je
@@ -99,12 +99,12 @@ nesnášíte, opravdu jich vyjmenujte deset.
 > aby výsledný `AGENTS.md` napsal anglicky. Přidejte si na konec promptu:
 > *„Write the resulting file in English."*
 
-### Krok 3 — Vezměte si draft a převezměte ho
+### Krok 3 - Vezměte si draft a převezměte ho
 
 > Now write `AGENTS.md` based on my answers. Use these sections in this order:
 > What this is · Who we write for · Where things live · Guardrails (Never / Always / Ask me first) · How we work · Definition of done · How to talk to me.
 >
-> Keep it under 150 lines. Make every rule specific enough that I could check whether you followed it — no "write well", no "be professional".
+> Keep it under 150 lines. Make every rule specific enough that I could check whether you followed it - no "write well", no "be professional".
 
 Teď si to **sami přečtěte a ručně upravte.** Otevřete soubor v libovolném editoru.
 Tohle je váš soubor, ne agentův. Zkontrolujte tři věci:
@@ -125,16 +125,16 @@ Ať už tam bude cokoli dalšího, tyhle dva řádky tam musí být:
 - Never publish, post, send, or schedule anything. You draft, a human ships.
 ```
 
-### Krok 4 — Pokud používáte Claude Code, přidejte ještě jeden soubor
+### Krok 4 - Pokud používáte Claude Code, přidejte ještě jeden soubor
 
 Claude Code čte `CLAUDE.md`, ne `AGENTS.md`. Vyžádejte si ho:
 
 > Create a `CLAUDE.md` in the project root containing exactly one line: `@AGENTS.md`
 
 Teď oba pracují ze stejného zdroje a vy neudržujete dva soubory. (Codex, opencode
-a pi čtou `AGENTS.md` přímo — tam není co dělat.)
+a pi čtou `AGENTS.md` přímo - tam není co dělat.)
 
-### Krok 5 — První channel file
+### Krok 5 - První channel file
 
 Vyberte kanál, na který publikujete nejvíc.
 
@@ -142,10 +142,10 @@ Vyberte kanál, na který publikujete nejvíc.
 >
 > Then write it to `knowledge/channels/blog.md`.
 
-### Krok 6 — Voice file
+### Krok 6 - Voice file
 
-Pokud už máte publikované texty, použijte je — výsledek je mnohem lepší než popis
-vašeho stylu po paměti:
+Pokud už máte publikované texty, použijte je - výsledek je mnohem lepší než
+popis vašeho stylu z paměti:
 
 > I'm going to put five of our best published articles in `knowledge/library/articles/`. Read all of them, then write `knowledge/voice/house-voice.md` containing:
 > - our voice in one sentence
@@ -156,16 +156,16 @@ vašeho stylu po paměti:
 >
 > Base it only on what's actually in the articles. Don't invent rules that sound good.
 
-(Články do toho adresáře nejdřív zkopírujte — jako `.md` nebo `.txt`)
+(Články do toho adresáře nejdřív zkopírujte - jako `.md` nebo `.txt`.)
 
 Pokud ještě nemáte nic publikovaného, nechte se místo toho vyzpovídat a trvejte
 na těch dvojicích „do this, not that".
 
 > **Pozn.:** pokud publikujete česky, voice file bude přirozeně obsahovat české
-> ukázkové věty — to je v pořádku a je to nutné. Pravidla a struktura souboru
+> ukázkové věty - to je v pořádku a je to nutné. Pravidla a struktura souboru
 > ale zůstávají anglicky.
 
-### Krok 7 — Ověřte, že to celé funguje
+### Krok 7 - Ověřte, že to celé funguje
 
 Nové sezení (v Claude Code napište `/clear`). Pak:
 
@@ -173,12 +173,12 @@ Nové sezení (v Claude Code napište `/clear`). Pak:
 >
 > After you write it, audit your own post against `knowledge/voice/house-voice.md`, rule by rule, with ✅ or ❌ and a fix for each ❌.
 
-Přečtěte si výstup. Nebude dokonalý. O to jde — **cokoli je na něm špatně, přesně
+Přečtěte si výstup. Nebude dokonalý. O to jde - **cokoli je na něm špatně, přesně
 vám ukazuje, kterému souboru něco chybí.**
 
 Pak uzavřete smyčku:
 
-> The tone is off in the second paragraph — it sounds like a press release, and we never do that. Add a rule to the right file so this doesn't happen again, and tell me which file you chose and why.
+> The tone is off in the second paragraph - it sounds like a press release, and we never do that. Add a rule to the right file so this doesn't happen again, and tell me which file you chose and why.
 
 **✅ Hotovo, když** máte `AGENTS.md`, jeden channel file, jeden voice file a viděli
 jste agenta dodržet pravidlo, které jste napsali.
@@ -186,20 +186,20 @@ jste agenta dodržet pravidlo, které jste napsali.
 ---
 
 <a id="walkthrough-2--napsat-článek"></a>
-## Walkthrough 2 — Napsat článek
+## Walkthrough 2 - Napsat článek
 
-**Cíl:** draft připravený k publikaci, vytvořený po fázích, kde jste v každém kroku 
-editorem vy.
+**Cíl:** draft připravený k publikaci, vytvořený po fázích, kde jste v každém
+kroku editorem vy.
 **Čas:** zhruba 90 minut.
 **Potřebuje:** dokončený Walkthrough 1.
 
-### Krok 1 — Založte projekt
+### Krok 1 - Založte projekt
 
 > Create `projects/2026-08-guide-article/` with a `drafts/` subdirectory. In it, create `BRIEF.md` and interview me to fill it in: what we're writing, for which channel, target reader, the one thing they should take away, target length, deadline, and what success looks like.
 
-Brief je základ celé práce, dejte si na něm záležet.
+Brief je základ celé práce. Dejte si na něm záležet.
 
-### Krok 2 — Úhly pohledu, ne draft
+### Krok 2 - Úhly pohledu, ne draft
 
 > Read `BRIEF.md`, the channel file, and `knowledge/voice/house-voice.md`.
 >
@@ -213,11 +213,11 @@ Jeden si vyberte. Když není dobrý ani jeden, zatlačte:
 *„None of these. The interesting thing is X. Give me three angles on that."*
 Dvě kola tady jsou lepší než opravovat hotový draft.
 
-### Krok 3 — Podklady dřív než text
+### Krok 3 - Podklady dřív než text
 
 > Angle 2, please. Now collect the evidence.
 >
-> Search the web for supporting data. For every source: the link, the publication date, and the exact claim it supports. Prefer primary sources — original research, official statistics, named studies. Skip anything you can't date.
+> Search the web for supporting data. For every source: the link, the publication date, and the exact claim it supports. Prefer primary sources - original research, official statistics, named studies. Skip anything you can't date.
 >
 > Pull the approved product claims from `knowledge/entities/products.md`. Do not use any product claim that isn't in that file.
 >
@@ -228,23 +228,23 @@ odkazy.** Ověřujete, jestli jsou zdroje skutečné a jestli říkají to, co a
 tvrdí. Dělejte to první měsíc pokaždé. Zkalibruje vám to důvěru a budete vědět,
 kde přesně jsou slabá místa.
 
-### Krok 4 — Osnova
+### Krok 4 - Osnova
 
 > Write an outline: H2 headings, one line under each on what that section does for the reader, plus **the opening paragraph written out in full**.
 >
 > Follow the structure rules in the channel file. Don't draft the rest.
 
-Úvodní odstavec celý je záměr. Právě od něj se odvíjí styl a teď nic nestojí ho předělat.
-Když sedí úvod, zbytek draftu obvykle sedí taky.
+Celý úvodní odstavec je tam záměrně. Právě v něm žije styl a teď nic nestojí
+ho předělat. Když sedí úvod, zbytek textu obvykle sedí taky.
 
-### Krok 5 — Draft
+### Krok 5 - Draft
 
 > Good. Write the full draft to `drafts/<slug>.md`, following the outline and the channel format rules.
 
-Pak ho nechte být. Ještě si ho nečtěte — další krok opraví polovinu věcí, které
+Pak ho nechte být. Ještě si ho nečtěte - další krok opraví polovinu věcí, které
 byste komentovali.
 
-### Krok 6 — Ať si to zkontroluje samo
+### Krok 6 - Ať si to zkontroluje samo
 
 > Now audit your own draft against `knowledge/voice/house-voice.md` and the channel file.
 >
@@ -255,11 +255,11 @@ byste komentovali.
 > Then apply every fix to the file and tell me what you changed.
 
 Tenhle krok přináší konzistentně větší zlepšení než jakékoli přepisování promptu.
-Psát a soudit jsou dvě různé práce a dělat je odděleně funguje líp než dohromady.
+Psát a hodnotit jsou dvě různé práce. Dělat je odděleně funguje líp než dohromady.
 
-### Krok 7 — Teď to přečtete vy
+### Krok 7 - Teď to přečtete vy
 
-Otevřete draft. Editujte jako editor, ne jako promptér — chtějte chirurgické
+Otevřete draft. Editujte jako editor, ne jako promptér - chtějte chirurgické
 zásahy, přímo v souboru:
 
 > In the draft file: cut the third section entirely, it repeats section one. Tighten the intro to four sentences. Leave everything else exactly as it is.
@@ -269,9 +269,9 @@ o části, které se vám líbily.
 
 Pak tvrdší průchod:
 
-> Read the draft as our most sceptical reader — an ops manager who's been sold bad software before. List every sentence they'd roll their eyes at, and why. Don't fix anything yet.
+> Read the draft as our most skeptical reader - an ops manager who's been sold bad software before. List every sentence they'd roll their eyes at, and why. Don't fix anything yet.
 
-### Krok 8 — Zabalte to
+### Krok 8 - Zabalte to
 
 > Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from `knowledge/library/articles/`.
 >
@@ -279,7 +279,7 @@ Pak tvrdší průchod:
 >
 > Then tell me in three lines: what's done, where it is, what you need from me.
 
-### Krok 9 — Uložte si, co jste se naučili
+### Krok 9 - Uložte si, co jste se naučili
 
 > Which corrections did I make today that you should have got right the first time? For each, tell me which file should have prevented it, and make the edit.
 
@@ -291,17 +291,17 @@ jedno pravidlo přibylo do některého souboru kvůli tomu, co se dnes pokazilo.
 ---
 
 <a id="walkthrough-3--naplánovat-mediální-kampaň"></a>
-## Walkthrough 3 — Naplánovat mediální kampaň
+## Walkthrough 3 - Naplánovat mediální kampaň
 
 **Cíl:** kompletní multikanálový plán kampaně, postavený ve třech oddělených
 sezeních, který ověří systém plán / fáze / deník.
 **Čas:** tři sezení po ~45 minutách, ideálně v různé dny.
 **Potřebuje:** Walkthrough 1–2.
 
-Tohle cvičení je záměrně rozložené do dnů. Jde o to vidět, jak agent naskočí z
-deníku — dovednost, která teprve umožňuje dlouhé projekty.
+Tohle cvičení je záměrně rozložené do dnů. Jde o to vidět, jak agent naváže jen
+podle deníku - dovednost, která teprve umožňuje dlouhé projekty.
 
-### Sezení 1 — Brief a plán
+### Sezení 1 - Brief a plán
 
 **Krok 1.** Založení:
 
@@ -319,28 +319,28 @@ deníku — dovednost, která teprve umožňuje dlouhé projekty.
 >
 > At the end, list your assumptions and anything the brief doesn't answer.
 
-**Krok 3.** Pořádně si plán přečtěte. Tohle je váš jeden velký moment, kdy
-kormidlujete. Typické opravy:
+**Krok 3.** Pořádně si plán přečtěte. Tohle je vaše hlavní příležitost dát tomu
+směr. Typické opravy:
 
-> Three changes. Phase 2 is too big — split it into messaging and calendar. Move the press list to Phase 1, we need it earlier for embargoes. And add a phase for the sales enablement one-pager, I forgot it in the brief. Update `PLAN.md` and `BRIEF.md`.
+> Three changes. Phase 2 is too big - split it into messaging and calendar. Move the press list to Phase 1, we need it earlier for embargoes. And add a phase for the sales enablement one-pager, I forgot it in the brief. Update `PLAN.md` and `BRIEF.md`.
 
 **Krok 4.** Udělejte přesně jednu fázi:
 
 > Now do Phase 1 only. Stop when it's done.
 
-**Krok 5.** Uzavřete sezení — tenhle krok je celé cvičení:
+**Krok 5.** Uzavřete sezení - tenhle krok je celé cvičení:
 
 > Stop here. Create `PROGRESS.md` with:
 >
-> **Status** — current phase, the single next action, anything you're blocked on
-> **Decisions made** — dated, with the reason for each
-> **Log** — what you did today, which files you produced, what you learned, open questions
+> **Status** - current phase, the single next action, anything you're blocked on
+> **Decisions made** - dated, with the reason for each
+> **Log** - what you did today, which files you produced, what you learned, open questions
 >
 > Write it so someone who wasn't here today could pick this up cold with no other context.
 
 Pak nástroj zavřete.
 
-### Sezení 2 — Studený start
+### Sezení 2 - Studený start
 
 **Krok 6.** Nový den, nové sezení. Napište jenom tohle:
 
@@ -359,16 +359,16 @@ Opravte formát deníku hned teď, dokud je zjevné, co v něm chybělo.
 
 **Krok 8.** Stejný závěrečný rituál. Pokaždé:
 
-> Stop here. Update `PROGRESS.md` — status, next action, decisions with reasons, and today's log entry. Keep the whole file under 100 lines by summarising older entries.
+> Stop here. Update `PROGRESS.md` - status, next action, decisions with reasons, and today's log entry. Keep the whole file under 100 lines by summarising older entries.
 
-### Sezení 3 — Dokončit a zabalit
+### Sezení 3 - Dokončit a zabalit
 
-**Krok 9.** Zase studený start, pak projděte zbývající fáze — pořád po jedné,
+**Krok 9.** Zase studený start, pak projděte zbývající fáze - pořád po jedné,
 pořád s deníkem na konci každé.
 
 **Krok 10.** Až je plán hotový:
 
-> The plan is finished. Produce `CAMPAIGN.md` in the project root: the full campaign on one page — messaging spine, channel-by-channel calendar with dates, the asset list with file paths and owners, dependencies and deadlines, and how we'll measure it.
+> The plan is finished. Produce `CAMPAIGN.md` in the project root: the full campaign on one page - messaging spine, channel-by-channel calendar with dates, the asset list with file paths and owners, dependencies and deadlines, and how we'll measure it.
 >
 > Then list everything still blocked on a human, and who needs to do what.
 
@@ -386,14 +386,14 @@ pořád s deníkem na konci každé.
 ---
 
 <a id="walkthrough-4--udělat-z-opakované-práce-skill"></a>
-## Walkthrough 4 — Udělat z opakované práce skill
+## Walkthrough 4 - Udělat z opakované práce skill
 
-**Cíl:** postup z Walkthroughu 2 se změní v něco, co spustíte jedním slovem a co
+**Cíl:** postup z cvičení Walkthrough 2 se změní v něco, co spustíte jedním slovem a co
 funguje stejně všem v týmu.
 **Čas:** 30 minut.
-**Potřebuje:** Walkthrough 2 — ten postup musíte mít jednou projitý ručně.
+**Potřebuje:** Walkthrough 2 - ten postup musíte mít jednou projitý ručně.
 
-### Krok 1 — Najděte správný adresář
+### Krok 1 - Najděte správný adresář
 
 Podle nástroje (viz Příloha A v příručce):
 
@@ -404,24 +404,24 @@ Podle nástroje (viz Příloha A v příručce):
 | opencode | `.opencode/skills/` |
 | pi | `.pi/skills/` nebo `.agents/skills/` |
 
-### Krok 2 — Nechte ho napsat skill z toho, co jste opravdu dělali
+### Krok 2 - Nechte ho napsat skill z toho, co jste opravdu dělali
 
 > Look back at how we produced the article in `projects/2026-08-guide-article/`, including every correction I made along the way.
 >
 > Turn that into a skill at `.claude/skills/article-draft/SKILL.md`.
 >
 > Requirements:
-> - YAML frontmatter with `name: article-draft` and a `description` that says what it does **and when to use it**, using words I'd actually type — write, draft, article, blog post, outline, newsletter.
+> - YAML frontmatter with `name: article-draft` and a `description` that says what it does **and when to use it**, using words I'd actually type - write, draft, article, blog post, outline, newsletter.
 > - The body is the procedure, in numbered phases.
 > - Mark with ⏸ every point where you must stop and wait for me.
 > - Include the self-review phase where you audit your own draft against the voice file with ✅/❌ and fix every ❌.
 > - Include every correction I made during the walkthrough as an explicit rule.
 > - Under 200 lines. Push anything long into `references/`.
 
-### Krok 3 — Zkontrolujte description
+### Krok 3 - Zkontrolujte description
 
 Otevřete `SKILL.md` a podívejte se na řádek `description`. Je to jediná část,
-kterou agent vidí, dokud se nerozhodne skill otevřít — takže musí obsahovat slova,
+kterou agent vidí, dokud se nerozhodne skill otevřít - takže musí obsahovat slova,
 která byste přirozeně použili.
 
 ❌ `description: Helps with writing articles.`
@@ -430,34 +430,34 @@ která byste přirozeně použili.
 Zkontrolujte taky, že `name` je malými písmeny s pomlčkami a **přesně odpovídá
 názvu adresáře**. To je nejčastější důvod, proč se skill tiše nenačte.
 
-### Krok 4 — Otestujte to oběma způsoby
+### Krok 4 - Otestujte to oběma způsoby
 
-**Přímo** — nové sezení, pak napište `/article-draft` (Claude Code, opencode) nebo
+**Přímo** - nové sezení, pak napište `/article-draft` (Claude Code, opencode) nebo
 `$article-draft` (Codex). Měl by začít fází 1.
 
-**Automaticky** — nové sezení, pak napište něco přirozeného:
+**Automaticky** - nové sezení, pak napište něco přirozeného:
 
 > I need a blog post about how site diaries actually get filled in.
 
 Pokud je skill napsaný dobře, začne postup dodržovat, aniž byste mu to řekli.
-Pokud ne, problém je v `description` — přepište ho slovy, která jste právě použili.
+Pokud ne, problém je v `description` - přepište ho slovy, která jste právě použili.
 
-### Krok 5 — A teď postavte zbytek
+### Krok 5 - A teď postavte zbytek
 
 Stejný postup, v pořadí podle přínosu:
 
-- **`style-check`** — projde libovolný text proti vašim voice souborům, řádek po
+- **`style-check`** - projde libovolný text proti vašim voice souborům, řádek po
   řádku, s opravami. Pusťte ho i na texty psané člověkem.
-- **`campaign-plan`** — postup z Walkthroughu 3.
-- **`repurpose`** — jeden článek na newsletter, pět LinkedIn postů a Instagram
+- **`campaign-plan`** - postup z cvičení Walkthrough 3.
+- **`repurpose`** - jeden článek na newsletter, pět LinkedIn postů a Instagram
   carousel, každý ve stylu svého kanálu.
-- **`brief-intake`** — odmítne pokračovat na vágním zadání, dokud z něj není
+- **`brief-intake`** - odmítne pokračovat na vágním zadání, dokud z něj není
   skutečný brief.
 
 Nikdy nepište skill z hlavy. **Projděte si práci jednou ručně, poznamenejte si
 každou opravu a pak nechte agenta napsat skill podle toho, co se stalo.**
 Skills psané z hlavy popisují, jak byste si přáli pracovat. Skills psané ze
-skutečného sezení popisují, jak pracujete doopravdy, včetně těch oprav — a v
+skutečného sezení popisují, jak pracujete doopravdy, včetně těch oprav - a v
 těch opravách je většina hodnoty.
 
 **✅ Hotovo, když** napíšete jedno slovo a proběhne vícekrokový postup přesně tak,
@@ -470,6 +470,6 @@ jak byste ho udělali vy.
 Teď máte celý systém. Návyk, který ho udržuje funkční, je jediná otázka na konci
 každého kusu práce:
 
-> What did I correct today that you should have known already — and which file should have told you?
+> What did I correct today that you should have known already - and which file should have told you?
 
 Ptejte se tak měsíc pokaždé. Workspace se sám naučí vaši práci.
