@@ -1,8 +1,13 @@
+<!--
+SPDX-FileCopyrightText: Copyright 2026, Lukáš Czerner <lukas@czerner.cz>
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Používání AI agentů pro reálnou práci
 
 ### Příručka pro lidi, kteří neprogramují
 
-**Verze 0.1.2** - stejné číslo najdete na webu i v PDF, takže poznáte, jestli
+**Verze 0.2.0** - stejné číslo najdete na webu i v PDF, takže poznáte, jestli
 čtete aktuální vydání.
 
 ---
@@ -148,3 +153,26 @@ Psáno v srpnu 2026 podle aktuální dokumentace:
 Detaily nástrojů se mění rychle. Pokud nějaká cesta k souboru
 v [Příloze A](HANDBOOK.cs.md#příloha-a--který-soubor-čte-můj-nástroj) nefunguje,
 podívejte se do aktuální dokumentace svého nástroje - koncepty platí dál.
+
+---
+
+## Licence
+
+Copyright 2026, Lukáš Czerner <lukas@czerner.cz>
+
+Příručka, cvičení a tahák s prompty - a stránka i PDF, které z nich vznikly -
+jsou pod licencí
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.cs). Používejte je,
+překládejte, upravujte, klidně i jako podklad pro vlastní školení, a klidně
+komerčně. Tři podmínky: uveďte mě jako autora, odkažte na licenci a napište,
+jestli jste něco změnili.
+
+Dva adresáře to mají jinak, a to záměrně:
+
+- `starter-kit/` je [CC0](starter-kit/LICENSE), tedy volné dílo. Je určený
+  k tomu, abyste si ho zkopírovali a smyšlenou firmu z něj vyhodili - nemá
+  smysl, aby soubory, které jste si celé přepsali, nesly moje jméno.
+- `web/` je [MIT](web/LICENSE). Je to kód a licence psaná pro text o něm nic
+  užitečného neříká.
+
+Plné znění je v souboru [LICENSE](LICENSE).

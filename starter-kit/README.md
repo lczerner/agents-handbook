@@ -77,3 +77,9 @@ directory — the `SKILL.md` files themselves are identical:
   why, and the answer will be there with a date on it.
 - **Every skill has a self-review phase.** Asking the agent to criticise its own
   work against a written checklist works far better than asking it to write well.
+
+## License
+
+This directory is public domain: CC0 1.0, see [LICENSE](LICENSE). Copy it,
+rewrite it, publish whatever you make from it. Nothing to credit, no notice to
+keep. The rest of the kit is CC BY 4.0 and does ask for credit.

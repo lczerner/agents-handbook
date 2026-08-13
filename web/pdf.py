@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: Copyright 2026, Lukáš Czerner <lukas@czerner.cz>
+# SPDX-License-Identifier: MIT
 """Generate the PDF editions of the handbook from the Markdown sources.
 
 The Markdown files are the source of truth, and web/build.py already turns them
@@ -50,8 +52,16 @@ AUTHOR = "Lukáš Czerner"
 SITE = "https://lczerner.github.io/agents-handbook/"
 
 WORDS = {
-    "en": {"contents": "Contents", "online": "The current version is always at"},
-    "cs": {"contents": "Obsah", "online": "Aktuální verze je vždy na"},
+    "en": {
+        "contents": "Contents",
+        "online": "The current version is always at",
+        "license": "CC BY 4.0 - credit the author and keep the license.",
+    },
+    "cs": {
+        "contents": "Obsah",
+        "online": "Aktuální verze je vždy na",
+        "license": "CC BY 4.0 - uveďte autora a zachovejte licenci.",
+    },
 }
 
 # Each handbook opens with its own list of sections, which is how you navigate
@@ -85,11 +95,17 @@ MASTHEAD = re.compile(r'^\s*(<header class="masthead">.*?</header>)\s*', re.S)
 
 
 def cover(lang: str, masthead: str) -> str:
-    """The masthead, set as a title page with the address of the live site."""
+    """The masthead, set as a title page with the address of the live site.
+
+    A PDF is the copy that travels furthest from the repository, so the terms
+    it is under are printed on it rather than left in a file nobody downloaded.
+    """
     return (
         f'<div class="cover">\n{masthead}\n'
         f'<p class="colophon">{html.escape(AUTHOR)}<br>'
-        f'{WORDS[lang]["online"]} <a href="{SITE}">{SITE}</a></p>\n</div>'
+        f'{WORDS[lang]["online"]} <a href="{SITE}">{SITE}</a><br>'
+        f"{html.escape(build.COPYRIGHT)}<br>"
+        f'{WORDS[lang]["license"]}</p>\n</div>'
     )
 
 

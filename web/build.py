@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: Copyright 2026, Lukáš Czerner <lukas@czerner.cz>
+# SPDX-License-Identifier: MIT
 """Generate the web version of the handbook from the Markdown sources.
 
 The Markdown files are the source of truth. This script renders them into the
@@ -36,15 +38,36 @@ DESCRIPTION = (
 # The version of the kit, written in one place. The page masthead and the PDF
 # covers take it from here, so a reader can tell which edition they are holding.
 # Bumping it is a decision, never a side effect of an edit: see AGENTS.md.
-VERSION = "0.1.2"
+VERSION = "0.2.0"
 
 # Where the two READMEs state the same number in prose, which is the one copy
 # that can quietly fall behind.
 README_VERSION = re.compile(r"\*\*(?:Version|Verze)\s+(\d+\.\d+\.\d+)\*\*")
 
+# One copyright line for everything this repo generates: the notice below and
+# the covers in web/pdf.py both read it from here.
+COPYRIGHT = "Copyright 2026, Lukáš Czerner <lukas@czerner.cz>"
+
+# The page says who owns it and under what terms, because it travels: people
+# save it, mirror it and print it, and by then the LICENSE file is gone. Two
+# licenses meet in this one file, which is what the AND means in SPDX.
+NOTICE = f"""<!--
+Working with AI agents - a training kit for people who don't write code.
+
+SPDX-FileCopyrightText: {COPYRIGHT}
+SPDX-License-Identifier: CC-BY-4.0 AND MIT
+
+The text is CC BY 4.0: use it, translate it, adapt it, including
+commercially. Credit Lukáš Czerner, link the license, and say if you changed
+anything. The design of the page and the generator that produced it are MIT.
+
+Generated from the Markdown sources by web/build.py. Never edited by hand.
+-->"""
+
 # Without the viewport meta a phone renders the desktop layout zoomed out;
 # without the charset the page depends on the server sending one.
 STANDALONE = """<!doctype html>
+{notice}
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -435,7 +458,12 @@ def standalone(rendered: str) -> str:
     head, marker, body = rendered.partition("<!--HEAD-END-->")
     if not marker:
         raise SystemExit("web/template.html is missing the <!--HEAD-END--> marker")
+    # The template opens with an SPDX header of its own, which describes that
+    # file and not the page built from it. NOTICE is the page's answer, so drop
+    # the template's rather than publish two.
+    head = re.sub(r"\A\s*<!--.*?-->\s*", "", head, flags=re.S)
     return STANDALONE.format(
+        notice=NOTICE,
         description=html.escape(DESCRIPTION, quote=True),
         head=head.strip(),
         body=body.strip(),

@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: Copyright 2026, Lukáš Czerner <lukas@czerner.cz>
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # AGENTS.md
 
 <!-- Rules for any agent working in this repo. Keep under ~200 lines.

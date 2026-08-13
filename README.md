@@ -1,8 +1,13 @@
+<!--
+SPDX-FileCopyrightText: Copyright 2026, Lukáš Czerner <lukas@czerner.cz>
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Using AI agents for real work
 
 ### A training kit for people who don't write code
 
-**Version 0.1.2** - the published page and the PDF editions carry the same
+**Version 0.2.0** - the published page and the PDF editions carry the same
 number, so you can tell whether the copy you are reading is the current one.
 
 This kit teaches a marketing, content or operations team how to use an AI agent -
@@ -137,3 +142,25 @@ Written August 2026 against current documentation:
 
 Tool details move quickly. If a file path in [Appendix A](HANDBOOK.md#appendix-a--which-file-does-my-tool-read)
 doesn't work, check your tool's current docs - the concepts hold regardless.
+
+---
+
+## License
+
+Copyright 2026, Lukáš Czerner <lukas@czerner.cz>
+
+The handbook, the walkthroughs and the prompt sheet - and the page and the PDFs
+built from them - are under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Use them, translate
+them, adapt them, teach a course from them, including commercially. Three
+conditions: credit me, link the license, and say if you changed anything.
+
+Two directories are deliberately different:
+
+- `starter-kit/` is [CC0](starter-kit/LICENSE), public domain. You are meant to
+  copy it and throw the fictional company out, and carrying my name into files
+  you rewrote yourself would be absurd.
+- `web/` is [MIT](web/LICENSE). It is code, and a license written for prose says
+  nothing useful about it.
+
+The full text is in [LICENSE](LICENSE).

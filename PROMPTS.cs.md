@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: Copyright 2026, Lukáš Czerner <lukas@czerner.cz>
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Tahák s prompty
 
 Prvních čtrnáct dní ho mějte otevřený. Kopírujte, vkládejte, upravujte.

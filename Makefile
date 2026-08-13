@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright 2026, Lukáš Czerner <lukas@czerner.cz>
+# SPDX-License-Identifier: MIT
+#
 # Build the published versions of the handbook from the Markdown sources.
 #
 #   make setup    create the virtualenv and install dependencies

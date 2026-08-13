@@ -1,4 +1,7 @@
 #!/bin/sh
+# SPDX-FileCopyrightText: Copyright 2026, Lukáš Czerner <lukas@czerner.cz>
+# SPDX-License-Identifier: MIT
+#
 # Refuse a commit that would leave the generated page out of step with the
 # Markdown it is built from. The PDF editions are only mentioned, never
 # refused: they are published by hand.
