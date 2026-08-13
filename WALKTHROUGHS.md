@@ -358,7 +358,7 @@ Also check: `name` is lowercase-with-hyphens, and it **matches the directory nam
 
 ### Step 4 - Test both ways
 
-**Directly** - fresh session, then type `/article-draft` (Claude Code, opencode) or `$article-draft` (Codex). It should start at Phase 1.
+**Directly** - fresh session, then type `/article-draft` (Claude Code) or `$article-draft` (Codex). opencode has no command for it: type `use the article-draft skill` instead. It should start at Phase 1.
 
 **Automatically** - fresh session, then type something natural:
 

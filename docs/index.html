@@ -1682,7 +1682,7 @@ Then tell me: what's done, where it is, what you need from me.
 <pre data-copy="@AGENTS.md"><code class="language-markdown">@AGENTS.md
 </code></pre>
 <p>That's Claude Code's import syntax - it pulls in the whole file. You can add Claude-specific notes underneath. (A symlink works too: <code>ln -s AGENTS.md CLAUDE.md</code> - but not on Windows without developer mode, so the import line is the safer choice.)</p>
-<p>Nested files are supported everywhere: put an <code>AGENTS.md</code> inside a subdirectory and it applies to work in that subdirectory, on top of the root one. Useful if one client or brand needs different rules.</p>
+<p>A subdirectory can have its own <code>AGENTS.md</code> - useful if one client or brand needs different rules. What happens then depends on the tool. <strong>Codex</strong> and <strong>pi</strong> read every directory from the top down to the one you started the agent in, so the file in the subdirectory applies on top of the root one. <strong>opencode</strong> stops at the first file it finds walking up, so the file in the subdirectory replaces the root one instead of adding to it. <strong>Claude Code</strong> reads a nested <code>CLAUDE.md</code> when it opens a file in that subdirectory, but never a nested <code>AGENTS.md</code>.</p>
 <h4>Skills directory</h4>
 <div class="scroll"><table>
 <thead>
@@ -1716,7 +1716,7 @@ Then tell me: what's done, where it is, what you need from me.
 </tbody>
 </table></div>
 <p>The <code>SKILL.md</code> file itself is identical across all of them - same format, same two required fields. Only the directory differs. If your team uses more than one tool, keep the skills in one directory and create links to the others, or just copy them.</p>
-<p>To run one on demand: <code>/skill-name</code> in Claude Code and opencode, <code>$skill-name</code> in Codex. Or say nothing and let the description trigger it.</p>
+<p>To run one on demand: <code>/skill-name</code> in Claude Code, <code>$skill-name</code> in Codex. opencode has no command for it - ask for the skill by name and the agent loads it itself. Or say nothing and let the description trigger it.</p>
 <h4>MCP connectors</h4>
 <div class="scroll"><table>
 <thead>
@@ -2122,7 +2122,7 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 ✅ <code>description: Produce a publish-ready article draft from a brief, following our channel and voice rules. Use when asked to write, draft, or outline a blog post, article, or newsletter piece.</code></p>
 <p>Also check: <code>name</code> is lowercase-with-hyphens, and it <strong>matches the directory name exactly</strong>. That's the most common reason a skill silently doesn't load.</p>
 <h4>Step 4 - Test both ways</h4>
-<p><strong>Directly</strong> - fresh session, then type <code>/article-draft</code> (Claude Code, opencode) or <code>$article-draft</code> (Codex). It should start at Phase 1.</p>
+<p><strong>Directly</strong> - fresh session, then type <code>/article-draft</code> (Claude Code) or <code>$article-draft</code> (Codex). opencode has no command for it: type <code>use the article-draft skill</code> instead. It should start at Phase 1.</p>
 <p><strong>Automatically</strong> - fresh session, then type something natural:</p>
 <div class="say" data-copy="I need a blog post about how site diaries actually get filled in.">
 <p>I need a blog post about how site diaries actually get filled in.</p>
@@ -3800,9 +3800,14 @@ nenačte, podívejte se do aktuální dokumentace svého nástroje.)</em></p>
 poznámky specifické pro Claude. (Funguje i symlink: <code>ln -s AGENTS.md CLAUDE.md</code> -
 ale ne na Windows bez vývojářského režimu, takže importovací řádek je bezpečnější
 volba.)</p>
-<p>Vnořené soubory podporují všechny: dejte <code>AGENTS.md</code> do podadresáře a bude
-platit pro práci v tom podadresáři navrch toho kořenového. Užitečné, když jeden
-klient nebo značka potřebuje jiná pravidla.</p>
+<p>Podadresář může mít vlastní <code>AGENTS.md</code> - hodí se, když jeden klient nebo značka
+potřebuje jiná pravidla. Co se pak stane, záleží na nástroji. <strong>Codex</strong> a <strong>pi</strong>
+čtou všechny adresáře odshora dolů až po ten, ve kterém jste agenta spustili,
+takže soubor z podadresáře platí navrch toho kořenového. <strong>opencode</strong> se zastaví
+u prvního souboru, který cestou nahoru najde, takže soubor z podadresáře ten
+kořenový nahradí, místo aby se přidal. <strong>Claude Code</strong> vnořený <code>CLAUDE.md</code>
+přečte, jakmile v tom podadresáři otevře nějaký soubor, ale vnořený <code>AGENTS.md</code>
+nepřečte nikdy.</p>
 <h4>Adresář se skills</h4>
 <div class="scroll"><table>
 <thead>
@@ -3838,8 +3843,9 @@ klient nebo značka potřebuje jiná pravidla.</p>
 <p>Samotný soubor <code>SKILL.md</code> je ve všech identický - stejný formát, stejná dvě povinná
 pole. Liší se jen adresář. Pokud váš tým používá víc nástrojů, držte skills v
 jednom adresáři a do ostatních vytvořte odkazy, nebo je prostě zkopírujte.</p>
-<p>Spuštění na vyžádání: <code>/skill-name</code> v Claude Code a opencode, <code>$skill-name</code>
-v Codexu. Nebo neřeknete nic a necháte ho spustit se podle popisu.</p>
+<p>Spuštění na vyžádání: <code>/skill-name</code> v Claude Code, <code>$skill-name</code> v Codexu.
+V <strong>opencode</strong> na to příkaz není - řekněte si o skill jménem a agent si ho načte
+sám. Nebo neřeknete nic a necháte ho spustit se podle popisu.</p>
 <h4>MCP konektory</h4>
 <div class="scroll"><table>
 <thead>
@@ -4370,8 +4376,9 @@ která byste přirozeně použili.</p>
 <p>Zkontrolujte taky, že <code>name</code> je malými písmeny s pomlčkami a <strong>přesně odpovídá
 názvu adresáře</strong>. To je nejčastější důvod, proč se skill tiše nenačte.</p>
 <h4>Krok 4 - Otestujte to oběma způsoby</h4>
-<p><strong>Přímo</strong> - nové sezení, pak napište <code>/article-draft</code> (Claude Code, opencode) nebo
-<code>$article-draft</code> (Codex). Měl by začít fází 1.</p>
+<p><strong>Přímo</strong> - nové sezení, pak napište <code>/article-draft</code> (Claude Code) nebo
+<code>$article-draft</code> (Codex). V opencode na to příkaz není: napište místo toho
+<code>use the article-draft skill</code>. Měl by začít fází 1.</p>
 <p><strong>Automaticky</strong> - nové sezení, pak napište něco přirozeného:</p>
 <div class="say" data-copy="I need a blog post about how site diaries actually get filled in.">
 <p>I need a blog post about how site diaries actually get filled in.</p>

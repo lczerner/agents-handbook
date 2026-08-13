@@ -437,8 +437,9 @@ názvu adresáře**. To je nejčastější důvod, proč se skill tiše nenačte
 
 ### Krok 4 - Otestujte to oběma způsoby
 
-**Přímo** - nové sezení, pak napište `/article-draft` (Claude Code, opencode) nebo
-`$article-draft` (Codex). Měl by začít fází 1.
+**Přímo** - nové sezení, pak napište `/article-draft` (Claude Code) nebo
+`$article-draft` (Codex). V opencode na to příkaz není: napište místo toho
+`use the article-draft skill`. Měl by začít fází 1.
 
 **Automaticky** - nové sezení, pak napište něco přirozeného:
 

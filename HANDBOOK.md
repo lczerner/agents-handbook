@@ -1138,7 +1138,7 @@ All four tools work with the same workspace. They differ in file names and direc
 
 That's Claude Code's import syntax - it pulls in the whole file. You can add Claude-specific notes underneath. (A symlink works too: `ln -s AGENTS.md CLAUDE.md` - but not on Windows without developer mode, so the import line is the safer choice.)
 
-Nested files are supported everywhere: put an `AGENTS.md` inside a subdirectory and it applies to work in that subdirectory, on top of the root one. Useful if one client or brand needs different rules.
+A subdirectory can have its own `AGENTS.md` - useful if one client or brand needs different rules. What happens then depends on the tool. **Codex** and **pi** read every directory from the top down to the one you started the agent in, so the file in the subdirectory applies on top of the root one. **opencode** stops at the first file it finds walking up, so the file in the subdirectory replaces the root one instead of adding to it. **Claude Code** reads a nested `CLAUDE.md` when it opens a file in that subdirectory, but never a nested `AGENTS.md`.
 
 ### Skills directory
 
@@ -1151,7 +1151,7 @@ Nested files are supported everywhere: put an `AGENTS.md` inside a subdirectory 
 
 The `SKILL.md` file itself is identical across all of them - same format, same two required fields. Only the directory differs. If your team uses more than one tool, keep the skills in one directory and create links to the others, or just copy them.
 
-To run one on demand: `/skill-name` in Claude Code and opencode, `$skill-name` in Codex. Or say nothing and let the description trigger it.
+To run one on demand: `/skill-name` in Claude Code, `$skill-name` in Codex. opencode has no command for it - ask for the skill by name and the agent loads it itself. Or say nothing and let the description trigger it.
 
 ### MCP connectors
 

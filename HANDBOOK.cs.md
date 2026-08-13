@@ -1473,9 +1473,14 @@ poznámky specifické pro Claude. (Funguje i symlink: `ln -s AGENTS.md CLAUDE.md
 ale ne na Windows bez vývojářského režimu, takže importovací řádek je bezpečnější
 volba.)
 
-Vnořené soubory podporují všechny: dejte `AGENTS.md` do podadresáře a bude
-platit pro práci v tom podadresáři navrch toho kořenového. Užitečné, když jeden
-klient nebo značka potřebuje jiná pravidla.
+Podadresář může mít vlastní `AGENTS.md` - hodí se, když jeden klient nebo značka
+potřebuje jiná pravidla. Co se pak stane, záleží na nástroji. **Codex** a **pi**
+čtou všechny adresáře odshora dolů až po ten, ve kterém jste agenta spustili,
+takže soubor z podadresáře platí navrch toho kořenového. **opencode** se zastaví
+u prvního souboru, který cestou nahoru najde, takže soubor z podadresáře ten
+kořenový nahradí, místo aby se přidal. **Claude Code** vnořený `CLAUDE.md`
+přečte, jakmile v tom podadresáři otevře nějaký soubor, ale vnořený `AGENTS.md`
+nepřečte nikdy.
 
 ### Adresář se skills
 
@@ -1490,8 +1495,9 @@ Samotný soubor `SKILL.md` je ve všech identický - stejný formát, stejná dv
 pole. Liší se jen adresář. Pokud váš tým používá víc nástrojů, držte skills v
 jednom adresáři a do ostatních vytvořte odkazy, nebo je prostě zkopírujte.
 
-Spuštění na vyžádání: `/skill-name` v Claude Code a opencode, `$skill-name`
-v Codexu. Nebo neřeknete nic a necháte ho spustit se podle popisu.
+Spuštění na vyžádání: `/skill-name` v Claude Code, `$skill-name` v Codexu.
+V **opencode** na to příkaz není - řekněte si o skill jménem a agent si ho načte
+sám. Nebo neřeknete nic a necháte ho spustit se podle popisu.
 
 ### MCP konektory
 
