@@ -15,7 +15,7 @@ SPDX-License-Identifier: CC-BY-4.0
 A training kit that teaches non-technical people how to use AI agents — Claude
 Code, OpenAI Codex CLI, opencode, pi — for writing, planning and campaign work.
 It ships in English and Czech, with four hands-on walkthroughs and a starter
-workspace people copy.
+workspace people read once they have built their own.
 
 This is a living document. Lukáš keeps editing it, adds walkthroughs specific to
 what his colleagues actually do, and corrects the Czech.
@@ -42,7 +42,9 @@ They read it and refer back to it. Lukáš is the only person who edits the repo
 - `PROMPTS.md` / `PROMPTS.cs.md` — prompt cheat sheet. The prompts themselves stay
   English in both: they are copy-paste material. Only labels and commentary are translated.
 - `starter-kit/` — a complete example workspace for a fictional company,
-  Lighthouse. People copy it and replace the content.
+  Lighthouse. People read it after the walkthroughs and take individual files
+  from it. They do not copy it over the workspace they just built: the two
+  disagree, because Walkthrough 1 fills `AGENTS.md` by interviewing them.
 - `web/build.py` — the generator. `web/template.html` holds the design.
 - `web/pdf.py` — the PDF generator. It reuses `build.py`'s rendering and puts it
   in a printed shell; `web/print.css` holds that design.
@@ -146,8 +148,8 @@ Bumping means all four in one commit: `VERSION`, both READMEs, and a rebuilt
   wait — see [Versioning](#versioning).
 - Before cutting or restructuring a whole section.
 - Before adding a new top-level file.
-- Before changing anything in `starter-kit/`. It is a worked example people copy,
-  not a document.
+- Before changing anything in `starter-kit/`. It is a worked example people take
+  files from, not a document.
 
 ## Writing Czech
 

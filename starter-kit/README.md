@@ -7,6 +7,10 @@ Every file here is real and working. The structure is the point, the content is
 placeholder. Read it once you have a workspace of your own, and take from it the
 files you find you need.
 
+One thing is deliberately missing: the article archive under
+`knowledge/library/articles/`. That directory holds your own published work, and
+Lighthouse's would be no use to you.
+
 ## What's here
 
 ```
@@ -27,12 +31,14 @@ knowledge/
 │   ├── people.md                  ← names, titles, pronouns, quote permissions
 │   └── events.md                  ← with embargo status
 └── library/
-    └── GOLD-STANDARD.md           ← your best work and why it works
+    ├── GOLD-STANDARD.md           ← your best work and why it works
+    └── articles/                  ← your own archive. The kit ships none, see the note inside
 
 projects/2026-09-atlas-launch/     ← what an in-flight project looks like
 ├── BRIEF.md                       ← what we were asked for
 ├── PLAN.md                        ← what we agreed to do, in phases
-└── PROGRESS.md                    ← the logbook that survives across sessions
+├── PROGRESS.md                    ← the logbook that survives across sessions
+└── research/positioning.md        ← the working file Phase 1 produced
 
 .claude/skills/                    ← procedures (directory name differs per tool)
 ├── article-draft/SKILL.md

@@ -512,7 +512,7 @@ Ptejte se tak měsíc pokaždé. Workspace se sám naučí vaši práci.
 ### Když si chcete prohlédnout hotový workspace
 
 [`starter-kit/`](starter-kit/) je kompletní workspace vymyšlené firmy Lighthouse.
-Každý soubor v něm je vyplněný, včetně těch, které jste v cvičeních nepsali:
+Každý soubor v něm je vyplněný, včetně těch, které jste ve cvičeních nepsali:
 soubor o lidech se zájmeny a s tím, kdo smí být citován, soubor o akcích se
 stavem embarga, seznam nejlepších textů, druhý voice file pro konkrétního autora.
 

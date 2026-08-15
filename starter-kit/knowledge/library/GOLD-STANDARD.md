@@ -7,6 +7,11 @@ in `articles/`. These are the ones worth imitating.
 
 When drafting, read the entry that matches the format you're writing.
 
+> **A note about the starter kit:** the five files named below are Lighthouse's
+> and are not shipped, for the reason in `articles/README.md`. The entries stay
+> because the shape is the point - a pointer to one real file, what to copy from
+> it, and what not to.
+
 ---
 
 ## Blog — `articles/why-site-diaries-fail.md`

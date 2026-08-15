@@ -1497,7 +1497,7 @@ pole. Liší se jen adresář. Pokud váš tým používá víc nástrojů, drž
 jednom adresáři a do ostatních vytvořte odkazy, nebo je prostě zkopírujte.
 
 Spuštění na vyžádání: `/skill-name` v Claude Code, `$skill-name` v Codexu.
-V **opencode** na to příkaz není - řekněte si o skill jménem a agent si ho načte
+V **opencode** na to příkaz není - řekněte si o skillu jménem a agent si ho načte
 sám. Nebo neřeknete nic a necháte ho spustit se podle popisu.
 
 ### MCP konektory

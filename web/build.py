@@ -328,10 +328,19 @@ def fix_links(out: str, lang: str) -> str:
             return f'<a href="#{target}">'
         return "<!--UNLINK-->"
 
+    def unlink(m: re.Match) -> str:
+        text = m.group(1)
+        # [`starter-kit/`](starter-kit/) arrives here already a code span, and
+        # <code> carries a border in both stylesheets, so wrapping it again
+        # renders a box inside a box.
+        if text.startswith("<code>") and text.endswith("</code>"):
+            return text
+        return f"<code>{text}</code>"
+
     out = re.sub(r'<a href="([^"]+)">', link, out)
     # Relative paths (starter-kit/, images) cannot resolve in a single page:
     # keep the words, drop the link.
-    out = re.sub(r"<!--UNLINK-->(.*?)</a>", r"<code>\1</code>", out, flags=re.S)
+    out = re.sub(r"<!--UNLINK-->(.*?)</a>", unlink, out, flags=re.S)
     return out
 
 
@@ -460,8 +469,14 @@ def standalone(rendered: str) -> str:
         raise SystemExit("web/template.html is missing the <!--HEAD-END--> marker")
     # The template opens with an SPDX header of its own, which describes that
     # file and not the page built from it. NOTICE is the page's answer, so drop
-    # the template's rather than publish two.
-    head = re.sub(r"\A\s*<!--.*?-->\s*", "", head, flags=re.S)
+    # the template's rather than publish two. Match on the header itself, not on
+    # position: reordering template.html must not silently delete some other
+    # comment and publish two notices instead.
+    head, dropped = re.subn(
+        r"\A\s*<!--(?=(?:(?!-->).)*SPDX-License-Identifier).*?-->\s*", "", head, flags=re.S
+    )
+    if not dropped:
+        raise SystemExit("web/template.html no longer opens with its SPDX header")
     return STANDALONE.format(
         notice=NOTICE,
         description=html.escape(DESCRIPTION, quote=True),

@@ -55,9 +55,9 @@ Before writing anything for a channel, read that channel's file **and**
 - Always cite a source with a link and its publication date for any claim about
   the industry.
 - Always save work to a file in the project directory. Don't print a long draft
-  into the chat and stop there. - Always end a draft with an "Open questions"
-  list of anything you guessed at. - Always date-stamp anything you add to
-  `knowledge/entities/`.
+  into the chat and stop there.
+- Always end a draft with an "Open questions" list of anything you guessed at.
+- Always date-stamp anything you add to `knowledge/entities/`.
 
 ### Ask me first
 - Before starting to write, if the brief is missing the audience, the channel, or
