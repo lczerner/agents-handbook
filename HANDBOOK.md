@@ -43,7 +43,7 @@ You need one of them installed before any of this is useful. [Before you start](
 Companion files in this kit:
 - [`WALKTHROUGHS.md`](WALKTHROUGHS.md) - four step-by-step exercises. Do these after reading sections 1–8.
 - [`PROMPTS.md`](PROMPTS.md) - a cheat sheet of things to type.
-- [`starter-kit/`](starter-kit/) - a complete example workspace you can copy and edit.
+- [`starter-kit/`](starter-kit/) - a complete example workspace, to look at when you want to see a finished one.
 
 ---
 
@@ -1216,8 +1216,8 @@ Five things from outside this kit, in the order that makes most sense to take th
 
 ## Where to go next
 
-1. Read [`WALKTHROUGHS.md`](WALKTHROUGHS.md) and do **Walkthrough 1**. It takes 30 minutes and produces your real `AGENTS.md`.
-2. Copy [`starter-kit/`](starter-kit/) as the skeleton of your workspace. Replace the Lighthouse examples with your own.
-3. Keep [`PROMPTS.md`](PROMPTS.md) open for the first fortnight.
+1. Read [`WALKTHROUGHS.md`](WALKTHROUGHS.md) and do **Walkthrough 1**. It takes an hour and produces your real `AGENTS.md`.
+2. Keep [`PROMPTS.md`](PROMPTS.md) open for the first fortnight.
+3. Look at [`starter-kit/`](starter-kit/) once you have your own workspace, and take a file from it when you find you need that file. Don't copy it over what you built - every answer in it is Lighthouse's.
 
 The whole system is plain text files in a directory. Nothing here is fragile, nothing is hidden, and anything you break you can fix by editing a file. Start with `AGENTS.md` and two knowledge files, use it for real work, and add the rest when you feel the need for it.

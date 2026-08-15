@@ -48,7 +48,7 @@ output is: **what you put in the directory.**
 | **[HANDBOOK.md](HANDBOOK.md)** | 40 min | The concepts. `AGENTS.md`, plans and progress, the knowledge base, skills, MCP. Read sections 1–8 before doing anything. |
 | **[WALKTHROUGHS.md](WALKTHROUGHS.md)** | Do them | Four hands-on exercises. Examples to get a feel for the agent, ideally adapted to what you actually want to produce. |
 | **[PROMPTS.md](PROMPTS.md)** | Keep open | A cheat sheet of things to type. |
-| **[starter-kit/](starter-kit/)** | Copy it | A complete example workspace. Every file filled in and working. |
+| **[starter-kit/](starter-kit/)** | Look at it | A complete example workspace. Every file filled in and working. Read it once you have your own, and take from it what you need. |
 
 **If you have ten minutes:** read [section 1 of the handbook](HANDBOOK.md#1-the-one-idea)
 and then Walkthrough 1 step 2. That's enough to start.

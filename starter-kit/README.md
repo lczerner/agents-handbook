@@ -3,9 +3,9 @@
 A complete example workspace for a fictional company called **Lighthouse** — a
 B2B software company selling site-documentation tools to construction firms.
 
-Every file here is real and working. Copy this whole directory, then replace the
-Lighthouse content with your own. The structure is the point; the content is
-placeholder.
+Every file here is real and working. The structure is the point, the content is
+placeholder. Read it once you have a workspace of your own, and take from it the
+files you find you need.
 
 ## What's here
 
@@ -43,13 +43,19 @@ projects/2026-09-atlas-launch/     ← what an in-flight project looks like
 ## How to use it
 
 **Don't copy it wholesale and start writing.** The files only work when they
-contain your actual rules. Instead:
+contain your actual rules, and every answer in here is Lighthouse's.
 
-1. Copy the directory. Delete every Lighthouse-specific line.
-2. Do [Walkthrough 1](../WALKTHROUGHS.md#walkthrough-1--set-up-your-workspace) —
-   the agent interviews you and fills in `AGENTS.md`.
-3. Write one channel file and one voice file. That's enough to start.
-4. Add the rest when you feel the need. Most teams never need all of it.
+Build your own workspace first, with
+[Walkthrough 1](../WALKTHROUGHS.md#walkthrough-1--set-up-your-workspace) - the
+agent interviews you and fills in `AGENTS.md`, a channel file, a voice file, a
+product fact sheet and an index. That is enough to do real work with.
+
+Then come back here. Read a file to see the shape of one you haven't written
+yet, and take it across when you find you need it: `people.md` the first time
+the agent gets a job title wrong, `events.md` the first time something is true
+but not yet public, `GOLD-STANDARD.md` once you have work worth pointing at.
+
+Most teams never need all of it.
 
 ## Which skills directory do I use?
 

@@ -181,7 +181,8 @@ nic nevymýšlel.
 
 Nejvíc se vyplatí ta část o tom, co produkt nedělá. Zeptejte se na něco, co ve
 vašich souborech není, a agent tu mezeru zaplní něčím, co si vymyslí. Čte se to
-úplně stejně dobře, jako kdyby to pravda. Proto si toho nejspíš ani nevšimnete.
+úplně stejně dobře, jako kdyby to byla pravda. Proto si toho nejspíš ani
+nevšimnete.
 
 Walkthrough 2 agentovi říká, ať nepoužívá žádné tvrzení o produktu, které v tomhle
 souboru není.
@@ -344,7 +345,7 @@ podle deníku - dovednost, která teprve umožňuje dlouhé projekty.
 
 **Krok 2.** Vyžádejte si plán a nic jiného:
 
-> Read `BRIEF.md`, `knowledge/INDEX.md`, and the channel files for every channel in the brief.
+> Read `BRIEF.md`, `knowledge/INDEX.md`, and the channel file for every channel in the brief that has one. Tell me which channels in the brief have no channel file yet.
 >
 > Write a phased plan to `PLAN.md`. **Do not produce any campaign content.**
 >
@@ -507,3 +508,14 @@ každého kusu práce:
 > What did I correct today that you should have known already - and which file should have told you?
 
 Ptejte se tak měsíc pokaždé. Workspace se sám naučí vaši práci.
+
+### Když si chcete prohlédnout hotový workspace
+
+[`starter-kit/`](starter-kit/) je kompletní workspace vymyšlené firmy Lighthouse.
+Každý soubor v něm je vyplněný, včetně těch, které jste v cvičeních nepsali:
+soubor o lidech se zájmeny a s tím, kdo smí být citován, soubor o akcích se
+stavem embarga, seznam nejlepších textů, druhý voice file pro konkrétního autora.
+
+Prohlédněte si, jak takové soubory vypadají, a až některý z nich budete
+potřebovat, vezměte si ho. Nekopírujte ale celý adresář přes workspace, který
+jste právě postavili. Odpovědi v něm jsou Lighthouse, ne vaše.

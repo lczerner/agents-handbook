@@ -62,7 +62,7 @@ mluvíte s agentem. Zbytek sady učí to, na čem kvalita výstupu stojí nejví
 | **[HANDBOOK.cs.md](HANDBOOK.cs.md)** | 40 min | Koncepty. `AGENTS.md`, plány a progress, knowledge base, skills, MCP. Sekce 1–8 přečtěte dřív, než začnete cokoli dělat. |
 | **[WALKTHROUGHS.cs.md](WALKTHROUGHS.cs.md)** | Projděte je | Čtyři praktická cvičení. Příklady, na kterých si osaháte chování agenta, ideálně upravené podle toho, co chcete tvořit. |
 | **[PROMPTS.cs.md](PROMPTS.cs.md)** | Mějte otevřené | Tahák s prompty. Popisky česky, samotné prompty anglicky - jsou k okopírování. |
-| **[starter-kit/](starter-kit/)** | Zkopírujte si ho | Kompletní ukázkový workspace. Každý soubor vyplněný a funkční. |
+| **[starter-kit/](starter-kit/)** | Prohlédněte si ho | Kompletní ukázkový workspace. Každý soubor vyplněný a funkční. Podívejte se na něj, až budete mít vlastní, a vezměte si z něj, co potřebujete. |
 
 **Pokud máte deset minut:** přečtěte si [sekci 1 příručky](HANDBOOK.cs.md#1-jedna-myšlenka)
 a pak krok 2 z prvního cvičení. To stačí na začátek.

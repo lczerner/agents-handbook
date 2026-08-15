@@ -269,7 +269,7 @@ This one is deliberately spread over days. The point is to watch the agent pick 
 
 **Step 2.** Get a plan and nothing else:
 
-> Read `BRIEF.md`, `knowledge/INDEX.md`, and the channel files for every channel in the brief.
+> Read `BRIEF.md`, `knowledge/INDEX.md`, and the channel file for every channel in the brief that has one. Tell me which channels in the brief have no channel file yet.
 >
 > Write a phased plan to `PLAN.md`. **Do not produce any campaign content.**
 >
@@ -410,3 +410,9 @@ You now have the full system. The habit that keeps it working is a single questi
 > What did I correct today that you should have known already - and which file should have told you?
 
 Ask it every time for a month. The workspace will teach itself your job.
+
+### If you want to see a finished one
+
+[`starter-kit/`](starter-kit/) is a complete workspace belonging to a fictional company called Lighthouse. Every file in it is filled in, including the ones these exercises never asked you to write: a people file with pronouns and quote permissions, an events file with an embargo status, a list of gold-standard pieces, a second voice file for a named author.
+
+Read it for the shape of those files, and take one across when you find you need it. Don't copy the directory over the workspace you just built - every answer in it is Lighthouse's, not yours.

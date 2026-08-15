@@ -84,7 +84,8 @@ Doprovodné soubory v této sadě:
 - [`WALKTHROUGHS.cs.md`](WALKTHROUGHS.cs.md) - čtyři cvičení krok za krokem.
   Projděte je po přečtení sekcí 1–8.
 - [`PROMPTS.md`](PROMPTS.md) - tahák s prompty (anglicky, jsou k okopírování).
-- [`starter-kit/`](starter-kit/) - kompletní ukázkový workspace ke zkopírování.
+- [`starter-kit/`](starter-kit/) - kompletní ukázkový workspace, který si můžete
+  prohlédnout, až budete chtít vidět hotový workspace.
 
 ---
 
@@ -1600,10 +1601,11 @@ anglicky.
 ## Kam dál
 
 1. Přečtěte si [`WALKTHROUGHS.cs.md`](WALKTHROUGHS.cs.md) a udělejte
-   **Walkthrough 1**. Zabere 45 minut a vznikne z něj váš skutečný `AGENTS.md`.
-2. Zkopírujte si [`starter-kit/`](starter-kit/) jako kostru workspace. Nahraďte
-   ukázky za Lighthouse svými.
-3. Prvních čtrnáct dní mějte otevřený [`PROMPTS.md`](PROMPTS.md).
+   **Walkthrough 1**. Zabere hodinu a vznikne z něj váš skutečný `AGENTS.md`.
+2. Prvních čtrnáct dní mějte otevřený [`PROMPTS.md`](PROMPTS.md).
+3. Do [`starter-kit/`](starter-kit/) se podívejte, až budete mít vlastní
+   workspace, a vezměte si z něj soubor, který vám bude chybět. Nekopírujte ho
+   přes to, co jste postavili - odpovědi v něm jsou Lighthouse, ne vaše.
 
 Celý systém jsou obyčejné textové soubory v adresáři. Nic tu není křehké, nic
 není skryté a cokoli rozbijete, spravíte úpravou souboru. Začněte s `AGENTS.md`
