@@ -1203,8 +1203,9 @@ Zhruba v pořadí podle přínosu pro obsahový tým:
 
 Dobrý způsob, jak vytvořit skill: projděte si práci jednou ručně s agentem a
 sledujte každou opravu, kterou uděláte. Pak řekněte: *„Turn everything we just did
-into a skill at `.claude/skills/article-draft/SKILL.md`, including every correction
-I made along the way."*
+into a skill at `<skills directory>/article-draft/SKILL.md`, including every
+correction I made along the way."* Adresář se skills se liší podle nástroje -
+všechny čtyři jsou v [Příloze A](#příloha-a--který-soubor-čte-můj-nástroj).
 
 ---
 

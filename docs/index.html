@@ -1392,7 +1392,7 @@ Then tell me: what's done, where it is, what you need from me.
 <li><strong><code>brief-intake</code></strong> - interrogates a vague request until it's a real brief. Refuses to proceed on &quot;write something about the launch.&quot;</li>
 <li><strong><code>weekly-roundup</code></strong> - the recurring thing your team does every Monday.</li>
 </ol>
-<p>A good way to create the first one: do the task manually with the agent once, paying attention to every correction you make. Then say: <em>&quot;Turn everything we just did into a skill at <code>.claude/skills/article-draft/SKILL.md</code>, including every correction I made along the way.&quot;</em></p>
+<p>A good way to create the first one: do the task manually with the agent once, paying attention to every correction you make. Then say: <em>&quot;Turn everything we just did into a skill at <code>&lt;skills directory&gt;/article-draft/SKILL.md</code>, including every correction I made along the way.&quot;</em> Your skills directory depends on the tool - the four are in <a href="#appendix-a--which-file-does-my-tool-read">Appendix A</a>.</p>
 <hr />
 </section>
 
@@ -2117,10 +2117,11 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 </tr>
 </tbody>
 </table></div>
+<p>The prompt in the next step says <code>&lt;skills directory&gt;</code>. Put your row from this table there before you send it.</p>
 <h4>Step 2 - Have it write the skill from what you actually did</h4>
-<div class="say" data-copy="Look back at how we produced the article in `projects/2026-08-guide-article/`, including every correction I made along the way.&#10;&#10;Turn that into a skill at `.claude/skills/article-draft/SKILL.md`.&#10;&#10;Requirements:&#10;- YAML frontmatter with `name: article-draft` and a `description` that says what it does **and when to use it**, using words I&#x27;d actually type - write, draft, article, blog post, outline, newsletter.&#10;- The body is the procedure, in numbered phases.&#10;- Mark with ⏸ every point where you must stop and wait for me.&#10;- Include the self-review phase where you audit your own draft against the voice file with ✅/❌ and fix every ❌.&#10;- Include every correction I made during the walkthrough as an explicit rule.&#10;- Under 200 lines. Push anything long into `references/`.">
+<div class="say" data-copy="Look back at how we produced the article in `projects/2026-08-guide-article/`, including every correction I made along the way.&#10;&#10;Turn that into a skill at `&lt;skills directory&gt;/article-draft/SKILL.md`.&#10;&#10;Requirements:&#10;- YAML frontmatter with `name: article-draft` and a `description` that says what it does **and when to use it**, using words I&#x27;d actually type - write, draft, article, blog post, outline, newsletter.&#10;- The body is the procedure, in numbered phases.&#10;- Mark with ⏸ every point where you must stop and wait for me.&#10;- Include the self-review phase where you audit your own draft against the voice file with ✅/❌ and fix every ❌.&#10;- Include every correction I made during the walkthrough as an explicit rule.&#10;- Under 200 lines. Push anything long into `references/`.">
 <p>Look back at how we produced the article in <code>projects/2026-08-guide-article/</code>, including every correction I made along the way.</p>
-<p>Turn that into a skill at <code>.claude/skills/article-draft/SKILL.md</code>.</p>
+<p>Turn that into a skill at <code>&lt;skills directory&gt;/article-draft/SKILL.md</code>.</p>
 <p>Requirements:</p>
 <ul>
 <li>YAML frontmatter with <code>name: article-draft</code> and a <code>description</code> that says what it does <strong>and when to use it</strong>, using words I'd actually type - write, draft, article, blog post, outline, newsletter.</li>
@@ -3445,8 +3446,9 @@ skutečný brief. S „napiš něco o launchi&quot; se nespokojí.</li>
 </ol>
 <p>Dobrý způsob, jak vytvořit skill: projděte si práci jednou ručně s agentem a
 sledujte každou opravu, kterou uděláte. Pak řekněte: <em>„Turn everything we just did
-into a skill at <code>.claude/skills/article-draft/SKILL.md</code>, including every correction
-I made along the way.&quot;</em></p>
+into a skill at <code>&lt;skills directory&gt;/article-draft/SKILL.md</code>, including every
+correction I made along the way.&quot;</em> Adresář se skills se liší podle nástroje -
+všechny čtyři jsou v <a href="#cs-příloha-a--který-soubor-čte-můj-nástroj">Příloze A</a>.</p>
 <hr />
 </section>
 
@@ -4395,10 +4397,12 @@ funguje stejně všem v týmu.
 </tr>
 </tbody>
 </table></div>
+<p>V promptu v dalším kroku je <code>&lt;skills directory&gt;</code>. Než ho odešlete, dosaďte tam
+řádek pro svůj nástroj z téhle tabulky.</p>
 <h4>Krok 2 - Nechte ho napsat skill z toho, co jste opravdu dělali</h4>
-<div class="say" data-copy="Look back at how we produced the article in `projects/2026-08-guide-article/`, including every correction I made along the way.&#10;&#10;Turn that into a skill at `.claude/skills/article-draft/SKILL.md`.&#10;&#10;Requirements:&#10;- YAML frontmatter with `name: article-draft` and a `description` that says what it does **and when to use it**, using words I&#x27;d actually type - write, draft, article, blog post, outline, newsletter.&#10;- The body is the procedure, in numbered phases.&#10;- Mark with ⏸ every point where you must stop and wait for me.&#10;- Include the self-review phase where you audit your own draft against the voice file with ✅/❌ and fix every ❌.&#10;- Include every correction I made during the walkthrough as an explicit rule.&#10;- Under 200 lines. Push anything long into `references/`.">
+<div class="say" data-copy="Look back at how we produced the article in `projects/2026-08-guide-article/`, including every correction I made along the way.&#10;&#10;Turn that into a skill at `&lt;skills directory&gt;/article-draft/SKILL.md`.&#10;&#10;Requirements:&#10;- YAML frontmatter with `name: article-draft` and a `description` that says what it does **and when to use it**, using words I&#x27;d actually type - write, draft, article, blog post, outline, newsletter.&#10;- The body is the procedure, in numbered phases.&#10;- Mark with ⏸ every point where you must stop and wait for me.&#10;- Include the self-review phase where you audit your own draft against the voice file with ✅/❌ and fix every ❌.&#10;- Include every correction I made during the walkthrough as an explicit rule.&#10;- Under 200 lines. Push anything long into `references/`.">
 <p>Look back at how we produced the article in <code>projects/2026-08-guide-article/</code>, including every correction I made along the way.</p>
-<p>Turn that into a skill at <code>.claude/skills/article-draft/SKILL.md</code>.</p>
+<p>Turn that into a skill at <code>&lt;skills directory&gt;/article-draft/SKILL.md</code>.</p>
 <p>Requirements:</p>
 <ul>
 <li>YAML frontmatter with <code>name: article-draft</code> and a <code>description</code> that says what it does <strong>and when to use it</strong>, using words I'd actually type - write, draft, article, blog post, outline, newsletter.</li>

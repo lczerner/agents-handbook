@@ -438,11 +438,14 @@ Podle nástroje (viz Příloha A v příručce):
 | opencode | `.opencode/skills/` |
 | pi | `.pi/skills/` nebo `.agents/skills/` |
 
+V promptu v dalším kroku je `<skills directory>`. Než ho odešlete, dosaďte tam
+řádek pro svůj nástroj z téhle tabulky.
+
 ### Krok 2 - Nechte ho napsat skill z toho, co jste opravdu dělali
 
 > Look back at how we produced the article in `projects/2026-08-guide-article/`, including every correction I made along the way.
 >
-> Turn that into a skill at `.claude/skills/article-draft/SKILL.md`.
+> Turn that into a skill at `<skills directory>/article-draft/SKILL.md`.
 >
 > Requirements:
 > - YAML frontmatter with `name: article-draft` and a `description` that says what it does **and when to use it**, using words I'd actually type - write, draft, article, blog post, outline, newsletter.

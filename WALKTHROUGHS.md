@@ -355,11 +355,13 @@ Depends on your tool (see Appendix A of the handbook):
 | opencode | `.opencode/skills/` |
 | pi | `.pi/skills/` or `.agents/skills/` |
 
+The prompt in the next step says `<skills directory>`. Put your row from this table there before you send it.
+
 ### Step 2 - Have it write the skill from what you actually did
 
 > Look back at how we produced the article in `projects/2026-08-guide-article/`, including every correction I made along the way.
 >
-> Turn that into a skill at `.claude/skills/article-draft/SKILL.md`.
+> Turn that into a skill at `<skills directory>/article-draft/SKILL.md`.
 >
 > Requirements:
 > - YAML frontmatter with `name: article-draft` and a `description` that says what it does **and when to use it**, using words I'd actually type - write, draft, article, blog post, outline, newsletter.

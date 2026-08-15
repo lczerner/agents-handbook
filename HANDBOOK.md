@@ -951,7 +951,7 @@ In rough order of payoff for a content team:
 5. **`brief-intake`** - interrogates a vague request until it's a real brief. Refuses to proceed on "write something about the launch."
 6. **`weekly-roundup`** - the recurring thing your team does every Monday.
 
-A good way to create the first one: do the task manually with the agent once, paying attention to every correction you make. Then say: *"Turn everything we just did into a skill at `.claude/skills/article-draft/SKILL.md`, including every correction I made along the way."*
+A good way to create the first one: do the task manually with the agent once, paying attention to every correction you make. Then say: *"Turn everything we just did into a skill at `<skills directory>/article-draft/SKILL.md`, including every correction I made along the way."* Your skills directory depends on the tool - the four are in [Appendix A](#appendix-a--which-file-does-my-tool-read).
 
 ---
 
