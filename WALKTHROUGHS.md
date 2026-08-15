@@ -15,7 +15,7 @@ Do these in order. Everything in **`> blockquote`** is meant to be typed to the 
 
 | # | Walkthrough | Time | What you end up with |
 |---|---|---|---|
-| 1 | [Set up your workspace](#walkthrough-1--set-up-your-workspace) | 45 min | A real `AGENTS.md` and two knowledge files |
+| 1 | [Set up your workspace](#walkthrough-1--set-up-your-workspace) | 60 min | A real `AGENTS.md` and four knowledge files |
 | 2 | [Write an article](#walkthrough-2--write-an-article) | 90 min | A publish-ready draft, and a voice guide derived from your own work |
 | 3 | [Plan a campaign](#walkthrough-3--plan-a-media-campaign) | 3 sessions over 2 days | A full multi-channel campaign plan, built across sessions |
 | 4 | [Turn it into a skill](#walkthrough-4--turn-a-repeated-task-into-a-skill) | 30 min | A reusable procedure you invoke with one word |
@@ -28,7 +28,7 @@ Do these in order. Everything in **`> blockquote`** is meant to be typed to the 
 ## Walkthrough 1 - Set up your workspace
 
 **Goal:** a directory with house rules the agent follows, and enough knowledge to write something that sounds like you.
-**Time:** about 45 minutes.
+**Time:** about an hour.
 
 ### Step 1 - Make the directory
 
@@ -117,7 +117,29 @@ If you already have published work, use it - this produces a far better result t
 
 If you have nothing published yet, have it interview you instead, and insist on the do/don't pairs.
 
-### Step 7 - Prove the whole thing works
+### Step 7 - Your product fact sheet
+
+The voice file keeps the agent from sounding wrong. This one keeps it from making things up about your product.
+
+> Interview me about our main product, one question at a time, then write `knowledge/entities/products.md`. Ask about: what it does, **what it explicitly does not do**, the claims we're allowed to make and where each one comes from, the claims we must never make, pricing, and our approved boilerplate description.
+>
+> Put `Last verified: <today's date>` at the top of the file.
+
+The list of what the product does not do is the part that earns its place. Ask about something your files don't cover and the agent fills the gap with something that sounds right. It reads exactly as well as a true sentence. That is why nobody catches it.
+
+Walkthrough 2 tells the agent to use no product claim that isn't in this file. Until the file exists, that rule has nothing to check against.
+
+### Step 8 - Write the index
+
+Four files hardly need an index. Write one anyway - you write it now, or you write it when there are thirty of them and you no longer remember which holds what.
+
+> Write `knowledge/INDEX.md`. One line per file: what's in it, and **when you should read it**. Keep the whole thing under a screen.
+
+The *when to read it* half is what does the work. The agent reads the index first and opens only what it needs, instead of reading the whole directory every time.
+
+Add a line to it whenever you add a file to `knowledge/`.
+
+### Step 9 - Prove the whole thing works
 
 Fresh session (in Claude Code, type `/clear`). Then:
 
@@ -131,7 +153,7 @@ Then close the loop:
 
 > The tone is off in the second paragraph - it sounds like a press release, and we never do that. Add a rule to the right file so this doesn't happen again, and tell me which file you chose and why.
 
-**✅ Done when:** you have `AGENTS.md`, one channel file, one voice file, and you've watched the agent follow a rule you wrote.
+**✅ Done when:** you have `AGENTS.md`, one channel file, a voice file, a product fact sheet, an index, and you've watched the agent follow a rule you wrote.
 
 ---
 
@@ -152,7 +174,7 @@ A brief is the cheapest thing to get right and the most expensive thing to get w
 
 > Read `BRIEF.md`, the channel file, and `knowledge/voice/house-voice.md`.
 >
-> Then search `knowledge/library/articles/` for anything we've already published on this topic and tell me what you found.
+> If there's anything in `knowledge/library/articles/`, search it for what we've already published on this topic and tell me what you found. If that directory is empty, say so and move on.
 >
 > Then give me **three angles** for this piece. For each: the promise to the reader in one sentence, why we're credible on it, and what evidence we'd need to make it stand up.
 >
@@ -212,7 +234,7 @@ Then a harder pass:
 
 ### Step 8 - Package it
 
-> Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from `knowledge/library/articles/`.
+> Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from `knowledge/library/articles/` if there's anything there to link to.
 >
 > Add at the bottom: an image brief, and every `[NEEDS SOURCE]` marker collected into one list.
 >

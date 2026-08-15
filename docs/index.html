@@ -1813,8 +1813,8 @@ Then tell me: what's done, where it is, what you need from me.
 <tr>
 <td>1</td>
 <td><a href="#walkthrough-1--set-up-your-workspace">Set up your workspace</a></td>
-<td>45 min</td>
-<td>A real <code>AGENTS.md</code> and two knowledge files</td>
+<td>60 min</td>
+<td>A real <code>AGENTS.md</code> and four knowledge files</td>
 </tr>
 <tr>
 <td>2</td>
@@ -1843,7 +1843,7 @@ Then tell me: what's done, where it is, what you need from me.
 <section id="walkthrough-1--set-up-your-workspace" data-sec="walkthroughs-1">
 <h3><span class="num">W1</span> <span>Set up your workspace</span></h3>
 <p><strong>Goal:</strong> a directory with house rules the agent follows, and enough knowledge to write something that sounds like you.
-<strong>Time:</strong> about 45 minutes.</p>
+<strong>Time:</strong> about an hour.</p>
 <h4>Step 1 - Make the directory</h4>
 <p>Make a new directory somewhere sensible - <code>Documents/content-workspace</code> is fine. Open your terminal in it and start your agent (<code>claude</code>, <code>codex</code>, <code>opencode</code>, or <code>pi</code>).</p>
 <p>Then, to check it can actually see and write files:</p>
@@ -1914,7 +1914,22 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 </div>
 <p>(Copy the articles into that directory first - as <code>.md</code> or <code>.txt</code> files. If your CMS exports HTML, that's fine too, just say so.)</p>
 <p>If you have nothing published yet, have it interview you instead, and insist on the do/don't pairs.</p>
-<h4>Step 7 - Prove the whole thing works</h4>
+<h4>Step 7 - Your product fact sheet</h4>
+<p>The voice file keeps the agent from sounding wrong. This one keeps it from making things up about your product.</p>
+<div class="say" data-copy="Interview me about our main product, one question at a time, then write `knowledge/entities/products.md`. Ask about: what it does, **what it explicitly does not do**, the claims we&#x27;re allowed to make and where each one comes from, the claims we must never make, pricing, and our approved boilerplate description.&#10;&#10;Put `Last verified: &lt;today&#x27;s date&gt;` at the top of the file.">
+<p>Interview me about our main product, one question at a time, then write <code>knowledge/entities/products.md</code>. Ask about: what it does, <strong>what it explicitly does not do</strong>, the claims we're allowed to make and where each one comes from, the claims we must never make, pricing, and our approved boilerplate description.</p>
+<p>Put <code>Last verified: &lt;today's date&gt;</code> at the top of the file.</p>
+</div>
+<p>The list of what the product does not do is the part that earns its place. Ask about something your files don't cover and the agent fills the gap with something that sounds right. It reads exactly as well as a true sentence. That is why nobody catches it.</p>
+<p>Walkthrough 2 tells the agent to use no product claim that isn't in this file. Until the file exists, that rule has nothing to check against.</p>
+<h4>Step 8 - Write the index</h4>
+<p>Four files hardly need an index. Write one anyway - you write it now, or you write it when there are thirty of them and you no longer remember which holds what.</p>
+<div class="say" data-copy="Write `knowledge/INDEX.md`. One line per file: what&#x27;s in it, and **when you should read it**. Keep the whole thing under a screen.">
+<p>Write <code>knowledge/INDEX.md</code>. One line per file: what's in it, and <strong>when you should read it</strong>. Keep the whole thing under a screen.</p>
+</div>
+<p>The <em>when to read it</em> half is what does the work. The agent reads the index first and opens only what it needs, instead of reading the whole directory every time.</p>
+<p>Add a line to it whenever you add a file to <code>knowledge/</code>.</p>
+<h4>Step 9 - Prove the whole thing works</h4>
 <p>Fresh session (in Claude Code, type <code>/clear</code>). Then:</p>
 <div class="say" data-copy="Read `AGENTS.md` and everything in `knowledge/`. Then write me a 150-word LinkedIn post announcing that we&#x27;ve published a new guide about [any topic you actually cover].&#10;&#10;After you write it, audit your own post against `knowledge/voice/house-voice.md`, rule by rule, with ✅ or ❌ and a fix for each ❌.">
 <p>Read <code>AGENTS.md</code> and everything in <code>knowledge/</code>. Then write me a 150-word LinkedIn post announcing that we've published a new guide about [any topic you actually cover].</p>
@@ -1925,7 +1940,7 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <div class="say" data-copy="The tone is off in the second paragraph - it sounds like a press release, and we never do that. Add a rule to the right file so this doesn&#x27;t happen again, and tell me which file you chose and why.">
 <p>The tone is off in the second paragraph - it sounds like a press release, and we never do that. Add a rule to the right file so this doesn't happen again, and tell me which file you chose and why.</p>
 </div>
-<p><strong>✅ Done when:</strong> you have <code>AGENTS.md</code>, one channel file, one voice file, and you've watched the agent follow a rule you wrote.</p>
+<p><strong>✅ Done when:</strong> you have <code>AGENTS.md</code>, one channel file, a voice file, a product fact sheet, an index, and you've watched the agent follow a rule you wrote.</p>
 <hr />
 </section>
 
@@ -1940,9 +1955,9 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 </div>
 <p>A brief is the cheapest thing to get right and the most expensive thing to get wrong. Five minutes here.</p>
 <h4>Step 2 - Angles, not a draft</h4>
-<div class="say" data-copy="Read `BRIEF.md`, the channel file, and `knowledge/voice/house-voice.md`.&#10;&#10;Then search `knowledge/library/articles/` for anything we&#x27;ve already published on this topic and tell me what you found.&#10;&#10;Then give me **three angles** for this piece. For each: the promise to the reader in one sentence, why we&#x27;re credible on it, and what evidence we&#x27;d need to make it stand up.&#10;&#10;Do not write the article. Recommend one angle and say why.">
+<div class="say" data-copy="Read `BRIEF.md`, the channel file, and `knowledge/voice/house-voice.md`.&#10;&#10;If there&#x27;s anything in `knowledge/library/articles/`, search it for what we&#x27;ve already published on this topic and tell me what you found. If that directory is empty, say so and move on.&#10;&#10;Then give me **three angles** for this piece. For each: the promise to the reader in one sentence, why we&#x27;re credible on it, and what evidence we&#x27;d need to make it stand up.&#10;&#10;Do not write the article. Recommend one angle and say why.">
 <p>Read <code>BRIEF.md</code>, the channel file, and <code>knowledge/voice/house-voice.md</code>.</p>
-<p>Then search <code>knowledge/library/articles/</code> for anything we've already published on this topic and tell me what you found.</p>
+<p>If there's anything in <code>knowledge/library/articles/</code>, search it for what we've already published on this topic and tell me what you found. If that directory is empty, say so and move on.</p>
 <p>Then give me <strong>three angles</strong> for this piece. For each: the promise to the reader in one sentence, why we're credible on it, and what evidence we'd need to make it stand up.</p>
 <p>Do not write the article. Recommend one angle and say why.</p>
 </div>
@@ -1985,8 +2000,8 @@ What this is · Who we write for · Where things live · Guardrails (Never / Alw
 <p>Read the draft as our most skeptical reader - an ops manager who's been sold bad software before. List every sentence they'd roll their eyes at, and why. Don't fix anything yet.</p>
 </div>
 <h4>Step 8 - Package it</h4>
-<div class="say" data-copy="Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from `knowledge/library/articles/`.&#10;&#10;Add at the bottom: an image brief, and every `[NEEDS SOURCE]` marker collected into one list.&#10;&#10;Then tell me in three lines: what&#x27;s done, where it is, what you need from me.">
-<p>Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from <code>knowledge/library/articles/</code>.</p>
+<div class="say" data-copy="Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from `knowledge/library/articles/` if there&#x27;s anything there to link to.&#10;&#10;Add at the bottom: an image brief, and every `[NEEDS SOURCE]` marker collected into one list.&#10;&#10;Then tell me in three lines: what&#x27;s done, where it is, what you need from me.">
+<p>Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from <code>knowledge/library/articles/</code> if there's anything there to link to.</p>
 <p>Add at the bottom: an image brief, and every <code>[NEEDS SOURCE]</code> marker collected into one list.</p>
 <p>Then tell me in three lines: what's done, where it is, what you need from me.</p>
 </div>
@@ -4002,8 +4017,8 @@ v <code>blocích kódu</code> je soubor nebo příkaz do terminálu.</p>
 <tr>
 <td>1</td>
 <td><a href="#cs-walkthrough-1--nastavení-workspace">Nastavení workspace</a></td>
-<td>45 min</td>
-<td>Reálný <code>AGENTS.md</code> a dva knowledge soubory</td>
+<td>60 min</td>
+<td>Reálný <code>AGENTS.md</code> a čtyři knowledge soubory</td>
 </tr>
 <tr>
 <td>2</td>
@@ -4039,7 +4054,7 @@ instaloval, ať s vámi stráví prvních deset minut prvního cvičení.</p>
 <h3><span class="num">W1</span> <span>Nastavení workspace</span></h3>
 <p><strong>Cíl:</strong> adresář s pravidly, který agent dodržuje, a dost znalostí na to,
 aby napsal něco, co zní jako vy.
-<strong>Čas:</strong> zhruba 45 minut.</p>
+<strong>Čas:</strong> zhruba hodina.</p>
 <h4>Krok 1 - Vytvořte adresář</h4>
 <p>Vytvořte nový adresář někde rozumně - <code>Documents/content-workspace</code> stačí.
 Otevřete v něm terminál a spusťte agenta (<code>claude</code>, <code>codex</code>,
@@ -4142,7 +4157,28 @@ na těch dvojicích „do this, not that&quot;.</p>
 ukázkové věty - to je v pořádku a je to nutné. Pravidla a struktura souboru
 ale zůstávají anglicky.</p>
 </div>
-<h4>Krok 7 - Ověřte, že to celé funguje</h4>
+<h4>Krok 7 - Product fact sheet</h4>
+<p>Voice file hlídá, aby agent zněl jako vy. Tenhle hlídá, aby si o vašem produktu
+nic nevymýšlel.</p>
+<div class="say" data-copy="Interview me about our main product, one question at a time, then write `knowledge/entities/products.md`. Ask about: what it does, **what it explicitly does not do**, the claims we&#x27;re allowed to make and where each one comes from, the claims we must never make, pricing, and our approved boilerplate description.&#10;&#10;Put `Last verified: &lt;today&#x27;s date&gt;` at the top of the file.">
+<p>Interview me about our main product, one question at a time, then write <code>knowledge/entities/products.md</code>. Ask about: what it does, <strong>what it explicitly does not do</strong>, the claims we're allowed to make and where each one comes from, the claims we must never make, pricing, and our approved boilerplate description.</p>
+<p>Put <code>Last verified: &lt;today's date&gt;</code> at the top of the file.</p>
+</div>
+<p>Nejvíc se vyplatí ta část o tom, co produkt nedělá. Zeptejte se na něco, co ve
+vašich souborech není, a agent tu mezeru zaplní něčím, co si vymyslí. Čte se to
+úplně stejně dobře, jako kdyby to pravda. Proto si toho nejspíš ani nevšimnete.</p>
+<p>Walkthrough 2 agentovi říká, ať nepoužívá žádné tvrzení o produktu, které v tomhle
+souboru není.</p>
+<h4>Krok 8 - Napište index</h4>
+<p>Pro pouhé čtyři soubory index vlastně nepotřebujete. Raději to ale vytvořte -
+buď teď, nebo až jich bude třicet a přestanete si pamatovat, co je v kterém.</p>
+<div class="say" data-copy="Write `knowledge/INDEX.md`. One line per file: what&#x27;s in it, and **when you should read it**. Keep the whole thing under a screen.">
+<p>Write <code>knowledge/INDEX.md</code>. One line per file: what's in it, and <strong>when you should read it</strong>. Keep the whole thing under a screen.</p>
+</div>
+<p>Práci odvádí ta druhá půlka - <em>kdy ho číst</em>. Agent nejdříve přečte index a otevře
+jen to, co potřebuje, místo aby pokaždé četl celý adresář. Ušetří vám to kontext.</p>
+<p>Kdykoli přidáte do <code>knowledge/</code> soubor, přidejte sem řádek.</p>
+<h4>Krok 9 - Ověřte, že to celé funguje</h4>
 <p>Nové sezení (v Claude Code napište <code>/clear</code>). Pak:</p>
 <div class="say" data-copy="Read `AGENTS.md` and everything in `knowledge/`. Then write me a 150-word LinkedIn post announcing that we&#x27;ve published a new guide about [any topic you actually cover].&#10;&#10;After you write it, audit your own post against `knowledge/voice/house-voice.md`, rule by rule, with ✅ or ❌ and a fix for each ❌.">
 <p>Read <code>AGENTS.md</code> and everything in <code>knowledge/</code>. Then write me a 150-word LinkedIn post announcing that we've published a new guide about [any topic you actually cover].</p>
@@ -4154,8 +4190,8 @@ vám ukazuje, kterému souboru něco chybí.</strong></p>
 <div class="say" data-copy="The tone is off in the second paragraph - it sounds like a press release, and we never do that. Add a rule to the right file so this doesn&#x27;t happen again, and tell me which file you chose and why.">
 <p>The tone is off in the second paragraph - it sounds like a press release, and we never do that. Add a rule to the right file so this doesn't happen again, and tell me which file you chose and why.</p>
 </div>
-<p><strong>✅ Hotovo, když</strong> máte <code>AGENTS.md</code>, jeden channel file, jeden voice file a viděli
-jste agenta dodržet pravidlo, které jste napsali.</p>
+<p><strong>✅ Hotovo, když</strong> máte <code>AGENTS.md</code>, jeden channel file, voice file, product fact
+sheet, index a viděli jste agenta dodržet pravidlo, které jste napsali.</p>
 <hr />
 </section>
 
@@ -4171,9 +4207,9 @@ kroku editorem vy.
 </div>
 <p>Brief je základ celé práce. Dejte si na něm záležet.</p>
 <h4>Krok 2 - Úhly pohledu, ne draft</h4>
-<div class="say" data-copy="Read `BRIEF.md`, the channel file, and `knowledge/voice/house-voice.md`.&#10;&#10;Then search `knowledge/library/articles/` for anything we&#x27;ve already published on this topic and tell me what you found.&#10;&#10;Then give me **three angles** for this piece. For each: the promise to the reader in one sentence, why we&#x27;re credible on it, and what evidence we&#x27;d need to make it stand up.&#10;&#10;Do not write the article. Recommend one angle and say why.">
+<div class="say" data-copy="Read `BRIEF.md`, the channel file, and `knowledge/voice/house-voice.md`.&#10;&#10;If there&#x27;s anything in `knowledge/library/articles/`, search it for what we&#x27;ve already published on this topic and tell me what you found. If that directory is empty, say so and move on.&#10;&#10;Then give me **three angles** for this piece. For each: the promise to the reader in one sentence, why we&#x27;re credible on it, and what evidence we&#x27;d need to make it stand up.&#10;&#10;Do not write the article. Recommend one angle and say why.">
 <p>Read <code>BRIEF.md</code>, the channel file, and <code>knowledge/voice/house-voice.md</code>.</p>
-<p>Then search <code>knowledge/library/articles/</code> for anything we've already published on this topic and tell me what you found.</p>
+<p>If there's anything in <code>knowledge/library/articles/</code>, search it for what we've already published on this topic and tell me what you found. If that directory is empty, say so and move on.</p>
 <p>Then give me <strong>three angles</strong> for this piece. For each: the promise to the reader in one sentence, why we're credible on it, and what evidence we'd need to make it stand up.</p>
 <p>Do not write the article. Recommend one angle and say why.</p>
 </div>
@@ -4226,8 +4262,8 @@ o části, které se vám líbily.</p>
 <p>Read the draft as our most skeptical reader - an ops manager who's been sold bad software before. List every sentence they'd roll their eyes at, and why. Don't fix anything yet.</p>
 </div>
 <h4>Krok 8 - Zabalte to</h4>
-<div class="say" data-copy="Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from `knowledge/library/articles/`.&#10;&#10;Add at the bottom: an image brief, and every `[NEEDS SOURCE]` marker collected into one list.&#10;&#10;Then tell me in three lines: what&#x27;s done, where it is, what you need from me.">
-<p>Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from <code>knowledge/library/articles/</code>.</p>
+<div class="say" data-copy="Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from `knowledge/library/articles/` if there&#x27;s anything there to link to.&#10;&#10;Add at the bottom: an image brief, and every `[NEEDS SOURCE]` marker collected into one list.&#10;&#10;Then tell me in three lines: what&#x27;s done, where it is, what you need from me.">
+<p>Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from <code>knowledge/library/articles/</code> if there's anything there to link to.</p>
 <p>Add at the bottom: an image brief, and every <code>[NEEDS SOURCE]</code> marker collected into one list.</p>
 <p>Then tell me in three lines: what's done, where it is, what you need from me.</p>
 </div>

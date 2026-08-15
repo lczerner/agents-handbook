@@ -33,7 +33,7 @@ v `blocích kódu` je soubor nebo příkaz do terminálu.
 
 | # | Walkthrough | Čas | Co z toho máte |
 |---|---|---|---|
-| 1 | [Nastavení workspace](#walkthrough-1--nastavení-workspace) | 45 min | Reálný `AGENTS.md` a dva knowledge soubory |
+| 1 | [Nastavení workspace](#walkthrough-1--nastavení-workspace) | 60 min | Reálný `AGENTS.md` a čtyři knowledge soubory |
 | 2 | [Napsat článek](#walkthrough-2--napsat-článek) | 90 min | Draft připravený k publikaci a voice guide odvozený z vaší vlastní práce |
 | 3 | [Naplánovat kampaň](#walkthrough-3--naplánovat-mediální-kampaň) | 3 sezení za 2 dny | Kompletní multikanálový plán kampaně, postavený napříč sezeními |
 | 4 | [Udělat z toho skill](#walkthrough-4--udělat-z-opakované-práce-skill) | 30 min | Znovupoužitelný postup, který spustíte jedním slovem |
@@ -53,7 +53,7 @@ instaloval, ať s vámi stráví prvních deset minut prvního cvičení.
 
 **Cíl:** adresář s pravidly, který agent dodržuje, a dost znalostí na to,
 aby napsal něco, co zní jako vy.
-**Čas:** zhruba 45 minut.
+**Čas:** zhruba hodina.
 
 ### Krok 1 - Vytvořte adresář
 
@@ -170,7 +170,35 @@ na těch dvojicích „do this, not that".
 > ukázkové věty - to je v pořádku a je to nutné. Pravidla a struktura souboru
 > ale zůstávají anglicky.
 
-### Krok 7 - Ověřte, že to celé funguje
+### Krok 7 - Product fact sheet
+
+Voice file hlídá, aby agent zněl jako vy. Tenhle hlídá, aby si o vašem produktu
+nic nevymýšlel.
+
+> Interview me about our main product, one question at a time, then write `knowledge/entities/products.md`. Ask about: what it does, **what it explicitly does not do**, the claims we're allowed to make and where each one comes from, the claims we must never make, pricing, and our approved boilerplate description.
+>
+> Put `Last verified: <today's date>` at the top of the file.
+
+Nejvíc se vyplatí ta část o tom, co produkt nedělá. Zeptejte se na něco, co ve
+vašich souborech není, a agent tu mezeru zaplní něčím, co si vymyslí. Čte se to
+úplně stejně dobře, jako kdyby to pravda. Proto si toho nejspíš ani nevšimnete.
+
+Walkthrough 2 agentovi říká, ať nepoužívá žádné tvrzení o produktu, které v tomhle
+souboru není.
+
+### Krok 8 - Napište index
+
+Pro pouhé čtyři soubory index vlastně nepotřebujete. Raději to ale vytvořte -
+buď teď, nebo až jich bude třicet a přestanete si pamatovat, co je v kterém.
+
+> Write `knowledge/INDEX.md`. One line per file: what's in it, and **when you should read it**. Keep the whole thing under a screen.
+
+Práci odvádí ta druhá půlka - *kdy ho číst*. Agent nejdříve přečte index a otevře
+jen to, co potřebuje, místo aby pokaždé četl celý adresář. Ušetří vám to kontext.
+
+Kdykoli přidáte do `knowledge/` soubor, přidejte sem řádek.
+
+### Krok 9 - Ověřte, že to celé funguje
 
 Nové sezení (v Claude Code napište `/clear`). Pak:
 
@@ -185,8 +213,8 @@ Pak uzavřete smyčku:
 
 > The tone is off in the second paragraph - it sounds like a press release, and we never do that. Add a rule to the right file so this doesn't happen again, and tell me which file you chose and why.
 
-**✅ Hotovo, když** máte `AGENTS.md`, jeden channel file, jeden voice file a viděli
-jste agenta dodržet pravidlo, které jste napsali.
+**✅ Hotovo, když** máte `AGENTS.md`, jeden channel file, voice file, product fact
+sheet, index a viděli jste agenta dodržet pravidlo, které jste napsali.
 
 ---
 
@@ -208,7 +236,7 @@ Brief je základ celé práce. Dejte si na něm záležet.
 
 > Read `BRIEF.md`, the channel file, and `knowledge/voice/house-voice.md`.
 >
-> Then search `knowledge/library/articles/` for anything we've already published on this topic and tell me what you found.
+> If there's anything in `knowledge/library/articles/`, search it for what we've already published on this topic and tell me what you found. If that directory is empty, say so and move on.
 >
 > Then give me **three angles** for this piece. For each: the promise to the reader in one sentence, why we're credible on it, and what evidence we'd need to make it stand up.
 >
@@ -278,7 +306,7 @@ Pak tvrdší průchod:
 
 ### Krok 8 - Zabalte to
 
-> Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from `knowledge/library/articles/`.
+> Add to the top of the draft file: three headline options, a meta description under 155 characters, a suggested slug, and two internal links from `knowledge/library/articles/` if there's anything there to link to.
 >
 > Add at the bottom: an image brief, and every `[NEEDS SOURCE]` marker collected into one list.
 >
