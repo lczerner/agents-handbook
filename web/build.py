@@ -38,7 +38,7 @@ DESCRIPTION = (
 # The version of the kit, written in one place. The page masthead and the PDF
 # covers take it from here, so a reader can tell which edition they are holding.
 # Bumping it is a decision, never a side effect of an edit: see AGENTS.md.
-VERSION = "0.2.0"
+VERSION = "0.3.0"
 
 # Where the two READMEs state the same number in prose, which is the one copy
 # that can quietly fall behind.

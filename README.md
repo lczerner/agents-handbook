@@ -7,7 +7,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ### A training kit for people who don't write code
 
-**Version 0.2.0** - the published page and the PDF editions carry the same
+**Version 0.3.0** - the published page and the PDF editions carry the same
 number, so you can tell whether the copy you are reading is the current one.
 
 This kit teaches a marketing, content or operations team how to use an AI agent -

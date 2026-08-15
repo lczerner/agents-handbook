@@ -7,7 +7,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ### Příručka pro lidi, kteří neprogramují
 
-**Verze 0.2.0** - stejné číslo najdete na webu i v PDF, takže poznáte, jestli
+**Verze 0.3.0** - stejné číslo najdete na webu i v PDF, takže poznáte, jestli
 čtete aktuální vydání.
 
 ---
