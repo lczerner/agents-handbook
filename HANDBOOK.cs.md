@@ -1198,7 +1198,7 @@ Zhruba v pořadí podle přínosu pro obsahový tým:
 4. **`repurpose`** - jeden článek na newsletter, pět LinkedIn postů a Instagram
    carousel, každý ve stylu svého kanálu, žádné líné kopírování.
 5. **`brief-intake`** - odmítne pokračovat na vágním zadání, dokud z něj není
-   skutečný brief. S „napiš něco o launchi" se nespokojí.
+   skutečný brief. S „napiš něco o novém vydání" se nespokojí.
 6. **`weekly-roundup`** - ta opakovaná věc, co váš tým dělá každé pondělí.
 
 Dobrý způsob, jak vytvořit skill: projděte si práci jednou ručně s agentem a
@@ -1327,7 +1327,7 @@ Otázka, kterou si budete klást nejčastěji.
 
 Dvě věci, které stojí za zapamatování:
 
-**`AGENTS.md` se natahuje** → něco v něm je vlastně knowledge soubor (když
+**`AGENTS.md` se vám rozrůstá** → něco v něm je vlastně knowledge soubor (když
 je to fakt) nebo skill (když jsou to kroky). Přesuňte to a nechte tam jednořádkový
 odkaz.
 
@@ -1398,7 +1398,7 @@ nejdřív.
 | Ignoruje pravidlo z `AGENTS.md` | Pravidlo je vágní, zapadlé v 600řádkovém souboru, nebo mu jinde něco odporuje | Udělejte ho konkrétní a kontrolovatelné. Soubor zkraťte. Hledejte rozpor - obvykle tam je. |
 | Sebevědomě si vymýšlí fakta | Neměl zdroj ani povolený způsob, jak říct „nevím" | Přidejte pravidlo `[NEEDS SOURCE: ...]`. Dejte skutečná fakta do `knowledge/entities/`. Řekněte, že jsou povolená jen tvrzení z toho souboru. |
 | Zapomněl všechno ze včerejška | Normální. Každé sezení začíná prázdné. | `PROGRESS.md` a rituál začátku sezení z §5.5. |
-| Udělal toho mnohem víc než měl | V instrukci chyběla schvalovací brána | „Plan first, don't write." „One phase, then stop." Obojí do `AGENTS.md`. |
+| Udělal toho mnohem víc, než měl | V instrukci chyběla schvalovací brána | „Plan first, don't write." „One phase, then stop." Obojí do `AGENTS.md`. |
 | Výstup se uprostřed sezení zhoršil | Stůl je plný, starší věci z něj spadly | Doplňte deník, spusťte nové sezení, pokračujte. Netlačte na pilu. |
 | Zní jako generická AI | Píše z obecného tréninku, ne vaším stylem | Voice soubor s dvojicemi do/don't, seznam zakázaných slov a fáze sebekontroly. Všechny tři. |
 | Nepřestává být nadšený | Výchozí asistentský hlas | Sekce „How to talk to me" v `AGENTS.md`. Buďte přímí: no preamble, no flattery. |
@@ -1594,7 +1594,7 @@ anglicky.
   stejná otázka jako [sekce 9](#9-kam-to-patří), odpovězená někým jiným.
 - [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) -
   návod přímo od Anthropicu. Psaný pro programátory, ale většina není o kódu:
-  jak si nezahltit context window, plánovat dřív než se pustíte do práce a dát
+  jak si nezahltit context window, plánovat dřív, než se pustíte do práce, a dát
   agentovi možnost ověřit si vlastní výsledek.
 
 ---

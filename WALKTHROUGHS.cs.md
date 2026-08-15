@@ -38,7 +38,7 @@ v `blocích kódu` je soubor nebo příkaz do terminálu.
 | 3 | [Naplánovat kampaň](#walkthrough-3--naplánovat-mediální-kampaň) | 3 sezení za 2 dny | Kompletní multikanálový plán kampaně, postavený napříč sezeními |
 | 4 | [Udělat z toho skill](#walkthrough-4--udělat-z-opakované-práce-skill) | 30 min | Znovupoužitelný postup, který spustíte jedním slovem |
 
-**Než začnete, potřebujete agenta.** Ne ChatGPT nebo Claude v prohlížeči - ti
+**Než začnete, potřebujete agenta.** Ne ChatGPT nebo Claude v prohlížeči - ty
 na vašem počítači nevytvoří jediný soubor a každé cvičení tady končí souborem.
 Claude Code, OpenAI Codex CLI, opencode nebo pi, nainstalovaný, a k tomu
 terminál, který umíte otevřít v adresáři a spustit ho z něj. Pokud vám ta věta
@@ -293,8 +293,8 @@ Psát a hodnotit jsou dvě různé práce. Dělat je odděleně funguje líp ne�
 
 ### Krok 7 - Teď to přečtete vy
 
-Otevřete draft. Editujte jako editor, ne jako promptér - chtějte chirurgické
-zásahy, přímo v souboru:
+Otevřete draft. Editujte jako editor, ne jako zadavatel promptů - chtějte
+chirurgické zásahy, přímo v souboru:
 
 > In the draft file: cut the third section entirely, it repeats section one. Tighten the intro to four sentences. Leave everything else exactly as it is.
 
@@ -406,7 +406,7 @@ pořád s deníkem na konci každé.
 >
 > Then list everything still blocked on a human, and who needs to do what.
 
-**Krok 11.** Otestujte to v zátěži, dřív než to uvidí kdokoli další:
+**Krok 11.** Prověřte to natvrdo, dřív než to uvidí kdokoli další:
 
 > Now be our CFO reading this for the first time. What are the three weakest points? What would you refuse to approve and why?
 

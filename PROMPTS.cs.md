@@ -117,7 +117,7 @@ Pak sezení vyčistěte (`/clear` v Claude Code) a začněte znovu.
 **Založit opravu hned**
 > Add that to the right file so it holds from now on. Tell me which file you chose and why.
 
-**Kontrola zdraví nastavení**
+**Kontrola nastavení**
 > Read `AGENTS.md` and everything in `knowledge/`. Tell me: anything that contradicts anything else, anything too vague for you to actually follow, anything out of date, and the three things missing that would most improve your output.
 
 **Udělat ze sezení skill**

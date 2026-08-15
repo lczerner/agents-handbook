@@ -174,6 +174,10 @@ Every pair below is a real correction he made:
 | `legální způsob, jak něco nevědět` | `legitimní způsob, jak něco nevědět` |
 | `chyba stála draho` | `chyba byla drahá` |
 | `nepište ho z prázdné stránky` | `nepište ho sami od začátku` |
+| `kontrola zdraví nastavení` | `kontrola nastavení` |
+| `otestujte to v zátěži` | `prověřte to natvrdo` |
+| `AGENTS.md se natahuje` | `AGENTS.md se vám rozrůstá` |
+| `promptér` | `zadavatel promptů` |
 | `context window přeteče` | `věci začnou ze stolu padat na zem` |
 | `obsahový kalendář` | `redakční plán` |
 
@@ -185,6 +189,13 @@ That last pair is the pattern worth learning: **the metaphors are welcome, the
 abstractions are not.** Keep the desk, the filing cabinet and the shelf of
 manuals, and make them physical in Czech rather than translating the abstract
 noun that sat on top of them in English.
+
+The four rows above it are a second pattern, and it cuts the other way: **the
+metaphors survive translation, the idioms do not.** English verb-plus-noun
+idioms keep arriving as literal Czech noun phrases - a health check becomes
+`kontrola zdraví`, stress-testing becomes `otestovat v zátěži`, a file that is
+getting long `se natahuje`. None of those mean anything in Czech. Say what the
+step actually does instead.
 
 **Never decline an English word in Czech.** No `walkthroughu`, `draftů`,
 `harnessy`, `setupu`, `checklistu`, `slugy`. Two ways out, and only these two:
